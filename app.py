@@ -23,4 +23,16 @@ if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({
+        "status": "ok",
+        "message": "Welcome to the Atlas PALM v1.5 API.",
+        "version": "1.5.0",
+        "routes": [
+            "/tasks/<task_id>",
+            "/tasks/<task_id>/message",
+            "/tasks/<task_id>/status"
+        ]
+    }), 200
 
