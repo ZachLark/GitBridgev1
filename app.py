@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 from flasgger import Swagger
 
 app = Flask(__name__)
+swagger = Swagger(app)
+
 tasks = {}
 
 @app.route("/tasks/<task_id>/message", methods=["POST"])
