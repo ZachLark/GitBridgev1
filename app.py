@@ -19,10 +19,6 @@ def post_message(task_id):
 def get_task(task_id):
     return jsonify({"task_id": task_id, "messages": tasks.get(task_id, [])}), 200
 
-if __name__ == "__main__":
-    import os
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=True)
 @app.route("/", methods=["GET"])
 def home():
     return jsonify({
@@ -35,4 +31,9 @@ def home():
             "/tasks/<task_id>/status"
         ]
     }), 200
+
+if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
 
