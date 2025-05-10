@@ -31,6 +31,22 @@ def home():
             "/tasks/<task_id>/status"
         ]
     }), 200
+@app.route("/tasks/<task_id>/status", methods=["PATCH"])
+def update_status(task_id):
+    data = request.get_json()
+    if task_id not in tasks:
+        return jsonify({"error": "Task not found"}), 404
+    new_status = data.get("status", "unknown")
+    tasks[task_id]["status"] = new_status
+    return jsonify({"task_id": task_id, "new_status": new_status}), 200
+
+@app.route("/tasks/<task_id>", methods=["DELETE"])
+def delete_task(task_id):
+    if task_id in tasks:
+        del tasks[task_id]
+        return jsonify({"status": "deleted", "task_id": task_id}), 200
+    else:
+        return jsonify({"error": "Task not found"}), 404
 
 if __name__ == "__main__":
     import os
