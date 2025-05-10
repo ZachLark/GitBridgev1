@@ -1,10 +1,39 @@
 from flask import Flask, request, jsonify
+from flasgger import Swagger
 
 app = Flask(__name__)
 tasks = {}
 
 @app.route("/tasks/<task_id>/message", methods=["POST"])
 def post_message(task_id):
+    """
+    Add a message to a task
+    ---
+    parameters:
+      - name: task_id
+        in: path
+        type: string
+        required: true
+      - name: body
+        in: body
+        required: true
+        schema:
+          id: Message
+          required:
+            - author
+            - type
+            - content
+          properties:
+            author:
+              type: string
+            type:
+              type: string
+            content:
+              type: string
+    responses:
+      200:
+        description: Message added successfully
+    """
     data = request.get_json()
     if task_id not in tasks:
         tasks[task_id] = []
@@ -15,9 +44,6 @@ def post_message(task_id):
     })
     return jsonify({"status": "ok", "messages": tasks[task_id]}), 200
 
-@app.route("/tasks/<task_id>", methods=["GET"])
-def get_task(task_id):
-    return jsonify({"task_id": task_id, "messages": tasks.get(task_id, [])}), 200
 
 @app.route("/", methods=["GET"])
 def home():
