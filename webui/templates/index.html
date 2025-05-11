@@ -30,6 +30,28 @@
 
         <button type="submit">Submit Message</button>
     </form>
+<script>
+  document.querySelector("form").addEventListener("submit", async function (e) {
+    e.preventDefault(); // Stop the page from reloading
+
+    const taskId = document.getElementById("task_id").value.trim();
+    const author = document.getElementById("author").value.trim();
+    const type = document.getElementById("type").value.trim();
+    const content = document.getElementById("content").value.trim();
+
+    const response = await fetch(`/tasks/${taskId}/message`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ author, type, content }),
+    });
+
+    const result = await response.json();
+
+    // Show response in an alert (you can replace with nicer UI later)
+    alert(JSON.stringify(result, null, 2));
+  });
+</script>
+
 </body>
 </html>
 
