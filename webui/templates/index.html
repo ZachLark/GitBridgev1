@@ -56,21 +56,6 @@
 
 <pre id="statusOutput" style="margin-top: 20px; background-color: #f2f2f2; padding: 10px; border: 1px solid #ccc;"></pre>
 
-<h2>✏️ Update Task Status</h2>
-<label for="status_task_id">Task ID:</label><br>
-<input type="text" id="status_task_id" name="status_task_id" required><br><br>
-
-<label for="new_status">New Status:</label><br>
-<select id="new_status" name="new_status" required>
-    <option value="draft">Draft</option>
-    <option value="active">Active</option>
-    <option value="done">Done</option>
-</select><br><br>
-
-<button type="button" id="updateStatusBtn">Update Status</button>
-
-<pre id="statusOutput" style="margin-top: 20px; background-color: #f2f2f2; padding: 10px; border: 1px solid #ccc;"></pre>
-
 <script>
   document.querySelector("form").addEventListener("submit", async function (e) {
     e.preventDefault(); // Stop the page from reloading
