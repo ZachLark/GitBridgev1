@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Erudite Frontend</title>
-  <link rel="stylesheet" href="/static/style.css">
+    <title>Atlas PALM API UI</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <h1>Welcome to the Atlas PALM API UI</h1>
-  <p>If you're seeing this, your UI is connected!</p>
+    <h1>Welcome to the Atlas PALM API UI</h1>
+    <p>If you're seeing this, your UI is connected!</p>
+
+    <hr>
+
+    <h2>Submit a New Task Message</h2>
+    <form method="POST" action="/submit-message">
+        <label for="task_id">Task ID:</label><br>
+        <input type="text" name="task_id" required><br><br>
+
+        <label for="author">Author:</label><br>
+        <input type="text" name="author" required><br><br>
+
+        <label for="type">Type:</label><br>
+        <select name="type">
+            <option value="note">Note</option>
+            <option value="question">Question</option>
+            <option value="todo">Todo</option>
+        </select><br><br>
+
+        <label for="content">Content:</label><br>
+        <textarea name="content" rows="4" cols="50" required></textarea><br><br>
+
+        <button type="submit">Submit Message</button>
+    </form>
 </body>
 </html>
 
