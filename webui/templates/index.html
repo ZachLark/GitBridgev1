@@ -11,25 +11,27 @@
     <hr>
 
     <h2>Submit a New Task Message</h2>
-    <form method="POST" action="/submit-message">
-        <label for="task_id">Task ID:</label><br>
-        <input type="text" name="task_id" required><br><br>
 
-        <label for="author">Author:</label><br>
-        <input type="text" name="author" required><br><br>
+<form method="POST">
+  <label for="task_id">Task ID:</label><br>
+  <input type="text" name="task_id" id="task_id" required><br><br>
 
-        <label for="type">Type:</label><br>
-        <select name="type">
-            <option value="note">Note</option>
-            <option value="question">Question</option>
-            <option value="todo">Todo</option>
-        </select><br><br>
+  <label for="author">Author:</label><br>
+  <input type="text" name="author" id="author" required><br><br>
 
-        <label for="content">Content:</label><br>
-        <textarea name="content" rows="4" cols="50" required></textarea><br><br>
+  <label for="type">Type:</label><br>
+  <select name="type" id="type">
+    <option value="note">Note</option>
+    <option value="question">Question</option>
+    <option value="todo">Todo</option>
+  </select><br><br>
 
-        <button type="submit">Submit Message</button>
-    </form>
+  <label for="content">Content:</label><br>
+  <textarea name="content" id="content" rows="4" cols="50" required></textarea><br><br>
+
+  <button type="submit">Submit Message</button>
+</form>
+
 <script>
   document.querySelector("form").addEventListener("submit", async function (e) {
     e.preventDefault(); // Stop the page from reloading
