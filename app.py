@@ -1,10 +1,13 @@
 from flask import Flask, request, jsonify
 from flasgger import Swagger
+from webui.webui import webui_bp
 
 app = Flask(__name__)
 swagger = Swagger(app)
 
 tasks = {}
+
+app.register_blueprint(webui_bp)
 
 @app.route("/tasks/<task_id>/message", methods=["POST"])
 def post_message(task_id):
