@@ -232,7 +232,10 @@ def manual_publish():
                 "message": commit_msg,
                 "action": "updated" if sha else "created"
             }), 200
-        e
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == "__main__":
     import os
