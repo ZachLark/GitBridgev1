@@ -254,6 +254,56 @@ def confirm_publish(preview_id):
 def list_previews():
     return jsonify({"queued_previews": list(PUBLISH_PREVIEWS.keys())})
 
+@app.route('/publish', methods=['POST'])
+def manual_publish():
+    data = request.json
+    commit_msg = data.get('commit_msg')
+    filename = data.get('filename')
+    content = data.get('content')
+
+    if not filename or not content or not commit_msg:
+        return jsonify({"error": "Missing required fields"}), 400
+
+    try:
+        filepath = filename.strip().lstrip("/")
+        api_url = f"https://api.github.com/repos/ZachLark/erudite-ecb-api/contents/{filepath}"
+
+        headers = {
+            "Authorization": f"Bearer {os.getenv('GITHUB_PAT')}",
+            "Accept": "application/vnd.github+json"
+        }
+
+        # Check if file exists to get SHA
+        sha = None
+        check_response = requests.get(api_url, headers=headers)
+        if check_response.status_code == 200:
+            sha = check_response.json().get("sha")
+
+        encoded_content = base64.b64encode(content.encode()).decode()
+
+        payload = {
+            "message": commit_msg,
+            "content": encoded_content,
+            "branch": "main"
+        }
+        if sha:
+            payload["sha"] = sha
+
+        put_response = requests.put(api_url, headers=headers, json=payload)
+
+        if put_response.status_code in [200, 201]:
+            return jsonify({
+                "status": "Success",
+                "file": filepath,
+                "message": commit_msg,
+                "action": "updated" if sha else "created"
+            }), 200
+        else:
+            return jsonify({"error": "GitHub API error", "details": put_response.json()}), put_response.status_code
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == "__main__":
     import os
