@@ -148,6 +148,35 @@ def delete_task(task_id):
 def list_tasks():
     return jsonify(tasks), 200
 
+@app.route('/debug/git-status', methods=['GET'])
+def git_debug():
+    import subprocess
+    import os
+
+    try:
+        current_path = os.getcwd()
+        git_folder_exists = os.path.isdir(os.path.join(current_path, '.git'))
+
+        if not git_folder_exists:
+            return {
+                "cwd": current_path,
+                "git": False,
+                "message": ".git folder not found – this may not be a cloned repo"
+            }
+
+        remote_url = subprocess.check_output(['git', 'remote', 'get-url', 'origin'], cwd=current_path).decode().strip()
+        current_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], cwd=current_path).decode().strip()
+
+        return {
+            "cwd": current_path,
+            "git": True,
+            "remote_url": remote_url,
+            "branch": current_branch
+        }
+
+    except Exception as e:
+        return {"error": str(e)}
+
 if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT",10000))
