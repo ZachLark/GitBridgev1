@@ -206,31 +206,33 @@ def manual_publish():
             "Accept": "application/vnd.github+json"
         }
 
-        encoded_content = base64.b64encode(content.encode()).decode()
+        # Step 1: Check if file exists (to fetch sha if updating)
+        sha = None
+        check_response = requests.get(api_url, headers=headers)
+        if check_response.status_code == 200:
+            sha = check_response.json().get("sha")
 
+        # Step 2: Prepare payload
+        encoded_content = base64.b64encode(content.encode()).decode()
         payload = {
             "message": commit_msg,
             "content": encoded_content,
             "branch": BRANCH
         }
+        if sha:
+            payload["sha"] = sha  # Required to update existing files
 
-        response = requests.put(api_url, headers=headers, json=payload)
+        # Step 3: PUT to GitHub
+        put_response = requests.put(api_url, headers=headers, json=payload)
 
-        if response.status_code in [200, 201]:
+        if put_response.status_code in [200, 201]:
             return jsonify({
                 "status": "Success",
                 "file": filepath,
-                "message": commit_msg
+                "message": commit_msg,
+                "action": "updated" if sha else "created"
             }), 200
-        else:
-            return jsonify({
-                "error": "GitHub API error",
-                "details": response.json()
-            }), response.status_code
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
+        e
 
 if __name__ == "__main__":
     import os
