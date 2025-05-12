@@ -177,6 +177,58 @@ def git_debug():
     except Exception as e:
         return {"error": str(e)}
 
+@app.route('/publish', methods=['POST'])
+def manual_publish():
+    import base64
+    import requests
+    from datetime import datetime
+
+    data = request.json
+    commit_msg = data.get('commit_msg', f"Manual publish on {datetime.now().isoformat()}")
+    filename = data.get('filename')
+    content = data.get('content')
+
+    if not filename or not content:
+        return jsonify({"error": "Missing filename or content."}), 400
+
+    try:
+        REPO_OWNER = "ZachLark"
+        REPO_NAME = "erudite-ecb-api"
+        BRANCH = "main"
+        GITHUB_PAT = os.getenv("GITHUB_PAT")
+
+        url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/{filename}"
+
+        headers = {
+            "Authorization": f"Bearer {GITHUB_PAT}",
+            "Accept": "application/vnd.github+json"
+        }
+
+        encoded_content = base64.b64encode(content.encode()).decode()
+
+        payload = {
+            "message": commit_msg,
+            "content": encoded_content,
+            "branch": BRANCH
+        }
+
+        response = requests.put(url, headers=headers, json=payload)
+
+        if response.status_code in [200, 201]:
+            return jsonify({
+                "status": "Success",
+                "file": filename,
+                "message": commit_msg
+            }), 200
+        else:
+            return jsonify({
+                "error": "GitHub API error",
+                "details": response.json()
+            }), response.status_code
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT",10000))
