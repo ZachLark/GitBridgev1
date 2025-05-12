@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flasgger import Swagger
+import requests
 from webui.webui import webui_bp
 
 app = Flask(__name__)
