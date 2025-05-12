@@ -144,6 +144,9 @@ def delete_task(task_id):
     else:
         return jsonify({"error": "Task not found"}), 404
 
+@app.route("/tasks", methods=["GET"])
+def list_tasks():
+    return jsonify(tasks), 200
 
 if __name__ == "__main__":
     import os
