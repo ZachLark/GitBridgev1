@@ -64,6 +64,12 @@
 
 <pre id="deleteOutput" style="margin-top: 20px; background-color: #f2f2f2; padding: 10px; border: 1px solid #ccc;"></pre>
 
+<hr>
+<h2>🗂️ List All Tasks</h2>
+<button type="button" id="listTasksBtn">List All Tasks</button>
+
+<pre id="listTasksOutput" style="margin-top: 20px; background-color: #f2f2f2; padding: 10px; border: 1px solid #ccc;"></pre>
+
 <script>
   document.querySelector("form").addEventListener("submit", async function (e) {
     e.preventDefault(); // Stop the page from reloading
@@ -179,6 +185,22 @@ document.getElementById("deleteTaskBtn").addEventListener("click", async functio
         document.getElementById("deleteOutput").textContent = JSON.stringify(result, null, 2);
     } catch (error) {
         document.getElementById("deleteOutput").textContent = `Error: ${error.message}`;
+    }
+});
+
+// Add listener for "List All Tasks" button
+document.getElementById("listTasksBtn").addEventListener("click", async function () {
+    try {
+        const response = await fetch("/tasks");
+
+        if (!response.ok) {
+            throw new Error(`Server returned status ${response.status}`);
+        }
+
+        const data = await response.json();
+        document.getElementById("listTasksOutput").textContent = JSON.stringify(data, null, 2);
+    } catch (error) {
+        document.getElementById("listTasksOutput").textContent = `Error: ${error.message}`;
     }
 });
 
