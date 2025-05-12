@@ -197,7 +197,9 @@ def manual_publish():
         BRANCH = "main"
         GITHUB_PAT = os.getenv("GITHUB_PAT")
 
-        url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/{filename}"
+        # Clean and allow folder paths
+        filepath = filename.strip().lstrip("/")
+        api_url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/{filepath}"
 
         headers = {
             "Authorization": f"Bearer {GITHUB_PAT}",
@@ -212,12 +214,12 @@ def manual_publish():
             "branch": BRANCH
         }
 
-        response = requests.put(url, headers=headers, json=payload)
+        response = requests.put(api_url, headers=headers, json=payload)
 
         if response.status_code in [200, 201]:
             return jsonify({
                 "status": "Success",
-                "file": filename,
+                "file": filepath,
                 "message": commit_msg
             }), 200
         else:
@@ -228,6 +230,7 @@ def manual_publish():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 if __name__ == "__main__":
     import os
