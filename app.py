@@ -304,6 +304,44 @@ def manual_publish():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# ==========================
+# 🔥 New Route: /delete
+# ==========================
+@app.route('/delete', methods=['POST'])
+def delete_file():
+    data = request.json
+    filename = data.get('filename')
+    commit_msg = data.get('commit_msg', 'Delete file via API')
+
+    if not filename:
+        return jsonify({'error': 'Missing filename'}), 400
+
+    # Step 1: Get file SHA
+    sha_url = f"{GITHUB_API_URL}/repos/{REPO_OWNER}/{REPO_NAME}/contents/{filename}"
+    sha_response = requests.get(sha_url, headers=GITHUB_HEADERS)
+
+    if sha_response.status_code != 200:
+        return jsonify({'error': 'File not found or cannot get SHA', 'details': sha_response.json()}), 404
+
+    sha = sha_response.json().get('sha')
+
+    # Step 2: Delete file
+    delete_payload = {
+        "message": commit_msg,
+        "sha": sha,
+        "branch": DEFAULT_BRANCH
+    }
+
+    delete_response = requests.delete(sha_url, headers=GITHUB_HEADERS, json=delete_payload)
+
+    if delete_response.status_code in [200, 201]:
+        return jsonify({'status': 'File deleted', 'details': delete_response.json()})
+    else:
+        return jsonify({'error': 'Failed to delete file', 'details': delete_response.json()}), 500
+# ==========================
+# 🔚 End of /delete
+# ==========================
+
 
 if __name__ == "__main__":
     import os
