@@ -1,0 +1,1 @@
+This is the content of the file created during Swagger authorization test.
