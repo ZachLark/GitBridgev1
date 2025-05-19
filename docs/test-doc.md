@@ -1,1 +1,1 @@
-This is a file inside a folder.
+✅ This file has now been updated inside the docs folder.
