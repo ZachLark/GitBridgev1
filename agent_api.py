@@ -1,7 +1,11 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from gitappv1.gitappv1_1b import collaborate, log_message  # Import from gitappv1 subdirectory
 
 app = Flask(__name__)
+
+@app.route('/')
+def serve_ui():
+    return send_file('index.html')
 
 @app.route('/agent')
 def agent():
@@ -16,7 +20,8 @@ def collaborate_endpoint():
     # Validate inputs
     if not agent_name or not task:
         return jsonify({"error": "Missing agent_name or task parameter"}), 400
-     
+    
+    # Call the collaborate function from gitappv1_1b.py
     try:
         result = collaborate(agent_name, task)
         return jsonify({"status": "success", "result": result}), 200
