@@ -1,17 +1,39 @@
-# gitappv1_1b.py - Basic script for GitBridge MAS collaboration
-def log_message(message):
-    """Log a message for MAS collaboration between agents."""
-    print(f"[MAS Log] {message}")
-
 def collaborate(agent_name, task):
-    """Simulate collaboration between agents."""
-    log_message(f"{agent_name} is working on {task}")
-    return f"{agent_name} completed {task}"
+    """
+    Simulate collaboration with different agents based on their capabilities.
+    Args:
+        agent_name (str): Name of the agent (e.g., Grok, ChatGPT).
+        task (str): Task to perform (e.g., reviewing commits, analyzing code).
+    Returns:
+        str: Result of the collaboration.
+    """
+    # Define agent capabilities
+    agents = {
+        "Grok": {
+            "tasks": ["reviewing commits", "writing code"],
+            "response_style": "completed"
+        },
+        "ChatGPT": {
+            "tasks": ["analyzing code", "generating documentation"],
+            "response_style": "produced"
+        }
+    }
+    
+    # Check if the agent exists
+    if agent_name not in agents:
+        raise ValueError(f"Unknown agent: {agent_name}. Supported agents are: {list(agents.keys())}")
+    
+    # Check if the agent can perform the task
+    agent_info = agents[agent_name]
+    if task not in agent_info["tasks"]:
+        raise ValueError(f"Agent {agent_name} cannot perform task: {task}. Supported tasks are: {agent_info['tasks']}")
+    
+    # Generate the response based on the agent's style
+    response_style = agent_info["response_style"]
+    return f"{agent_name} {response_style} {task}"
 
-if __name__ == "__main__":
-    # Example usage for collaboration between Grok and ChatGPT
-    print("Starting GitBridge MAS collaboration...")
-    result1 = collaborate("Grok", "reviewing commits")
-    result2 = collaborate("ChatGPT", "generating UI components")
-    print(result1)
-    print(result2)
+def log_message(message):
+    """
+    Placeholder function for logging messages (not used in this step).
+    """
+    print(f"Log: {message}")
