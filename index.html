@@ -1,88 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitBridge Collaboration UI</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        #result {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            min-height: 50px;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>GitBridge Collaboration UI</h1>
-        <form id="collaborateForm">
-            <div class="form-group">
-                <label for="agentName">Agent Name:</label>
-                <input type="text" id="agentName" name="agent_name" placeholder="e.g., Grok" required>
-            </div>
-            <div class="form-group">
-                <label for="task">Task:</label>
-                <input type="text" id="task" name="task" placeholder="e.g., reviewing commits" required>
-            </div>
-            <button type="submit">Collaborate</button>
-        </form>
-        <div id="result">Response will appear here...</div>
-    </div>
+    <h1>GitBridge Collaboration UI</h1>
+    <form id="collaborate-form">
+        <label for="agent_name">Agent Name:</label>
+        <input type="text" id="agent_name" name="agent_name" value="e.g., Grok"><br>
+        <label for="task">Task:</label>
+        <input type="text" id="task" name="task" value="e.g., reviewing commits"><br>
+        <button type="button" id="collaborate-button">Collaborate</button>
+    </form>
+    <p id="response">Response will appear here...</p>
 
     <script>
-        document.getElementById('collaborateForm').addEventListener('submit', async (event) => {
-            event.preventDefault(); // Prevent form from refreshing the page
-
-            const agentName = document.getElementById('agentName').value;
+        document.getElementById('collaborate-button').addEventListener('click', function() {
+            const agentName = document.getElementById('agent_name').value;
             const task = document.getElementById('task').value;
-            const resultDiv = document.getElementById('result');
 
-            try {
-                const response = await fetch(`http://127.0.0.1:10002/collaborate?agent_name=${encodeURIComponent(agentName)}&task=${encodeURIComponent(task)}`);
-                const data = await response.json();
-
-                if (response.ok) {
-                    resultDiv.innerHTML = `<strong>Success:</strong> ${data.result}`;
-                    resultDiv.style.color = 'green';
-                } else {
-                    resultDiv.innerHTML = `<strong>Error:</strong> ${data.error}`;
-                    resultDiv.style.color = 'red';
+            fetch('/collaborate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    agent_name: agentName,
+                    task: task
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-            } catch (error) {
-                resultDiv.innerHTML = `<strong>Error:</strong> Failed to connect to the server. Is the Flask app running?`;
-                resultDiv.style.color = 'red';
-            }
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === 'success') {
+                    document.getElementById('response').innerText = data.result;
+                } else {
+                    document.getElementById('response').innerText = 'Error: ' + data.error;
+                }
+            })
+            .catch(error => {
+                document.getElementById('response').innerText = 'Error: ' + error.message;
+            });
         });
     </script>
 </body>
