@@ -19,19 +19,22 @@ def serve_ui():
 def agent():
     return "Agent Interface for GitBridge"
 
-@app.route('/collaborate', methods=['GET'])
+@app.route('/collaborate', methods=['POST'])
 def collaborate_endpoint():
-    # Get query parameters
-    agent_name = request.args.get('agent_name')
-    task = request.args.get('task')
+    # Get JSON payload from the request
+    data = request.get_json()
+    
+    # Extract agent_name and task from the JSON payload
+    agent_name = data.get('agent_name') if data else None
+    task = data.get('task') if data else None
     
     # Log the incoming request
-    logger.info(f'Received request to /collaborate with agent_name="{agent_name}", task="{task}"')
+    logger.info(f'Received POST request to /collaborate with agent_name="{agent_name}", task="{task}"')
     
     # Validate inputs
     if not agent_name or not task:
-        logger.error('Missing agent_name or task parameter')
-        return jsonify({"error": "Missing agent_name or task parameter"}), 400
+        logger.error('Missing agent_name or task in request body')
+        return jsonify({"error": "Missing agent_name or task in request body"}), 400
     
     # Call the collaborate function from gitappv1_1b.py
     try:
