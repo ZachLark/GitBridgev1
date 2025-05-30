@@ -1,4 +1,5 @@
 import logging
+import json
 from flask import Flask, request, jsonify, send_file
 from gitappv1.gitappv1_1b import collaborate, log_message  # Import from gitappv1 subdirectory
 
@@ -21,14 +22,34 @@ def agent():
 
 @app.route('/collaborate', methods=['POST'])
 def collaborate_endpoint():
-    # Get JSON payload from the request
-    data = request.get_json()
+    # Log the request headers
+    logger.info(f"Request headers: {request.headers}")
+    logger.info(f"Request content type: {request.content_type}")
+
+    # Get the raw data
+    raw_data = request.get_data(as_text=True)
+    logger.info(f"Raw request data: {raw_data}")
+
+    # Parse the JSON payload manually
+    if not raw_data:
+        logger.error("Request body is empty")
+        return jsonify({"error": "Request body is empty"}), 400
+
+    try:
+        data = json.loads(raw_data)
+    except json.JSONDecodeError as e:
+        logger.error(f"Failed to parse JSON: {str(e)}")
+        return jsonify({"error": "Invalid JSON payload"}), 400
+
+    # Extract agent_name and task
+    agent_name = data.get('agent_name')
+    task = data.get('task')
     
-    # Extract agent_name and task from the JSON payload
-    agent_name = data.get('agent_name') if data else None
-    task = data.get('task') if data else None
+    # Normalize task to lowercase to handle case-sensitivity
+    if task:
+        task = task.lower()
     
-    # Log the incoming request
+    # Log the parsed data
     logger.info(f'Received POST request to /collaborate with agent_name="{agent_name}", task="{task}"')
     
     # Validate inputs
