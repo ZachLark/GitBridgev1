@@ -1,6 +1,7 @@
 import logging
 import json
 from flask import Flask, request, jsonify, send_file
+from flasgger import Swagger, swag_from
 from gitappv1.gitappv1_1b import collaborate, log_message  # Import from gitappv1 subdirectory
 
 # Configure logging to output to console (stdout)
@@ -12,6 +13,9 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
+# Initialize Swagger
+swagger = Swagger(app)
+
 @app.route('/')
 def serve_ui():
     return send_file('index.html')
@@ -21,6 +25,62 @@ def agent():
     return "Agent Interface for GitBridge"
 
 @app.route('/collaborate', methods=['POST'])
+@swag_from({
+    'tags': ['Collaboration'],
+    'parameters': [
+        {
+            'name': 'body',
+            'in': 'body',
+            'required': True,
+            'schema': {
+                'type': 'object',
+                'properties': {
+                    'agent_name': {
+                        'type': 'string',
+                        'example': 'Grok',
+                        'description': 'Name of the agent'
+                    },
+                    'task': {
+                        'type': 'string',
+                        'example': 'reviewing commits',
+                        'description': 'Task to be performed by the agent'
+                    }
+                },
+                'required': ['agent_name', 'task']
+            }
+        }
+    ],
+    'responses': {
+        200: {
+            'description': 'Collaboration successful',
+            'schema': {
+                'type': 'object',
+                'properties': {
+                    'status': {'type': 'string', 'example': 'success'},
+                    'result': {'type': 'string', 'example': "Grok completed reviewing commits"}
+                }
+            }
+        },
+        400: {
+            'description': 'Bad request - missing or invalid input',
+            'schema': {
+                'type': 'object',
+                'properties': {
+                    'error': {'type': 'string', 'example': 'Missing agent_name or task in request body'}
+                }
+            }
+        },
+        500: {
+            'description': 'Server error',
+            'schema': {
+                'type': 'object',
+                'properties': {
+                    'error': {'type': 'string', 'example': 'Error during collaboration'}
+                }
+            }
+        }
+    }
+})
 def collaborate_endpoint():
     # Log the request headers
     logger.info(f"Request headers: {request.headers}")
