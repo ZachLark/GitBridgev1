@@ -1,0 +1,6 @@
+# .cursorrules for GitBridge Project
+language: Python 3.13.3
+linting: pylint
+pylint_rules: max-line-length=88, require-docstrings=true
+libraries: hashlib for SHA256, requests for API calls
+comments: Include MAS Lite Protocol v2.1 references
