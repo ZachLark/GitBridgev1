@@ -2,7 +2,6 @@ import logging
 import json
 from flask import Flask, request, jsonify, send_file
 from flasgger import Swagger, swag_from
-from gitappv1.gitappv1_1b import collaborate, log_message  # Import from gitappv1 subdirectory
 
 # Configure logging to output to console (stdout)
 logging.basicConfig(
@@ -35,18 +34,33 @@ def agent():
             'schema': {
                 'type': 'object',
                 'properties': {
-                    'agent_name': {
+                    'task_id': {
                         'type': 'string',
-                        'example': 'Grok',
-                        'description': 'Name of the agent'
+                        'example': '8fdc386f1e8b2786f774a96a9f2649b10600f7d66f84620ee9e22286ebcb294d',
+                        'description': 'Unique task identifier (SHA256 hash)'
                     },
-                    'task': {
+                    'description': {
                         'type': 'string',
-                        'example': 'reviewing commits',
-                        'description': 'Task to be performed by the agent'
+                        'example': 'Draft Developer Guide Section 3',
+                        'description': 'Description of the task'
+                    },
+                    'assignee': {
+                        'type': 'string',
+                        'example': 'ChatGPT',
+                        'description': 'Agent assigned to the task'
+                    },
+                    'max_cycles': {
+                        'type': 'integer',
+                        'example': 10,
+                        'description': 'Maximum number of cycles for the task'
+                    },
+                    'token_budget': {
+                        'type': 'integer',
+                        'example': 5000,
+                        'description': 'Token budget for the task'
                     }
                 },
-                'required': ['agent_name', 'task']
+                'required': ['task_id', 'description', 'assignee', 'max_cycles', 'token_budget']
             }
         }
     ],
@@ -56,8 +70,11 @@ def agent():
             'schema': {
                 'type': 'object',
                 'properties': {
+                    'task_id': {'type': 'string', 'example': '8fdc386f1e8b2786f774a96a9f2649b10600f7d66f84620ee9e22286ebcb294d'},
+                    'max_cycles': {'type': 'integer', 'example': 10},
+                    'token_budget': {'type': 'integer', 'example': 5000},
                     'status': {'type': 'string', 'example': 'success'},
-                    'result': {'type': 'string', 'example': "Grok completed reviewing commits"}
+                    'cycle_count': {'type': 'integer', 'example': 1}
                 }
             }
         },
@@ -66,7 +83,7 @@ def agent():
             'schema': {
                 'type': 'object',
                 'properties': {
-                    'error': {'type': 'string', 'example': 'Missing agent_name or task in request body'}
+                    'error': {'type': 'string', 'example': 'Missing required fields in request body'}
                 }
             }
         },
@@ -82,6 +99,7 @@ def agent():
     }
 })
 def collaborate_endpoint():
+    """Handle task delegation requests for MAS Light."""
     # Log the request headers
     logger.info(f"Request headers: {request.headers}")
     logger.info(f"Request content type: {request.content_type}")
@@ -101,27 +119,53 @@ def collaborate_endpoint():
         logger.error(f"Failed to parse JSON: {str(e)}")
         return jsonify({"error": "Invalid JSON payload"}), 400
 
-    # Extract agent_name and task
-    agent_name = data.get('agent_name')
-    task = data.get('task')
-    
-    # Normalize task to lowercase to handle case-sensitivity
-    if task:
-        task = task.lower()
-    
-    # Log the parsed data
-    logger.info(f'Received POST request to /collaborate with agent_name="{agent_name}", task="{task}"')
-    
-    # Validate inputs
-    if not agent_name or not task:
-        logger.error('Missing agent_name or task in request body')
-        return jsonify({"error": "Missing agent_name or task in request body"}), 400
-    
-    # Call the collaborate function from gitappv1_1b.py
+    # Extract and validate task details with explicit type checking
+    required_fields = {
+        'task_id': (str, lambda x: bool(x.strip())),
+        'description': (str, lambda x: bool(x.strip())),
+        'assignee': (str, lambda x: bool(x.strip())),
+        'max_cycles': (int, lambda x: x > 0),
+        'token_budget': (int, lambda x: x > 0)
+    }
+
+    validation_errors = []
+    validated_data = {}
+
+    for field, (expected_type, validator) in required_fields.items():
+        value = data.get(field)
+        if value is None:
+            validation_errors.append(f"Missing field: {field}")
+            continue
+        
+        if not isinstance(value, expected_type):
+            validation_errors.append(f"Invalid type for {field}: expected {expected_type.__name__}, got {type(value).__name__}")
+            continue
+        
+        if not validator(value):
+            validation_errors.append(f"Invalid value for {field}: {value}")
+            continue
+        
+        validated_data[field] = value
+
+    if validation_errors:
+        error_msg = "; ".join(validation_errors)
+        logger.error(f"Validation errors: {error_msg}")
+        return jsonify({"error": error_msg}), 400
+
+    # Log the validated data
+    logger.info(f"Validated data: {validated_data}")
+
+    # Construct the response
     try:
-        result = collaborate(agent_name, task)
-        logger.info(f'Successful collaboration: {result}')
-        return jsonify({"status": "success", "result": result}), 200
+        response = {
+            "task_id": validated_data["task_id"],
+            "max_cycles": validated_data["max_cycles"],
+            "token_budget": validated_data["token_budget"],
+            "status": "success",
+            "cycle_count": 1
+        }
+        logger.info(f'Successful collaboration: {response}')
+        return jsonify(response), 200
     except Exception as e:
         logger.error(f'Error during collaboration: {str(e)}')
         return jsonify({"error": str(e)}), 500

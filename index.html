@@ -1,124 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>GitBridge Collaboration UI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitBridge - Task Status</title>
+    <!-- Bootstrap 5.3.0 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f9f9f9;
-        }
-        h1 {
-            font-size: 28px;
-            color: #2c3e50;
-            margin-bottom: 30px;
-        }
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-        }
-        label {
-            display: block;
-            font-size: 18px;
-            color: #34495e;
-            margin-bottom: 8px;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        button {
-            padding: 12px 30px;
-            font-size: 16px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            display: block;
-            margin-top: 10px;
-        }
-        button:hover {
-            background-color: #2980b9;
-        }
-        p#response {
-            font-size: 16px;
-            color: #2c3e50;
-            margin-top: 20px;
-            background-color: #fff;
-            padding: 15px;
-            border-radius: 4px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
+        .task-id {
+            font-family: monospace;
+            word-break: break-all;
         }
     </style>
 </head>
 <body>
-    <h1>GitBridge Collaboration UI</h1>
-    <form id="collaborate-form">
-        <label for="agent_name">Agent Name:</label>
-        <input type="text" id="agent_name" name="agent_name" value="e.g., Grok"><br>
-        <label for="task">Task:</label>
-        <input type="text" id="task" name="task" value="e.g., reviewing commits"><br>
-        <button type="button" id="collaborate-button">Collaborate</button>
-    </form>
-    <p id="response">Response will appear here...</p>
-
-    <script>
-        document.getElementById('collaborate-button').addEventListener('click', function() {
-            const agentName = document.getElementById('agent_name').value;
-            const task = document.getElementById('task').value;
-            const responseElement = document.getElementById('response');
-
-            // Show loading state
-            responseElement.innerText = 'Loading... Please wait up to 60 seconds.';
-
-            // Create a timeout promise
-            const timeoutPromise = new Promise((_, reject) => {
-                setTimeout(() => {
-                    reject(new Error('Request timed out after 60 seconds'));
-                }, 60000);
-            });
-
-            // Make the fetch request
-            const fetchPromise = fetch('/collaborate', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    agent_name: agentName,
-                    task: task
-                })
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.status === 'success') {
-                    responseElement.innerText = data.result;
-                } else {
-                    responseElement.innerText = 'Error: ' + data.error;
-                }
-            });
-
-            // Race the fetch promise against the timeout
-            Promise.race([fetchPromise, timeoutPromise])
-                .catch(error => {
-                    responseElement.innerText = 'Error: ' + error.message;
-                });
-        });
-    </script>
+    <div class="container py-4">
+        <!-- GBP6P4S2: Current Task Assignment Display -->
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Task Assignment</h4>
+            <p class="mb-1">Task Assigned to ChatGPT</p>
+            <p class="mb-0">Task ID: <span class="task-id">8fdc386f1e8b2786f774a96a9f2649b10600f7d66f84620ee9e22286ebcb294d</span></p>
+        </div>
+    </div>
 </body>
 </html>

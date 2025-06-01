@@ -1,15 +1,17 @@
-#!/usr/bin/env python3
-import argparse
+"""
+Module for delegating tasks to an API and logging the results.
+
+This module provides functionality to load and validate task templates,
+delegate tasks to a specified API endpoint, and log the responses.
+"""
 import json
 import re
 import sys
-import os
-import tempfile
+import argparse
+from datetime import datetime
 from pathlib import Path
-from datetime import datetime, timezone
-
 import requests
-
+from requests.exceptions import HTTPError, Timeout, RequestException
 
 def load_and_validate_task(path: Path) -> dict:
     """
@@ -22,15 +24,17 @@ def load_and_validate_task(path: Path) -> dict:
     """
     try:
         data = json.loads(path.read_text())
-    except Exception as e:
-        raise ValueError(f"Failed to read or parse JSON from {path}: {e}")
+    except (json.JSONDecodeError, IOError) as e:
+        raise ValueError(f"Failed to read or parse JSON from {path}: {e}") from e
 
     required_fields = ["task_id", "description", "assignee", "max_cycles", "token_budget"]
     for field in required_fields:
         if field not in data:
             raise ValueError(f"Missing required field: {field}")
 
-    if not isinstance(data["task_id"], str) or not re.fullmatch(r"[0-9a-fA-F]{64}", data["task_id"]):
+    # Split the long line into two for readability
+    task_id = data["task_id"]
+    if not isinstance(task_id, str) or not re.fullmatch(r"[0-9a-fA-F]{64}", task_id):
         raise ValueError("task_id must be a 64-character hexadecimal string")
 
     if not isinstance(data["description"], str) or not data["description"].strip():
@@ -39,101 +43,70 @@ def load_and_validate_task(path: Path) -> dict:
     if not isinstance(data["assignee"], str) or not data["assignee"].strip():
         raise ValueError("assignee must be a non-empty string")
 
-    if not isinstance(data["max_cycles"], int) or data["max_cycles"] <= 0:
-        raise ValueError("max_cycles must be a positive integer")
+    try:
+        data["max_cycles"] = int(data["max_cycles"])
+        if data["max_cycles"] <= 0:
+            raise ValueError("max_cycles must be a positive integer")
+    except (ValueError, TypeError) as e:
+        raise ValueError("max_cycles must be convertible to a positive integer") from e
 
-    if not isinstance(data["token_budget"], int) or data["token_budget"] <= 0:
-        raise ValueError("token_budget must be a positive integer")
+    try:
+        data["token_budget"] = int(data["token_budget"])
+        if data["token_budget"] <= 0:
+            raise ValueError("token_budget must be a positive integer")
+    except (ValueError, TypeError) as e:
+        raise ValueError("token_budget must be convertible to a positive integer") from e
 
     return data
 
-
 def delegate_task(task: dict, api_url: str) -> dict:
-    """
-    Delegate the task to the remote API via POST to /collaborate.
-    Returns the parsed JSON response.
-    """
-    url = api_url.rstrip("/") + "/collaborate"
+    """Delegate a task to the API and return the response."""
+    print(f"Sending payload to {api_url}: {json.dumps(task)}")
     try:
-        response = requests.post(url, json=task, timeout=10)
+        response = requests.post(api_url, json=task, timeout=10)
         response.raise_for_status()
-    except requests.exceptions.Timeout as e:
-        raise RuntimeError(f"Request timed out: {e}")
-    except requests.exceptions.HTTPError as e:
-        raise RuntimeError(f"HTTP error occurred: {e}")
-    except requests.exceptions.RequestException as e:
-        raise RuntimeError(f"Error during request: {e}")
-
-    try:
         return response.json()
-    except json.JSONDecodeError as e:
-        raise RuntimeError(f"Failed to parse JSON response: {e}")
+    except HTTPError as e:
+        raise RuntimeError(f"HTTP error occurred: {str(e)}") from e
+    except Timeout as e:
+        raise RuntimeError("Request timed out") from e
+    except RequestException as e:
+        raise RuntimeError(f"Error during request: {str(e)}") from e
 
-
-def log_task(entry: dict, log_path: Path) -> None:
-    """
-    Append a log record as a single JSON line to the log file, using atomic replace.
-    Record includes: task_id, assignee, timestamp (ISO8601), max_cycles, token_budget, cycle_count.
-    """
-    record = {
-        "task_id": entry["task_id"],
-        "assignee": entry["assignee"],
-        "timestamp": datetime.now(timezone.utc).isoformat(),
-        "max_cycles": entry["max_cycles"],
-        "token_budget": entry["token_budget"],
-        "cycle_count": entry["cycle_count"],
-    }
-
-    log_dir = log_path.parent
-    log_dir.mkdir(parents=True, exist_ok=True)
-
-    # Write to a temp file in the same directory then atomically replace
-    with tempfile.NamedTemporaryFile("w", delete=False, dir=str(log_dir)) as tf:
-        temp_name = tf.name
-        # Copy existing log if present
-        if log_path.exists():
-            with log_path.open("r") as lf:
-                for line in lf:
-                    tf.write(line)
-        # Append new record
-        tf.write(json.dumps(record) + "\n")
-
-    os.replace(temp_name, str(log_path))
-
+def log_task(task: dict, log_path: Path) -> None:
+    """Log task details to a JSON file with a timestamp."""
+    log_entry = task.copy()
+    log_entry["timestamp"] = datetime.now().isoformat()
+    log_content = []
+    if log_path.exists():
+        log_content = json.loads(log_path.read_text())
+        if not isinstance(log_content, list):
+            log_content = []
+    log_content.append(log_entry)
+    log_path.write_text(json.dumps(log_content, indent=2))
 
 def main():
-    parser = argparse.ArgumentParser(description="Delegate a task and log the result.")
-    parser.add_argument(
-        "--task-file",
-        type=Path,
-        required=True,
-        help="Path to the task_template.json file",
-    )
-    parser.add_argument(
-        "--api-url",
-        type=str,
-        required=True,
-        help="Base URL of the remote API (e.g. http://localhost:5000)",
-    )
-    parser.add_argument(
-        "--log-file",
-        type=Path,
-        required=True,
-        help="Path to the JSON lines log file",
-    )
-
+    """Main function to handle task delegation."""
+    parser = argparse.ArgumentParser(description="Delegate tasks to an API.")
+    parser.add_argument("--task-file", type=str, required=True, help="Path to task JSON file")
+    parser.add_argument("--api-url", type=str, required=True, help="API URL to delegate task")
+    parser.add_argument("--log-file", type=str, required=True, help="Path to log file")
     args = parser.parse_args()
 
-    try:
-        task = load_and_validate_task(args.task_file)
-        result = delegate_task(task, args.api_url)
-        log_task(result, args.log_file)
-    except Exception as e:
-        print(f"Error: {e}", file=sys.stderr)
-        sys.exit(1)
+    task_path = Path(args.task_file)
+    log_path = Path(args.log_file)
 
-    sys.exit(0)
-
+    task = load_and_validate_task(task_path)
+    api_response = delegate_task(task, args.api_url)
+    log_task(api_response, log_path)
+    print(json.dumps(api_response))
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+        sys.exit(0)
+    except (ValueError, RuntimeError) as e:
+        print(f"Error: {str(e)}", file=sys.stderr)
+        sys.exit(1)
+
+# Ensure a final newline is present
