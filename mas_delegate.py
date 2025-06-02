@@ -77,13 +77,11 @@ def log_task(task: dict, log_path: Path) -> None:
     """Log task details to a JSON file with a timestamp."""
     log_entry = task.copy()
     log_entry["timestamp"] = datetime.now().isoformat()
-    log_content = []
-    if log_path.exists():
-        log_content = json.loads(log_path.read_text())
-        if not isinstance(log_content, list):
-            log_content = []
-    log_content.append(log_entry)
-    log_path.write_text(json.dumps(log_content, indent=2))
+    
+    # Write each entry as a single line for atomic appends
+    with log_path.open('a') as f:
+        json.dump(log_entry, f)
+        f.write('\n')
 
 def main():
     """Main function to handle task delegation."""
@@ -96,17 +94,17 @@ def main():
     task_path = Path(args.task_file)
     log_path = Path(args.log_file)
 
-    task = load_and_validate_task(task_path)
-    api_response = delegate_task(task, args.api_url)
-    log_task(api_response, log_path)
-    print(json.dumps(api_response))
-
-if __name__ == "__main__":
     try:
-        main()
+        task = load_and_validate_task(task_path)
+        api_response = delegate_task(task, args.api_url)
+        log_task(api_response, log_path)
+        print(json.dumps(api_response))
         sys.exit(0)
     except (ValueError, RuntimeError) as e:
         print(f"Error: {str(e)}", file=sys.stderr)
         sys.exit(1)
+
+if __name__ == "__main__":
+    main()
 
 # Ensure a final newline is present
