@@ -127,4 +127,54 @@ class MASLogger:
                 "action": action,
                 "resource": resource
             }, f)
-            f.write('\n') 
+            f.write('\n')
+
+    def log(self, level: str, message: str, extra: Optional[Dict[str, Any]] = None) -> None:
+        """Log a message.
+        
+        Args:
+            level: Log level
+            message: Log message
+            extra: Optional extra fields
+        """
+        self.logger.log(
+            getattr(logging, level.upper()),
+            message,
+            extra=extra or {}
+        )
+        
+    def info(self, message: str, extra: Optional[Dict[str, Any]] = None) -> None:
+        """Log an info message.
+        
+        Args:
+            message: Log message
+            extra: Optional extra fields
+        """
+        self.log("INFO", message, extra)
+        
+    def warning(self, message: str, extra: Optional[Dict[str, Any]] = None) -> None:
+        """Log a warning message.
+        
+        Args:
+            message: Log message
+            extra: Optional extra fields
+        """
+        self.log("WARNING", message, extra)
+        
+    def error(self, message: str, extra: Optional[Dict[str, Any]] = None) -> None:
+        """Log an error message.
+        
+        Args:
+            message: Log message
+            extra: Optional extra fields
+        """
+        self.log("ERROR", message, extra)
+        
+    def critical(self, message: str, extra: Optional[Dict[str, Any]] = None) -> None:
+        """Log a critical message.
+        
+        Args:
+            message: Log message
+            extra: Optional extra fields
+        """
+        self.log("CRITICAL", message, extra) 

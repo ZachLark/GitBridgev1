@@ -20,7 +20,8 @@ security:
 
 # Queue settings
 queue:
-  type: "asyncio"  # Will support Redis in GBP13
+  type: "redis"  # or "asyncio" for backward compatibility
+  redis_url: "redis://localhost:6379/0"
   max_size: 10000
   timeout: 30
   retry_policy:

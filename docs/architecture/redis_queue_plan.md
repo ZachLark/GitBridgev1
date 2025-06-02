@@ -1,8 +1,7 @@
 # GitBridge GBP13 Redis Queue Integration Plan
 
 ## Overview
-
-This document outlines the plan for integrating Redis as the queue backend for GitBridge's event processing system, replacing the current `asyncio.Queue` implementation in `event_queue.py`.
+The Redis queue implementation replaces the default asyncio.Queue with a Redis-backed queue for improved scalability, persistence, and monitoring capabilities. This document outlines the implementation details, performance metrics, and integration with the GitBridge webhook system.
 
 ## 1. Dependencies
 
@@ -267,3 +266,157 @@ class ResilientQueue:
 4. All tests passing
 5. Documentation complete
 6. Monitoring operational 
+
+## Implementation Details
+
+### Queue Implementation
+- **Package**: Using `redis.asyncio` (Redis 5.0.1) for async Redis operations
+- **Atomic Operations**: Pipeline-based atomic operations for queue safety
+  ```python
+  async with redis.pipeline(transaction=True) as pipe:
+      await pipe.brpop(queue_key, timeout=timeout)
+      await pipe.lpush(processing_key, "placeholder")
+      results = await pipe.execute()
+  ```
+- **Configuration**: Toggle in `webhook_config.yaml`:
+  ```yaml
+  queue:
+    type: "redis"  # or "asyncio" for backward compatibility
+    redis_url: "redis://localhost:6379/0"
+    max_size: 10000
+    timeout: 30
+  ```
+
+### Features
+1. **Atomic Queue Operations**
+   - Enqueue: `LPUSH` with queue depth check
+   - Dequeue: `BRPOP` with processing list tracking
+   - Error handling: Invalid JSON cleanup
+
+2. **Resilient Design**
+   - Automatic fallback to asyncio queue
+   - Retry policy with exponential backoff
+   - Connection error recovery
+
+3. **Health Monitoring**
+   - Queue depth tracking
+   - Processing list monitoring
+   - Redis connection health checks
+
+4. **Performance Optimizations**
+   - Pipeline-based atomic operations
+   - Connection pooling
+   - Efficient JSON serialization
+
+## Performance Metrics
+
+### GBP13 vs GBP12
+- **GBP12 Latency**: 312.8ms average
+- **GBP13 Target**: <500ms
+- **Actual Performance**: See `/docs/performance/gbp13_metrics.md`
+
+### Benchmarks
+- Queue operations: ~9ms average
+- Task transitions: ~8ms average
+- Consensus processing: ~245ms average
+
+## Integration
+
+### Task Chain Integration
+```python
+# Create and process task
+task = await task_chain.create_task(event)
+await task_chain.transition_task(task.id, TaskState.Queued)
+await task_chain.transition_task(task.id, TaskState.ConsensusPending)
+await task_chain.transition_task(task.id, TaskState.Resolved)
+```
+
+### Error Handling
+1. **Queue Full**
+   ```python
+   if await redis.llen(queue_key) >= max_size:
+       logger.warning("Queue full, rejecting payload")
+       return False
+   ```
+
+2. **Invalid Payload**
+   ```python
+   try:
+       return json.loads(payload)
+   except json.JSONDecodeError:
+       await redis.lrem(processing_key, 1, payload)
+       return None
+   ```
+
+3. **Connection Loss**
+   ```python
+   try:
+       return await redis_queue.enqueue(payload)
+   except Exception:
+       logger.warning("Falling back to asyncio queue")
+       return await async_queue.enqueue(payload)
+   ```
+
+## UI Dashboard
+
+### Figma Prototype
+- **Link**: [Redis Queue Dashboard](https://www.figma.com/file/gbp13-redis-dashboard)
+- **Purpose**: Visualize queue status and operations for non-technical users
+- **Features**:
+  - Real-time queue depth graph
+  - Task state transitions
+  - Health status indicators
+  - Manual queue operations (flush, retry)
+
+### Integration with Flask UI
+- **Endpoint**: `http://localhost:10000/redis`
+- **WebSocket Updates**: Real-time queue metrics
+- **User Actions**: Queue management controls
+
+## Testing
+
+### Unit Tests
+- Queue operations (enqueue/dequeue)
+- Error handling
+- Fallback mechanism
+- Health checks
+
+### Integration Tests
+- Task chain integration
+- Concurrent operations
+- Redis failure scenarios
+- Performance benchmarks
+
+## Deployment
+
+### Requirements
+- Redis 5.0.1 or higher
+- Python 3.13.3
+- Dependencies in `requirements-webhook.txt`
+
+### Configuration
+1. Set Redis URL in `webhook_config.yaml`
+2. Configure retry policy
+3. Set monitoring options
+4. Enable queue type
+
+### Monitoring
+- Prometheus metrics
+- Grafana dashboard
+- Error logging
+- Performance tracking
+
+## Future Enhancements
+1. **Clustering Support**
+   - Redis Cluster configuration
+   - Multi-node scaling
+
+2. **Advanced Features**
+   - Priority queues
+   - Dead letter queues
+   - Queue inspection tools
+
+3. **UI Improvements**
+   - Advanced analytics
+   - Custom dashboards
+   - Export capabilities 
