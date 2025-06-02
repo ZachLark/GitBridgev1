@@ -1,7 +1,35 @@
 # GBP14 UI Plan
 
 ## Overview
-The GitBridge UI provides a web interface for monitoring and managing the Redis queue system, with OAuth2 authentication and real-time updates.
+The GitBridge UI will provide a web interface for monitoring and managing the Redis queue system. The UI will be built using Flask and will provide real-time queue status information.
+
+## Endpoints
+
+### Queue Status Dashboard
+- **URL**: `http://localhost:10000/redis`
+- **Purpose**: Display real-time Redis queue status
+- **Features**:
+  - Current queue length
+  - Processing rate
+  - Error rates
+  - Active workers
+  - Recent events
+
+### Authentication
+- **URL**: `/auth/login`
+- **Method**: OAuth2 with GitHub
+- **Flow**:
+  1. User clicks "Login with GitHub"
+  2. Redirect to GitHub OAuth
+  3. Handle callback and token storage
+  4. Redirect to dashboard
+
+## Implementation Details
+- Flask application with Blueprint structure
+- Real-time updates using Server-Sent Events (SSE)
+- Bootstrap 5 for responsive design
+- Chart.js for metrics visualization
+- Redis connection pooling for performance
 
 ## Components
 

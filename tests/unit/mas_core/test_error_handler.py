@@ -123,4 +123,16 @@ def test_recovery_failure_handling(error_handler):
     assert not success
     assert len(error_handler.error_log) == 1
     assert error_handler.error_log[0].recovery_attempted
-    assert not error_handler.error_log[0].recovery_successful 
+    assert not error_handler.error_log[0].recovery_successful
+
+def test_error_handler_init():
+    """Test ErrorHandler initialization"""
+    handler = ErrorHandler()
+    assert handler is not None
+
+def test_error_handler_basic_flow():
+    """Test basic error handling flow"""
+    handler = ErrorHandler()
+    error = Exception("Test error")
+    handler.handle_error(error)
+    assert handler.get_last_error() == error 

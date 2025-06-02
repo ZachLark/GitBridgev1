@@ -1,7 +1,44 @@
 # GBP15 Routing Plan
 
 ## Overview
-The GitBridge routing system manages event flow between Redis queue and AI task processors, with support for multiple AI providers.
+The GitBridge routing system will handle task distribution between multiple AI services (Claude/Grok/ChatGPT) through the Redis queue system.
+
+## Components
+
+### Redis Queue Integration
+- Queue structure for task distribution
+- Priority-based routing
+- Load balancing between AI services
+- Error handling and retries
+
+### AI Router (`/scripts/ai_router.py`)
+- Service discovery and health checks
+- Task type classification
+- AI service selection logic
+- Response aggregation
+- Fallback handling
+
+## Implementation Details
+1. Task Classification
+   - Analyze incoming tasks
+   - Determine optimal AI service
+   - Set task priority
+
+2. Load Balancing
+   - Monitor AI service health
+   - Track response times
+   - Adjust routing based on performance
+
+3. Error Handling
+   - Retry logic
+   - Service failover
+   - Error reporting
+
+## Metrics
+- Response times per AI service
+- Error rates
+- Queue latency
+- Service availability
 
 ## Components
 

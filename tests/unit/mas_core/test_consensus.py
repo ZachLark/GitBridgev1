@@ -136,4 +136,14 @@ def test_invalid_consensus_state_query(consensus_manager):
 def test_invalid_consensus_history_query(consensus_manager):
     """Test querying invalid consensus history."""
     with pytest.raises(ValueError):
-        consensus_manager.get_consensus_history("nonexistent_task") 
+        consensus_manager.get_consensus_history("nonexistent_task")
+
+def test_consensus_manager_init():
+    """Test ConsensusManager initialization"""
+    manager = ConsensusManager()
+    assert manager is not None
+
+def test_consensus_manager_basic_flow():
+    """Test basic consensus flow"""
+    manager = ConsensusManager()
+    assert manager.get_status() == "PENDING" 
