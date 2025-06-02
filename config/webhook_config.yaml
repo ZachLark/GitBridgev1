@@ -1,0 +1,126 @@
+# GitBridge Webhook System Configuration
+# Environment: production
+
+version: "1.0"
+
+system:
+  environment: production  # [development, staging, production]
+  debug: false
+  log_level: INFO
+
+rate_limiter:
+  enabled: true
+  backend: redis
+  redis:
+    host: localhost
+    port: 6379
+    db: 0
+  limits:
+    default: 100  # requests per minute
+    authenticated: 500
+    webhook: 1000
+  fallback:
+    enabled: true
+    type: memory
+
+security:
+  enabled: true
+  ip_whitelist:
+    enabled: true
+    auto_update: true
+    refresh_interval: 3600  # seconds
+  signature_validation:
+    enabled: true
+    algorithm: sha256
+  audit:
+    enabled: true
+    retention_days: 30
+
+event_processor:
+  enabled: true
+  queue:
+    type: redis
+    max_size: 10000
+    timeout: 30
+  workers:
+    count: 4
+    max_retries: 3
+  filters:
+    - type: branch
+      patterns: [main, develop, feature/*]
+    - type: event
+      include: [push, pull_request, issues]
+
+performance_monitor:
+  enabled: true
+  metrics:
+    prometheus:
+      enabled: true
+      port: 9090
+    grafana:
+      enabled: true
+      dashboard_refresh: 60
+  alerts:
+    enabled: true
+    channels: [slack, email]
+    thresholds:
+      latency_ms: 1000
+      error_rate: 0.01
+      queue_depth: 1000
+
+collaboration:
+  enabled: true
+  notifications:
+    slack:
+      enabled: true
+      channels: [gitbridge-alerts, gitbridge-reviews]
+    email:
+      enabled: true
+      smtp:
+        host: smtp.example.com
+        port: 587
+        use_tls: true
+  approvals:
+    required: true
+    min_reviewers: 2
+    timeout_hours: 24
+
+developer_tools:
+  enabled: true
+  webhook_tester:
+    enabled: true
+    mock_responses: true
+  event_replay:
+    enabled: true
+    storage_days: 7
+
+mas_integration:
+  enabled: true
+  protocol_version: "2.1"
+  task_generation:
+    enabled: true
+    max_concurrent: 10
+  agent_communication:
+    timeout: 30
+    retry_count: 3
+
+profiles:
+  development:
+    system:
+      debug: true
+      log_level: DEBUG
+    security:
+      ip_whitelist:
+        enabled: false
+    performance_monitor:
+      enabled: false
+  
+  staging:
+    system:
+      debug: false
+      log_level: INFO
+    rate_limiter:
+      limits:
+        default: 50
+        authenticated: 200
+        webhook: 500 

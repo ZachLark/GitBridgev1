@@ -1,0 +1,53 @@
+# Core Dependencies
+pydantic==2.0.3
+PyYAML==6.0.1
+requests==2.31.0
+aiohttp==3.8.5
+asyncio==3.4.3
+typing-extensions==4.7.1
+
+# Security
+cryptography==41.0.1
+PyJWT==2.8.0
+python-jose==3.3.0
+
+# Rate Limiting
+redis==4.5.4
+redis-py-cluster==2.1.3
+aioredis==2.0.1
+
+# Monitoring & Metrics
+prometheus_client==0.17.1
+grafana-api==0.9.3
+statsd==4.0.1
+
+# Documentation & Templates
+jinja2==3.1.2
+markdown==3.4.3
+openapi-spec-validator==0.5.7
+
+# Collaboration
+slack-sdk==3.21.3
+python-dateutil==2.8.2
+
+# Testing & Development
+pytest==7.4.0
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+requests-mock==1.11.0
+faker==19.2.0
+black==23.7.0
+pylint==2.17.5
+mypy==1.5.1
+
+# Utilities
+python-dotenv==1.0.0
+structlog==23.1.0
+tenacity==8.2.2
+cachetools==5.3.1
+
+# MAS Integration
+# Note: These versions align with MAS Lite Protocol v2.1
+mas-lite-protocol==2.1.0
+mas-agent-lib==2.1.2
+mas-task-lib==2.1.1 
