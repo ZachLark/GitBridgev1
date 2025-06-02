@@ -1,11 +1,15 @@
 #!/bin/bash
-export PYTHONPATH=$(pwd)
-source venv/bin/activate
 
-# Run tests with:
-# - Verbose output (-v)
-# - Show local variables in tracebacks (-l)
-# - Exit on first failure (-x)
-# - Show stdout/stderr (-s)
-# - Show test durations (--durations=10)
-python -m pytest tests/unit/mas_core/test_redis_queue.py -v -l -x -s --durations=10 
+# Set PYTHONPATH to include project root
+export PYTHONPATH=$(pwd)
+
+# Activate virtual environment if it exists
+if [ -d "venv" ]; then
+    source venv/bin/activate
+fi
+
+# Run tests with tox
+tox -e py3
+
+# Run integration tests separately
+pytest tests/integration -v --cov=scripts/redis_queue --cov-report=html 

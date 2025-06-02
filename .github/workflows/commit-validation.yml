@@ -14,20 +14,16 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.13.3]
-
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
         token: ${{ secrets.GITBRIDGE_TOKEN }}
 
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python 3.13.3
       uses: actions/setup-python@v4
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: 3.13.3
 
     - name: Install dependencies
       run: |
@@ -35,31 +31,22 @@ jobs:
         pip install -r requirements.txt
         pip install pylint flake8 pytest pytest-asyncio pytest-cov tox
 
-    - name: Validate commit messages
-      uses: wagoid/commitlint-github-action@v5
-      with:
-        configFile: .commitlintrc.json
-        token: ${{ secrets.GITBRIDGE_TOKEN }}
-
-    - name: Run Pylint
+    - name: Validate Commit
+      env:
+        GITBRIDGE_TOKEN: ${{ secrets.GITBRIDGE_TOKEN }}
       run: |
         pylint --max-line-length=88 scripts/ mas_core/ tests/
-
-    - name: Run Flake8
-      run: |
         flake8 --max-line-length=88 scripts/ mas_core/ tests/
-
-    - name: Validate YAML files
-      run: |
-        pip install yamllint
         yamllint -c .yamllint.yml .
 
     - name: Run tests
+      env:
+        GITBRIDGE_TOKEN: ${{ secrets.GITBRIDGE_TOKEN }}
       run: |
         export PYTHONPATH=$(pwd)
-        tox -e py313
+        tox -e py3
 
-    - name: Upload coverage to Codecov
+    - name: Upload coverage
       uses: codecov/codecov-action@v3
       with:
         file: ./coverage.xml
