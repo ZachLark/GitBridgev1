@@ -1,0 +1,33 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.13.3, pytest-8.0.0, pluggy-1.6.0 -- /Users/zach/GitBridgev1/venv/bin/python3.13
+cachedir: .pytest_cache
+hypothesis profile 'default' -> database=DirectoryBasedExampleDatabase(PosixPath('/Users/zach/GitBridgev1/.hypothesis/examples'))
+rootdir: /Users/zach/GitBridgev1
+configfile: pytest.ini
+plugins: asyncio-0.23.5, cov-4.1.0, hypothesis-6.98.0, mock-3.12.0
+asyncio: mode=Mode.STRICT
+collecting ... collected 4 items
+
+tests/unit/mas_core/test_mas_pipeline.py::TestMASPipeline::test_pipeline_initialization PASSED [ 25%]
+tests/unit/mas_core/test_mas_pipeline.py::TestMASPipeline::test_pipeline_event_processing PASSED [ 50%]
+tests/unit/mas_core/test_mas_pipeline.py::TestMASPipeline::test_pipeline_error_handling PASSED [ 75%]
+tests/unit/mas_core/test_mas_pipeline.py::TestMASPipeline::test_pipeline_performance PASSED [100%]WARNING: Failed to generate report: No data to report.
+
+
+
+---------- coverage: platform darwin, python 3.13.3-final-0 ----------
+
+FAIL Required test coverage of 80% not reached. Total coverage: 0.00%
+
+============================= slowest 10 durations =============================
+0.06s setup    tests/unit/mas_core/test_mas_pipeline.py::TestMASPipeline::test_pipeline_initialization
+0.03s call     tests/unit/mas_core/test_mas_pipeline.py::TestMASPipeline::test_pipeline_error_handling
+0.03s call     tests/unit/mas_core/test_mas_pipeline.py::TestMASPipeline::test_pipeline_event_processing
+0.00s call     tests/unit/mas_core/test_mas_pipeline.py::TestMASPipeline::test_pipeline_performance
+0.00s call     tests/unit/mas_core/test_mas_pipeline.py::TestMASPipeline::test_pipeline_initialization
+0.00s teardown tests/unit/mas_core/test_mas_pipeline.py::TestMASPipeline::test_pipeline_initialization
+0.00s setup    tests/unit/mas_core/test_mas_pipeline.py::TestMASPipeline::test_pipeline_performance
+0.00s setup    tests/unit/mas_core/test_mas_pipeline.py::TestMASPipeline::test_pipeline_event_processing
+0.00s setup    tests/unit/mas_core/test_mas_pipeline.py::TestMASPipeline::test_pipeline_error_handling
+0.00s teardown tests/unit/mas_core/test_mas_pipeline.py::TestMASPipeline::test_pipeline_performance
+============================== 4 passed in 1.37s ===============================

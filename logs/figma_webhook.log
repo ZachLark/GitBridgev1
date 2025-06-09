@@ -1,0 +1,19 @@
+2025-06-08 22:16:28,180 - webhook_server - INFO - Successfully saved parsed data to figma_invites.json
+2025-06-08 22:16:28,181 - figma_parser_module - INFO - Successfully parsed Figma payload: file_update event with hash 5b27ede1...
+2025-06-08 22:17:22,228 - __main__ - INFO - Starting Figma Webhook Server - Phase 18
+2025-06-08 22:17:22,229 - __main__ - INFO - Webhook secret configured: False
+2025-06-08 22:17:22,229 - __main__ - INFO - Output file: figma_invites.json
+2025-06-08 22:17:22,229 - __main__ - INFO - Listening on port 5005 for Figma webhooks
+2025-06-08 22:17:22,348 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5005
+ * Running on http://10.0.0.171:5005
+2025-06-08 22:17:22,348 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-08 22:17:25,024 - __main__ - INFO - Received Figma webhook with event type: file_update
+2025-06-08 22:17:25,024 - __main__ - WARNING - No FIGMA_WEBHOOK_SECRET configured - skipping signature validation
+2025-06-08 22:17:25,025 - figma_parser_module - INFO - Successfully parsed Figma payload: file_update event with hash 98815592...
+2025-06-08 22:17:25,025 - __main__ - INFO - Successfully parsed Figma payload: 98815592...
+2025-06-08 22:17:25,026 - __main__ - INFO - Successfully saved parsed data to figma_invites.json
+2025-06-08 22:17:25,026 - __main__ - INFO - Successfully processed Figma webhook: file_update
+2025-06-08 22:17:25,026 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 22:17:25] "POST /figma-webhook HTTP/1.1" 200 -
+2025-06-08 22:17:25,031 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 22:17:25] "GET /health HTTP/1.1" 200 -
