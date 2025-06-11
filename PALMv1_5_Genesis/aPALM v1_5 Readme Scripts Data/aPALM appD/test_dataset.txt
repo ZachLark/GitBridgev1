@@ -1,0 +1,13 @@
+Dataset: test_dataset.parquet
+=============================
+
+Note: This is a placeholder for the test_dataset.parquet file, which contains strain, terpene, and user feedback data for model evaluation. The actual file is in Parquet format and should be accessed in the atlas-palm-v1.5/data/ directory.
+
+Sample Structure:
+- Columns: strain_name, genotype, thc, cbd, terpenes, region, user_rating
+- Rows: ~10,000 entries
+- Example Row: Blue Dream, hybrid, 18%, 0.5%, myrcene/limonene, US, 4.5
+
+To access the full dataset, download from:
+- Repository: atlas-palm-v1.5/data/test_dataset.parquet
+- Or: AWS S3 bucket s3://atlas-palm-data/test_dataset.parquet

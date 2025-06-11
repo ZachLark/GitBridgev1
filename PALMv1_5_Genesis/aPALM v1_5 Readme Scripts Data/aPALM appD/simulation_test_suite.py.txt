@@ -1,0 +1,36 @@
+Script: simulation_test_suite.py
+================================
+
+import pytest
+from atlas_palm import process_query
+
+def test_invalid_region():
+    """Tests handling of invalid region input."""
+    input_data = {"query": "strain for anxiety", "region": "XX", "context": {"cultural": "therapeutic", "timestamp": "2025-05-06T08:00:00Z"}}
+    response = process_query(input_data)
+    assert response["status"] == "error"
+    assert response["error_code"] == 400
+    assert "Invalid region" in response["message"]
+
+def test_cultural_mismatch():
+    """Tests response adjustment for cultural mismatch."""
+    input_data = {"query": "recreational strain", "region": "JP", "context": {"cultural": "therapeutic"}}
+    response = process_query(input_data)
+    assert response["status"] == "success"
+    assert "therapeutic" in response["text"].lower()
+
+def test_high_volume_load():
+    """Tests system under high query volume."""
+    input_data = [{"query": "strain for relaxation", "region": "US", "context": {"cultural": "recreational"}} for _ in range(10000)]
+    responses = [process_query(data) for data in input_data]
+    assert all(r["status"] == "success" for r in responses)
+    assert len(responses) == 10000
+
+def test_compliance_check():
+    """Tests compliance with regional regulations."""
+    input_data = {"query": "high THC strain", "region": "EU", "context": {"cultural": "recreational"}}
+    response = process_query(input_data)
+    assert "THC limit of 0.2%" in response["text"]
+    assert "Harlequin" in response["text"]
+
+# Additional 1,000+ test cases are included in the full suite.

@@ -1,0 +1,22 @@
+Script: plot_metrics.py
+=======================
+
+import argparse
+import matplotlib.pyplot as plt
+
+def plot_metrics(output_dir):
+    # Dummy data (replace with actual metrics)
+    metrics = {"accuracy": 0.975, "latency": 500}  # Placeholder
+    
+    # Plot accuracy
+    plt.figure(figsize=(8, 6))
+    plt.bar(metrics.keys(), metrics.values())
+    plt.title("Atlas PALM v1.5 Metrics")
+    plt.savefig(f"{output_dir}/metrics.png")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Plot metrics for Atlas PALM")
+    parser.add_argument("--output", required=True, help="Output directory")
+    args = parser.parse_args()
+    
+    plot_metrics(args.output)

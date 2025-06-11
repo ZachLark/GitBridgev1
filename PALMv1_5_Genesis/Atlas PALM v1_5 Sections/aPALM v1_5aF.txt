@@ -1,0 +1,31 @@
+# Appendix F: Domain Ontology
+
+This appendix defines the Cannabis Knowledge Graph structure used by the Domain Expertise Layer (Section V) of Atlas PALM v1.5. The graph organizes cannabis-related data for efficient querying and compliance, supporting the Atlas Insight Engine’s personalized recommendations.
+
+## Graph Structure
+The Cannabis Knowledge Graph is a Neo4j-based ontology with nodes and edges representing cannabis entities and relationships:
+- **Nodes**:
+  - **Strains**: 2,000+ entries (e.g., Blue Dream, Harlequin), with metadata (genotype, cannabinoids, terpenes). Sourced from industry-standard datasets like Kannapedia (2,241 strains).[](https://kannapedia.net)
+  - **Terpenes**: Myrcene, limonene, etc., with aroma, effect, and synergy data.
+  - **Cannabinoids**: THC, CBD, CBG, with concentration and effect profiles.
+  - **Regions**: 50+ regulatory regions (e.g., US, EU, JP), with THC/CBD limits.
+  - **Effects**: Relaxation, focus, creativity, mapped to user goals.
+- **Edges**:
+  - **Strain-Effect**: Links strains to outcomes (e.g., Blue Dream → relaxation).
+  - **Strain-Region**: Defines legal status (e.g., Harlequin → legal in EU).
+  - **Terpene-Strain**: Associates terpenes with strains (e.g., myrcene → Blue Dream).
+  - **Cannabinoid-Effect**: Maps cannabinoids to outcomes (e.g., CBD → anxiety relief).
+
+## Example Query
+Retrieve CBD-rich strains legal in EU:
+```cypher
+MATCH (s:Strain)-[:LEGAL_IN]->(r:Region {name: "EU"})
+WHERE s.cbd > 0.05
+RETURN s.name, s.cbd, s.terpenes
+```
+Output: Harlequin (CBD: 10%, terpenes: myrcene, pinene).
+
+## Data Sources
+- **Strains**: Kannapedia (2,241 strains), Open Cannabis Project (~850 strains), Medicinal Genomics (~1,000 strains).[](https://kannapedia.net)[](https://cloud.google.com/life-sciences/docs/resources/public-datasets/1000-cannabis)[](https://www.businesswire.com/news/home/20160420005777/en/Medicinal-Genomics-Revolutionizes-Cannabis-Industry-Introduction-Strain)
+- **Regulations**: Real-time API feeds from regional authorities (Appendix E).
+- **Terpenes/Cannabinoids**: SME-curated data, validated by simulations (Appendix D).

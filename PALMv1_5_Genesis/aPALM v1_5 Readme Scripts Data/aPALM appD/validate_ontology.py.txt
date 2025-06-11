@@ -1,0 +1,18 @@
+Script: validate_ontology.py
+============================
+
+from neo4j import GraphDatabase
+
+def validate_ontology():
+    driver = GraphDatabase.driver("neo4j://localhost:7687", auth=("neo4j", "password"))
+    
+    with driver.session() as session:
+        result = session.run("MATCH (n) RETURN count(n) as count")
+        node_count = result.single()["count"]
+        print(f"Total nodes in ontology: {node_count}")
+        
+        if node_count < 1000:
+            raise ValueError("Ontology validation failed: Too few nodes")
+
+if __name__ == "__main__":
+    validate_ontology()
