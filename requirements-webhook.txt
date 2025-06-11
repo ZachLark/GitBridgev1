@@ -32,7 +32,8 @@ sphinx-rtd-theme==1.3.0
 openapi-spec-validator==0.7.1
 
 # Performance optimization
-uvloop==0.19.0
+# TODO: Re-enable uvloop when compatible wheels for Python 3.13 are published to PyPI or if we downgrade to Python 3.11
+# uvloop==0.19.0
 orjson==3.9.10
 aioredis==2.0.1
 cachetools==5.3.2
