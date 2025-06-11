@@ -216,24 +216,34 @@ class TestCoverageBoost:
         """Test Pipeline start method and cleanup loop."""
         pipeline = MASPipeline(config)
         
-        # Test cleanup loop (lines 49-82)
-        # This is challenging to test directly, so we'll test the cleanup method instead
-        await pipeline._cleanup_loop()
+        # Test cleanup method directly instead of the infinite loop
+        # The _cleanup_loop runs indefinitely, so we test cleanup functionality instead
+        await pipeline.cleanup()
         
         # Test start method error handling (lines 86-95)
         # We'll mock the event queue to simulate various scenarios
         with patch.object(pipeline.event_queue, 'dequeue') as mock_dequeue:
             mock_dequeue.side_effect = Exception("Dequeue exception")
             
-            # Start pipeline briefly then stop
+            # Test that start() handles dequeue exceptions gracefully
+            # We'll start the pipeline and immediately stop it to test error handling
             pipeline._running = True
+            
+            # Create a task to start the pipeline and cancel it quickly
+            start_task = asyncio.create_task(pipeline.start())
+            
+            # Give it a moment to hit the exception, then stop
+            await asyncio.sleep(0.05)  # 50ms
+            pipeline._running = False
+            
             try:
-                # This would normally run forever, so we'll test the error handling
-                await asyncio.wait_for(pipeline.start(), timeout=0.1)
+                await asyncio.wait_for(start_task, timeout=0.1)
             except asyncio.TimeoutError:
-                pass  # Expected
-            finally:
-                pipeline._running = False
+                start_task.cancel()
+                try:
+                    await start_task
+                except asyncio.CancelledError:
+                    pass
 
     async def test_additional_edge_cases(self, config):
         """Test remaining edge cases across modules."""
