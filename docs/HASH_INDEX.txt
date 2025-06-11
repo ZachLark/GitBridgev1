@@ -1,0 +1,12 @@
+# GitBridge Hash Index
+# Last updated: June 2, 2025
+
+requirements-webhook.txt: 7a651e3c7b9d84f5142eeaf96f3b5025f514a9f2 (May 30, 2025)
+docs/figma/preliminary/gbp13_redis_dashboard.md: PENDING_HASH (June 2, 2025)
+
+# File hashes are SHA-256 and represent the exact state of each file
+# at the time of the last verified commit. These hashes are used for
+# integrity verification and dependency tracking.
+
+# Note: Figma dashboard implementation pending access credentials
+# Precursor documentation is available in docs/figma/preliminary/ 

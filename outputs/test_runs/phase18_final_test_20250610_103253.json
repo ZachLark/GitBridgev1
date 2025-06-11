@@ -1,0 +1,94 @@
+{
+  "mode": "fallback",
+  "count": 3,
+  "types": [
+    "all"
+  ],
+  "status": "completed",
+  "simulation_results": {
+    "session_id": "a53a729967ce6f6b",
+    "total_scenarios": 3,
+    "successful_triggers": 3,
+    "failed_triggers": 0,
+    "scenarios": [
+      {
+        "scenario_id": "00ede41def5ff16f",
+        "fallback_type": "timeout",
+        "thread_id": "thread_232146",
+        "uid": "6e62862e54ff51b5",
+        "model_id": "gpt4_turbo",
+        "reason": "Model gpt4_turbo exceeded short timeout threshold (2956ms)",
+        "confidence_score": 0.39057502219036744,
+        "timestamp": "2025-06-10T17:32:54.448204+00:00",
+        "duration_ms": 2956,
+        "error_code": null,
+        "escalation_trigger": null,
+        "mas_lite_protocol": "v2.1"
+      },
+      {
+        "scenario_id": "13e5efa4c826b2ab",
+        "fallback_type": "model_failure",
+        "thread_id": "thread_281279",
+        "uid": "f86c5fa1986f6cc3",
+        "model_id": "claude3_5_sonnet",
+        "reason": "Model claude3_5_sonnet failed with error: QUOTA_EXCEEDED",
+        "confidence_score": 0.0,
+        "timestamp": "2025-06-10T17:32:54.529272+00:00",
+        "duration_ms": 789,
+        "error_code": "QUOTA_EXCEEDED",
+        "escalation_trigger": null,
+        "mas_lite_protocol": "v2.1"
+      },
+      {
+        "scenario_id": "4a658f94272e3e3f",
+        "fallback_type": "model_failure",
+        "thread_id": "thread_603081",
+        "uid": "a039f122305eb10a",
+        "model_id": "gpt4",
+        "reason": "Model gpt4 failed with error: RATE_LIMIT_EXCEEDED",
+        "confidence_score": 0.0,
+        "timestamp": "2025-06-10T17:32:54.581520+00:00",
+        "duration_ms": 518,
+        "error_code": "RATE_LIMIT_EXCEEDED",
+        "escalation_trigger": null,
+        "mas_lite_protocol": "v2.1"
+      }
+    ],
+    "error_distribution": {
+      "timeout": 1,
+      "model_failure": 2
+    },
+    "execution_time_ms": 431,
+    "start_time": "2025-06-10T17:32:54.150522+00:00",
+    "end_time": "2025-06-10T17:32:54.581645+00:00",
+    "mas_lite_protocol": "v2.1"
+  },
+  "audit_report_file": "fallback_audit_20250610_103254.json",
+  "error_distribution": {
+    "timeout": 1,
+    "model_failure": 2
+  },
+  "success_rate": 100.0,
+  "execution_time_ms": 431,
+  "session_id": "a53a729967ce6f6b",
+  "start_time": "2025-06-10T17:32:54.150323+00:00",
+  "end_time": "2025-06-10T17:32:54.582325+00:00",
+  "command": "fallback",
+  "parameters": {
+    "command": "fallback",
+    "count": 3,
+    "fallback_types": [
+      "all"
+    ],
+    "input_file": null,
+    "output_file": "../../outputs/test_runs/phase18_final_test_20250610_103253.json",
+    "threads": 50,
+    "duration": 30,
+    "verbose": true,
+    "no_color": false
+  },
+  "errors": [],
+  "warnings": [],
+  "mas_lite_protocol": "v2.1",
+  "version": "v1.0.0 \u2013 Phase 18 Final"
+}

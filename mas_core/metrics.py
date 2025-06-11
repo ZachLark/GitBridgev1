@@ -9,11 +9,15 @@ and system resource utilization.
 import time
 import psutil
 from datetime import datetime, timezone
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List, Optional, Callable
 from dataclasses import dataclass
 from functools import wraps
 import statistics
 from .utils.logging import MASLogger
+import uuid
+from .error_handler import ErrorHandler, ErrorCategory, ErrorSeverity
+
+logger = MASLogger(__name__)
 
 @dataclass
 class TaskMetrics:
@@ -21,8 +25,14 @@ class TaskMetrics:
     total_tasks: int = 0
     completed_tasks: int = 0
     failed_tasks: int = 0
+    current_concurrent: int = 0
+    max_concurrent_seen: int = 0
     avg_completion_time: float = 0.0
-    success_rate: float = 0.0
+    task_times: List[float] = None
+    
+    def __post_init__(self):
+        """Initialize mutable fields."""
+        self.task_times = []
 
 @dataclass
 class ConsensusMetrics:
@@ -30,128 +40,169 @@ class ConsensusMetrics:
     total_rounds: int = 0
     successful_consensus: int = 0
     failed_consensus: int = 0
-    avg_rounds_per_task: float = 0.0
-    avg_time_per_round: float = 0.0
+    avg_consensus_time: float = 0.0
+    consensus_times: List[float] = None
+    
+    def __post_init__(self):
+        """Initialize mutable fields."""
+        self.consensus_times = []
 
 @dataclass
 class SystemMetrics:
-    """System resource utilization metrics."""
+    """System resource metrics."""
     cpu_usage: float = 0.0
     memory_usage: float = 0.0
     disk_usage: float = 0.0
     network_io: Dict[str, float] = None
+    
+    def __post_init__(self):
+        """Initialize mutable fields."""
+        self.network_io = {"sent": 0.0, "received": 0.0}
 
 class MetricsCollector:
-    """Collects and manages system-wide metrics."""
-
-    def __init__(self) -> None:
+    """Metrics collection and monitoring."""
+    
+    def __init__(self):
         """Initialize metrics collector."""
-        self.logger = MASLogger("metrics")
         self.task_metrics = TaskMetrics()
         self.consensus_metrics = ConsensusMetrics()
         self.system_metrics = SystemMetrics()
-        self.task_timings: List[float] = []
-        self.consensus_timings: List[float] = []
-
-    def track_task_timing(self, func):
-        """
-        Decorator to track task execution time.
-
+        self.error_handler = ErrorHandler()
+        
+    def track_task_timing(self, func: Callable) -> Callable:
+        """Decorator to track task timing metrics.
+        
         Args:
             func: Function to track
-        """
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            start_time = time.time()
-            try:
-                result = func(*args, **kwargs)
-                self.record_task_completion(time.time() - start_time)
-                return result
-            except Exception as e:
-                self.record_task_failure()
-                raise e
-        return wrapper
-
-    def track_consensus_timing(self, func):
-        """
-        Decorator to track consensus round timing.
-
-        Args:
-            func: Function to track
-        """
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            start_time = time.time()
-            try:
-                result = func(*args, **kwargs)
-                self.record_consensus_round(time.time() - start_time)
-                return result
-            except Exception as e:
-                self.record_consensus_failure()
-                raise e
-        return wrapper
-
-    def record_task_completion(self, execution_time: float) -> None:
-        """
-        Record successful task completion.
-
-        Args:
-            execution_time: Task execution time in seconds
-        """
-        self.task_metrics.total_tasks += 1
-        self.task_metrics.completed_tasks += 1
-        self.task_timings.append(execution_time)
-        self.task_metrics.avg_completion_time = statistics.mean(self.task_timings)
-        self.task_metrics.success_rate = (
-            self.task_metrics.completed_tasks / self.task_metrics.total_tasks
-        )
-
-    def record_task_failure(self) -> None:
-        """Record task failure."""
-        self.task_metrics.total_tasks += 1
-        self.task_metrics.failed_tasks += 1
-        self.task_metrics.success_rate = (
-            self.task_metrics.completed_tasks / self.task_metrics.total_tasks
-        )
-
-    def record_consensus_round(self, round_time: float) -> None:
-        """
-        Record consensus round completion.
-
-        Args:
-            round_time: Round completion time in seconds
-        """
-        self.consensus_metrics.total_rounds += 1
-        self.consensus_metrics.successful_consensus += 1
-        self.consensus_timings.append(round_time)
-        self.consensus_metrics.avg_time_per_round = statistics.mean(self.consensus_timings)
-        self.consensus_metrics.avg_rounds_per_task = (
-            self.consensus_metrics.total_rounds / self.task_metrics.total_tasks
-            if self.task_metrics.total_tasks > 0 else 0.0
-        )
-
-    def record_consensus_failure(self) -> None:
-        """Record consensus failure."""
-        self.consensus_metrics.total_rounds += 1
-        self.consensus_metrics.failed_consensus += 1
-
-    def update_system_metrics(self) -> None:
-        """Update system resource utilization metrics."""
-        self.system_metrics.cpu_usage = psutil.cpu_percent()
-        self.system_metrics.memory_usage = psutil.virtual_memory().percent
-        self.system_metrics.disk_usage = psutil.disk_usage('/').percent
-        net_io = psutil.net_io_counters()
-        self.system_metrics.network_io = {
-            'bytes_sent': net_io.bytes_sent,
-            'bytes_recv': net_io.bytes_recv
-        }
-
-    def get_metrics_summary(self) -> Dict[str, Any]:
-        """
-        Get comprehensive metrics summary.
-
+            
         Returns:
-            Dict containing all metrics
+            Wrapped function
+        """
+        @wraps(func)
+        async def wrapper(*args, **kwargs):
+            start_time = time.time()
+            try:
+                # Track concurrent tasks
+                self.task_metrics.current_concurrent += 1
+                self.task_metrics.max_concurrent_seen = max(
+                    self.task_metrics.max_concurrent_seen,
+                    self.task_metrics.current_concurrent
+                )
+                
+                # Execute function
+                result = await func(*args, **kwargs)
+                
+                # Update metrics on success
+                if result:
+                    self.task_metrics.completed_tasks += 1
+                else:
+                    self.task_metrics.failed_tasks += 1
+                    
+                return result
+                
+            except Exception as e:
+                # Update failure metrics
+                self.task_metrics.failed_tasks += 1
+                error_id = str(uuid.uuid4())
+                self.error_handler.handle_error(
+                    error_id=error_id,
+                    category=ErrorCategory.METRICS,
+                    severity=ErrorSeverity.ERROR,
+                    message=f"Task execution failed: {str(e)}",
+                    details={"error": str(e)}
+                )
+                raise
+                
+            finally:
+                # Always update timing metrics
+                end_time = time.time()
+                execution_time = end_time - start_time
+                self.task_metrics.task_times.append(execution_time)
+                self.task_metrics.avg_completion_time = statistics.mean(self.task_metrics.task_times)
+                self.task_metrics.total_tasks += 1
+                self.task_metrics.current_concurrent -= 1
+                
+        return wrapper
+        
+    def track_consensus_timing(self, func: Callable) -> Callable:
+        """Decorator to track consensus timing metrics.
+        
+        Args:
+            func: Function to track
+            
+        Returns:
+            Wrapped function
+        """
+        @wraps(func)
+        async def wrapper(*args, **kwargs):
+            start_time = time.time()
+            try:
+                # Execute function
+                result = await func(*args, **kwargs)
+                
+                # Update metrics on success
+                self.consensus_metrics.successful_consensus += 1
+                return result
+                
+            except Exception as e:
+                # Update failure metrics
+                self.consensus_metrics.failed_consensus += 1
+                error_id = str(uuid.uuid4())
+                self.error_handler.handle_error(
+                    error_id=error_id,
+                    category=ErrorCategory.METRICS,
+                    severity=ErrorSeverity.ERROR,
+                    message=f"Consensus failed: {str(e)}",
+                    details={"error": str(e)}
+                )
+                raise
+                
+            finally:
+                # Always update timing metrics
+                end_time = time.time()
+                execution_time = end_time - start_time
+                self.consensus_metrics.consensus_times.append(execution_time)
+                self.consensus_metrics.avg_consensus_time = statistics.mean(self.consensus_metrics.consensus_times)
+                self.consensus_metrics.total_rounds += 1
+                
+        return wrapper
+        
+    def update_system_metrics(self):
+        """Update system resource metrics."""
+        try:
+            # CPU usage
+            self.system_metrics.cpu_usage = psutil.cpu_percent()
+            
+            # Memory usage
+            memory = psutil.virtual_memory()
+            self.system_metrics.memory_usage = memory.percent
+            
+            # Disk usage
+            disk = psutil.disk_usage('/')
+            self.system_metrics.disk_usage = disk.percent
+            
+            # Network I/O
+            network = psutil.net_io_counters()
+            self.system_metrics.network_io = {
+                "sent": network.bytes_sent,
+                "received": network.bytes_recv
+            }
+            
+        except Exception as e:
+            error_id = str(uuid.uuid4())
+            self.error_handler.handle_error(
+                error_id=error_id,
+                category=ErrorCategory.METRICS,
+                severity=ErrorSeverity.WARNING,
+                message=f"Failed to update system metrics: {str(e)}",
+                details={"error": str(e)}
+            )
+            
+    def get_metrics_summary(self) -> Dict[str, Any]:
+        """Get summary of all metrics.
+        
+        Returns:
+            Dict containing metrics summary
         """
         self.update_system_metrics()
         
@@ -161,15 +212,15 @@ class MetricsCollector:
                 "total": self.task_metrics.total_tasks,
                 "completed": self.task_metrics.completed_tasks,
                 "failed": self.task_metrics.failed_tasks,
-                "avg_completion_time": self.task_metrics.avg_completion_time,
-                "success_rate": self.task_metrics.success_rate
+                "current_concurrent": self.task_metrics.current_concurrent,
+                "max_concurrent": self.task_metrics.max_concurrent_seen,
+                "avg_completion_time": self.task_metrics.avg_completion_time
             },
             "consensus_metrics": {
                 "total_rounds": self.consensus_metrics.total_rounds,
                 "successful": self.consensus_metrics.successful_consensus,
                 "failed": self.consensus_metrics.failed_consensus,
-                "avg_rounds_per_task": self.consensus_metrics.avg_rounds_per_task,
-                "avg_time_per_round": self.consensus_metrics.avg_time_per_round
+                "avg_consensus_time": self.consensus_metrics.avg_consensus_time
             },
             "system_metrics": {
                 "cpu_usage": self.system_metrics.cpu_usage,
@@ -182,7 +233,39 @@ class MetricsCollector:
     def log_metrics(self) -> None:
         """Log current metrics to the MAS logger."""
         metrics = self.get_metrics_summary()
-        self.logger.logger.info(
+        logger.logger.info(
             "System metrics update",
             extra={"metrics": metrics}
-        ) 
+        )
+
+    def get_metrics(self) -> Dict[str, Any]:
+        """Get metrics.
+
+        Returns:
+            Dict[str, Any]: Metrics data
+        """
+        return {
+            "task_metrics": self.task_metrics,
+            "consensus_metrics": self.consensus_metrics,
+            "system_metrics": self.system_metrics
+        }
+
+    def get_metrics_by_function(self, function_name: str) -> List[Dict[str, Any]]:
+        """Get metrics by function.
+
+        Args:
+            function_name: Function name
+
+        Returns:
+            List[Dict[str, Any]]: List of metrics
+        """
+        return [
+            metric for metric in self.get_metrics().values()
+            if isinstance(metric, dict) and metric.get("function") == function_name
+        ]
+
+    def clear_metrics(self) -> None:
+        """Clear metrics."""
+        self.task_metrics = TaskMetrics()
+        self.consensus_metrics = ConsensusMetrics()
+        self.system_metrics = SystemMetrics() 

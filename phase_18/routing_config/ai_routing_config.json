@@ -1,0 +1,201 @@
+{
+  "routing_metadata": {
+    "config_version": "1.0",
+    "created_date": "2025-06-10T16:30:00Z",
+    "last_updated": "2025-06-10T16:30:00Z",
+    "schema_version": "P18P7_v1.0",
+    "description": "AI Model Routing Configuration for GitBridge MAS",
+    "mas_lite_protocol": "v2.1"
+  },
+  "global_settings": {
+    "default_timeout_seconds": 120,
+    "max_fallback_depth": 3,
+    "enable_hot_reload": true,
+    "log_all_routing_decisions": true,
+    "redis_channel": "mas:routing:decisions"
+  },
+  "routing_policies": {
+    "edit": {
+      "route_id": "edit_policy_001",
+      "description": "Code editing and generation tasks",
+      "enabled": true,
+      "primary_model": {
+        "model_id": "gpt4_turbo",
+        "provider": "openai",
+        "timeout_seconds": 90,
+        "confidence_threshold": 0.65,
+        "max_tokens": 8000,
+        "temperature": 0.2
+      },
+      "fallback_chain": [
+        {
+          "model_id": "claude3_5_sonnet",
+          "provider": "anthropic",
+          "timeout_seconds": 80,
+          "confidence_threshold": 0.55,
+          "trigger_conditions": ["timeout", "low_confidence", "api_error", "quality_failure"],
+          "max_tokens": 8000,
+          "temperature": 0.3
+        },
+        {
+          "model_id": "gemini_pro",
+          "provider": "google",
+          "timeout_seconds": 70,
+          "confidence_threshold": 0.45,
+          "trigger_conditions": ["timeout", "low_confidence", "api_error", "quality_failure"],
+          "max_tokens": 7000,
+          "temperature": 0.4
+        },
+        {
+          "model_id": "gpt3_5_turbo",
+          "provider": "openai",
+          "timeout_seconds": 60,
+          "confidence_threshold": 0.35,
+          "trigger_conditions": ["timeout", "low_confidence", "api_error", "quality_failure"],
+          "max_tokens": 4000,
+          "temperature": 0.5
+        }
+      ],
+      "escalation_flags": {
+        "enable_human_escalation": true,
+        "escalation_threshold": 0.25,
+        "escalation_timeout_seconds": 300,
+        "escalation_contact": "dev-team@gitbridge.com",
+        "max_auto_retries": 3
+      }
+    },
+    "review": {
+      "route_id": "review_policy_002",
+      "description": "Code review and analysis tasks",
+      "enabled": true,
+      "primary_model": {
+        "model_id": "claude3_5_sonnet",
+        "provider": "anthropic",
+        "timeout_seconds": 100,
+        "confidence_threshold": 0.70,
+        "max_tokens": 8000,
+        "temperature": 0.1
+      },
+      "fallback_chain": [
+        {
+          "model_id": "gpt4",
+          "provider": "openai", 
+          "timeout_seconds": 90,
+          "confidence_threshold": 0.60,
+          "trigger_conditions": ["timeout", "low_confidence", "api_error", "quality_failure"],
+          "max_tokens": 8000,
+          "temperature": 0.2
+        },
+        {
+          "model_id": "gemini_pro",
+          "provider": "google",
+          "timeout_seconds": 80,
+          "confidence_threshold": 0.50,
+          "trigger_conditions": ["timeout", "low_confidence", "api_error", "quality_failure"],
+          "max_tokens": 7000,
+          "temperature": 0.3
+        }
+      ],
+      "escalation_flags": {
+        "enable_human_escalation": true,
+        "escalation_threshold": 0.30,
+        "escalation_timeout_seconds": 600,
+        "escalation_contact": "code-review@gitbridge.com",
+        "max_auto_retries": 3,
+        "require_human_for_security": true
+      }
+    },
+    "merge": {
+      "route_id": "merge_policy_003", 
+      "description": "Code merge conflict resolution and integration",
+      "enabled": true,
+      "primary_model": {
+        "model_id": "gpt4_turbo",
+        "provider": "openai",
+        "timeout_seconds": 150,
+        "confidence_threshold": 0.75,
+        "max_tokens": 10000,
+        "temperature": 0.1
+      },
+      "fallback_chain": [
+        {
+          "model_id": "claude3_5_sonnet",
+          "provider": "anthropic",
+          "timeout_seconds": 130,
+          "confidence_threshold": 0.65,
+          "trigger_conditions": ["timeout", "low_confidence", "api_error", "quality_failure"],
+          "max_tokens": 8000,
+          "temperature": 0.2
+        },
+        {
+          "model_id": "human_escalation",
+          "provider": "gitbridge_team",
+          "timeout_seconds": 120,
+          "confidence_threshold": 0.40,
+          "trigger_conditions": ["timeout", "low_confidence", "api_error", "conflict_complexity", "quality_failure"],
+          "human_required": true,
+          "priority": "high"
+        }
+      ],
+      "escalation_flags": {
+        "enable_human_escalation": true,
+        "escalation_threshold": 0.50,
+        "escalation_timeout_seconds": 1800,
+        "escalation_contact": "merge-conflicts@gitbridge.com",
+        "max_auto_retries": 2,
+        "immediate_human_escalation_triggers": [
+          "breaking_changes_detected",
+          "security_implications",
+          "database_schema_changes"
+        ]
+      }
+    }
+  },
+  "model_registry": {
+    "gpt4_turbo": {
+      "provider": "openai",
+      "model_name": "gpt-4-turbo-preview",
+      "api_endpoint": "https://api.openai.com/v1/chat/completions",
+      "cost_per_1k_tokens": 0.03,
+      "avg_response_time_ms": 2500,
+      "reliability_score": 0.98,
+      "specialties": ["code_generation", "complex_reasoning", "documentation"]
+    },
+    "claude3_5_sonnet": {
+      "provider": "anthropic",
+      "model_name": "claude-3-5-sonnet-20241022",
+      "api_endpoint": "https://api.anthropic.com/v1/messages",
+      "cost_per_1k_tokens": 0.025,
+      "avg_response_time_ms": 2200,
+      "reliability_score": 0.97,
+      "specialties": ["code_review", "analysis", "reasoning"]
+    },
+    "gemini_pro": {
+      "provider": "google",
+      "model_name": "gemini-1.5-pro",
+      "api_endpoint": "https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent",
+      "cost_per_1k_tokens": 0.02,
+      "avg_response_time_ms": 2800,
+      "reliability_score": 0.95,
+      "specialties": ["multimodal", "large_context", "analysis"]
+    },
+    "gpt3_5_turbo": {
+      "provider": "openai",
+      "model_name": "gpt-3.5-turbo",
+      "api_endpoint": "https://api.openai.com/v1/chat/completions",
+      "cost_per_1k_tokens": 0.001,
+      "avg_response_time_ms": 1500,
+      "reliability_score": 0.92,
+      "specialties": ["fast_completion", "simple_tasks", "cost_effective"]
+    },
+    "gpt4": {
+      "provider": "openai",
+      "model_name": "gpt-4",
+      "api_endpoint": "https://api.openai.com/v1/chat/completions",
+      "cost_per_1k_tokens": 0.06,
+      "avg_response_time_ms": 3000,
+      "reliability_score": 0.96,
+      "specialties": ["reasoning", "code_review", "complex_analysis"]
+    }
+  }
+}

@@ -1,116 +1,187 @@
 """
-GitHub Webhook Listener.
+Webhook listener for GitBridge MAS Lite.
 
-This module handles incoming GitHub webhook events, validates signatures,
-and routes events to appropriate handlers.
+This module provides webhook handling functionality for GitBridge's event processing
+system, following MAS Lite Protocol v2.1 webhook requirements.
 """
 
-from typing import Dict, Any, Optional
+import os
 import json
-from flask import Flask, request, Response
+import hmac
+import hashlib
+import uuid
+from typing import Dict, Any, Optional
 from datetime import datetime, timezone
 
-from mas_core.utils.logging import MASLogger
-from .signature_validator import SignatureValidator
+from fastapi import FastAPI, Request, HTTPException, Depends
+from fastapi.security import HTTPBasic, HTTPBasicCredentials
+
 from .commit_router import CommitRouter
+from mas_core.error_handler import ErrorHandler, ErrorCategory, ErrorSeverity
+from mas_core.utils.logging import MASLogger
 
-app = Flask(__name__)
-logger = MASLogger("webhook_listener")
-signature_validator = SignatureValidator()
-commit_router = CommitRouter()
+logger = MASLogger(__name__)
 
-@app.route("/webhook", methods=["POST"])
-def receive_webhook() -> Response:
-    """
-    Handle incoming GitHub webhook.
+# Load configuration
+config = {
+    "router": {
+        "max_concurrent": 5,
+        "consensus_required": True
+    },
+    "task_chain": {
+        "states": ["Created", "InProgress", "Blocked", "Resolved", "Failed"],
+        "max_concurrent": 5,
+        "consensus_required": True
+    },
+    "consensus": {
+        "timeout": 5,
+        "required_nodes": 3
+    }
+}
 
+# Initialize components
+commit_router = CommitRouter(config)
+error_handler = ErrorHandler()
+security = HTTPBasic()
+
+# Create FastAPI app
+app = FastAPI(title="GitBridge Webhook Listener")
+
+async def verify_signature(request: Request) -> bool:
+    """Verify webhook signature.
+    
+    Args:
+        request: FastAPI request
+        
     Returns:
-        Flask Response
+        bool: True if signature is valid
     """
-    # Get headers
-    event_type = request.headers.get("X-GitHub-Event")
-    signature = request.headers.get("X-Hub-Signature-256")
-
-    # Get raw payload
-    payload = request.get_data()
-
-    # Validate signature
-    if not signature_validator.validate_signature(payload, signature):
-        logger.log_error(
-            error_type="webhook_error",
-            message="Invalid webhook signature",
-            context={"event_type": event_type}
-        )
-        return Response(
-            json.dumps({"error": "Invalid signature"}),
-            status=401,
-            mimetype="application/json"
-        )
-
-    # Parse payload
     try:
-        event_data = json.loads(payload)
-    except json.JSONDecodeError:
-        logger.log_error(
-            error_type="webhook_error",
-            message="Invalid JSON payload",
-            context={"event_type": event_type}
-        )
-        return Response(
-            json.dumps({"error": "Invalid JSON"}),
-            status=400,
-            mimetype="application/json"
-        )
-
-    # Log event
-    logger.log_event(
-        source="GitHub",
-        event_type=event_type,
-        payload=event_data
-    )
-
-    # Route event
-    try:
-        if event_type == "push":
-            task_ids = commit_router.handle_push_event(event_data)
-            return Response(
-                json.dumps({"status": "success", "task_ids": task_ids}),
-                status=200,
-                mimetype="application/json"
-            )
-        elif event_type == "pull_request":
-            task_ids = commit_router.handle_pr_event(event_data)
-            return Response(
-                json.dumps({"status": "success", "task_ids": task_ids}),
-                status=200,
-                mimetype="application/json"
-            )
-        else:
-            # Log unsupported event type
-            logger.log_event(
-                source="GitHub",
-                event_type="unsupported",
-                payload={"original_type": event_type}
-            )
-            return Response(
-                json.dumps({"status": "ignored", "reason": "Unsupported event type"}),
-                status=202,
-                mimetype="application/json"
-            )
+        # Get webhook secret from environment
+        webhook_secret = os.environ.get("GITHUB_WEBHOOK_SECRET")
+        if not webhook_secret:
+            logger.error("GITHUB_WEBHOOK_SECRET environment variable not set")
+            return False
+            
+        # Get signature from headers
+        signature = request.headers.get("X-Hub-Signature-256")
+        if not signature:
+            logger.error("Missing X-Hub-Signature-256 header")
+            return False
+            
+        # Calculate expected signature
+        body = await request.body()
+        expected_signature = "sha256=" + hmac.new(
+            webhook_secret.encode(),
+            body,
+            hashlib.sha256
+        ).hexdigest()
+        
+        # Compare signatures
+        return hmac.compare_digest(signature, expected_signature)
+        
     except Exception as e:
-        logger.log_error(
-            error_type="webhook_error",
-            message=str(e),
-            context={
-                "event_type": event_type,
+        error_id = str(uuid.uuid4())
+        error_handler.handle_error(
+            error_id=error_id,
+            category=ErrorCategory.SYSTEM,
+            severity=ErrorSeverity.ERROR,
+            message=f"Failed to verify signature: {str(e)}",
+            details={"error": str(e)}
+        )
+        return False
+
+@app.post("/webhook")
+async def receive_webhook(request: Request) -> Dict[str, Any]:
+    """Receive webhook event.
+    
+    Args:
+        request: FastAPI request
+        
+    Returns:
+        Dict[str, Any]: Response data
+    """
+    try:
+        # Verify signature
+        if not await verify_signature(request):
+            raise HTTPException(status_code=401, detail="Invalid signature")
+            
+        # Parse event data
+        event_data = await request.json()
+        
+        # Get event type
+        event_type = request.headers.get("X-GitHub-Event")
+        if not event_type:
+            raise HTTPException(status_code=400, detail="Missing event type")
+            
+        # Process event
+        if event_type == "push":
+            # Get commit data
+            commits = event_data.get("commits", [])
+            if not commits:
+                return {"status": "success", "message": "No commits to process"}
+                
+            # Process each commit
+            task_ids = []
+            for commit in commits:
+                task_id = await commit_router.route_commit(commit)
+                if task_id:
+                    task_ids.append(task_id)
+                    
+            return {
+                "status": "success",
+                "message": f"Processed {len(task_ids)} commits",
+                "task_ids": task_ids
+            }
+            
+        else:
+            return {
+                "status": "success",
+                "message": f"Ignored {event_type} event"
+            }
+            
+    except HTTPException:
+        raise
+    except Exception as e:
+        error_id = str(uuid.uuid4())
+        error_handler.handle_error(
+            error_id=error_id,
+            category=ErrorCategory.SYSTEM,
+            severity=ErrorSeverity.ERROR,
+            message=f"Failed to process webhook: {str(e)}",
+            details={"error": str(e)}
+        )
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+@app.get("/task/{task_id}")
+async def get_task_status(task_id: str) -> Dict[str, Any]:
+    """Get task status.
+    
+    Args:
+        task_id: Task identifier
+        
+    Returns:
+        Dict[str, Any]: Task status
+    """
+    try:
+        status = await commit_router.get_task_status(task_id)
+        if not status:
+            raise HTTPException(status_code=404, detail="Task not found")
+            
+        return status
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        error_id = str(uuid.uuid4())
+        error_handler.handle_error(
+            error_id=error_id,
+            category=ErrorCategory.SYSTEM,
+            severity=ErrorSeverity.ERROR,
+            message=f"Failed to get task status: {str(e)}",
+            details={
+                "task_id": task_id,
                 "error": str(e)
             }
         )
-        return Response(
-            json.dumps({"error": "Internal error processing webhook"}),
-            status=500,
-            mimetype="application/json"
-        )
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5001) 
+        raise HTTPException(status_code=500, detail="Internal server error") 

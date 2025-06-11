@@ -1,0 +1,144 @@
+{
+  "timestamp": "2025-06-10T19:56:35.596853+00:00",
+  "total_failures": 1,
+  "confidence_distribution": {
+    "medium_0.60-0.69": 3,
+    "normal_0.50-0.59": 2,
+    "low_0.40-0.49": 2,
+    "very_low_<0.40": 1,
+    "high_0.70-0.79": 2
+  },
+  "failure_patterns": [
+    "High primary thresholds causing premature fallbacks",
+    "Insufficient fallback depth in critical policies",
+    "Aggressive escalation thresholds"
+  ],
+  "threshold_recommendations": {
+    "merge_escalation": 0.45
+  },
+  "model_performance": {
+    "gpt4_turbo": {
+      "reliability_score": 0.98,
+      "avg_response_time_ms": 2500,
+      "recommended_confidence_threshold": 0.55,
+      "performance_category": "excellent"
+    },
+    "claude3_5_sonnet": {
+      "reliability_score": 0.97,
+      "avg_response_time_ms": 2200,
+      "recommended_confidence_threshold": 0.55,
+      "performance_category": "excellent"
+    },
+    "gemini_pro": {
+      "reliability_score": 0.95,
+      "avg_response_time_ms": 2800,
+      "recommended_confidence_threshold": 0.6,
+      "performance_category": "good"
+    },
+    "gpt3_5_turbo": {
+      "reliability_score": 0.92,
+      "avg_response_time_ms": 1500,
+      "recommended_confidence_threshold": 0.65,
+      "performance_category": "fair"
+    },
+    "gpt4": {
+      "reliability_score": 0.96,
+      "avg_response_time_ms": 3000,
+      "recommended_confidence_threshold": 0.6,
+      "performance_category": "good"
+    }
+  },
+  "escalation_analysis": {
+    "current_escalation_rate": "12.3%",
+    "target_escalation_rate": "5-8%",
+    "recommendation": "Lower escalation thresholds to 0.25-0.35 range"
+  },
+  "remediation_suggestions": [
+    "Implement adaptive threshold adjustment based on model performance",
+    "Add confidence boosting techniques for low-quality responses",
+    "Enhance context provided to models for better output quality",
+    "Implement quality validation before triggering fallbacks",
+    "Add model-specific confidence calibration"
+  ],
+  "threshold_analysis": {
+    "policies_analyzed": 3,
+    "threshold_distribution": {
+      "medium_0.60-0.69": 3,
+      "normal_0.50-0.59": 2,
+      "low_0.40-0.49": 2,
+      "very_low_<0.40": 1,
+      "high_0.70-0.79": 2
+    },
+    "potential_issues": [
+      "Policy 'review': Fallback thresholds too high (min: 0.5)"
+    ],
+    "recommendations": []
+  },
+  "simulation_results": {
+    "scenarios_tested": 6,
+    "scenario_outcomes": [
+      {
+        "scenario": "Very Low Confidence",
+        "confidence": 0.15,
+        "expected_outcome": "human_escalation",
+        "actual_outcomes": {
+          "edit": "human_escalation",
+          "review": "human_escalation",
+          "merge": "human_escalation"
+        }
+      },
+      {
+        "scenario": "Low Confidence",
+        "confidence": 0.25,
+        "expected_outcome": "final_fallback",
+        "actual_outcomes": {
+          "edit": "final_fallback",
+          "review": "human_escalation",
+          "merge": "human_escalation"
+        }
+      },
+      {
+        "scenario": "Poor Quality",
+        "confidence": 0.35,
+        "expected_outcome": "multiple_fallbacks",
+        "actual_outcomes": {
+          "edit": "fallback_3_success",
+          "review": "final_fallback",
+          "merge": "human_escalation"
+        }
+      },
+      {
+        "scenario": "Marginal Quality",
+        "confidence": 0.45,
+        "expected_outcome": "single_fallback",
+        "actual_outcomes": {
+          "edit": "fallback_2_success",
+          "review": "final_fallback",
+          "merge": "fallback_2_success"
+        }
+      },
+      {
+        "scenario": "Acceptable Quality",
+        "confidence": 0.65,
+        "expected_outcome": "primary_success",
+        "actual_outcomes": {
+          "edit": "primary_success",
+          "review": "fallback_1_success",
+          "merge": "fallback_1_success"
+        }
+      },
+      {
+        "scenario": "High Quality",
+        "confidence": 0.85,
+        "expected_outcome": "primary_success",
+        "actual_outcomes": {
+          "edit": "primary_success",
+          "review": "primary_success",
+          "merge": "primary_success"
+        }
+      }
+    ],
+    "system_resilience_score": 94.4,
+    "recommendations": []
+  }
+}

@@ -1,149 +1,320 @@
-"""Unit tests for MAS consensus module."""
+"""
+Unit tests for consensus management.
+"""
 
+import asyncio
 import pytest
 from datetime import datetime, timezone
 from mas_core.consensus import (
-    ConsensusManager, ConsensusState, VoteType, ValidationError
+    ConsensusManager,
+    ConsensusRound,
+    ConsensusState,
+    VoteType,
+    ValidationError,
+    ConsensusTimeoutError
 )
 
 @pytest.fixture
-def consensus_manager():
-    """Provide a fresh consensus manager instance."""
-    return ConsensusManager(required_votes=2)
+def consensus_config():
+    """Test consensus configuration."""
+    return {
+        "consensus": {
+            "timeout": 5,
+            "required_nodes": 3
+        }
+    }
 
 @pytest.fixture
-def valid_task():
-    """Provide a valid task ID."""
-    return "task_001"
+def consensus_manager(consensus_config):
+    """Test consensus manager instance."""
+    return ConsensusManager(consensus_config)
 
 @pytest.fixture
-def valid_agents():
-    """Provide a list of valid agent IDs."""
-    return ["agent_001", "agent_002", "agent_003"]
-
-def test_start_consensus(consensus_manager, valid_task, valid_agents):
-    """Test starting a new consensus round."""
-    result = consensus_manager.start_consensus(valid_task, valid_agents)
-    assert result is True
-    
-    state = consensus_manager.get_consensus_state(valid_task)
-    assert state["state"] == ConsensusState.IN_PROGRESS.value
-    assert state["votes"] == {}
-    assert state["total_rounds"] == 1
-
-def test_invalid_task_id(consensus_manager, valid_agents):
-    """Test handling of invalid task ID."""
-    with pytest.raises(ValidationError):
-        consensus_manager.start_consensus("invalid#task", valid_agents)
-
-def test_submit_vote(consensus_manager, valid_task, valid_agents):
-    """Test vote submission."""
-    consensus_manager.start_consensus(valid_task, valid_agents)
-    
-    result = consensus_manager.submit_vote(
-        valid_task,
-        valid_agents[0],
-        VoteType.APPROVE,
-        "Looks good"
+def consensus_round():
+    """Test consensus round instance."""
+    current_time = datetime.now(timezone.utc).isoformat()
+    return ConsensusRound(
+        round_id="test_round_001",
+        task_id="test_task_001",
+        state=ConsensusState.Pending,
+        votes={},
+        created_at=current_time,
+        updated_at=current_time,
+        required_nodes=3
     )
-    assert result is True
-    
-    state = consensus_manager.get_consensus_state(valid_task)
-    assert len(state["votes"]) == 1
-    assert state["votes"][valid_agents[0]]["vote"] == VoteType.APPROVE.value
-    assert state["votes"][valid_agents[0]]["comment"] == "Looks good"
 
-def test_consensus_resolution_approve(consensus_manager, valid_task, valid_agents):
-    """Test consensus resolution with approval."""
-    consensus_manager.start_consensus(valid_task, valid_agents)
-    
-    # Submit approving votes
-    consensus_manager.submit_vote(valid_task, valid_agents[0], VoteType.APPROVE)
-    consensus_manager.submit_vote(valid_task, valid_agents[1], VoteType.APPROVE)
-    
-    state = consensus_manager.get_consensus_state(valid_task)
-    assert state["state"] == ConsensusState.APPROVED.value
-    assert state["resolution"] == "Approved by majority"
+@pytest.mark.asyncio
+async def test_consensus_round_validation(consensus_round):
+    """Test consensus round validation."""
+    # Valid round should not raise
+    consensus_round.validate()
 
-def test_consensus_resolution_reject(consensus_manager, valid_task, valid_agents):
-    """Test consensus resolution with rejection."""
-    consensus_manager.start_consensus(valid_task, valid_agents)
-    
-    # Submit rejecting votes
-    consensus_manager.submit_vote(valid_task, valid_agents[0], VoteType.REJECT)
-    consensus_manager.submit_vote(valid_task, valid_agents[1], VoteType.REJECT)
-    
-    state = consensus_manager.get_consensus_state(valid_task)
-    assert state["state"] == ConsensusState.REJECTED.value
-    assert state["resolution"] == "Rejected by majority"
+    # Test invalid task ID
+    invalid_round = ConsensusRound(
+        round_id="test_round_001",
+        task_id="",
+        state=ConsensusState.Pending,
+        votes={},
+        created_at=consensus_round.created_at,
+        updated_at=consensus_round.updated_at,
+        required_nodes=3
+    )
+    with pytest.raises(ValidationError, match="Task ID is required"):
+        invalid_round.validate()
 
-def test_consensus_deadlock(consensus_manager, valid_task, valid_agents):
+    # Test invalid round ID
+    invalid_round = ConsensusRound(
+        round_id="",
+        task_id="test_task_001",
+        state=ConsensusState.Pending,
+        votes={},
+        created_at=consensus_round.created_at,
+        updated_at=consensus_round.updated_at,
+        required_nodes=3
+    )
+    with pytest.raises(ValidationError, match="Round ID is required"):
+        invalid_round.validate()
+
+@pytest.mark.asyncio
+async def test_get_consensus_success(consensus_manager):
+    """Test successful consensus."""
+    task_id = "test_task_001"
+    consensus_task = asyncio.create_task(consensus_manager.get_consensus(task_id))
+    
+    # Wait a bit for the round to be created
+    await asyncio.sleep(0.1)
+    
+    # Get the round ID
+    round_id = list(consensus_manager.rounds.keys())[0]
+    
+    # Cast votes
+    await consensus_manager.vote(round_id, "node_0", VoteType.Approve)
+    await consensus_manager.vote(round_id, "node_1", VoteType.Approve)
+    await consensus_manager.vote(round_id, "node_2", VoteType.Approve)
+    
+    # Get consensus result
+    consensus_round = await consensus_task
+    assert consensus_round.state == ConsensusState.Approved
+
+@pytest.mark.asyncio
+async def test_get_consensus_rejection(consensus_manager):
+    """Test consensus rejection."""
+    task_id = "test_task_002"
+    consensus_task = asyncio.create_task(consensus_manager.get_consensus(task_id))
+    
+    # Wait a bit for the round to be created
+    await asyncio.sleep(0.1)
+    
+    # Get the round ID
+    round_id = list(consensus_manager.rounds.keys())[0]
+    
+    # Cast votes
+    await consensus_manager.vote(round_id, "node_0", VoteType.Reject)
+    await consensus_manager.vote(round_id, "node_1", VoteType.Reject)
+    await consensus_manager.vote(round_id, "node_2", VoteType.Reject)
+    
+    # Get consensus result
+    consensus_round = await consensus_task
+    assert consensus_round.state == ConsensusState.Rejected
+
+@pytest.mark.asyncio
+async def test_get_consensus_timeout(consensus_manager):
+    """Test consensus timeout."""
+    task_id = "test_task_003"
+    with pytest.raises(ConsensusTimeoutError):
+        await consensus_manager.get_consensus(task_id)
+
+@pytest.mark.asyncio
+async def test_vote_validation(consensus_manager):
+    """Test vote validation."""
+    task_id = "test_task_004"
+    consensus_task = asyncio.create_task(consensus_manager.get_consensus(task_id))
+    
+    # Wait a bit for the round to be created
+    await asyncio.sleep(0.1)
+    
+    # Get the round ID
+    round_id = list(consensus_manager.rounds.keys())[0]
+    
+    # Test invalid round ID
+    success = await consensus_manager.vote("invalid", "node_1", VoteType.Approve)
+    assert success is False
+    
+    # Test invalid vote type
+    success = await consensus_manager.vote(round_id, "node_1", "invalid_vote")
+    assert success is False
+
+@pytest.mark.asyncio
+async def test_cleanup(consensus_manager):
+    """Test cleanup functionality."""
+    # Create multiple consensus rounds
+    task_ids = ["task_001", "task_002", "task_003"]
+    consensus_tasks = []
+    
+    for task_id in task_ids:
+        consensus_tasks.append(asyncio.create_task(consensus_manager.get_consensus(task_id)))
+    
+    # Wait a bit for rounds to be created
+    await asyncio.sleep(0.1)
+    
+    # Verify rounds exist
+    assert len(consensus_manager.rounds) == len(task_ids)
+    
+    # Run cleanup
+    await consensus_manager.cleanup()
+    
+    # Verify rounds are cleaned up
+    assert len(consensus_manager.rounds) == 0
+
+@pytest.mark.asyncio
+async def test_mixed_votes(consensus_manager):
+    """Test mixed voting scenario."""
+    task_id = "test_task_005"
+    consensus_task = asyncio.create_task(consensus_manager.get_consensus(task_id))
+    
+    # Wait a bit for the round to be created
+    await asyncio.sleep(0.1)
+    
+    # Get the round ID
+    round_id = list(consensus_manager.rounds.keys())[0]
+    
+    # Cast mixed votes
+    await consensus_manager.vote(round_id, "node_1", VoteType.Approve)
+    await consensus_manager.vote(round_id, "node_2", VoteType.Reject)
+    await consensus_manager.vote(round_id, "node_3", VoteType.Abstain)
+    await consensus_manager.vote(round_id, "node_4", VoteType.Approve)
+    await consensus_manager.vote(round_id, "node_5", VoteType.Approve)
+    
+    # Get consensus result
+    consensus_round = await consensus_task
+    assert consensus_round.state == ConsensusState.Approved
+    assert len(consensus_round.votes) == 5
+
+@pytest.mark.asyncio
+async def test_consensus_deadlock(consensus_manager):
     """Test consensus deadlock handling."""
-    consensus_manager.start_consensus(valid_task, valid_agents)
+    task_id = "test_task_006"
+    consensus_task = asyncio.create_task(consensus_manager.get_consensus(task_id))
     
-    # Submit split votes
-    consensus_manager.submit_vote(valid_task, valid_agents[0], VoteType.APPROVE)
-    consensus_manager.submit_vote(valid_task, valid_agents[1], VoteType.REJECT)
+    # Wait a bit for the round to be created
+    await asyncio.sleep(0.1)
     
-    state = consensus_manager.get_consensus_state(valid_task)
-    assert state["state"] == ConsensusState.DEADLOCKED.value
-    assert state["resolution"] == "No majority achieved"
+    # Get the round ID
+    round_id = list(consensus_manager.rounds.keys())[0]
+    
+    # Cast mixed votes that don't reach consensus
+    await consensus_manager.vote(round_id, "node_1", VoteType.Approve)
+    await consensus_manager.vote(round_id, "node_2", VoteType.Reject)
+    await consensus_manager.vote(round_id, "node_3", VoteType.Abstain)
+    
+    # Wait for timeout
+    with pytest.raises(ConsensusTimeoutError):
+        await consensus_task
+        
+    # Verify the round is still in pending state
+    assert consensus_manager.rounds[round_id].state == ConsensusState.Pending
 
-def test_ineligible_voter(consensus_manager, valid_task, valid_agents):
+@pytest.mark.asyncio
+async def test_ineligible_voter(consensus_manager):
     """Test handling of ineligible voter."""
-    consensus_manager.start_consensus(valid_task, valid_agents)
+    task_id = "test_task_007"
+    consensus_task = asyncio.create_task(consensus_manager.get_consensus(task_id))
     
-    with pytest.raises(ValidationError):
-        consensus_manager.submit_vote(
-            valid_task,
-            "ineligible_agent",
-            VoteType.APPROVE
-        )
-
-def test_consensus_history(consensus_manager, valid_task, valid_agents):
-    """Test consensus history tracking."""
-    # First round
-    consensus_manager.start_consensus(valid_task, valid_agents)
-    consensus_manager.submit_vote(valid_task, valid_agents[0], VoteType.APPROVE)
-    consensus_manager.submit_vote(valid_task, valid_agents[1], VoteType.REJECT)
+    # Wait a bit for the round to be created
+    await asyncio.sleep(0.1)
     
-    # Second round
-    consensus_manager.start_consensus(valid_task, valid_agents)
-    consensus_manager.submit_vote(valid_task, valid_agents[0], VoteType.APPROVE)
-    consensus_manager.submit_vote(valid_task, valid_agents[1], VoteType.APPROVE)
+    # Get the round ID
+    round_id = list(consensus_manager.rounds.keys())[0]
     
-    history = consensus_manager.get_consensus_history(valid_task)
-    assert len(history) == 2
-    assert history[0]["state"] == ConsensusState.DEADLOCKED.value
-    assert history[1]["state"] == ConsensusState.APPROVED.value
-
-def test_abstain_votes(consensus_manager, valid_task, valid_agents):
-    """Test handling of abstain votes."""
-    consensus_manager.start_consensus(valid_task, valid_agents)
+    # Cast vote from ineligible node
+    success = await consensus_manager.vote(round_id, "invalid_node", VoteType.Approve)
+    assert success is True  # The vote should be accepted but won't count towards consensus
     
-    consensus_manager.submit_vote(valid_task, valid_agents[0], VoteType.ABSTAIN)
-    consensus_manager.submit_vote(valid_task, valid_agents[1], VoteType.APPROVE)
-    consensus_manager.submit_vote(valid_task, valid_agents[2], VoteType.APPROVE)
-    
-    state = consensus_manager.get_consensus_state(valid_task)
-    assert state["state"] == ConsensusState.APPROVED.value
+    # Cancel the task
+    consensus_task.cancel()
+    try:
+        await consensus_task
+    except asyncio.CancelledError:
+        pass
 
-def test_invalid_consensus_state_query(consensus_manager):
-    """Test querying invalid consensus state."""
-    with pytest.raises(ValueError):
-        consensus_manager.get_consensus_state("nonexistent_task")
+class TestConsensusManager:
+    """Test ConsensusManager class."""
 
-def test_invalid_consensus_history_query(consensus_manager):
-    """Test querying invalid consensus history."""
-    with pytest.raises(ValueError):
-        consensus_manager.get_consensus_history("nonexistent_task")
+    @pytest.fixture
+    def consensus_manager(self, consensus_config):
+        """Test consensus manager instance."""
+        return ConsensusManager(consensus_config)
 
-def test_consensus_manager_init():
-    """Test ConsensusManager initialization"""
-    manager = ConsensusManager()
-    assert manager is not None
+    @pytest.mark.asyncio
+    async def test_init(self, consensus_manager):
+        """Test initialization."""
+        assert consensus_manager.timeout == 5
+        assert consensus_manager.required_nodes == 3
+        assert isinstance(consensus_manager.rounds, dict)
 
-def test_consensus_manager_basic_flow():
-    """Test basic consensus flow"""
-    manager = ConsensusManager()
-    assert manager.get_status() == "PENDING" 
+    @pytest.mark.asyncio
+    async def test_start_vote(self, consensus_manager):
+        """Test starting a vote."""
+        task_id = "test_task_001"
+        consensus_task = asyncio.create_task(consensus_manager.get_consensus(task_id))
+        
+        # Wait a bit for the round to be created
+        await asyncio.sleep(0.1)
+        
+        # Get the round ID
+        round_id = list(consensus_manager.rounds.keys())[0]
+        
+        # Cast a vote
+        success = await consensus_manager.vote(round_id, "node_1", VoteType.Approve)
+        assert success is True
+        
+        # Cancel the task
+        consensus_task.cancel()
+        try:
+            await consensus_task
+        except asyncio.CancelledError:
+            pass
+
+    @pytest.mark.asyncio
+    async def test_cast_vote(self, consensus_manager):
+        """Test casting a vote."""
+        task_id = "test_task_002"
+        consensus_task = asyncio.create_task(consensus_manager.get_consensus(task_id))
+        
+        # Wait a bit for the round to be created
+        await asyncio.sleep(0.1)
+        
+        # Get the round ID
+        round_id = list(consensus_manager.rounds.keys())[0]
+        
+        # Cast votes
+        await consensus_manager.vote(round_id, "node_1", VoteType.Approve)
+        await consensus_manager.vote(round_id, "node_2", VoteType.Approve)
+        await consensus_manager.vote(round_id, "node_3", VoteType.Approve)
+        
+        # Get consensus result
+        consensus_round = await consensus_task
+        assert consensus_round.state == ConsensusState.Approved
+        assert len(consensus_round.votes) == 3
+
+    @pytest.mark.asyncio
+    async def test_get_results(self, consensus_manager):
+        """Test getting consensus results."""
+        task_id = "test_task_003"
+        consensus_task = asyncio.create_task(consensus_manager.get_consensus(task_id))
+        
+        # Wait a bit for the round to be created
+        await asyncio.sleep(0.1)
+        
+        # Get the round ID
+        round_id = list(consensus_manager.rounds.keys())[0]
+        
+        # Cast votes
+        await consensus_manager.vote(round_id, "node_1", VoteType.Reject)
+        await consensus_manager.vote(round_id, "node_2", VoteType.Reject)
+        await consensus_manager.vote(round_id, "node_3", VoteType.Reject)
+        
+        # Get consensus result
+        consensus_round = await consensus_task
+        assert consensus_round.state == ConsensusState.Rejected
+        assert len(consensus_round.votes) == 3 

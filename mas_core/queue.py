@@ -1,109 +1,56 @@
 """
-Event queue implementation for GitBridge.
+Queue interface for GitBridge MAS Lite implementation.
 
-This module provides the base event queue implementation using asyncio.Queue.
-It serves as the default queue implementation and as a fallback for Redis queue.
-
-MAS Lite Protocol v2.1 References:
-- Section 4.2: Event Queue Requirements
-- Section 4.3: Queue Operations
-- Section 4.4: Error Handling
+This module provides the base queue interface that all queue implementations
+must follow according to MAS Lite Protocol v2.1 requirements.
 """
 
-import asyncio
-import logging
-from typing import Optional, Dict, Any
+from abc import ABC, abstractmethod
+from typing import Dict, Any, Optional
 
-logger = logging.getLogger(__name__)
-
-class EventQueue:
-    """Asyncio-based event queue implementation."""
+class EventQueue(ABC):
+    """Abstract base class for event queues."""
     
-    def __init__(self, config: Dict[str, Any]):
-        """Initialize asyncio queue.
+    @abstractmethod
+    async def enqueue(self, event: Dict[str, Any]) -> bool:
+        """Enqueue an event.
         
         Args:
-            config: Configuration dictionary containing queue settings
-                   Required keys:
-                   - queue.max_size: Maximum queue size
-                   - queue.timeout: Operation timeout in seconds
-        """
-        self.queue = asyncio.Queue(maxsize=config["queue"]["max_size"])
-        self.timeout = config["queue"]["timeout"]
-        
-    async def enqueue(self, payload: Dict[str, Any]) -> bool:
-        """Enqueue webhook payload.
-        
-        Args:
-            payload: Dictionary containing webhook event data
+            event: Event to enqueue
             
         Returns:
-            bool: True if enqueue successful, False if queue full
+            bool: True if event enqueued successfully
         """
-        try:
-            await asyncio.wait_for(
-                self.queue.put(payload),
-                timeout=self.timeout
-            )
-            logger.debug("Successfully enqueued payload")
-            return True
-            
-        except asyncio.TimeoutError:
-            logger.warning("Queue full, rejecting payload")
-            return False
-            
-        except Exception as e:
-            logger.error(f"Queue enqueue error: {str(e)}")
-            return False
-            
+        pass
+        
+    @abstractmethod
     async def dequeue(self) -> Optional[Dict[str, Any]]:
-        """Dequeue webhook payload.
+        """Dequeue an event.
         
         Returns:
-            Optional[Dict[str, Any]]: Dequeued payload or None if timeout/error
+            Optional[Dict[str, Any]]: Event if available, None otherwise
         """
-        try:
-            payload = await asyncio.wait_for(
-                self.queue.get(),
-                timeout=self.timeout
-            )
-            self.queue.task_done()
-            return payload
-            
-        except asyncio.TimeoutError:
-            return None
-            
-        except Exception as e:
-            logger.error(f"Queue dequeue error: {str(e)}")
-            return None
-            
-    async def get_queue_depth(self) -> int:
-        """Get current queue depth.
+        pass
         
-        Returns:
-            int: Number of items in queue
-        """
-        return self.queue.qsize()
-        
-    async def check_health(self) -> Dict[str, Any]:
-        """Check queue health.
-        
-        Returns:
-            Dict[str, Any]: Health check results
-        """
-        try:
-            return {
-                "status": "healthy",
-                "queue_depth": self.queue.qsize(),
-                "processing": 0  # Asyncio queue doesn't track processing items
-            }
-        except Exception as e:
-            return {
-                "status": "unhealthy",
-                "error": str(e)
-            }
-            
+    @abstractmethod
     async def cleanup(self) -> None:
         """Clean up queue resources."""
-        # No cleanup needed for asyncio queue
+        pass
+        
+    @abstractmethod
+    def get_queue_size(self) -> int:
+        """Get current queue size.
+        
+        Returns:
+            int: Current queue size
+        """
+        pass
+        
+    @abstractmethod
+    def is_running(self) -> bool:
+        """Check if queue is running.
+        
+        Returns:
+            bool: True if queue is running
+        """
         pass 

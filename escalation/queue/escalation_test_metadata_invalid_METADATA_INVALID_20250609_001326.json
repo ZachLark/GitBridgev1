@@ -1,0 +1,29 @@
+{
+  "repo_id": "test_metadata_invalid",
+  "error_code": "METADATA_INVALID",
+  "severity": "high",
+  "task_context": {
+    "fallback_type": "GPT_ESCALATE",
+    "requires_human_review": true,
+    "estimated_resolution_time": "5-10 minutes",
+    "auto_retry_count": 1
+  },
+  "fallback_actions": [
+    "GPT_ESCALATE"
+  ],
+  "trigger_conditions": [
+    "metadata validation failed",
+    "corrupt metadata structure",
+    "schema validation errors",
+    "encoding issues in metadata"
+  ],
+  "recommended_action": "Escalate to GPT for metadata repair and validation",
+  "gpt_prompt_template": "\nTask: Repair and validate corrupted repository metadata.\n\nContext: Repository metadata validation failed for task: {task_id}\nError Details: {error_details}\nCurrent Metadata: {current_metadata}\n\nPlease analyze and repair the metadata issues:\n1. Fix schema validation errors\n2. Resolve encoding problems\n3. Ensure field completeness\n4. Validate against MAS Lite Protocol v2.1\n5. Provide corrected metadata structure\n\nInclude explanation of fixes applied.\n",
+  "timestamp": "2025-06-09T07:13:26.497945+00:00",
+  "escalation_id": "e7b98a135887",
+  "priority": "P2_HIGH",
+  "mas_protocol": {
+    "version": "v2.1",
+    "specification_hash": "00be2e065fed8b3c"
+  }
+}

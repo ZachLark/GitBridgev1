@@ -1,0 +1,82 @@
+{
+  "uid_chain": [
+    {
+      "node_id": "node_1",
+      "uid": "23532fd8576e6815",
+      "agent": "gpt4_turbo",
+      "timestamp": "2025-06-10T17:15:14.441939+00:00",
+      "confidence_score": 0.3609189611149517,
+      "fallback_flag": false,
+      "model_id": "gemini_pro",
+      "error_code": "TIMEOUT",
+      "escalation_reason": "user_request",
+      "processing_time_ms": 4096,
+      "parent_uid": null,
+      "children_uids": [
+        "31894326460689f0"
+      ]
+    },
+    {
+      "node_id": "node_2",
+      "uid": "31894326460689f0",
+      "agent": "gpt4_turbo",
+      "timestamp": "2025-06-10T17:15:14.442283+00:00",
+      "confidence_score": 0.39370683976603327,
+      "fallback_flag": false,
+      "model_id": "gpt4_turbo",
+      "error_code": "ESCALATION_TRIGGER",
+      "escalation_reason": null,
+      "processing_time_ms": 2344,
+      "parent_uid": "23532fd8576e6815",
+      "children_uids": [
+        "9b0d23972006a8c9"
+      ]
+    },
+    {
+      "node_id": "node_3",
+      "uid": "9b0d23972006a8c9",
+      "agent": "gemini_pro",
+      "timestamp": "2025-06-10T17:15:14.442300+00:00",
+      "confidence_score": 0.6144936674964809,
+      "fallback_flag": false,
+      "model_id": "gemini_pro",
+      "error_code": "TIMEOUT",
+      "escalation_reason": "user_request",
+      "processing_time_ms": 1980,
+      "parent_uid": "31894326460689f0",
+      "children_uids": [
+        "d462ca6cd527bad1"
+      ]
+    },
+    {
+      "node_id": "node_4",
+      "uid": "d462ca6cd527bad1",
+      "agent": "human_escalation",
+      "timestamp": "2025-06-10T17:15:14.442310+00:00",
+      "confidence_score": 0.31670353177925203,
+      "fallback_flag": false,
+      "model_id": "claude3_5_sonnet",
+      "error_code": null,
+      "escalation_reason": null,
+      "processing_time_ms": 4173,
+      "parent_uid": "9b0d23972006a8c9",
+      "children_uids": [
+        "214ed489f3bf1325"
+      ]
+    },
+    {
+      "node_id": "node_5",
+      "uid": "214ed489f3bf1325",
+      "agent": "gpt4_turbo",
+      "timestamp": "2025-06-10T17:15:14.442318+00:00",
+      "confidence_score": 0.47090769714661185,
+      "fallback_flag": false,
+      "model_id": "gpt4_turbo",
+      "error_code": "TIMEOUT",
+      "escalation_reason": "low_confidence",
+      "processing_time_ms": 578,
+      "parent_uid": "d462ca6cd527bad1",
+      "children_uids": []
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+usage: repo_test_cli [-h] (--fallback | --replay | --stress) [--count COUNT]
+                     [--fallback-types {timeout,model_failure,escalation,all} [{timeout,model_failure,escalation,all} ...]]
+                     [--input INPUT] [--threads THREADS] [--duration DURATION]
+                     [--output OUTPUT] [--log LOG] [--verbose] [--no-color]
+                     [--version]
+
+GitBridge SmartRepo CLI Test Harness - Fallback Simulation & Validation
+
+options:
+  -h, --help            show this help message and exit
+  --fallback            Simulate fallback scenarios (timeout, model failure,
+                        escalation)
+  --replay              Replay UID handoff chain from JSON input
+  --stress              Run parallel stress test with configurable load
+  --count COUNT         Number of fallback scenarios to simulate (default: 10)
+  --fallback-types {timeout,model_failure,escalation,all} [{timeout,model_failure,escalation,all} ...]
+                        Types of fallbacks to simulate (default: all)
+  --input INPUT         Input JSON file containing UID handoff chain
+  --threads THREADS     Number of parallel threads for stress test (default:
+                        50)
+  --duration DURATION   Duration of stress test in seconds (default: 30)
+  --output OUTPUT       Output JSON file for test results
+  --log LOG             Log file for detailed output
+  --verbose             Enable verbose output
+  --no-color            Disable colored output
+  --version             show program's version number and exit
+
+[1mExamples:[0m
+  [32m# Simulate fallback scenarios[0m
+  python repo_test_cli.py --fallback --count 5 --log fallback_test.log
+  
+  [32m# Replay UID handoff chain[0m
+  python repo_test_cli.py --replay --input uid_chain.json --output replay_report.json
+  
+  [32m# Run stress test with 100 parallel fallbacks[0m
+  python repo_test_cli.py --stress --threads 100 --duration 60 --log stress_test.log
+  
+  [32m# Verbose mode with detailed output[0m
+  python repo_test_cli.py --fallback --verbose --log detailed_test.log
+
+[1mTest Modes:[0m
+  --fallback    Simulate fallback scenarios (timeout, model failure, escalation)
+  --replay      Replay UID handoff chain from JSON input
+  --stress      Run parallel stress test with configurable load
+
+[1mOutput Options:[0m
+  --log FILE    Save detailed logs to file
+  --output FILE Save results to JSON file  
+  --verbose     Enable detailed console output
+
+[1mMAS Lite Protocol:[0m v2.1
+[1mVersion:[0m P18P8_v1.0
+            

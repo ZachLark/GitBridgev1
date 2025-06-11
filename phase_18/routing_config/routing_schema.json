@@ -1,0 +1,351 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AI Routing Configuration Schema",
+  "description": "JSON Schema for GitBridge MAS AI Model Routing Configuration",
+  "type": "object",
+  "required": ["routing_metadata", "global_settings", "routing_policies", "model_registry"],
+  "properties": {
+    "routing_metadata": {
+      "type": "object",
+      "required": ["config_version", "created_date", "last_updated", "schema_version"],
+      "properties": {
+        "config_version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+$"
+        },
+        "created_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "last_updated": {
+          "type": "string", 
+          "format": "date-time"
+        },
+        "schema_version": {
+          "type": "string",
+          "pattern": "^P18P7_v\\d+\\.\\d+$"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 10
+        },
+        "mas_lite_protocol": {
+          "type": "string",
+          "enum": ["v2.1", "v2.0", "v3.0"]
+        }
+      }
+    },
+    "global_settings": {
+      "type": "object",
+      "required": ["default_timeout_seconds", "max_fallback_depth", "enable_hot_reload"],
+      "properties": {
+        "default_timeout_seconds": {
+          "type": "integer",
+          "minimum": 30,
+          "maximum": 600
+        },
+        "max_fallback_depth": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "enable_hot_reload": {
+          "type": "boolean"
+        },
+        "log_all_routing_decisions": {
+          "type": "boolean"
+        },
+        "redis_channel": {
+          "type": "string",
+          "pattern": "^mas:[a-z_]+:[a-z_]+$"
+        }
+      }
+    },
+    "routing_policies": {
+      "type": "object",
+      "minProperties": 1,
+      "patternProperties": {
+        "^[a-z]+$": {
+          "type": "object",
+          "required": ["route_id", "description", "enabled", "primary_model", "fallback_chain", "escalation_flags"],
+          "properties": {
+            "route_id": {
+              "type": "string",
+              "pattern": "^[a-z_]+_policy_\\d{3}$"
+            },
+            "description": {
+              "type": "string",
+              "minLength": 10
+            },
+            "enabled": {
+              "type": "boolean"
+            },
+            "primary_model": {
+              "$ref": "#/definitions/model_config"
+            },
+            "fallback_chain": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 5,
+              "items": {
+                "$ref": "#/definitions/fallback_model_config"
+              }
+            },
+            "escalation_flags": {
+              "$ref": "#/definitions/escalation_config"
+            },
+            "task_specifics": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "model_registry": {
+      "type": "object",
+      "minProperties": 1,
+      "patternProperties": {
+        "^[a-z0-9_]+$": {
+          "type": "object",
+          "required": ["provider", "model_name", "api_endpoint", "cost_per_1k_tokens"],
+          "properties": {
+            "provider": {
+              "type": "string",
+              "enum": ["openai", "anthropic", "google", "gitbridge_team"]
+            },
+            "model_name": {
+              "type": "string",
+              "minLength": 3
+            },
+            "api_endpoint": {
+              "type": "string",
+              "format": "uri"
+            },
+            "cost_per_1k_tokens": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1.0
+            },
+            "avg_response_time_ms": {
+              "type": "integer",
+              "minimum": 100,
+              "maximum": 30000
+            },
+            "reliability_score": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 1.0
+            },
+            "specialties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "routing_rules": {
+      "type": "object",
+      "properties": {
+        "load_balancing": {
+          "type": "object",
+          "properties": {
+            "strategy": {
+              "type": "string",
+              "enum": ["round_robin", "weighted_round_robin", "least_connections", "random"]
+            },
+            "weights": {
+              "type": "object",
+              "patternProperties": {
+                "^[a-z0-9_]+$": {
+                  "type": "number",
+                  "minimum": 0.0,
+                  "maximum": 1.0
+                }
+              }
+            },
+            "health_check_interval_seconds": {
+              "type": "integer",
+              "minimum": 10,
+              "maximum": 300
+            }
+          }
+        },
+        "cost_optimization": {
+          "type": "object",
+          "properties": {
+            "enable_cost_routing": {
+              "type": "boolean"
+            },
+            "max_cost_per_request": {
+              "type": "number",
+              "minimum": 0.01,
+              "maximum": 10.0
+            }
+          }
+        },
+        "performance_optimization": {
+          "type": "object",
+          "properties": {
+            "enable_speed_routing": {
+              "type": "boolean"
+            },
+            "max_acceptable_latency_ms": {
+              "type": "integer",
+              "minimum": 1000,
+              "maximum": 30000
+            }
+          }
+        }
+      }
+    },
+    "monitoring": {
+      "type": "object",
+      "properties": {
+        "metrics_collection": {
+          "type": "object",
+          "properties": {
+            "enable_metrics": {
+              "type": "boolean"
+            },
+            "collection_interval_seconds": {
+              "type": "integer",
+              "minimum": 30,
+              "maximum": 3600
+            }
+          }
+        },
+        "alerting": {
+          "type": "object",
+          "properties": {
+            "enable_alerts": {
+              "type": "boolean"
+            },
+            "alert_thresholds": {
+              "type": "object",
+              "properties": {
+                "failure_rate_percent": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 100
+                },
+                "avg_latency_ms": {
+                  "type": "integer",
+                  "minimum": 1000
+                },
+                "cost_per_hour_usd": {
+                  "type": "number",
+                  "minimum": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "model_config": {
+      "type": "object",
+      "required": ["model_id", "provider", "timeout_seconds", "confidence_threshold"],
+      "properties": {
+        "model_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "provider": {
+          "type": "string",
+          "enum": ["openai", "anthropic", "google", "gitbridge_team"]
+        },
+        "timeout_seconds": {
+          "type": "integer",
+          "minimum": 30,
+          "maximum": 600
+        },
+        "confidence_threshold": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "max_tokens": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 32000
+        },
+        "temperature": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 2.0
+        }
+      }
+    },
+    "fallback_model_config": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/model_config"
+        },
+        {
+          "type": "object",
+          "required": ["trigger_conditions"],
+          "properties": {
+            "trigger_conditions": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "enum": ["timeout", "low_confidence", "api_error", "rate_limit", "conflict_complexity"]
+              }
+            },
+            "human_required": {
+              "type": "boolean"
+            },
+            "priority": {
+              "type": "string",
+              "enum": ["low", "medium", "high", "critical"]
+            }
+          }
+        }
+      ]
+    },
+    "escalation_config": {
+      "type": "object",
+      "required": ["enable_human_escalation", "escalation_threshold"],
+      "properties": {
+        "enable_human_escalation": {
+          "type": "boolean"
+        },
+        "escalation_threshold": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "escalation_timeout_seconds": {
+          "type": "integer",
+          "minimum": 60,
+          "maximum": 3600
+        },
+        "escalation_contact": {
+          "type": "string",
+          "format": "email"
+        },
+        "max_auto_retries": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "require_human_for_security": {
+          "type": "boolean"
+        },
+        "immediate_human_escalation_triggers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+} 

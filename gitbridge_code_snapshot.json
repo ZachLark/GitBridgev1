@@ -1,0 +1,3023 @@
+{
+  "files": [
+    {
+      "file_path": "/Users/zach/GitBridgev1/requirements.txt",
+      "sha256": "1674307c547ccabc7840faeaa02e1a90978f972a292829e3bbc001471fd6e5a2",
+      "top_comments": [
+        "Core dependencies",
+        "Security"
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/app_webhook.py",
+      "sha256": "e3550eb07f07a89c2af69dd37b5ac2644048f8a6aafd7bd8e2796060a969e700",
+      "top_comments": [
+        "GitBridge Webhook Server.",
+        "",
+        "This is the main entry point for the GitHub webhook server.",
+        "It initializes the Flask application and starts the server."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/test.py",
+      "sha256": "76c36bdf2d0745ae57d12d90722ebc69dda263dd753008c28b9a41092c609cc2",
+      "top_comments": []
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/README.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GitBridgev1"
+          },
+          {
+            "level": 2,
+            "text": "Features"
+          },
+          {
+            "level": 2,
+            "text": "Directory Structure"
+          },
+          {
+            "level": 2,
+            "text": "Requirements"
+          },
+          {
+            "level": 2,
+            "text": "Quick Start"
+          },
+          {
+            "level": 2,
+            "text": "Testing"
+          },
+          {
+            "level": 2,
+            "text": "License"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "sha256": "2e7a7bde14382493ba462932111d81252431d436f96783f9271c7bb928f5f9e4",
+      "top_comments": [
+        "GitBridgev1",
+        "# Features"
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/debug_collaborate_payload.py",
+      "functions": [
+        "debug_payload"
+      ],
+      "sha256": "85bd26fa6dabdd678f50e502eaefa04314ccc2f1d84d46e6c56d960e0dbee7c9",
+      "top_comments": [
+        "Debug the payload sent to /collaborate and suggest fixes."
+      ]
+    },
+    {
+      "classes": [
+        "ConsensusStatusError",
+        "TaskNotFoundError",
+        "InvalidStatusError"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/update_consensus_status_v1.py",
+      "sha256": "c9eb2c4f305d4a33ef26efef648fd7a37d66d96a4f43bd3f1c5dfdf9a6144e38",
+      "top_comments": [
+        "Update Consensus Status Script for GitBridge Project.",
+        "",
+        "This script allows updating the consensus status of tasks in the MAS Lite system,",
+        "maintaining an audit trail of status changes in the status_history array.",
+        ""
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/app.py",
+      "functions": [
+        "index"
+      ],
+      "sha256": "e6a475d7f0d0c98d8e5d0307fc6a99a462ba12130b85e9524717805d9dc7c747",
+      "top_comments": [
+        "GitBridgev1 - Main Application Entry Point.",
+        "",
+        "This module serves as the main entry point for the GitBridge application,",
+        "implementing the MAS Lite Protocol v2.1 for agent collaboration and task management."
+      ]
+    },
+    {
+      "classes": [
+        "ConsensusStatusError",
+        "TaskNotFoundError",
+        "InvalidStatusError"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/update_consensus_status.py",
+      "sha256": "c9eb2c4f305d4a33ef26efef648fd7a37d66d96a4f43bd3f1c5dfdf9a6144e38",
+      "top_comments": [
+        "Update Consensus Status Script for GitBridge Project.",
+        "",
+        "This script allows updating the consensus status of tasks in the MAS Lite system,",
+        "maintaining an audit trail of status changes in the status_history array.",
+        ""
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/benchmark_task_chain.py",
+      "functions": [
+        "benchmark_task_generation",
+        "generate_tasks",
+        "benchmark_concurrent_writes"
+      ],
+      "sha256": "36703cf018704a18b465aeaf4ce049633c9081171c22b34dd7a43444772210f3",
+      "top_comments": [
+        "Benchmark script for task chain generator."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/requirements-webhook.txt",
+      "sha256": "6e64cf68a6a1a3d04d9a8face5229676daaa18066b5787987b1e68679dbd4f5b",
+      "top_comments": [
+        "Core dependencies",
+        "Testing and development"
+      ]
+    },
+    {
+      "classes": [
+        "RedisConfig",
+        "RateLimiterConfig",
+        "SecurityConfig",
+        "EventProcessorConfig",
+        "PerformanceMonitorConfig",
+        "CollaborationConfig",
+        "DeveloperToolsConfig",
+        "MASIntegrationConfig",
+        "SystemConfig",
+        "WebhookConfig"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/config/validate_config.py",
+      "functions": [
+        "main"
+      ],
+      "sha256": "1fce6542e21ae6956f40becaa101fd6cea1f198f767be2ec949a978d5a27ecc4",
+      "top_comments": [
+        "Configuration validator for GitBridge webhook system.",
+        "Validates the webhook_config.yaml file for correctness and completeness."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/tests/__init__.py",
+      "is_test_file": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "top_comments": []
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/tests/unit/test_filter_pending_invites.py",
+      "functions": [
+        "temp_jsonl_file",
+        "empty_jsonl_file",
+        "invalid_jsonl_file",
+        "test_filter_pending_invites_valid_file",
+        "test_filter_pending_invites_empty_file",
+        "test_filter_pending_invites_invalid_file",
+        "test_filter_pending_invites_nonexistent_file",
+        "test_filter_pending_invites_missing_status",
+        "test_filter_pending_invites_unicode"
+      ],
+      "is_test_file": true,
+      "sha256": "fb3b1cc93fec725b93239cdf254c300a1c2a81f81e22799810ba1615a0d87698",
+      "top_comments": [
+        "Unit tests for the filter_pending_invites function.",
+        "",
+        "This module contains pytest test cases for testing the filter_pending_invites",
+        "function from the mas_core.utils.json_processor module."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/tests/unit/test_validate_and_write_invites.py",
+      "functions": [
+        "test_full_invite_workflow",
+        "test_workflow_with_empty_input",
+        "test_workflow_with_nested_output_path",
+        "test_workflow_preserves_utf8",
+        "test_workflow_error_handling"
+      ],
+      "is_test_file": true,
+      "sha256": "32af31ec4f87a02342c74b3c7e4895cd7a36dd121cf899b6ae969a25851253d1",
+      "top_comments": [
+        "Integration tests for the invite processing workflow.",
+        "",
+        "This module tests the complete workflow of validating JSON files,",
+        "filtering for pending invites, and writing them to a new file.",
+        "Tests the integration between validate_json_file, filter_pending_invites,"
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/tests/unit/__init__.py",
+      "is_test_file": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "top_comments": []
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/tests/unit/test_webhook_trigger_pipeline.py",
+      "functions": [
+        "test_successful_webhook_trigger",
+        "test_webhook_retry_on_failure",
+        "test_webhook_with_timeout",
+        "test_webhook_with_invalid_url",
+        "test_webhook_with_empty_payload",
+        "test_full_webhook_pipeline",
+        "test_webhook_response_validation",
+        "test_webhook_security_headers"
+      ],
+      "is_test_file": true,
+      "sha256": "b148862166ec53b3d85add8c71698d7138fdb4a93f42b60529b9584b6d6da661",
+      "top_comments": [
+        "Integration tests for the webhook trigger pipeline.",
+        "",
+        "This module tests the complete workflow of processing and triggering webhooks",
+        "for pending invite notifications. Tests the integration between JSON processing",
+        "and webhook triggering functions."
+      ]
+    },
+    {
+      "classes": [
+        "MockCapability"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/tests/unit/agent/conftest.py",
+      "functions": [
+        "event_loop"
+      ],
+      "is_test_file": true,
+      "sha256": "d10f958ef8dc742918b991afe4fd2ae40dfd421c011273f6cf17e07a05d916f5",
+      "top_comments": [
+        "Shared test fixtures for Agent framework unit tests."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/tests/unit/integrations/test_webhook_listener.py",
+      "functions": [
+        "client",
+        "sample_push_event",
+        "sample_pr_event",
+        "test_webhook_without_signature",
+        "test_webhook_with_invalid_signature",
+        "test_webhook_with_invalid_json",
+        "test_push_event_handling",
+        "test_pr_event_handling",
+        "test_unsupported_event_type",
+        "test_event_handler_error",
+        "test_missing_event_type"
+      ],
+      "is_test_file": true,
+      "sha256": "94dad97adb5f7885c6f9077003e7656c4f0a8bd1c00bee8ea01da65e17ed7762",
+      "top_comments": [
+        "Unit tests for GitHub webhook listener."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/tests/unit/integrations/test_signature_validator.py",
+      "functions": [
+        "webhook_secret",
+        "validator",
+        "sample_payload",
+        "test_validator_initialization_with_secret",
+        "test_validator_initialization_without_secret",
+        "test_valid_signature",
+        "test_invalid_signature",
+        "test_missing_signature",
+        "test_invalid_signature_format",
+        "test_missing_webhook_secret",
+        "test_empty_payload",
+        "test_tampered_payload"
+      ],
+      "is_test_file": true,
+      "sha256": "09e0d5d809ed8e5572bab2163669774e330376369450543f4ceef9f0413b59da",
+      "top_comments": [
+        "Unit tests for GitHub webhook signature validator."
+      ]
+    },
+    {
+      "classes": [
+        "TestEventQueue"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/tests/unit/scripts/test_event_queue.py",
+      "is_test_file": true,
+      "sha256": "3d2f14461290e4f17976f07c56e4cb2f0971d932b4917e301b1260ef54daeb8a",
+      "top_comments": [
+        "Test basic initialization."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/tests/unit/mas_core/conftest.py",
+      "is_test_file": true,
+      "sha256": "fcb6557296353fc3291c9b3342b15b8e4a65cf5937b1c02a7350dedc5a20d97a",
+      "top_comments": [
+        "Shared test fixtures for MAS core unit tests."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/tests/unit/mas_core/test_validation.py",
+      "functions": [
+        "test_validate_task_id",
+        "test_validate_timestamp",
+        "test_validate_task",
+        "test_validate_agent_assignment",
+        "test_validate_consensus_vote",
+        "test_generate_task_id"
+      ],
+      "is_test_file": true,
+      "sha256": "e90e293db91508311c70ddb4a250553cd1d8e42ec0ea41b9c7fede0eb59b04a9",
+      "top_comments": [
+        "Unit tests for MAS validation utilities."
+      ]
+    },
+    {
+      "classes": [
+        "TestConsensusManager"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/tests/unit/mas_core/test_consensus.py",
+      "functions": [
+        "consensus_manager",
+        "valid_task",
+        "valid_agents",
+        "test_start_consensus",
+        "test_invalid_task_id",
+        "test_submit_vote",
+        "test_consensus_resolution_approve",
+        "test_consensus_resolution_reject",
+        "test_consensus_deadlock",
+        "test_ineligible_voter",
+        "test_consensus_history",
+        "test_abstain_votes",
+        "test_invalid_consensus_state_query",
+        "test_invalid_consensus_history_query",
+        "test_consensus_manager_init",
+        "test_consensus_manager_basic_flow"
+      ],
+      "is_test_file": true,
+      "sha256": "20b18b68a68c7d6ddd0a669c7ead4f948d3b0c1cfd8a9b1dbcac2190e52687ee",
+      "top_comments": [
+        "Unit tests for MAS consensus module."
+      ]
+    },
+    {
+      "classes": [
+        "TestMetricsCollector"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/tests/unit/mas_core/test_metrics.py",
+      "functions": [
+        "metrics_collector",
+        "test_task_timing_decorator",
+        "test_consensus_timing_decorator",
+        "test_task_failure_handling",
+        "test_consensus_failure_handling",
+        "test_system_metrics_update",
+        "test_metrics_summary",
+        "test_multiple_task_statistics",
+        "test_metrics_logging"
+      ],
+      "is_test_file": true,
+      "sha256": "e2348f3899dd3222083db4d6fed8a4ed2b40126a5ca176a75b48e2fb37c5c29c",
+      "top_comments": [
+        "Unit tests for MAS metrics module."
+      ]
+    },
+    {
+      "classes": [
+        "TestTaskChain"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/tests/unit/mas_core/test_task_chain.py",
+      "functions": [
+        "config",
+        "consensus_manager",
+        "mas_logger"
+      ],
+      "is_test_file": true,
+      "sha256": "457190e501e306d72e8076a8a505086033fcf579ce3273ec084b089207f2a64a",
+      "top_comments": [
+        "Unit tests for TaskChain implementation.",
+        "Tests task lifecycle management and state transitions."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/tests/unit/mas_core/test_event_queue.py",
+      "functions": [
+        "config",
+        "sample_payload"
+      ],
+      "is_test_file": true,
+      "sha256": "9f9fb1bbe1744f46e1f67cf169935f60d6f5c673dc5d119f4a5fd1bda1576465",
+      "top_comments": [
+        "Unit tests for EventQueue implementation.",
+        "Tests webhook payload processing and retry logic."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/tests/unit/mas_core/test_redis_queue.py",
+      "functions": [
+        "test_event",
+        "config",
+        "mock_redis"
+      ],
+      "is_test_file": true,
+      "sha256": "b06271b58a0fb9d95444c4f919c400263c1a168f0cdcbd42fd4c6515ac7318ef",
+      "top_comments": [
+        "Unit tests for Redis queue implementation.",
+        "",
+        "Tests Redis-backed event queue functionality, including enqueue/dequeue operations,",
+        "health checks, and automatic failover capabilities.",
+        ""
+      ]
+    },
+    {
+      "classes": [
+        "TestErrorHandler"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/tests/unit/mas_core/test_error_handler.py",
+      "functions": [
+        "error_handler",
+        "sample_error",
+        "test_error_handler_initialization",
+        "test_handle_validation_error",
+        "test_handle_task_error",
+        "test_handle_agent_error",
+        "test_handle_system_error",
+        "test_error_summary",
+        "test_recovery_failure_handling",
+        "test_error_handler_init",
+        "test_error_handler_basic_flow"
+      ],
+      "is_test_file": true,
+      "sha256": "fcf61bce2badc30f20105138d8f7b41cc2a23353a6e8f335b2de2bbefe446819",
+      "top_comments": [
+        "Unit tests for MAS error handler."
+      ]
+    },
+    {
+      "classes": [
+        "TestWebhookFlow"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/tests/integration/test_webhook_flow.py",
+      "is_test_file": true,
+      "sha256": "408736ea4f862336fc44b5cb629fea84007b33ca713cc7522a2ea0a45dbd1aca",
+      "top_comments": [
+        "Integration tests for GitBridge webhook system.",
+        "Tests end-to-end flows from webhook receipt to MAS task creation."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/tests/integration/test_event_queue_task_chain.py",
+      "is_test_file": true,
+      "sha256": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068",
+      "top_comments": []
+    },
+    {
+      "classes": [
+        "TestRedisQueueIntegration"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/tests/integration/test_redis_queue_integration.py",
+      "is_test_file": true,
+      "sha256": "1eb089882265feec84fd3c4fca929c1b8c80c67897448217d9216107ceee4508",
+      "top_comments": [
+        "Integration tests for Redis queue implementation.",
+        "",
+        "Tests Redis queue functionality in a real environment with Redis server,",
+        "including rollback scenarios, fault handling, and concurrent operations.",
+        ""
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/tests/integration/__init__.py",
+      "is_test_file": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "top_comments": []
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/tests/integration/test_ui_routing.py",
+      "functions": [
+        "ai_router"
+      ],
+      "is_test_file": true,
+      "sha256": "dabbb56e4a748466e4e4d456cfff418534add53e1b1c53ec7ca11ca0f26013a9",
+      "top_comments": [
+        "Integration tests for UI and routing functionality.",
+        "Tests the interaction between UI components and the routing system.",
+        "",
+        "MAS Lite Protocol v2.1 References:",
+        "- Section 5.1: Agent Routing"
+      ]
+    },
+    {
+      "classes": [
+        "DataProcessor"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/tests/scripts/test_audit_snapshot.py",
+      "functions": [
+        "phase_transition_file",
+        "gbp13_process_queue",
+        "gbp14_add_metrics",
+        "malformed_phase_file",
+        "process_data",
+        "unlinked_test_file",
+        "test_generic_function",
+        "sample_python_file",
+        "process_metrics",
+        "sample_test_file",
+        "test_processor",
+        "test_phase_detection",
+        "test_function_definitions",
+        "test_test_file_detection",
+        "test_file_hashing",
+        "test_snapshot_generation",
+        "test_unicode_handling",
+        "test_error_handling",
+        "test_phase_transitions",
+        "test_malformed_phase_detection",
+        "test_unlinked_test_detection",
+        "test_large_file_handling"
+      ],
+      "is_test_file": true,
+      "phases_detected": [
+        11,
+        13,
+        14,
+        15
+      ],
+      "sha256": "b539e08c441f83168a9bc23c5c86242a8e338aa0f729f05d19e7233a2254144a",
+      "top_comments": [
+        "Unit tests for the GitBridge code snapshot generator.",
+        "",
+        "This module tests the functionality of the gitbridge_audit_snapshot.py script,",
+        "including phase detection, function extraction, and file hashing."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/tests/performance/__init__.py",
+      "is_test_file": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "top_comments": []
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/agent/gbp19_queue_handler.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "top_comments": []
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/agent/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "top_comments": []
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/agent/framework/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "top_comments": []
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/HASH_INDEX.txt",
+      "sha256": "7e2a8536239d363c19b6d074c9d89045499be373afded230bd5b71c5e7b18cba",
+      "top_comments": [
+        "GitBridge Hash Index",
+        "Last updated: June 2, 2025",
+        "File hashes are SHA-256 and represent the exact state of each file",
+        "at the time of the last verified commit. These hashes are used for",
+        "integrity verification and dependency tracking."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/COMPONENTS.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GitBridge Webhook System Components"
+          },
+          {
+            "level": 2,
+            "text": "Overview"
+          },
+          {
+            "level": 2,
+            "text": "Core Components"
+          },
+          {
+            "level": 3,
+            "text": "1. Rate Limiter (`rate_limiter.py`)"
+          },
+          {
+            "level": 3,
+            "text": "2. Security Manager (`security_manager.py`)"
+          },
+          {
+            "level": 3,
+            "text": "3. Event Processor (`event_processor.py`)"
+          },
+          {
+            "level": 3,
+            "text": "4. Performance Monitor (`performance_monitor.py`)"
+          },
+          {
+            "level": 3,
+            "text": "5. Developer Tools (`dev_tools.py`)"
+          },
+          {
+            "level": 3,
+            "text": "6. Collaboration Features (`collaboration.py`)"
+          },
+          {
+            "level": 2,
+            "text": "Integration Points"
+          },
+          {
+            "level": 3,
+            "text": "MAS Integration"
+          },
+          {
+            "level": 2,
+            "text": "Configuration"
+          },
+          {
+            "level": 2,
+            "text": "Error Handling"
+          },
+          {
+            "level": 2,
+            "text": "Monitoring"
+          },
+          {
+            "level": 2,
+            "text": "Development Guidelines"
+          },
+          {
+            "level": 2,
+            "text": "Testing"
+          },
+          {
+            "level": 2,
+            "text": "Future Extensions"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "sha256": "ca8ebe57af34b725e5dca613102781e914f5d0a87dfbb8c56abacaadc8d4a0ab",
+      "top_comments": [
+        "GitBridge Webhook System Components",
+        "# Overview",
+        "# Core Components",
+        "## 1. Rate Limiter (`rate_limiter.py`)"
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/pull_request_template.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GBP12: Queue Task Chain and GitHub Actions"
+          },
+          {
+            "level": 2,
+            "text": "Changes"
+          },
+          {
+            "level": 2,
+            "text": "Performance"
+          },
+          {
+            "level": 2,
+            "text": "Testing"
+          },
+          {
+            "level": 2,
+            "text": "Documentation"
+          },
+          {
+            "level": 2,
+            "text": "Required Token Scopes"
+          },
+          {
+            "level": 2,
+            "text": "Checklist"
+          },
+          {
+            "level": 2,
+            "text": "Notes"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "phases_detected": [
+        12
+      ],
+      "sha256": "ba5fda199a6645040049a21b4dd4bb56030f8443f7012e5765061251343f131c",
+      "top_comments": [
+        "GBP12: Queue Task Chain and GitHub Actions",
+        "# Changes",
+        "# Performance"
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/checksum.txt",
+      "sha256": "d34782873740f216cdbe11e1395d5b71848a45841eea89c5623c769529cad448",
+      "top_comments": []
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/internal/gbp1_15_maslite_compliance_report.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GBP1-15 MAS Lite Protocol v2.1 Compliance Report"
+          },
+          {
+            "level": 2,
+            "text": "Overview"
+          },
+          {
+            "level": 2,
+            "text": "Protocol Compliance Matrix"
+          },
+          {
+            "level": 3,
+            "text": "Core Components"
+          },
+          {
+            "level": 3,
+            "text": "Protocol Features Implementation"
+          },
+          {
+            "level": 4,
+            "text": "1. Authentication (Section 3.1)"
+          },
+          {
+            "level": 4,
+            "text": "2. Error Handling (Section 3.2)"
+          },
+          {
+            "level": 4,
+            "text": "3. Logging (Section 3.3)"
+          },
+          {
+            "level": 4,
+            "text": "4. UI Accessibility (Section 3.4)"
+          },
+          {
+            "level": 4,
+            "text": "5. Task Delegation (Section 3.5)"
+          },
+          {
+            "level": 2,
+            "text": "Configuration Compliance"
+          },
+          {
+            "level": 3,
+            "text": "webhook_config.yaml"
+          },
+          {
+            "level": 3,
+            "text": "requirements-webhook.txt"
+          },
+          {
+            "level": 2,
+            "text": "Testing Compliance"
+          },
+          {
+            "level": 3,
+            "text": "Integration Tests"
+          },
+          {
+            "level": 3,
+            "text": "Coverage Analysis"
+          },
+          {
+            "level": 2,
+            "text": "Documentation Compliance"
+          },
+          {
+            "level": 3,
+            "text": "Architecture Documentation"
+          },
+          {
+            "level": 3,
+            "text": "API Documentation"
+          },
+          {
+            "level": 2,
+            "text": "Performance Compliance"
+          },
+          {
+            "level": 3,
+            "text": "Latency Requirements"
+          },
+          {
+            "level": 3,
+            "text": "Resource Usage"
+          },
+          {
+            "level": 2,
+            "text": "Security Compliance"
+          },
+          {
+            "level": 3,
+            "text": "Encryption"
+          },
+          {
+            "level": 3,
+            "text": "Rate Limiting"
+          },
+          {
+            "level": 2,
+            "text": "Resolved Compliance Gaps"
+          },
+          {
+            "level": 3,
+            "text": "Previously Identified Issues"
+          },
+          {
+            "level": 2,
+            "text": "Pending Tasks (Non-Figma)"
+          },
+          {
+            "level": 3,
+            "text": "Documentation"
+          },
+          {
+            "level": 2,
+            "text": "Recommendations"
+          },
+          {
+            "level": 3,
+            "text": "Short-term (GBP16-22)"
+          },
+          {
+            "level": 3,
+            "text": "Long-term (GBP23-30)"
+          },
+          {
+            "level": 2,
+            "text": "Conclusion"
+          },
+          {
+            "level": 2,
+            "text": "Appendix A: Compliance Test Results"
+          },
+          {
+            "level": 2,
+            "text": "Appendix B: Protocol Version Matrix"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "phases_detected": [
+        1
+      ],
+      "sha256": "b36ca62a475d045200ecb7307e03137f0d586603f917239ab488cff2944bae0e",
+      "top_comments": [
+        "GBP1-15 MAS Lite Protocol v2.1 Compliance Report",
+        "# Overview",
+        "# Protocol Compliance Matrix",
+        "## Core Components"
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/internal/flask_ui_access.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "Flask UI Access Instructions"
+          },
+          {
+            "level": 2,
+            "text": "Overview"
+          },
+          {
+            "level": 2,
+            "text": "Local Deployment"
+          },
+          {
+            "level": 3,
+            "text": "Prerequisites"
+          },
+          {
+            "level": 3,
+            "text": "Setup Steps"
+          },
+          {
+            "level": 2,
+            "text": "UI Features"
+          },
+          {
+            "level": 3,
+            "text": "1. Task Management"
+          },
+          {
+            "level": 3,
+            "text": "2. Agent Management"
+          },
+          {
+            "level": 3,
+            "text": "3. Vote Sequence"
+          },
+          {
+            "level": 3,
+            "text": "4. Metrics Dashboard"
+          },
+          {
+            "level": 3,
+            "text": "5. CLI Integration"
+          },
+          {
+            "level": 2,
+            "text": "API Documentation"
+          },
+          {
+            "level": 3,
+            "text": "Task API"
+          },
+          {
+            "level": 3,
+            "text": "Agent API"
+          },
+          {
+            "level": 3,
+            "text": "Metrics API"
+          },
+          {
+            "level": 2,
+            "text": "Authentication"
+          },
+          {
+            "level": 3,
+            "text": "Token-based Authentication"
+          },
+          {
+            "level": 3,
+            "text": "Session Management"
+          },
+          {
+            "level": 2,
+            "text": "Troubleshooting"
+          },
+          {
+            "level": 3,
+            "text": "Common Issues"
+          },
+          {
+            "level": 1,
+            "text": "# Check Redis status"
+          },
+          {
+            "level": 1,
+            "text": "# Check Flask server"
+          },
+          {
+            "level": 1,
+            "text": "# Reset admin password"
+          },
+          {
+            "level": 1,
+            "text": "# Clear metrics cache"
+          },
+          {
+            "level": 2,
+            "text": "Security Notes"
+          },
+          {
+            "level": 2,
+            "text": "Support"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "sha256": "612223c94e7437ca04d23e0bdb71057ed2ccbe9a669fa4528dfc1fb1809d198f",
+      "top_comments": [
+        "Flask UI Access Instructions",
+        "# Overview",
+        "# Local Deployment",
+        "## Prerequisites"
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/internal/gbp14_15_validation_report.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GBP14-15 Validation Report"
+          },
+          {
+            "level": 2,
+            "text": "Overview"
+          },
+          {
+            "level": 2,
+            "text": "Component Validation"
+          },
+          {
+            "level": 3,
+            "text": "GBP14: Task Generator"
+          },
+          {
+            "level": 4,
+            "text": "Implementation Status"
+          },
+          {
+            "level": 4,
+            "text": "Performance Metrics"
+          },
+          {
+            "level": 4,
+            "text": "Test Coverage"
+          },
+          {
+            "level": 3,
+            "text": "GBP15: AI Router"
+          },
+          {
+            "level": 4,
+            "text": "Implementation Status"
+          },
+          {
+            "level": 4,
+            "text": "Performance Metrics"
+          },
+          {
+            "level": 4,
+            "text": "Test Coverage"
+          },
+          {
+            "level": 2,
+            "text": "Logging Validation"
+          },
+          {
+            "level": 3,
+            "text": "Task Generator Logs"
+          },
+          {
+            "level": 3,
+            "text": "AI Router Logs"
+          },
+          {
+            "level": 2,
+            "text": "Error Handling Validation"
+          },
+          {
+            "level": 2,
+            "text": "MAS Lite Protocol v2.1 Compliance"
+          },
+          {
+            "level": 2,
+            "text": "Resource Optimization"
+          },
+          {
+            "level": 2,
+            "text": "Production Readiness Checklist"
+          },
+          {
+            "level": 2,
+            "text": "Recommendations"
+          },
+          {
+            "level": 2,
+            "text": "Conclusion"
+          },
+          {
+            "level": 2,
+            "text": "Appendix A: Test Coverage Details"
+          },
+          {
+            "level": 2,
+            "text": "Appendix B: Performance Test Results"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "phases_detected": [
+        14,
+        15
+      ],
+      "sha256": "8158d6aa1b5b81722b70dd701288d05c517c1a4971072fe4a7bceb0b2569cf1f",
+      "top_comments": [
+        "GBP14-15 Validation Report",
+        "# Overview",
+        "# Component Validation",
+        "## GBP14: Task Generator",
+        "### Implementation Status"
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/architecture/gbp14_ui_plan.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GBP14 UI Plan"
+          },
+          {
+            "level": 2,
+            "text": "Overview"
+          },
+          {
+            "level": 2,
+            "text": "Components"
+          },
+          {
+            "level": 3,
+            "text": "1. Redis Queue Dashboard"
+          },
+          {
+            "level": 3,
+            "text": "2. Authentication System"
+          },
+          {
+            "level": 3,
+            "text": "3. UI Components"
+          },
+          {
+            "level": 3,
+            "text": "4. Integration Points"
+          },
+          {
+            "level": 2,
+            "text": "Implementation Plan"
+          },
+          {
+            "level": 2,
+            "text": "Testing Strategy"
+          },
+          {
+            "level": 2,
+            "text": "Security Considerations"
+          },
+          {
+            "level": 2,
+            "text": "Dependencies"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "phases_detected": [
+        14
+      ],
+      "sha256": "33790c4ee3f7434c2199b9106e8ec5426fb166564afc31e269fc0145fa7bbd4b",
+      "top_comments": [
+        "GBP14 UI Plan",
+        "# Overview",
+        "# Components",
+        "## 1. Redis Queue Dashboard"
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/architecture/webhook_system.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GitBridge Webhook System"
+          },
+          {
+            "level": 2,
+            "text": "Overview"
+          },
+          {
+            "level": 2,
+            "text": "Authentication"
+          },
+          {
+            "level": 3,
+            "text": "GITBRIDGE_TOKEN"
+          },
+          {
+            "level": 2,
+            "text": "Event Flow"
+          },
+          {
+            "level": 2,
+            "text": "Redis Queue Integration"
+          },
+          {
+            "level": 2,
+            "text": "Configuration"
+          },
+          {
+            "level": 3,
+            "text": "webhook_config.yaml"
+          },
+          {
+            "level": 2,
+            "text": "Performance"
+          },
+          {
+            "level": 2,
+            "text": "Integration Tests"
+          },
+          {
+            "level": 2,
+            "text": "UI Integration"
+          },
+          {
+            "level": 2,
+            "text": "Error Handling"
+          },
+          {
+            "level": 2,
+            "text": "Monitoring"
+          },
+          {
+            "level": 2,
+            "text": "Security"
+          },
+          {
+            "level": 2,
+            "text": "References"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "sha256": "b5539336e3621f1d90c26091309d29c03a5a56b4ad07884310b3cd0653093451",
+      "top_comments": [
+        "GitBridge Webhook System",
+        "# Overview",
+        "# Authentication",
+        "## GITBRIDGE_TOKEN"
+      ]
+    },
+    {
+      "classes": [
+        "RedisEventQueue",
+        "QueueFactory",
+        "ResilientQueue"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/docs/architecture/redis_queue_plan.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GitBridge GBP13 Redis Queue Integration Plan"
+          },
+          {
+            "level": 2,
+            "text": "Overview"
+          },
+          {
+            "level": 2,
+            "text": "1. Dependencies"
+          },
+          {
+            "level": 1,
+            "text": "requirements.txt additions"
+          },
+          {
+            "level": 2,
+            "text": "2. Architecture Changes"
+          },
+          {
+            "level": 3,
+            "text": "2.1 Redis Queue Implementation"
+          },
+          {
+            "level": 1,
+            "text": "# Atomic move from queue to processing"
+          },
+          {
+            "level": 3,
+            "text": "2.2 Factory Pattern Integration"
+          },
+          {
+            "level": 2,
+            "text": "3. Configuration Updates"
+          },
+          {
+            "level": 1,
+            "text": "webhook_config.yaml"
+          },
+          {
+            "level": 2,
+            "text": "4. Migration Strategy"
+          },
+          {
+            "level": 3,
+            "text": "4.1 Phase 1: Development"
+          },
+          {
+            "level": 3,
+            "text": "4.2 Phase 2: Testing"
+          },
+          {
+            "level": 3,
+            "text": "4.3 Phase 3: Deployment"
+          },
+          {
+            "level": 2,
+            "text": "5. Testing Plan"
+          },
+          {
+            "level": 3,
+            "text": "5.1 Unit Tests"
+          },
+          {
+            "level": 1,
+            "text": "tests/unit/mas_core/test_redis_queue.py"
+          },
+          {
+            "level": 3,
+            "text": "5.2 Integration Tests"
+          },
+          {
+            "level": 1,
+            "text": "# Test end-to-end flow"
+          },
+          {
+            "level": 2,
+            "text": "6. Performance Targets"
+          },
+          {
+            "level": 3,
+            "text": "6.1 Latency Goals"
+          },
+          {
+            "level": 3,
+            "text": "6.2 Resource Usage"
+          },
+          {
+            "level": 2,
+            "text": "7. Monitoring"
+          },
+          {
+            "level": 3,
+            "text": "7.1 Redis Metrics"
+          },
+          {
+            "level": 3,
+            "text": "7.2 Health Checks"
+          },
+          {
+            "level": 2,
+            "text": "8. Rollback Plan"
+          },
+          {
+            "level": 3,
+            "text": "8.1 Automatic Fallback"
+          },
+          {
+            "level": 3,
+            "text": "8.2 Manual Rollback"
+          },
+          {
+            "level": 2,
+            "text": "9. Timeline"
+          },
+          {
+            "level": 3,
+            "text": "Week 1 (June 3-7)"
+          },
+          {
+            "level": 3,
+            "text": "Week 2 (June 10-14)"
+          },
+          {
+            "level": 3,
+            "text": "Week 3 (June 17-21)"
+          },
+          {
+            "level": 3,
+            "text": "Week 4 (June 24-28)"
+          },
+          {
+            "level": 2,
+            "text": "10. Success Criteria"
+          },
+          {
+            "level": 2,
+            "text": "Implementation Details"
+          },
+          {
+            "level": 3,
+            "text": "Queue Implementation"
+          },
+          {
+            "level": 3,
+            "text": "Features"
+          },
+          {
+            "level": 2,
+            "text": "Performance Metrics"
+          },
+          {
+            "level": 3,
+            "text": "GBP13 vs GBP12"
+          },
+          {
+            "level": 3,
+            "text": "Benchmarks"
+          },
+          {
+            "level": 2,
+            "text": "Integration"
+          },
+          {
+            "level": 3,
+            "text": "Task Chain Integration"
+          },
+          {
+            "level": 1,
+            "text": "Create and process task"
+          },
+          {
+            "level": 3,
+            "text": "Error Handling"
+          },
+          {
+            "level": 2,
+            "text": "UI Dashboard"
+          },
+          {
+            "level": 3,
+            "text": "Figma Prototype"
+          },
+          {
+            "level": 3,
+            "text": "Integration with Flask UI"
+          },
+          {
+            "level": 2,
+            "text": "Testing"
+          },
+          {
+            "level": 3,
+            "text": "Unit Tests"
+          },
+          {
+            "level": 3,
+            "text": "Integration Tests"
+          },
+          {
+            "level": 2,
+            "text": "Deployment"
+          },
+          {
+            "level": 3,
+            "text": "Requirements"
+          },
+          {
+            "level": 3,
+            "text": "Configuration"
+          },
+          {
+            "level": 3,
+            "text": "Monitoring"
+          },
+          {
+            "level": 2,
+            "text": "Future Enhancements"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "phases_detected": [
+        13
+      ],
+      "sha256": "6cfe249c0f3df0efad65dfb041d22e74c99cd669631cddc5bbe5e413f771163a",
+      "top_comments": [
+        "Redis-backed event queue implementation."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/architecture/gbp15_routing_plan.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GBP15 AI Router Architecture"
+          },
+          {
+            "level": 2,
+            "text": "Overview"
+          },
+          {
+            "level": 2,
+            "text": "Debug Layer"
+          },
+          {
+            "level": 3,
+            "text": "Error Codes"
+          },
+          {
+            "level": 3,
+            "text": "Performance Optimizations"
+          },
+          {
+            "level": 3,
+            "text": "Retry Logic"
+          },
+          {
+            "level": 3,
+            "text": "Logging"
+          },
+          {
+            "level": 2,
+            "text": "Performance Metrics"
+          },
+          {
+            "level": 3,
+            "text": "Target Latencies"
+          },
+          {
+            "level": 3,
+            "text": "Monitoring"
+          },
+          {
+            "level": 2,
+            "text": "CLI Hooks"
+          },
+          {
+            "level": 3,
+            "text": "Commands"
+          },
+          {
+            "level": 3,
+            "text": "Output Format"
+          },
+          {
+            "level": 2,
+            "text": "Agent Management"
+          },
+          {
+            "level": 3,
+            "text": "Registration"
+          },
+          {
+            "level": 3,
+            "text": "Capacity Management"
+          },
+          {
+            "level": 2,
+            "text": "Error Handling"
+          },
+          {
+            "level": 3,
+            "text": "Validation"
+          },
+          {
+            "level": 3,
+            "text": "Recovery"
+          },
+          {
+            "level": 2,
+            "text": "Integration Points"
+          },
+          {
+            "level": 3,
+            "text": "Task Generator"
+          },
+          {
+            "level": 3,
+            "text": "MAS Core"
+          },
+          {
+            "level": 2,
+            "text": "Example Usage"
+          },
+          {
+            "level": 3,
+            "text": "Task Routing with Metrics"
+          },
+          {
+            "level": 3,
+            "text": "Status Check with Performance"
+          },
+          {
+            "level": 3,
+            "text": "MASLite Integration"
+          },
+          {
+            "level": 2,
+            "text": "Performance Considerations"
+          },
+          {
+            "level": 2,
+            "text": "Future Enhancements (GBP18)"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "phases_detected": [
+        15
+      ],
+      "sha256": "a7337cfda889c07ac3efb2a66a2334fc7c6ce22cdf875bb54f7348138767133a",
+      "top_comments": [
+        "GBP15 AI Router Architecture",
+        "# Overview",
+        "# Debug Layer",
+        "## Error Codes"
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/figma/gbp13_redis_dashboard.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GBP13 Redis Dashboard"
+          },
+          {
+            "level": 2,
+            "text": "Implementation Status"
+          },
+          {
+            "level": 2,
+            "text": "Next Steps"
+          },
+          {
+            "level": 2,
+            "text": "Technical Dependencies"
+          },
+          {
+            "level": 2,
+            "text": "Performance Requirements"
+          },
+          {
+            "level": 2,
+            "text": "Folder Organization"
+          },
+          {
+            "level": 3,
+            "text": "/UI Mockups"
+          },
+          {
+            "level": 3,
+            "text": "/Dashboards"
+          },
+          {
+            "level": 3,
+            "text": "/Plugin Hooks"
+          },
+          {
+            "level": 2,
+            "text": "Integration Details"
+          },
+          {
+            "level": 2,
+            "text": "Notes"
+          },
+          {
+            "level": 2,
+            "text": "Overview"
+          },
+          {
+            "level": 2,
+            "text": "Dashboard Elements"
+          },
+          {
+            "level": 2,
+            "text": "Technical Details"
+          },
+          {
+            "level": 2,
+            "text": "Access"
+          },
+          {
+            "level": 2,
+            "text": "Usage Instructions"
+          },
+          {
+            "level": 2,
+            "text": "Integration Notes"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "phases_detected": [
+        13
+      ],
+      "sha256": "179e772e507e8c96aec6c23afedee6bcb4ce1b76ad5c33046123d7da141d5bdf",
+      "top_comments": [
+        "GBP13 Redis Dashboard",
+        "# Implementation Status"
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/figma/preliminary/gbp13_redis_dashboard.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GBP13 Redis Dashboard Preliminary"
+          },
+          {
+            "level": 2,
+            "text": "Wireframe"
+          },
+          {
+            "level": 2,
+            "text": "Specs"
+          },
+          {
+            "level": 2,
+            "text": "Technical Details"
+          },
+          {
+            "level": 2,
+            "text": "Integration Points"
+          },
+          {
+            "level": 2,
+            "text": "Design Guidelines"
+          },
+          {
+            "level": 2,
+            "text": "Accessibility"
+          },
+          {
+            "level": 2,
+            "text": "Folder Structure"
+          },
+          {
+            "level": 2,
+            "text": "Implementation Notes"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "phases_detected": [
+        13
+      ],
+      "sha256": "61aa51e9b2af83554a3a9ceaa32498420706ae4d14a7648c3f555093cf42df96",
+      "top_comments": [
+        "GBP13 Redis Dashboard Preliminary",
+        "# Wireframe",
+        "# Specs"
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/examples/queue_task_flow_walkthrough.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GitBridge Queue and Task Chain Flow Walkthrough"
+          },
+          {
+            "level": 2,
+            "text": "1. Webhook Event Reception"
+          },
+          {
+            "level": 2,
+            "text": "2. Event Queue Processing"
+          },
+          {
+            "level": 3,
+            "text": "2.1 Enqueue Operation"
+          },
+          {
+            "level": 1,
+            "text": "Queue depth is tracked for monitoring"
+          },
+          {
+            "level": 3,
+            "text": "2.2 Retry Logic"
+          },
+          {
+            "level": 1,
+            "text": "Base delay: 1s, Max retries: 3"
+          },
+          {
+            "level": 1,
+            "text": "Retry delays: 1s -> 2s -> 4s"
+          },
+          {
+            "level": 3,
+            "text": "2.3 Dequeue Operation"
+          },
+          {
+            "level": 1,
+            "text": "# Process the payload"
+          },
+          {
+            "level": 2,
+            "text": "3. Task Chain Lifecycle"
+          },
+          {
+            "level": 3,
+            "text": "3.1 Task Creation"
+          },
+          {
+            "level": 3,
+            "text": "3.2 State Transitions"
+          },
+          {
+            "level": 1,
+            "text": "Example state transition"
+          },
+          {
+            "level": 3,
+            "text": "3.3 Consensus Processing"
+          },
+          {
+            "level": 1,
+            "text": "Submit for consensus"
+          },
+          {
+            "level": 1,
+            "text": "Handle result"
+          },
+          {
+            "level": 2,
+            "text": "4. Performance Monitoring"
+          },
+          {
+            "level": 2,
+            "text": "5. Error Handling"
+          },
+          {
+            "level": 3,
+            "text": "5.1 Queue Errors"
+          },
+          {
+            "level": 3,
+            "text": "5.2 Task Errors"
+          },
+          {
+            "level": 2,
+            "text": "6. Cleanup and Maintenance"
+          },
+          {
+            "level": 3,
+            "text": "6.1 Task Cleanup"
+          },
+          {
+            "level": 3,
+            "text": "6.2 Queue Maintenance"
+          },
+          {
+            "level": 2,
+            "text": "7. Integration Example"
+          },
+          {
+            "level": 1,
+            "text": "# 1. Receive webhook and enqueue"
+          },
+          {
+            "level": 1,
+            "text": "# 2. Dequeue and process"
+          },
+          {
+            "level": 1,
+            "text": "# 3. Create task"
+          },
+          {
+            "level": 1,
+            "text": "# 4. Move through states"
+          },
+          {
+            "level": 1,
+            "text": "# 5. Process consensus"
+          },
+          {
+            "level": 1,
+            "text": "# 6. Cleanup"
+          },
+          {
+            "level": 2,
+            "text": "8. Configuration"
+          },
+          {
+            "level": 2,
+            "text": "9. Monitoring and Logging"
+          },
+          {
+            "level": 3,
+            "text": "9.1 Metrics"
+          },
+          {
+            "level": 3,
+            "text": "9.2 Logs"
+          },
+          {
+            "level": 2,
+            "text": "10. Forward Compatibility"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "sha256": "a3a035bca5f91fb288546cea0f6f1601e7674cb7158422385daef98c75543445",
+      "top_comments": [
+        "GitBridge Queue and Task Chain Flow Walkthrough",
+        "# 1. Webhook Event Reception"
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/examples/event_flow_walkthrough.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GitBridge Webhook Event Flow Walkthrough"
+          },
+          {
+            "level": 2,
+            "text": "Example Event: Pull Request Opening"
+          },
+          {
+            "level": 3,
+            "text": "1. Initial Webhook Receipt"
+          },
+          {
+            "level": 3,
+            "text": "2. Rate Limiting Check"
+          },
+          {
+            "level": 3,
+            "text": "3. Security Validation"
+          },
+          {
+            "level": 3,
+            "text": "4. Event Processing"
+          },
+          {
+            "level": 3,
+            "text": "5. Task Generation"
+          },
+          {
+            "level": 3,
+            "text": "6. MAS Integration"
+          },
+          {
+            "level": 3,
+            "text": "7. Metrics & Monitoring"
+          },
+          {
+            "level": 1,
+            "text": "Request timing"
+          },
+          {
+            "level": 1,
+            "text": "Queue depth"
+          },
+          {
+            "level": 1,
+            "text": "Event counts"
+          },
+          {
+            "level": 3,
+            "text": "8. Collaboration Features"
+          },
+          {
+            "level": 2,
+            "text": "Error Handling"
+          },
+          {
+            "level": 2,
+            "text": "Monitoring"
+          },
+          {
+            "level": 2,
+            "text": "Development Testing"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "sha256": "194a43e59090931bcd17eb97115892b4a474931bb834a987e781b697ee0229c2",
+      "top_comments": [
+        "GitBridge Webhook Event Flow Walkthrough",
+        "# Example Event: Pull Request Opening",
+        "## 1. Initial Webhook Receipt"
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/performance/gbp12_metrics.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GitBridge GBP12 Performance Metrics"
+          },
+          {
+            "level": 2,
+            "text": "Overview"
+          },
+          {
+            "level": 2,
+            "text": "Latency Measurements"
+          },
+          {
+            "level": 3,
+            "text": "Queue Operations"
+          },
+          {
+            "level": 3,
+            "text": "Task Chain Operations"
+          },
+          {
+            "level": 3,
+            "text": "End-to-End Flow"
+          },
+          {
+            "level": 2,
+            "text": "Performance Analysis"
+          },
+          {
+            "level": 3,
+            "text": "Current Status"
+          },
+          {
+            "level": 3,
+            "text": "Bottlenecks"
+          },
+          {
+            "level": 3,
+            "text": "Optimization Opportunities"
+          },
+          {
+            "level": 4,
+            "text": "Short Term (GBP13-16)"
+          },
+          {
+            "level": 4,
+            "text": "Medium Term (GBP17-23)"
+          },
+          {
+            "level": 4,
+            "text": "Long Term (GBP24+)"
+          },
+          {
+            "level": 2,
+            "text": "Resource Utilization"
+          },
+          {
+            "level": 3,
+            "text": "Memory Usage"
+          },
+          {
+            "level": 3,
+            "text": "CPU Usage"
+          },
+          {
+            "level": 3,
+            "text": "Network I/O"
+          },
+          {
+            "level": 2,
+            "text": "Monitoring and Alerts"
+          },
+          {
+            "level": 3,
+            "text": "Prometheus Metrics"
+          },
+          {
+            "level": 3,
+            "text": "Grafana Dashboards"
+          },
+          {
+            "level": 2,
+            "text": "Forward Compatibility"
+          },
+          {
+            "level": 3,
+            "text": "GBP13 (Redis Queue)"
+          },
+          {
+            "level": 3,
+            "text": "GBP14 (Enhanced Metadata)"
+          },
+          {
+            "level": 3,
+            "text": "GBP17 (Rate Limiting)"
+          },
+          {
+            "level": 3,
+            "text": "GBP24 (Sub-350ms Target)"
+          },
+          {
+            "level": 2,
+            "text": "Recommendations"
+          },
+          {
+            "level": 2,
+            "text": "Conclusion"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "phases_detected": [
+        13,
+        14,
+        17,
+        24
+      ],
+      "sha256": "11e819a6907f25884976341c857eedec2f3e78aa7ccd7b019695376af312dd37",
+      "top_comments": [
+        "GitBridge GBP12 Performance Metrics",
+        "# Overview",
+        "# Latency Measurements",
+        "## Queue Operations"
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/performance/gbp13_metrics.md",
+      "functions": [
+        "queue_depth",
+        "track_task_latency",
+        "count_errors"
+      ],
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GBP13 Performance Metrics Documentation"
+          },
+          {
+            "level": 2,
+            "text": "Overview"
+          },
+          {
+            "level": 2,
+            "text": "Core Metrics"
+          },
+          {
+            "level": 3,
+            "text": "Queue Performance"
+          },
+          {
+            "level": 3,
+            "text": "Resource Utilization"
+          },
+          {
+            "level": 3,
+            "text": "Throughput"
+          },
+          {
+            "level": 2,
+            "text": "Monitoring Strategy"
+          },
+          {
+            "level": 3,
+            "text": "Real-time Metrics"
+          },
+          {
+            "level": 3,
+            "text": "Logging"
+          },
+          {
+            "level": 3,
+            "text": "Alerts"
+          },
+          {
+            "level": 2,
+            "text": "Validation Plan"
+          },
+          {
+            "level": 3,
+            "text": "1. Load Testing"
+          },
+          {
+            "level": 1,
+            "text": "Run load test with 10,000 tasks/hour"
+          },
+          {
+            "level": 3,
+            "text": "2. Performance Testing"
+          },
+          {
+            "level": 1,
+            "text": "Run performance test suite"
+          },
+          {
+            "level": 3,
+            "text": "3. Stress Testing"
+          },
+          {
+            "level": 1,
+            "text": "Run stress test"
+          },
+          {
+            "level": 2,
+            "text": "Implementation Details"
+          },
+          {
+            "level": 3,
+            "text": "Queue Configuration"
+          },
+          {
+            "level": 3,
+            "text": "Performance Optimizations"
+          },
+          {
+            "level": 2,
+            "text": "Troubleshooting Guide"
+          },
+          {
+            "level": 3,
+            "text": "Common Issues"
+          },
+          {
+            "level": 3,
+            "text": "Resolution Steps"
+          },
+          {
+            "level": 1,
+            "text": "# Monitor queue depth"
+          },
+          {
+            "level": 1,
+            "text": "# Clear stuck tasks"
+          },
+          {
+            "level": 1,
+            "text": "# Remove expired votes"
+          },
+          {
+            "level": 1,
+            "text": "# Clear metrics data"
+          },
+          {
+            "level": 2,
+            "text": "Future Improvements"
+          },
+          {
+            "level": 3,
+            "text": "Short-term (GBP16-22)"
+          },
+          {
+            "level": 3,
+            "text": "Long-term (GBP23-30)"
+          },
+          {
+            "level": 2,
+            "text": "Appendix A: Benchmark Results"
+          },
+          {
+            "level": 2,
+            "text": "Appendix B: Monitoring Dashboard"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "phases_detected": [
+        13
+      ],
+      "sha256": "79c60681382c683c690a6f8b599a24e68ab09c59cdef4a849325e3ccff5d80ed",
+      "top_comments": [
+        "GBP13 Performance Metrics Documentation",
+        "# Overview",
+        "# Core Metrics",
+        "## Queue Performance"
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/reviews/integration_test_results.txt",
+      "sha256": "d848b1b522fcda63a6c1a9e7c5e29948d96fae4a881164d8f9538c0187d2913c",
+      "top_comments": []
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/docs/reviews/gbp12_review_bundle.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GitBridge Phase 12 (GBP12) Review Bundle"
+          },
+          {
+            "level": 2,
+            "text": "1. Implementation Overview"
+          },
+          {
+            "level": 3,
+            "text": "1.1 Core Components"
+          },
+          {
+            "level": 3,
+            "text": "1.2 Key Features"
+          },
+          {
+            "level": 2,
+            "text": "2. Code Changes"
+          },
+          {
+            "level": 3,
+            "text": "2.1 New Files"
+          },
+          {
+            "level": 3,
+            "text": "2.2 Modified Files"
+          },
+          {
+            "level": 2,
+            "text": "3. Performance Metrics"
+          },
+          {
+            "level": 3,
+            "text": "3.1 Latency"
+          },
+          {
+            "level": 3,
+            "text": "3.2 Resource Usage"
+          },
+          {
+            "level": 2,
+            "text": "4. Testing Results"
+          },
+          {
+            "level": 3,
+            "text": "4.1 Unit Tests"
+          },
+          {
+            "level": 3,
+            "text": "4.2 Integration Tests"
+          },
+          {
+            "level": 2,
+            "text": "5. Documentation"
+          },
+          {
+            "level": 3,
+            "text": "5.1 Examples"
+          },
+          {
+            "level": 3,
+            "text": "5.2 Performance Analysis"
+          },
+          {
+            "level": 2,
+            "text": "6. Forward Compatibility"
+          },
+          {
+            "level": 3,
+            "text": "6.1 GBP13 (Redis Queue)"
+          },
+          {
+            "level": 3,
+            "text": "6.2 GBP14-30"
+          },
+          {
+            "level": 2,
+            "text": "7. GitHub Desktop Guide"
+          },
+          {
+            "level": 3,
+            "text": "7.1 Installation"
+          },
+          {
+            "level": 3,
+            "text": "7.2 Repository Access"
+          },
+          {
+            "level": 3,
+            "text": "7.3 Viewing Changes"
+          },
+          {
+            "level": 3,
+            "text": "7.4 Web Fallback"
+          },
+          {
+            "level": 2,
+            "text": "8. Running Tests"
+          },
+          {
+            "level": 3,
+            "text": "8.1 Setup"
+          },
+          {
+            "level": 1,
+            "text": "Create and activate virtual environment"
+          },
+          {
+            "level": 1,
+            "text": "Install dependencies"
+          },
+          {
+            "level": 3,
+            "text": "8.2 Execute Tests"
+          },
+          {
+            "level": 1,
+            "text": "Run integration tests"
+          },
+          {
+            "level": 1,
+            "text": "Run all tests with coverage"
+          },
+          {
+            "level": 3,
+            "text": "8.3 View UI"
+          },
+          {
+            "level": 2,
+            "text": "9. Next Steps"
+          },
+          {
+            "level": 3,
+            "text": "9.1 Immediate"
+          },
+          {
+            "level": 3,
+            "text": "9.2 Upcoming"
+          },
+          {
+            "level": 2,
+            "text": "10. Conclusion"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "phases_detected": [
+        12
+      ],
+      "sha256": "b4772c852593386bda3d514ac6f7e3270ac905146b7a70d9d5f614f3fb8d6465",
+      "top_comments": [
+        "GitBridge Phase 12 (GBP12) Review Bundle",
+        "# 1. Implementation Overview",
+        "## 1.1 Core Components"
+      ]
+    },
+    {
+      "classes": [
+        "OpenAPIConverter"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/dev_tools/openapi_converter.py",
+      "functions": [
+        "main"
+      ],
+      "sha256": "d43bebad643a6204f1bc86dbcdb80fa426c5558a2e62214b93e655d0af78cce5",
+      "top_comments": [
+        "OpenAPI to Markdown Converter Hook for GitBridge",
+        "Converts OpenAPI specifications to various documentation formats."
+      ]
+    },
+    {
+      "classes": [
+        "WebhookTester",
+        "ConfigValidator"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/integrations/dev_tools.py",
+      "sha256": "1ce23acc3d6437fb9b959aa7ea28fdec85ccd2489f0f5c528a2ca3dd4c633859",
+      "top_comments": [
+        "Developer Tools for GitHub Webhooks.",
+        "",
+        "This module provides development utilities including webhook replay,",
+        "mock events, and configuration validation."
+      ]
+    },
+    {
+      "classes": [
+        "EventProcessor"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/integrations/event_processor.py",
+      "sha256": "728297bec043dad31982e584d78bf94024f1173f9a9f5d5315040d2dad78f471",
+      "top_comments": [
+        "Advanced Event Processor for GitHub Webhooks.",
+        "",
+        "This module handles various GitHub events including Actions, Issues,",
+        "Discussions, and Release events with advanced processing capabilities."
+      ]
+    },
+    {
+      "classes": [
+        "CommitRouter"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/integrations/commit_router.py",
+      "sha256": "0ccaaaf4e6eb8b5bfb2f971a249a7c4e46b437d7bc7abfdfd4c0ac58f9fd9f88",
+      "top_comments": [
+        "GitHub Commit Router.",
+        "",
+        "This module processes GitHub webhook payloads and creates corresponding MAS tasks.",
+        "It handles both push events and pull request events."
+      ]
+    },
+    {
+      "classes": [
+        "PerformanceMetric",
+        "PerformanceMonitor"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/integrations/performance_monitor.py",
+      "sha256": "cdfaa59c5c0a7cf1f9271f55d21be344b851ee6676272887b1350a8780a7665d",
+      "top_comments": [
+        "Performance Monitor for GitHub Webhooks.",
+        "",
+        "This module provides real-time performance monitoring, metrics collection,",
+        "and alerting capabilities for webhook processing."
+      ]
+    },
+    {
+      "classes": [
+        "RateLimiter"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/integrations/rate_limiter.py",
+      "sha256": "3eced84b598482989ac4ce8cb56d1d368285156af9f8050ad221198537fc04be",
+      "top_comments": [
+        "Rate Limiter for GitHub Webhooks.",
+        "",
+        "This module implements rate limiting using Redis as a backend store",
+        "to support distributed deployments."
+      ]
+    },
+    {
+      "classes": [
+        "SecurityManager"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/integrations/security_manager.py",
+      "sha256": "f1f2a5cf97e6861fa9e2db467e36f6a486699a317d19553ad66330b20f4c7823",
+      "top_comments": [
+        "Security Manager for GitHub Webhooks.",
+        "",
+        "This module provides enhanced security features including IP whitelisting,",
+        "payload validation, and audit logging."
+      ]
+    },
+    {
+      "classes": [
+        "NotificationManager",
+        "ApprovalWorkflow",
+        "DocumentationManager"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/integrations/collaboration.py",
+      "sha256": "a586c6d1e68440bd6cb6786c591fdf2c0c3cbdfde4ccd8924af46d20eab02889",
+      "top_comments": [
+        "Collaboration Features for GitHub Webhooks.",
+        "",
+        "This module provides team notification integration, custom approval workflows,",
+        "and automated documentation updates."
+      ]
+    },
+    {
+      "classes": [
+        "SignatureValidator"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/integrations/signature_validator.py",
+      "sha256": "51e26b9e27dd91eece2a5c111f1049e69fd521b12e77afdd877d4996e9f1dd55",
+      "top_comments": [
+        "GitHub Webhook Signature Validator.",
+        "",
+        "This module provides HMAC-SHA256 signature verification for GitHub webhooks",
+        "as specified in the GitHub Webhooks API documentation."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/integrations/webhook_listener.py",
+      "sha256": "0a7b71c7fff0b895a9956099ec1c6f501dddadfbfbf7bccc7066c62b8db65e40",
+      "top_comments": [
+        "GitHub Webhook Listener.",
+        "",
+        "This module handles incoming GitHub webhook events, validates signatures,",
+        "and routes events to appropriate handlers."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/release-assets/BUNDLE.md",
+      "markdown_structure": {
+        "headings": [
+          {
+            "level": 1,
+            "text": "GitBridge Project Bundle"
+          },
+          {
+            "level": 2,
+            "text": "Latest Updates"
+          },
+          {
+            "level": 2,
+            "text": "Components"
+          },
+          {
+            "level": 3,
+            "text": "Task Generator (GBP14)"
+          },
+          {
+            "level": 3,
+            "text": "AI Router (GBP15)"
+          },
+          {
+            "level": 3,
+            "text": "Redis Dashboard (GBP13)"
+          },
+          {
+            "level": 2,
+            "text": "Tests"
+          },
+          {
+            "level": 3,
+            "text": "Integration Tests"
+          },
+          {
+            "level": 3,
+            "text": "Coverage"
+          },
+          {
+            "level": 2,
+            "text": "Configuration"
+          },
+          {
+            "level": 3,
+            "text": "webhook_config.yaml"
+          },
+          {
+            "level": 2,
+            "text": "Dependencies"
+          },
+          {
+            "level": 2,
+            "text": "Performance Metrics"
+          },
+          {
+            "level": 3,
+            "text": "Task Generator"
+          },
+          {
+            "level": 3,
+            "text": "AI Router"
+          },
+          {
+            "level": 2,
+            "text": "Documentation"
+          },
+          {
+            "level": 2,
+            "text": "Optimizations"
+          },
+          {
+            "level": 2,
+            "text": "Next Steps"
+          },
+          {
+            "level": 2,
+            "text": "Notes"
+          }
+        ],
+        "roadmap_references": []
+      },
+      "sha256": "81b3682cb0ed992a85ab321dbddd7f9da8f25869b2ea0eaee1df2a0cbb293c88",
+      "top_comments": [
+        "GitBridge Project Bundle",
+        "# Latest Updates",
+        "# Components",
+        "## Task Generator (GBP14)"
+      ]
+    },
+    {
+      "classes": [
+        "CodeSnapshotGenerator"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/scripts/gitbridge_audit_snapshot.py",
+      "functions": [
+        "main"
+      ],
+      "sha256": "a1dfd5e4d6ee561f470a433f08b8bf81f1ccfe09f4fce0e05184e2fb69a40a22",
+      "top_comments": [
+        "GitBridge Project Code Snapshot Generator.",
+        "",
+        "This script recursively scans the project directory and generates a snapshot",
+        "of all Python, Markdown, and text files, including their structure and",
+        "documentation. Follows MAS Lite Protocol v2.1 specifications for code auditing."
+      ]
+    },
+    {
+      "classes": [
+        "EventPayload"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/scripts/event_processor.py",
+      "sha256": "d89723ded588b28d14369892b1df54a330db5d175950db811dec3d1a38200504",
+      "top_comments": [
+        "Event processor implementation for GitBridge.",
+        "Handles event payload optimization and processing."
+      ]
+    },
+    {
+      "classes": [
+        "Agent",
+        "AIRouter"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/scripts/ai_router.py",
+      "functions": [
+        "main"
+      ],
+      "sha256": "fa8f57ca5ba755f9d2bf290692a3079f008a2060685f2350eabfa58ba6df9a6c",
+      "top_comments": [
+        "AI Router implementation for GitBridge.",
+        "Handles agent registration, task routing, and MASLite integration.",
+        "",
+        "MAS Lite Protocol v2.1 References:",
+        "- Section 6.1: Agent Registration"
+      ]
+    },
+    {
+      "classes": [
+        "Task",
+        "TaskGenerator"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/scripts/task_generator.py",
+      "sha256": "67eacd2d8e6b24f52d18aea7bd2ccb5f49427129902898c9667e81c2ec836c56",
+      "top_comments": [
+        "Task generator implementation for GitBridge.",
+        "Handles task creation, thread context management, and vote sequence routing.",
+        "",
+        "MAS Lite Protocol v2.1 References:",
+        "- Section 5.1: Task Generation"
+      ]
+    },
+    {
+      "classes": [
+        "MetricsExporter"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/scripts/metrics_exporter.py",
+      "sha256": "d50a1b8df6673b6a9aedda16c6906483118416e0630ad5db049d8d1e8070dab0",
+      "top_comments": [
+        "Metrics exporter for GitBridge.",
+        "Implements Prometheus metrics and alerts for Redis queue monitoring."
+      ]
+    },
+    {
+      "classes": [
+        "WebhookPayload",
+        "RetryHandler",
+        "EventQueue"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/scripts/event_queue.py",
+      "sha256": "30df891ff8ca0e57434e4081fa55e2f2295ee754d3d309a488675f8a2ff71a6a",
+      "top_comments": [
+        "Event Queue System for GitBridge Webhook Processing.",
+        "Handles async queuing of webhook payloads with retry logic."
+      ]
+    },
+    {
+      "classes": [
+        "QueueError",
+        "QueueFullError",
+        "QueueConnectionError",
+        "QueueFactory",
+        "RedisEventQueue",
+        "ResilientQueue"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/scripts/redis_queue.py",
+      "sha256": "7b42c6fd52a51b3086288c42d27d0f3542378a43bb443fdd2fa529cac992b1be",
+      "top_comments": [
+        "Redis queue implementation for GitBridge.",
+        "",
+        "This module provides Redis-backed queue implementation for GitBridge's event processing",
+        "system, with automatic failover to asyncio queue.",
+        ""
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/webui/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "top_comments": []
+    },
+    {
+      "classes": [
+        "EventQueue"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/mas_core/queue.py",
+      "sha256": "7b39c9bb254e669eb994e0e48228f199bc0734fbe856bbc97dd8a98aa2bd3550",
+      "top_comments": [
+        "Event queue implementation for GitBridge.",
+        "",
+        "This module provides the base event queue implementation using asyncio.Queue.",
+        "It serves as the default queue implementation and as a fallback for Redis queue.",
+        ""
+      ]
+    },
+    {
+      "classes": [
+        "TaskMetrics",
+        "ConsensusMetrics",
+        "SystemMetrics",
+        "MetricsCollector"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/mas_core/metrics.py",
+      "sha256": "9fc831875f19e54f66aa2dfb77614a5c3d485b42e0887df78ef5d1007b840c7f",
+      "top_comments": [
+        "MAS Metrics Module.",
+        "",
+        "This module provides performance tracking and system health monitoring for the",
+        "MAS Lite Protocol v2.1 implementation, including task metrics, consensus metrics,",
+        "and system resource utilization."
+      ]
+    },
+    {
+      "classes": [
+        "TaskState",
+        "TaskError",
+        "TaskNotFoundError",
+        "InvalidStateTransitionError",
+        "Task",
+        "TaskChain"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/mas_core/task_chain.py",
+      "sha256": "2dadc73ef72761b28beced1dd30d61cb4a56eb04356c05e0f7d8d9bafdc0067e",
+      "top_comments": [
+        "Task chain management for GitBridge.",
+        "",
+        "This module provides task chain management functionality for GitBridge's event processing",
+        "system, handling task state transitions and consensus requirements.",
+        ""
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/mas_core/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "top_comments": []
+    },
+    {
+      "classes": [
+        "ConsensusState",
+        "ConsensusError",
+        "ConsensusTimeoutError",
+        "ConsensusManager"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/mas_core/consensus.py",
+      "sha256": "87a9e1a4505765acad029c22a6dcf5e4062448a30fea2047d12e661a322a38b7",
+      "top_comments": [
+        "Consensus management for GitBridge.",
+        "",
+        "This module provides consensus management functionality for GitBridge's event processing",
+        "system, ensuring agreement between multiple nodes before task state transitions.",
+        ""
+      ]
+    },
+    {
+      "classes": [
+        "ErrorSeverity",
+        "ErrorCategory",
+        "ErrorHandler"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/mas_core/error_handler.py",
+      "sha256": "68b7034cab810fe8eefe963551faab08a93fa4a11d542c4eb9a91f71d1590e97",
+      "top_comments": [
+        "Error handling for GitBridge.",
+        "",
+        "This module provides error handling functionality for GitBridge's event processing",
+        "system, handling task errors, consensus errors, and queue errors.",
+        ""
+      ]
+    },
+    {
+      "classes": [
+        "MASLogger"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/mas_core/utils/logging.py",
+      "sha256": "89371edc3a0b695e228f72300aff438cb91539be645d7310073df997670a9c14",
+      "top_comments": [
+        "MAS Logging Utility Module.",
+        "",
+        "This module provides centralized logging functionality for the MAS Lite Protocol v2.1",
+        "implementation, including structured logging, rotation policies, and audit trails."
+      ]
+    },
+    {
+      "file_path": "/Users/zach/GitBridgev1/mas_core/utils/json_processor.py",
+      "sha256": "87bd7718d7946424ddf064db5b7d53cb7e2ded767eb0f7bb181198b08227fb84",
+      "top_comments": [
+        "Utility functions for processing JSON files in the MAS system.",
+        "",
+        "This module provides functionality for reading and processing JSON files",
+        "according to MAS Lite Protocol v2.1 specifications."
+      ]
+    },
+    {
+      "classes": [
+        "ValidationError"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/mas_core/utils/validation.py",
+      "sha256": "baaa233bc82724d31f49c60f41fb6bec498993e120012093f82eb1f13ffa5350",
+      "top_comments": [
+        "MAS Validation Utility Module.",
+        "",
+        "This module provides validation functions for MAS Lite Protocol v2.1 data structures,",
+        "ensuring compliance with protocol specifications and data integrity."
+      ]
+    },
+    {
+      "classes": [
+        "WebhookMetricsExporter"
+      ],
+      "file_path": "/Users/zach/GitBridgev1/monitoring/prometheus_exporter.py",
+      "functions": [
+        "main"
+      ],
+      "sha256": "0bdecaceef29fd7049992e07f3d5ebd199ddf146ce38f377b461a0a61c859076",
+      "top_comments": [
+        "Prometheus Metrics Exporter for GitBridge",
+        "Exports webhook system metrics to Prometheus with mock data generation for testing."
+      ]
+    }
+  ],
+  "metadata": {
+    "generated_at": "2025-06-06T08:24:31.433605",
+    "root_directory": "/Users/zach/GitBridgev1",
+    "version": "2.1.0"
+  },
+  "phase_transitions": [
+    {
+      "file": "/Users/zach/GitBridgev1/tests/scripts/test_audit_snapshot.py",
+      "from_phase": 14,
+      "line": 19,
+      "to_phase": 15
+    }
+  ],
+  "unlinked_tests": [
+    {
+      "file": "/Users/zach/GitBridgev1/tests/__init__.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/unit/test_filter_pending_invites.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/unit/test_validate_and_write_invites.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/unit/__init__.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/unit/test_webhook_trigger_pipeline.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/unit/agent/conftest.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/unit/integrations/test_webhook_listener.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/unit/integrations/test_signature_validator.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/unit/scripts/test_event_queue.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/unit/mas_core/conftest.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/unit/mas_core/test_validation.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/unit/mas_core/test_consensus.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/unit/mas_core/test_metrics.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/unit/mas_core/test_task_chain.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/unit/mas_core/test_event_queue.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/unit/mas_core/test_redis_queue.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/unit/mas_core/test_error_handler.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/integration/test_webhook_flow.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/integration/test_event_queue_task_chain.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/integration/test_redis_queue_integration.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/integration/__init__.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/integration/test_ui_routing.py",
+      "message": "Test file doesn't reference any known GBP components"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/performance/__init__.py",
+      "message": "Test file doesn't reference any known GBP components"
+    }
+  ],
+  "warnings": [
+    {
+      "file": "/Users/zach/GitBridgev1/tests/scripts/test_audit_snapshot.py",
+      "line": 39,
+      "message": "Malformed phase marker found: # GBX15: This is wrong",
+      "type": "malformed_phase"
+    },
+    {
+      "file": "/Users/zach/GitBridgev1/tests/scripts/test_audit_snapshot.py",
+      "line": 40,
+      "message": "Malformed phase marker found: # GitBridge X 16: Also wrong",
+      "type": "malformed_phase"
+    }
+  ]
+}

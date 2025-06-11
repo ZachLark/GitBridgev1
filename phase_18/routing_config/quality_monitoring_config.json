@@ -1,0 +1,51 @@
+{
+  "quality_monitoring": {
+    "enabled": true,
+    "confidence_tracking": {
+      "track_all_responses": true,
+      "alert_threshold": 0.25,
+      "warning_threshold": 0.45,
+      "sample_rate": 1.0
+    },
+    "failure_detection": {
+      "consecutive_failures_threshold": 3,
+      "failure_rate_window_minutes": 15,
+      "failure_rate_threshold": 0.2
+    },
+    "escalation_triggers": {
+      "critical_confidence_drop": 0.25,
+      "sustained_poor_performance": 0.4,
+      "fallback_chain_exhaustion": true
+    },
+    "redis_channels": {
+      "quality_alerts": "mas:quality:alerts",
+      "confidence_metrics": "mas:quality:confidence",
+      "failure_events": "mas:quality:failures"
+    },
+    "notification_settings": {
+      "email_alerts": true,
+      "slack_integration": true,
+      "webhook_endpoints": [
+        "https://api.gitbridge.com/webhooks/quality-alerts"
+      ]
+    }
+  },
+  "automated_remediation": {
+    "enabled": true,
+    "threshold_adjustment": {
+      "auto_adjust": true,
+      "adjustment_factor": 0.05,
+      "max_adjustments_per_hour": 3
+    },
+    "model_rotation": {
+      "rotate_on_failure": true,
+      "cooldown_minutes": 30,
+      "rotation_strategy": "round_robin"
+    },
+    "context_enhancement": {
+      "add_examples_on_failure": true,
+      "increase_temperature": true,
+      "provide_additional_context": true
+    }
+  }
+}

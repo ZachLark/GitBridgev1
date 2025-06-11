@@ -1,234 +1,195 @@
-# GBP15 Routing Plan
+# GBP15 AI Router Architecture
 
 ## Overview
-The GitBridge routing system will handle task distribution between multiple AI services (Claude/Grok/ChatGPT) through the Redis queue system.
+The GBP15 AI Router provides enhanced task routing capabilities with debug layer, CLI hooks, and MASLite integration placeholders. This document outlines the architecture and specifications for these enhancements.
 
-## Components
+## Debug Layer
+### Error Codes
+- `ERR_ROUTING_001`: Agent Not Found
+- `ERR_ROUTING_002`: Invalid Task ID
+- `ERR_ROUTING_003`: Invalid Agent ID
+- `ERR_ROUTING_004`: Routing Failed
+- `ERR_ROUTING_005`: Agent Capacity Exceeded
+- `ERR_ROUTING_006`: Agent Status Invalid
+- `ERR_ROUTING_007`: Task Already Assigned
+- `ERR_ROUTING_008`: Task Queue Full
+- `ERR_ROUTING_009`: Agent Not Responding
+- `ERR_ROUTING_010`: MASLite Integration Error
 
-### Redis Queue Integration
-- Queue structure for task distribution
-- Priority-based routing
-- Load balancing between AI services
-- Error handling and retries
+### Performance Optimizations
+- TTL Cache for task tracking (1000 tasks, 1-hour TTL)
+- Compressed JSON logging with rotation
+- Latency tracking for all operations
+- Early consensus calculation
+- Efficient error response handling
 
-### AI Router (`/scripts/ai_router.py`)
-- Service discovery and health checks
-- Task type classification
-- AI service selection logic
-- Response aggregation
-- Fallback handling
+### Retry Logic
+- Maximum retries: 3
+- Retry delay: 200ms
+- Exponential backoff: Optional (configurable)
 
-## Implementation Details
-1. Task Classification
-   - Analyze incoming tasks
-   - Determine optimal AI service
-   - Set task priority
+### Logging
+- Location: `logs/ai_router_log.json`
+- Format: Compressed JSON structured logging
+- Fields:
+  ```json
+  {
+    "operation": "<operation_type>",
+    "task_id": "<task_id>",
+    "agent": "<agent_id>",
+    "timestamp": "<iso_timestamp>",
+    "error_code": "<error_code>",
+    "latency_ms": "<latency_ms>"
+  }
+  ```
+- Log rotation:
+  - Max file size: 10MB
+  - Backup count: 5
+  - Compression: Enabled
 
-2. Load Balancing
-   - Monitor AI service health
-   - Track response times
-   - Adjust routing based on performance
+## Performance Metrics
+### Target Latencies
+- Task routing: <100ms
+- Agent registration: <50ms
+- Status updates: <30ms
+- CLI operations: <150ms
+- Overall system: <350ms (optimized from 500ms)
 
-3. Error Handling
-   - Retry logic
-   - Service failover
-   - Error reporting
+### Monitoring
+- Operation-specific latency tracking
+- Agent performance metrics
+- Task processing statistics
+- Error rate monitoring
+- Queue depth tracking
 
-## Metrics
-- Response times per AI service
-- Error rates
-- Queue latency
-- Service availability
+## CLI Hooks
+### Commands
+1. Route Task
+   ```bash
+   gbp --route <task_id> <agent>
+   ```
+   Example:
+   ```bash
+   gbp --route task_001 agent1
+   ```
 
-## Components
+2. Get Agent Status
+   ```bash
+   gbp --status <agent>
+   ```
+   Example:
+   ```bash
+   gbp --status agent1
+   ```
 
-### 1. Event Router
-- Redis queue consumer
-- Event type classification
-- Task distribution
-- Error handling
+3. Register Agent
+   ```bash
+   gbp --register <agent> <capacity>
+   ```
+   Example:
+   ```bash
+   gbp --register agent1 10
+   ```
 
-### 2. AI Router
-- Multi-AI support:
-  * Claude
-  * Grok
-  * ChatGPT
-- Provider selection
-- Load balancing
-- Failover handling
+4. Get Metrics
+   ```bash
+   gbp --metrics
+   ```
 
-### 3. Task Processor
-- Task state management
-- AI request formatting
-- Response processing
-- Result validation
-
-### 4. Consensus Manager
-- Multi-AI consensus
-- Result comparison
-- Conflict resolution
-- Decision logging
-
-## Implementation
-
-### Event Router (`event_router.py`)
-```python
-class EventRouter:
-    def __init__(self, config):
-        self.redis_queue = RedisEventQueue(config)
-        self.ai_router = AIRouter(config)
-        self.task_processor = TaskProcessor(config)
-        
-    async def route_event(self, event):
-        # Classify event
-        event_type = self.classify_event(event)
-        
-        # Select AI providers
-        providers = self.ai_router.select_providers(event_type)
-        
-        # Create and process tasks
-        tasks = [
-            self.task_processor.create_task(event, provider)
-            for provider in providers
-        ]
-        
-        # Get results and consensus
-        results = await asyncio.gather(*tasks)
-        consensus = await self.get_consensus(results)
-        
-        return consensus
+### Output Format
+All CLI commands return JSON-formatted output using orjson for improved performance:
+```json
+{
+  "task_id": "task_001",
+  "agent": "agent1",
+  "status": "routed",
+  "capacity_remaining": 9,
+  "total_tasks_processed": 15,
+  "latency_ms": 45
+}
 ```
 
-### AI Router (`ai_router.py`)
-```python
-class AIRouter:
-    def __init__(self, config):
-        self.providers = {
-            "claude": ClaudeProvider(config),
-            "grok": GrokProvider(config),
-            "chatgpt": ChatGPTProvider(config)
-        }
-        
-    def select_providers(self, event_type):
-        # Select providers based on event type
-        if event_type == "code_review":
-            return ["claude", "grok"]
-        elif event_type == "documentation":
-            return ["chatgpt", "claude"]
-        else:
-            return ["grok"]  # Default
-```
+## Agent Management
+### Registration
+- Agents must register before accepting tasks
+- Default capacity: 10 concurrent tasks
+- Status tracking: active/inactive
+- Performance metrics tracking
+- Last active timestamp
 
-### Task Processor (`task_processor.py`)
-```python
-class TaskProcessor:
-    def __init__(self, config):
-        self.config = config
-        
-    async def create_task(self, event, provider):
-        # Format request for provider
-        request = self.format_request(event, provider)
-        
-        # Send to AI provider
-        response = await self.providers[provider].process(request)
-        
-        # Validate response
-        if self.validate_response(response):
-            return response
-        else:
-            raise TaskError("Invalid response")
-```
-
-## Routing Logic
-
-### 1. Event Classification
-- Webhook event types
-- Code changes
-- Documentation updates
-- Issue management
-
-### 2. Provider Selection
-- Event type matching
-- Provider capabilities
-- Load balancing
-- Health status
-
-### 3. Task Distribution
-- Parallel processing
-- Resource allocation
-- Priority handling
-- Rate limiting
-
-### 4. Result Handling
-- Response validation
-- Consensus building
-- Action execution
-- Status updates
+### Capacity Management
+- Dynamic capacity updates
+- Task counting and limits
+- Automatic task cleanup
+- TTL-based cache eviction
+- Warning threshold monitoring
 
 ## Error Handling
+### Validation
+- Task ID validation
+- Agent ID validation
+- Capacity checks
+- Status validation
+- Task duplication checks
 
-### 1. Provider Errors
-- Connection failures
-- Timeout handling
-- Rate limit errors
-- Invalid responses
+### Recovery
+- Retry mechanism for capacity issues
+- Error logging with latency
+- Status preservation
+- Automatic cleanup
+- Rate limiting
 
-### 2. Task Errors
-- State transitions
-- Data validation
-- Resource limits
-- Cleanup procedures
+## Integration Points
+### Task Generator
+- Receives routed tasks
+- Validates task parameters
+- Manages task lifecycle
+- Performance tracking
 
-### 3. Recovery
-- Automatic retries
-- Provider failover
-- Task rescheduling
-- Error reporting
+### MAS Core
+- Agent registration
+- Task distribution
+- Status updates
+- Protocol compliance
 
-## Performance
+## Example Usage
+### Task Routing with Metrics
+```python
+router = AIRouter()
+await router.register_agent("agent1", capacity=10)
+result = await router.route_task("task_001", "agent1")
+print(f"Routing latency: {result['latency_ms']}ms")
+```
 
-### 1. Metrics
-- Routing latency
-- Provider response times
-- Task completion rates
-- Error frequencies
+### Status Check with Performance
+```python
+status = await router.get_agent_status("agent1")
+print(f"Agent Status: {status['status']}")
+print(f"Tasks: {len(status['tasks'])}/{status['capacity']}")
+print(f"Total processed: {status['total_tasks_processed']}")
+print(f"Response time: {status['latency_ms']}ms")
+```
 
-### 2. Optimization
-- Connection pooling
-- Request batching
-- Response caching
-- Load shedding
+### MASLite Integration
+```python
+result = await router.route_to_maslite("task_001", "agent1")
+assert result["protocol_version"] == "2.1"
+```
 
-## Testing
+## Performance Considerations
+- Lock-based concurrency control
+- TTL cache for task tracking
+- Compressed logging
+- Early consensus calculation
+- Efficient error handling
+- Latency monitoring
+- Rate limiting
 
-### 1. Unit Tests
-- Router logic
-- Provider selection
-- Task processing
-- Error handling
-
-### 2. Integration Tests
-- Multi-provider scenarios
-- Consensus building
-- Failover handling
-- Performance testing
-
-## Deployment
-
-### 1. Configuration
-- Provider settings
-- Routing rules
-- Rate limits
-- Monitoring
-
-### 2. Scaling
-- Horizontal scaling
-- Load balancing
-- Cache distribution
-- Task partitioning
-
-## Documentation
-- Architecture overview
-- Provider integration
-- Configuration guide
-- Troubleshooting 
+## Future Enhancements (GBP18)
+1. Full MASLite integration
+2. Advanced routing algorithms
+3. Load balancing
+4. Agent health monitoring
+5. Task prioritization
+6. Predictive scaling
+7. Real-time analytics 

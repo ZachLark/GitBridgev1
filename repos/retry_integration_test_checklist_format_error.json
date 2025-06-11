@@ -1,0 +1,29 @@
+{
+  "repo_id": "integration_test_checklist_format_error",
+  "error_code": "CHECKLIST_FORMAT_ERROR",
+  "retry_count": 2,
+  "fallback_type": "AUTO_RETRY",
+  "status": "scheduled",
+  "created_at": "2025-06-09T07:13:27.086949+00:00",
+  "next_retry_at": "2025-06-09T07:13:27.087005+00:00",
+  "original_spec": {
+    "fallback_type": "AUTO_RETRY",
+    "trigger_conditions": [
+      "checklist validation failed",
+      "malformed checkbox syntax",
+      "insufficient checklist items",
+      "duplicate checklist items"
+    ],
+    "recommended_action": "Auto-repair checklist formatting and regenerate",
+    "requires_human_review": false,
+    "gpt_prompt_template": "\nTask: Repair and standardize checklist formatting.\n\nContext: Checklist validation failed for task: {task_id}\nError Details: {error_details}\nCurrent Checklist: {checklist_content}\n\nPlease fix:\n1. Checkbox syntax errors ([x], [ ], [-])\n2. Missing list markers (-, *)\n3. Duplicate item removal\n4. Minimum item count compliance (3-20 items)\n5. Lifecycle coverage gaps\n\nProvide corrected checklist in standard format.\n",
+    "auto_retry_count": 2,
+    "severity": "low",
+    "estimated_resolution_time": "2-5 minutes",
+    "error_code": "CHECKLIST_FORMAT_ERROR",
+    "protocol_version": "MAS_Lite_v2.1",
+    "timestamp": "2025-06-09T07:13:26.866308+00:00",
+    "specification_hash": "2f68a699ca1f0f42",
+    "repo_id": "integration_test_checklist_format_error"
+  }
+}

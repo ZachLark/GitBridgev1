@@ -1,0 +1,166 @@
+{
+  "policy_metadata": {
+    "policy_id": "stress_policy_004",
+    "version": "1.0.0",
+    "created_at": "2025-06-10T17:48:00.000Z",
+    "profile_type": "stress",
+    "description": "High-load stress testing profile with aggressive resource limits and performance monitoring",
+    "__comment": "Stress profile designed for load testing and performance benchmarking scenarios"
+  },
+  
+  "execution_profile": {
+    "name": "stress",
+    "priority": 3,
+    "timeout_seconds": 60,
+    "max_concurrent_tasks": 100,
+    "memory_limit_mb": 2048,
+    "enable_debug": false,
+    "__comment": "Extreme execution limits designed to push system boundaries during stress testing"
+  },
+  
+  "routing": {
+    "primary_model": {
+      "model_id": "gpt-4o-stress",
+      "provider": "openai",
+      "timeout_seconds": 20,
+      "confidence_threshold": 0.50,
+      "max_tokens": 1024,
+      "temperature": 0.7
+    },
+    "fallback_chain": [
+      {
+        "model_id": "claude-3-stress",
+        "provider": "anthropic",
+        "timeout_seconds": 15,
+        "confidence_threshold": 0.45,
+        "max_tokens": 1024,
+        "temperature": 0.7,
+        "fallback_conditions": ["timeout", "error", "rate_limit", "unavailable"],
+        "priority": 1
+      },
+      {
+        "model_id": "local-stress-model",
+        "provider": "local",
+        "timeout_seconds": 10,
+        "confidence_threshold": 0.40,
+        "max_tokens": 512,
+        "temperature": 0.8,
+        "fallback_conditions": ["timeout", "error", "unavailable"],
+        "priority": 2
+      },
+      {
+        "model_id": "backup-stress-model",
+        "provider": "local",
+        "timeout_seconds": 5,
+        "confidence_threshold": 0.30,
+        "max_tokens": 256,
+        "temperature": 1.0,
+        "fallback_conditions": ["timeout", "error"],
+        "priority": 3
+      }
+    ],
+    "selection_strategy": "cost",
+    "load_balancing": {
+      "enabled": true,
+      "algorithm": "round_robin",
+      "weights": {
+        "gpt-4o-stress": 0.4,
+        "claude-3-stress": 0.3,
+        "local-stress-model": 0.2,
+        "backup-stress-model": 0.1
+      }
+    },
+    "__comment": "Stress routing distributes load across multiple models with aggressive fallback chain"
+  },
+  
+  "fallbacks": {
+    "escalation_thresholds": {
+      "confidence_threshold": 0.30,
+      "timeout_threshold": 60,
+      "error_rate_threshold": 0.5,
+      "latency_threshold_ms": 3000
+    },
+    "retry_policy": {
+      "max_retries": 1,
+      "base_delay_ms": 50,
+      "backoff_multiplier": 1.2,
+      "jitter_enabled": false
+    },
+    "circuit_breaker": {
+      "failure_threshold": 10,
+      "recovery_timeout_ms": 2000,
+      "half_open_max_calls": 20
+    },
+    "__comment": "Minimal retry policy with fast recovery for maximum stress testing throughput"
+  },
+  
+  "uid_lineage": {
+    "threading_strategy": "flat",
+    "lineage_depth": 2,
+    "uid_format": {
+      "pattern": "{timestamp}_{entropy}",
+      "components": ["timestamp", "entropy"],
+      "separator": "_"
+    },
+    "persistence": {
+      "enabled": false,
+      "storage_backend": "memory",
+      "retention_hours": 1
+    },
+    "__comment": "Minimal lineage tracking to reduce overhead during stress testing"
+  },
+  
+  "logging": {
+    "level": "ERROR",
+    "format": "plain",
+    "outputs": [
+      {
+        "type": "console",
+        "enabled": true
+      },
+      {
+        "type": "file",
+        "enabled": true,
+        "path": "/logs/stress/smartrepo_stress.log",
+        "rotation": {
+          "enabled": true,
+          "max_size_mb": 25,
+          "backup_count": 3
+        }
+      }
+    ],
+    "fields": {
+      "include_timestamp": true,
+      "include_thread_id": false,
+      "include_process_id": false,
+      "include_uid_lineage": false,
+      "mas_lite_compliance": false
+    },
+    "__comment": "Minimal logging to reduce I/O overhead during high-load stress testing"
+  },
+  
+  "output": {
+    "format": {
+      "type": "json",
+      "encoding": "utf-8",
+      "pretty_print": false,
+      "compression": {
+        "enabled": true,
+        "algorithm": "deflate"
+      }
+    },
+    "delivery": {
+      "method": "batch",
+      "reliability": "at_least_once",
+      "batch_size": 50,
+      "flush_interval_ms": 5000
+    },
+    "validation": {
+      "enabled": false,
+      "schema_validation": false,
+      "checksum_enabled": false,
+      "mas_lite_compliance": false
+    },
+    "__comment": "Batched delivery with compression to maximize throughput during stress testing"
+  }
+} 

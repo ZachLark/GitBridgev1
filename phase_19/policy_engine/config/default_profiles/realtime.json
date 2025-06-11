@@ -1,0 +1,155 @@
+{
+  "policy_metadata": {
+    "policy_id": "realtime_policy_002",
+    "version": "1.0.0",
+    "created_at": "2025-06-10T17:48:00.000Z",
+    "profile_type": "realtime",
+    "description": "High-performance realtime profile optimized for speed and low latency with minimal overhead",
+    "__comment": "Realtime profile prioritizes speed and responsiveness over comprehensive logging"
+  },
+  
+  "execution_profile": {
+    "name": "realtime",
+    "priority": 10,
+    "timeout_seconds": 30,
+    "max_concurrent_tasks": 50,
+    "memory_limit_mb": 256,
+    "enable_debug": false,
+    "__comment": "Aggressive execution limits optimized for maximum throughput and minimal latency"
+  },
+  
+  "routing": {
+    "primary_model": {
+      "model_id": "gpt-4o-turbo",
+      "provider": "openai",
+      "timeout_seconds": 15,
+      "confidence_threshold": 0.70,
+      "max_tokens": 2048,
+      "temperature": 0.3
+    },
+    "fallback_chain": [
+      {
+        "model_id": "claude-3-haiku",
+        "provider": "anthropic",
+        "timeout_seconds": 10,
+        "confidence_threshold": 0.65,
+        "max_tokens": 2048,
+        "temperature": 0.3,
+        "fallback_conditions": ["timeout", "error", "rate_limit"],
+        "priority": 1
+      },
+      {
+        "model_id": "local-fast-model",
+        "provider": "local",
+        "timeout_seconds": 5,
+        "confidence_threshold": 0.60,
+        "max_tokens": 1024,
+        "temperature": 0.5,
+        "fallback_conditions": ["timeout", "unavailable"],
+        "priority": 2
+      }
+    ],
+    "selection_strategy": "performance",
+    "load_balancing": {
+      "enabled": true,
+      "algorithm": "least_connections",
+      "weights": {
+        "gpt-4o-turbo": 0.5,
+        "claude-3-haiku": 0.3,
+        "local-fast-model": 0.2
+      }
+    },
+    "__comment": "Realtime routing optimizes for speed with aggressive load balancing"
+  },
+  
+  "fallbacks": {
+    "escalation_thresholds": {
+      "confidence_threshold": 0.60,
+      "timeout_threshold": 30,
+      "error_rate_threshold": 0.3,
+      "latency_threshold_ms": 5000
+    },
+    "retry_policy": {
+      "max_retries": 2,
+      "base_delay_ms": 200,
+      "backoff_multiplier": 1.5,
+      "jitter_enabled": false
+    },
+    "circuit_breaker": {
+      "failure_threshold": 5,
+      "recovery_timeout_ms": 5000,
+      "half_open_max_calls": 10
+    },
+    "__comment": "Fast fallback settings with minimal retry delay for realtime responsiveness"
+  },
+  
+  "uid_lineage": {
+    "threading_strategy": "flat",
+    "lineage_depth": 3,
+    "uid_format": {
+      "pattern": "{timestamp}_{entropy}_{sequence}",
+      "components": ["timestamp", "entropy", "sequence"],
+      "separator": "_"
+    },
+    "persistence": {
+      "enabled": true,
+      "storage_backend": "memory",
+      "retention_hours": 24
+    },
+    "__comment": "Minimal lineage tracking with short retention for performance"
+  },
+  
+  "logging": {
+    "level": "WARNING",
+    "format": "structured",
+    "outputs": [
+      {
+        "type": "console",
+        "enabled": true
+      },
+      {
+        "type": "file",
+        "enabled": true,
+        "path": "/logs/realtime/smartrepo_realtime.log",
+        "rotation": {
+          "enabled": true,
+          "max_size_mb": 50,
+          "backup_count": 5
+        }
+      }
+    ],
+    "fields": {
+      "include_timestamp": true,
+      "include_thread_id": false,
+      "include_process_id": false,
+      "include_uid_lineage": false,
+      "mas_lite_compliance": false
+    },
+    "__comment": "Minimal logging for maximum performance with essential error tracking only"
+  },
+  
+  "output": {
+    "format": {
+      "type": "json",
+      "encoding": "utf-8",
+      "pretty_print": false,
+      "compression": {
+        "enabled": true,
+        "algorithm": "gzip"
+      }
+    },
+    "delivery": {
+      "method": "asynchronous",
+      "reliability": "at_most_once",
+      "batch_size": 10,
+      "flush_interval_ms": 1000
+    },
+    "validation": {
+      "enabled": false,
+      "schema_validation": false,
+      "checksum_enabled": false,
+      "mas_lite_compliance": false
+    },
+    "__comment": "Asynchronous delivery with compression for maximum throughput"
+  }
+} 

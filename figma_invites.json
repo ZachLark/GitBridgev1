@@ -1,0 +1,35 @@
+[
+  {
+    "mas_lite_version": "2.1",
+    "event_metadata": {
+      "event_type": "file_update",
+      "timestamp": "2024-01-15T10:30:00Z",
+      "source": "figma_webhook",
+      "payload_hash": "98815592ac1ca7db7214b1eebb6b8955f41a0f4d8e7b4b896238957ddcbb1648"
+    },
+    "figma_data": {
+      "file_key": "demo_file_123",
+      "file_name": "GitBridge Demo File",
+      "team_id": "gitbridge_team",
+      "user_id": "demo_user",
+      "event_type": "file_update",
+      "description": "Phase 18 webhook demo event",
+      "raw_payload": {
+        "event_type": "file_update",
+        "file_key": "demo_file_123",
+        "file_name": "GitBridge Demo File",
+        "team_id": "gitbridge_team",
+        "timestamp": "2024-01-15T10:30:00Z",
+        "triggered_by": {
+          "id": "demo_user"
+        },
+        "description": "Phase 18 webhook demo event"
+      }
+    },
+    "processing_status": {
+      "parsed_at": "2025-06-09T05:17:25.025269+00:00",
+      "status": "success",
+      "parser_version": "1.0.0"
+    }
+  }
+]

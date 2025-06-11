@@ -1,0 +1,481 @@
+{
+  "metadata": {
+    "export_timestamp": "2025-06-10T16:06:38.683963+00:00",
+    "total_uids": 19,
+    "total_chains": 5
+  },
+  "prompt_registry": {
+    "20250610_a7f2c9_gpt4_001": {
+      "uid": "20250610_a7f2c9_gpt4_001",
+      "parent_uid": null,
+      "root_uid": "20250610_a7f2c9_gpt4_001",
+      "phase": "PromptPhase.INIT",
+      "agent_id": "gpt4",
+      "confidence_score": 0.85,
+      "fallback_flag": false,
+      "fallback_reason": null,
+      "children_uids": [
+        "20250610_a7f2c9_claude_002"
+      ],
+      "metadata": {
+        "task_type": "code_generation",
+        "complexity": "medium"
+      },
+      "timestamp": "2025-06-10T16:06:38.574311+00:00",
+      "lineage_depth": 0,
+      "success": false
+    },
+    "20250610_a7f2c9_claude_002": {
+      "uid": "20250610_a7f2c9_claude_002",
+      "parent_uid": "20250610_a7f2c9_gpt4_001",
+      "root_uid": "20250610_a7f2c9_gpt4_001",
+      "phase": "PromptPhase.FALLBACK",
+      "agent_id": "claude3.5",
+      "confidence_score": 0.72,
+      "fallback_flag": true,
+      "fallback_reason": "FallbackReason.LOW_CONFIDENCE",
+      "children_uids": [
+        "20250610_a7f2c9_claude_003"
+      ],
+      "metadata": {
+        "original_confidence": 0.42,
+        "fallback_triggered": true
+      },
+      "timestamp": "2025-06-10T16:06:38.585833+00:00",
+      "lineage_depth": 1,
+      "success": false
+    },
+    "20250610_a7f2c9_claude_003": {
+      "uid": "20250610_a7f2c9_claude_003",
+      "parent_uid": "20250610_a7f2c9_claude_002",
+      "root_uid": "20250610_a7f2c9_gpt4_001",
+      "phase": "PromptPhase.ARCHIVE",
+      "agent_id": "claude3.5",
+      "confidence_score": 0.72,
+      "fallback_flag": false,
+      "fallback_reason": null,
+      "children_uids": [],
+      "metadata": {
+        "final_result": "success",
+        "total_duration": 45
+      },
+      "timestamp": "2025-06-10T16:06:38.585843+00:00",
+      "lineage_depth": 2,
+      "success": true
+    },
+    "20250610_b8e3d1_gpt4_001": {
+      "uid": "20250610_b8e3d1_gpt4_001",
+      "parent_uid": null,
+      "root_uid": "20250610_b8e3d1_gpt4_001",
+      "phase": "PromptPhase.INIT",
+      "agent_id": "gpt4",
+      "confidence_score": 0.78,
+      "fallback_flag": false,
+      "fallback_reason": null,
+      "children_uids": [
+        "20250610_b8e3d1_gpt4_002"
+      ],
+      "metadata": {
+        "task_type": "architecture_design",
+        "complexity": "high"
+      },
+      "timestamp": "2025-06-10T16:06:38.585849+00:00",
+      "lineage_depth": 0,
+      "success": false
+    },
+    "20250610_b8e3d1_gpt4_002": {
+      "uid": "20250610_b8e3d1_gpt4_002",
+      "parent_uid": "20250610_b8e3d1_gpt4_001",
+      "root_uid": "20250610_b8e3d1_gpt4_001",
+      "phase": "PromptPhase.MUTATION",
+      "agent_id": "gpt4",
+      "confidence_score": 0.65,
+      "fallback_flag": false,
+      "fallback_reason": null,
+      "children_uids": [
+        "20250610_b8e3d1_claude_003"
+      ],
+      "metadata": {
+        "mutation_reason": "context_expansion",
+        "added_requirements": 3
+      },
+      "timestamp": "2025-06-10T16:06:38.585854+00:00",
+      "lineage_depth": 1,
+      "success": false
+    },
+    "20250610_b8e3d1_claude_003": {
+      "uid": "20250610_b8e3d1_claude_003",
+      "parent_uid": "20250610_b8e3d1_gpt4_002",
+      "root_uid": "20250610_b8e3d1_gpt4_001",
+      "phase": "PromptPhase.FALLBACK",
+      "agent_id": "claude3.5",
+      "confidence_score": 0.58,
+      "fallback_flag": true,
+      "fallback_reason": "FallbackReason.QUALITY_FAILURE",
+      "children_uids": [
+        "20250610_b8e3d1_gemini_004"
+      ],
+      "metadata": {
+        "escalation_level": 1,
+        "quality_score": 0.55
+      },
+      "timestamp": "2025-06-10T16:06:38.585859+00:00",
+      "lineage_depth": 2,
+      "success": false
+    },
+    "20250610_b8e3d1_gemini_004": {
+      "uid": "20250610_b8e3d1_gemini_004",
+      "parent_uid": "20250610_b8e3d1_claude_003",
+      "root_uid": "20250610_b8e3d1_gpt4_001",
+      "phase": "PromptPhase.FALLBACK",
+      "agent_id": "gemini_pro",
+      "confidence_score": 0.82,
+      "fallback_flag": true,
+      "fallback_reason": "FallbackReason.LOW_CONFIDENCE",
+      "children_uids": [
+        "20250610_b8e3d1_gemini_005"
+      ],
+      "metadata": {
+        "escalation_level": 2,
+        "previous_attempts": 2
+      },
+      "timestamp": "2025-06-10T16:06:38.585865+00:00",
+      "lineage_depth": 3,
+      "success": false
+    },
+    "20250610_b8e3d1_gemini_005": {
+      "uid": "20250610_b8e3d1_gemini_005",
+      "parent_uid": "20250610_b8e3d1_gemini_004",
+      "root_uid": "20250610_b8e3d1_gpt4_001",
+      "phase": "PromptPhase.ARCHIVE",
+      "agent_id": "gemini_pro",
+      "confidence_score": 0.82,
+      "fallback_flag": false,
+      "fallback_reason": null,
+      "children_uids": [],
+      "metadata": {
+        "final_result": "success",
+        "total_duration": 180,
+        "escalation_levels": 2
+      },
+      "timestamp": "2025-06-10T16:06:38.585869+00:00",
+      "lineage_depth": 4,
+      "success": true
+    },
+    "20250610_c9f4e2_gpt4_001": {
+      "uid": "20250610_c9f4e2_gpt4_001",
+      "parent_uid": null,
+      "root_uid": "20250610_c9f4e2_gpt4_001",
+      "phase": "PromptPhase.INIT",
+      "agent_id": "gpt4_turbo",
+      "confidence_score": 0.9,
+      "fallback_flag": false,
+      "fallback_reason": null,
+      "children_uids": [
+        "20250610_c9f4e2_claude_002"
+      ],
+      "metadata": {
+        "task_type": "large_codebase_analysis",
+        "complexity": "very_high",
+        "estimated_tokens": 50000
+      },
+      "timestamp": "2025-06-10T16:06:38.585873+00:00",
+      "lineage_depth": 0,
+      "success": false
+    },
+    "20250610_c9f4e2_claude_002": {
+      "uid": "20250610_c9f4e2_claude_002",
+      "parent_uid": "20250610_c9f4e2_gpt4_001",
+      "root_uid": "20250610_c9f4e2_gpt4_001",
+      "phase": "PromptPhase.FALLBACK",
+      "agent_id": "claude3.5",
+      "confidence_score": 0.75,
+      "fallback_flag": true,
+      "fallback_reason": "FallbackReason.RESOURCE_EXHAUSTION",
+      "children_uids": [
+        "20250610_c9f4e2_claude_003"
+      ],
+      "metadata": {
+        "token_limit_exceeded": true,
+        "split_strategy": "file_based"
+      },
+      "timestamp": "2025-06-10T16:06:38.585877+00:00",
+      "lineage_depth": 1,
+      "success": false
+    },
+    "20250610_c9f4e2_claude_003": {
+      "uid": "20250610_c9f4e2_claude_003",
+      "parent_uid": "20250610_c9f4e2_claude_002",
+      "root_uid": "20250610_c9f4e2_gpt4_001",
+      "phase": "PromptPhase.ARCHIVE",
+      "agent_id": "claude3.5",
+      "confidence_score": 0.75,
+      "fallback_flag": false,
+      "fallback_reason": null,
+      "children_uids": [],
+      "metadata": {
+        "final_result": "success",
+        "split_tasks": 5,
+        "total_duration": 320
+      },
+      "timestamp": "2025-06-10T16:06:38.585882+00:00",
+      "lineage_depth": 2,
+      "success": true
+    },
+    "20250610_d1a5f3_claude_001": {
+      "uid": "20250610_d1a5f3_claude_001",
+      "parent_uid": null,
+      "root_uid": "20250610_d1a5f3_claude_001",
+      "phase": "PromptPhase.INIT",
+      "agent_id": "claude3.5",
+      "confidence_score": 0.88,
+      "fallback_flag": false,
+      "fallback_reason": null,
+      "children_uids": [
+        "20250610_d1a5f3_claude_002"
+      ],
+      "metadata": {
+        "task_type": "code_review",
+        "complexity": "medium",
+        "files_count": 12
+      },
+      "timestamp": "2025-06-10T16:06:38.585886+00:00",
+      "lineage_depth": 0,
+      "success": false
+    },
+    "20250610_d1a5f3_claude_002": {
+      "uid": "20250610_d1a5f3_claude_002",
+      "parent_uid": "20250610_d1a5f3_claude_001",
+      "root_uid": "20250610_d1a5f3_claude_001",
+      "phase": "PromptPhase.MUTATION",
+      "agent_id": "claude3.5",
+      "confidence_score": 0.45,
+      "fallback_flag": false,
+      "fallback_reason": null,
+      "children_uids": [
+        "20250610_d1a5f3_gpt4_003"
+      ],
+      "metadata": {
+        "mutation_reason": "incomplete_analysis",
+        "coverage": 0.6
+      },
+      "timestamp": "2025-06-10T16:06:38.585891+00:00",
+      "lineage_depth": 1,
+      "success": false
+    },
+    "20250610_d1a5f3_gpt4_003": {
+      "uid": "20250610_d1a5f3_gpt4_003",
+      "parent_uid": "20250610_d1a5f3_claude_002",
+      "root_uid": "20250610_d1a5f3_claude_001",
+      "phase": "PromptPhase.FALLBACK",
+      "agent_id": "gpt4",
+      "confidence_score": 0.87,
+      "fallback_flag": true,
+      "fallback_reason": "FallbackReason.QUALITY_FAILURE",
+      "children_uids": [
+        "20250610_d1a5f3_gpt4_004"
+      ],
+      "metadata": {
+        "quality_improvement": 0.42,
+        "enhanced_context": true
+      },
+      "timestamp": "2025-06-10T16:06:38.585895+00:00",
+      "lineage_depth": 2,
+      "success": false
+    },
+    "20250610_d1a5f3_gpt4_004": {
+      "uid": "20250610_d1a5f3_gpt4_004",
+      "parent_uid": "20250610_d1a5f3_gpt4_003",
+      "root_uid": "20250610_d1a5f3_claude_001",
+      "phase": "PromptPhase.ARCHIVE",
+      "agent_id": "gpt4",
+      "confidence_score": 0.87,
+      "fallback_flag": false,
+      "fallback_reason": null,
+      "children_uids": [],
+      "metadata": {
+        "final_result": "success",
+        "coverage": 0.95,
+        "total_duration": 95
+      },
+      "timestamp": "2025-06-10T16:06:38.585899+00:00",
+      "lineage_depth": 3,
+      "success": true
+    },
+    "20250610_e2b6g4_gpt4_001": {
+      "uid": "20250610_e2b6g4_gpt4_001",
+      "parent_uid": null,
+      "root_uid": "20250610_e2b6g4_gpt4_001",
+      "phase": "PromptPhase.INIT",
+      "agent_id": "gpt4",
+      "confidence_score": 0.82,
+      "fallback_flag": false,
+      "fallback_reason": null,
+      "children_uids": [
+        "20250610_e2b6g4_gpt4_002"
+      ],
+      "metadata": {
+        "task_type": "documentation",
+        "complexity": "low",
+        "sections": 8
+      },
+      "timestamp": "2025-06-10T16:06:38.585902+00:00",
+      "lineage_depth": 0,
+      "success": false
+    },
+    "20250610_e2b6g4_gpt4_002": {
+      "uid": "20250610_e2b6g4_gpt4_002",
+      "parent_uid": "20250610_e2b6g4_gpt4_001",
+      "root_uid": "20250610_e2b6g4_gpt4_001",
+      "phase": "PromptPhase.MUTATION",
+      "agent_id": "gpt4",
+      "confidence_score": 0.86,
+      "fallback_flag": false,
+      "fallback_reason": null,
+      "children_uids": [
+        "20250610_e2b6g4_gpt4_003"
+      ],
+      "metadata": {
+        "mutation_reason": "style_consistency",
+        "improvements": [
+          "formatting",
+          "clarity"
+        ]
+      },
+      "timestamp": "2025-06-10T16:06:38.585906+00:00",
+      "lineage_depth": 1,
+      "success": false
+    },
+    "20250610_e2b6g4_gpt4_003": {
+      "uid": "20250610_e2b6g4_gpt4_003",
+      "parent_uid": "20250610_e2b6g4_gpt4_002",
+      "root_uid": "20250610_e2b6g4_gpt4_001",
+      "phase": "PromptPhase.MUTATION",
+      "agent_id": "gpt4",
+      "confidence_score": 0.91,
+      "fallback_flag": false,
+      "fallback_reason": null,
+      "children_uids": [
+        "20250610_e2b6g4_gpt4_004"
+      ],
+      "metadata": {
+        "mutation_reason": "content_expansion",
+        "added_sections": 2
+      },
+      "timestamp": "2025-06-10T16:06:38.585910+00:00",
+      "lineage_depth": 2,
+      "success": false
+    },
+    "20250610_e2b6g4_gpt4_004": {
+      "uid": "20250610_e2b6g4_gpt4_004",
+      "parent_uid": "20250610_e2b6g4_gpt4_003",
+      "root_uid": "20250610_e2b6g4_gpt4_001",
+      "phase": "PromptPhase.ARCHIVE",
+      "agent_id": "gpt4",
+      "confidence_score": 0.91,
+      "fallback_flag": false,
+      "fallback_reason": null,
+      "children_uids": [],
+      "metadata": {
+        "final_result": "success",
+        "mutations": 2,
+        "total_duration": 75
+      },
+      "timestamp": "2025-06-10T16:06:38.585914+00:00",
+      "lineage_depth": 3,
+      "success": true
+    }
+  },
+  "lineage_chains": {
+    "20250610_a7f2c9_gpt4_001": [
+      "20250610_a7f2c9_gpt4_001",
+      "20250610_a7f2c9_claude_002",
+      "20250610_a7f2c9_claude_003"
+    ],
+    "20250610_b8e3d1_gpt4_001": [
+      "20250610_b8e3d1_gpt4_001",
+      "20250610_b8e3d1_gpt4_002",
+      "20250610_b8e3d1_claude_003",
+      "20250610_b8e3d1_gemini_004",
+      "20250610_b8e3d1_gemini_005"
+    ],
+    "20250610_c9f4e2_gpt4_001": [
+      "20250610_c9f4e2_gpt4_001",
+      "20250610_c9f4e2_claude_002",
+      "20250610_c9f4e2_claude_003"
+    ],
+    "20250610_d1a5f3_claude_001": [
+      "20250610_d1a5f3_claude_001",
+      "20250610_d1a5f3_claude_002",
+      "20250610_d1a5f3_gpt4_003",
+      "20250610_d1a5f3_gpt4_004"
+    ],
+    "20250610_e2b6g4_gpt4_001": [
+      "20250610_e2b6g4_gpt4_001",
+      "20250610_e2b6g4_gpt4_002",
+      "20250610_e2b6g4_gpt4_003",
+      "20250610_e2b6g4_gpt4_004"
+    ]
+  },
+  "chain_summary": {
+    "total_chains": 5,
+    "total_uids": 19,
+    "chains": {
+      "20250610_a7f2c9_gpt4_001": {
+        "root_uid": "20250610_a7f2c9_gpt4_001",
+        "length": 3,
+        "agents_used": [
+          "claude3.5",
+          "gpt4"
+        ],
+        "fallback_count": 1,
+        "success": true,
+        "final_confidence": 0.72
+      },
+      "20250610_b8e3d1_gpt4_001": {
+        "root_uid": "20250610_b8e3d1_gpt4_001",
+        "length": 5,
+        "agents_used": [
+          "claude3.5",
+          "gemini_pro",
+          "gpt4"
+        ],
+        "fallback_count": 2,
+        "success": true,
+        "final_confidence": 0.82
+      },
+      "20250610_c9f4e2_gpt4_001": {
+        "root_uid": "20250610_c9f4e2_gpt4_001",
+        "length": 3,
+        "agents_used": [
+          "gpt4_turbo",
+          "claude3.5"
+        ],
+        "fallback_count": 1,
+        "success": true,
+        "final_confidence": 0.75
+      },
+      "20250610_d1a5f3_claude_001": {
+        "root_uid": "20250610_d1a5f3_claude_001",
+        "length": 4,
+        "agents_used": [
+          "gpt4",
+          "claude3.5"
+        ],
+        "fallback_count": 1,
+        "success": true,
+        "final_confidence": 0.87
+      },
+      "20250610_e2b6g4_gpt4_001": {
+        "root_uid": "20250610_e2b6g4_gpt4_001",
+        "length": 4,
+        "agents_used": [
+          "gpt4"
+        ],
+        "fallback_count": 0,
+        "success": true,
+        "final_confidence": 0.91
+      }
+    }
+  }
+}

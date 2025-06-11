@@ -1,0 +1,136 @@
+{
+  "transcript_metadata": {
+    "report_type": "uid_replay_transcript",
+    "generated_at": "2025-06-10T17:16:03.983297+00:00",
+    "session_id": "1e8042bc6f8f242f",
+    "mas_lite_protocol": "v2.1"
+  },
+  "replay_summary": {
+    "input_file": "sample_uid_chain.json",
+    "total_nodes": 5,
+    "successful_replays": 5,
+    "failed_replays": 0,
+    "success_rate": 100.0,
+    "execution_time_ms": 530,
+    "start_time": "2025-06-10T17:16:03.452489+00:00",
+    "end_time": "2025-06-10T17:16:03.983167+00:00"
+  },
+  "lineage_analysis": {
+    "total_nodes": 5,
+    "unique_agents": 3,
+    "fallback_count": 4,
+    "confidence_statistics": {
+      "average": 0.43134613946066597,
+      "minimum": 0.31670353177925203,
+      "maximum": 0.6144936674964809,
+      "below_threshold_count": 4
+    },
+    "temporal_analysis": {
+      "first_event": "2025-06-10T17:15:14.441939+00:00",
+      "last_event": "2025-06-10T17:15:14.442318+00:00",
+      "time_span_seconds": 0.000379
+    },
+    "agent_distribution": {
+      "gpt4_turbo": 3,
+      "gemini_pro": 1,
+      "human_escalation": 1
+    },
+    "error_patterns": {
+      "TIMEOUT": 3,
+      "ESCALATION_TRIGGER": 1
+    },
+    "escalation_triggers": {},
+    "processing_time_statistics": {
+      "average_ms": 2634.2,
+      "minimum_ms": 578,
+      "maximum_ms": 4173,
+      "total_ms": 13171
+    }
+  },
+  "detailed_nodes": [
+    {
+      "node_id": "node_1",
+      "uid": "23532fd8576e6815",
+      "agent": "gpt4_turbo",
+      "timestamp": "2025-06-10T17:15:14.441939+00:00",
+      "confidence_score": 0.3609189611149517,
+      "fallback_flag": true,
+      "model_id": "gemini_pro",
+      "error_code": "TIMEOUT",
+      "escalation_reason": null,
+      "processing_time_ms": 4096,
+      "parent_uid": null,
+      "children_uids": [
+        "31894326460689f0"
+      ],
+      "mas_lite_protocol": "v2.1"
+    },
+    {
+      "node_id": "node_2",
+      "uid": "31894326460689f0",
+      "agent": "gpt4_turbo",
+      "timestamp": "2025-06-10T17:15:14.442283+00:00",
+      "confidence_score": 0.39370683976603327,
+      "fallback_flag": true,
+      "model_id": "gpt4_turbo",
+      "error_code": "ESCALATION_TRIGGER",
+      "escalation_reason": null,
+      "processing_time_ms": 2344,
+      "parent_uid": "23532fd8576e6815",
+      "children_uids": [
+        "9b0d23972006a8c9"
+      ],
+      "mas_lite_protocol": "v2.1"
+    },
+    {
+      "node_id": "node_3",
+      "uid": "9b0d23972006a8c9",
+      "agent": "gemini_pro",
+      "timestamp": "2025-06-10T17:15:14.442300+00:00",
+      "confidence_score": 0.6144936674964809,
+      "fallback_flag": true,
+      "model_id": "gemini_pro",
+      "error_code": "TIMEOUT",
+      "escalation_reason": null,
+      "processing_time_ms": 1980,
+      "parent_uid": "31894326460689f0",
+      "children_uids": [
+        "d462ca6cd527bad1"
+      ],
+      "mas_lite_protocol": "v2.1"
+    },
+    {
+      "node_id": "node_4",
+      "uid": "d462ca6cd527bad1",
+      "agent": "human_escalation",
+      "timestamp": "2025-06-10T17:15:14.442310+00:00",
+      "confidence_score": 0.31670353177925203,
+      "fallback_flag": false,
+      "model_id": "claude3_5_sonnet",
+      "error_code": null,
+      "escalation_reason": null,
+      "processing_time_ms": 4173,
+      "parent_uid": "9b0d23972006a8c9",
+      "children_uids": [
+        "214ed489f3bf1325"
+      ],
+      "mas_lite_protocol": "v2.1"
+    },
+    {
+      "node_id": "node_5",
+      "uid": "214ed489f3bf1325",
+      "agent": "gpt4_turbo",
+      "timestamp": "2025-06-10T17:15:14.442318+00:00",
+      "confidence_score": 0.47090769714661185,
+      "fallback_flag": true,
+      "model_id": "gpt4_turbo",
+      "error_code": "TIMEOUT",
+      "escalation_reason": null,
+      "processing_time_ms": 578,
+      "parent_uid": "d462ca6cd527bad1",
+      "children_uids": [],
+      "mas_lite_protocol": "v2.1"
+    }
+  ],
+  "errors": []
+}

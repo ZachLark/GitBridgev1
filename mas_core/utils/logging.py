@@ -8,6 +8,7 @@ implementation, including structured logging, rotation policies, and audit trail
 import logging
 import json
 import sys
+import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Optional
@@ -31,7 +32,7 @@ class MASLogger:
             log_file: Optional custom log file path
         """
         self.logger = logging.getLogger(name)
-        self.logger.setLevel(logging.INFO)
+        self.logger.setLevel(logging.DEBUG)
 
         # Ensure log directory exists
         LOG_DIR.mkdir(exist_ok=True)
@@ -54,6 +55,37 @@ class MASLogger:
         console_handler = logging.StreamHandler(sys.stdout)
         console_handler.setFormatter(formatter)
         self.logger.addHandler(console_handler)
+
+        self.task_name = f"Task-{uuid.uuid4().hex[:8]}"
+
+    def _format_message(
+        self,
+        message: str,
+        level: str,
+        extra: Optional[Dict[str, Any]] = None
+    ) -> str:
+        """Format log message.
+
+        Args:
+            message: Log message
+            level: Log level
+            extra: Extra data
+
+        Returns:
+            str: Formatted message
+        """
+        log_data = {
+            "asctime": datetime.now(timezone.utc).isoformat(),
+            "name": self.logger.name,
+            "levelname": level,
+            "message": message,
+            "taskName": self.task_name
+        }
+
+        if extra:
+            log_data.update(extra)
+
+        return json.dumps(log_data)
 
     def log_task(self, task_id: str, action: str, details: Dict[str, Any]) -> None:
         """
@@ -150,7 +182,8 @@ class MASLogger:
             message: Log message
             extra: Optional extra fields
         """
-        self.log("INFO", message, extra)
+        formatted_message = self._format_message(message, "INFO", extra)
+        self.logger.info(formatted_message)
         
     def warning(self, message: str, extra: Optional[Dict[str, Any]] = None) -> None:
         """Log a warning message.
@@ -159,7 +192,8 @@ class MASLogger:
             message: Log message
             extra: Optional extra fields
         """
-        self.log("WARNING", message, extra)
+        formatted_message = self._format_message(message, "WARNING", extra)
+        self.logger.warning(formatted_message)
         
     def error(self, message: str, extra: Optional[Dict[str, Any]] = None) -> None:
         """Log an error message.
@@ -168,7 +202,8 @@ class MASLogger:
             message: Log message
             extra: Optional extra fields
         """
-        self.log("ERROR", message, extra)
+        formatted_message = self._format_message(message, "ERROR", extra)
+        self.logger.error(formatted_message)
         
     def critical(self, message: str, extra: Optional[Dict[str, Any]] = None) -> None:
         """Log a critical message.
@@ -177,4 +212,19 @@ class MASLogger:
             message: Log message
             extra: Optional extra fields
         """
-        self.log("CRITICAL", message, extra) 
+        formatted_message = self._format_message(message, "CRITICAL", extra)
+        self.logger.critical(formatted_message)
+
+    def debug(self, message: str, extra: Optional[Dict[str, Any]] = None) -> None:
+        """Log a debug message.
+        
+        Args:
+            message: Log message
+            extra: Optional extra fields
+        """
+        formatted_message = self._format_message(message, "DEBUG", extra)
+        self.logger.debug(formatted_message)
+
+    def set_task_name(self, task_name: str) -> None:
+        """Set task name for logger."""
+        self.task_name = task_name 

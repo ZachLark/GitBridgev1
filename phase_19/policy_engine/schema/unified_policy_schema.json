@@ -1,0 +1,555 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GitBridge Unified Policy Schema",
+  "description": "MAS Lite Protocol v2.1 - Unified Policy Engine Schema for routing, fallbacks, UID lineage, execution context, and logging behaviors",
+  "type": "object",
+  "version": "1.0.0",
+  "mas_lite_protocol": "v2.1",
+  
+  "required": [
+    "policy_metadata",
+    "execution_profile",
+    "routing",
+    "fallbacks", 
+    "uid_lineage",
+    "logging",
+    "output"
+  ],
+  
+  "properties": {
+    "policy_metadata": {
+      "type": "object",
+      "description": "Policy identification and versioning information",
+      "required": ["policy_id", "version", "created_at", "profile_type"],
+      "properties": {
+        "policy_id": {
+          "type": "string",
+          "pattern": "^[a-z_]+_policy_\\d{3}$",
+          "description": "Unique policy identifier following MAS naming convention"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "description": "Semantic version of the policy"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp of policy creation"
+        },
+        "profile_type": {
+          "type": "string",
+          "enum": ["audit", "realtime", "diagnostic", "stress", "custom"],
+          "description": "Execution profile category"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "description": "Human-readable policy description"
+        },
+        "__comment": {
+          "type": "string",
+          "description": "Optional annotation for profile context"
+        }
+      }
+    },
+    
+    "execution_profile": {
+      "type": "object",
+      "description": "Runtime execution context and environment settings",
+      "required": ["name", "priority", "timeout_seconds"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "enum": ["audit", "realtime", "diagnostic", "stress", "custom"],
+          "description": "Profile name matching policy_metadata.profile_type"
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10,
+          "description": "Execution priority (1=lowest, 10=highest)"
+        },
+        "timeout_seconds": {
+          "type": "integer",
+          "minimum": 5,
+          "maximum": 3600,
+          "description": "Maximum execution timeout in seconds"
+        },
+        "max_concurrent_tasks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "description": "Maximum concurrent task limit"
+        },
+        "memory_limit_mb": {
+          "type": "integer",
+          "minimum": 64,
+          "description": "Memory usage limit in MB"
+        },
+        "enable_debug": {
+          "type": "boolean",
+          "description": "Enable debug mode for detailed tracing"
+        },
+        "__comment": {
+          "type": "string",
+          "description": "Profile-specific execution notes"
+        }
+      }
+    },
+    
+    "routing": {
+      "type": "object",
+      "description": "AI model routing and selection policies",
+      "required": ["primary_model", "fallback_chain", "selection_strategy"],
+      "properties": {
+        "primary_model": {
+          "$ref": "#/definitions/model_config"
+        },
+        "fallback_chain": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "items": {
+            "$ref": "#/definitions/fallback_model_config"
+          },
+          "description": "Ordered fallback model chain"
+        },
+        "selection_strategy": {
+          "type": "string",
+          "enum": ["confidence", "performance", "cost", "balanced"],
+          "description": "Model selection strategy"
+        },
+        "load_balancing": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "Enable load balancing across models"
+            },
+            "algorithm": {
+              "type": "string",
+              "enum": ["round_robin", "weighted", "least_connections"],
+              "description": "Load balancing algorithm"
+            },
+            "weights": {
+              "type": "object",
+              "patternProperties": {
+                "^[a-z0-9_]+$": {
+                  "type": "number",
+                  "minimum": 0.0,
+                  "maximum": 1.0
+                }
+              },
+              "description": "Model weights for weighted load balancing"
+            }
+          }
+        },
+        "__comment": {
+          "type": "string",
+          "description": "Routing configuration notes"
+        }
+      }
+    },
+    
+    "fallbacks": {
+      "type": "object",
+      "description": "Fallback escalation policies and thresholds",
+      "required": ["escalation_thresholds", "retry_policy", "circuit_breaker"],
+      "properties": {
+        "escalation_thresholds": {
+          "type": "object",
+          "required": ["confidence_threshold", "timeout_threshold", "error_rate_threshold"],
+          "properties": {
+            "confidence_threshold": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "description": "Minimum confidence score to avoid fallback"
+            },
+            "timeout_threshold": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Timeout before triggering fallback (seconds)"
+            },
+            "error_rate_threshold": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "description": "Error rate threshold for fallback activation"
+            },
+            "latency_threshold_ms": {
+              "type": "integer",
+              "minimum": 100,
+              "description": "Latency threshold in milliseconds"
+            }
+          }
+        },
+        "retry_policy": {
+          "type": "object",
+          "required": ["max_retries", "base_delay_ms", "backoff_multiplier"],
+          "properties": {
+            "max_retries": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10,
+              "description": "Maximum retry attempts"
+            },
+            "base_delay_ms": {
+              "type": "integer",
+              "minimum": 100,
+              "description": "Base delay between retries in milliseconds"
+            },
+            "backoff_multiplier": {
+              "type": "number",
+              "minimum": 1.0,
+              "maximum": 5.0,
+              "description": "Exponential backoff multiplier"
+            },
+            "jitter_enabled": {
+              "type": "boolean",
+              "description": "Add random jitter to retry delays"
+            }
+          }
+        },
+        "circuit_breaker": {
+          "type": "object",
+          "required": ["failure_threshold", "recovery_timeout_ms"],
+          "properties": {
+            "failure_threshold": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Consecutive failures before circuit opens"
+            },
+            "recovery_timeout_ms": {
+              "type": "integer",
+              "minimum": 1000,
+              "description": "Time before attempting recovery"
+            },
+            "half_open_max_calls": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Max calls in half-open state"
+            }
+          }
+        },
+        "__comment": {
+          "type": "string",
+          "description": "Fallback policy configuration notes"
+        }
+      }
+    },
+    
+    "uid_lineage": {
+      "type": "object",
+      "description": "UID threading and parent-child lineage tracking",
+      "required": ["threading_strategy", "lineage_depth", "persistence"],
+      "properties": {
+        "threading_strategy": {
+          "type": "string",
+          "enum": ["hierarchical", "flat", "hybrid"],
+          "description": "UID relationship structure strategy"
+        },
+        "lineage_depth": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10,
+          "description": "Maximum lineage tracking depth"
+        },
+        "uid_format": {
+          "type": "object",
+          "required": ["pattern", "components"],
+          "properties": {
+            "pattern": {
+              "type": "string",
+              "description": "UID generation pattern template"
+            },
+            "components": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["timestamp", "entropy", "agent_id", "sequence", "parent_ref"]
+              },
+              "description": "UID component sequence"
+            },
+            "separator": {
+              "type": "string",
+              "maxLength": 3,
+              "description": "Component separator character"
+            }
+          }
+        },
+        "persistence": {
+          "type": "object",
+          "required": ["enabled", "storage_backend"],
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "Enable lineage persistence"
+            },
+            "storage_backend": {
+              "type": "string",
+              "enum": ["redis", "file", "memory"],
+              "description": "Lineage storage backend"
+            },
+            "retention_hours": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Lineage data retention period"
+            }
+          }
+        },
+        "__comment": {
+          "type": "string",
+          "description": "UID lineage configuration notes"
+        }
+      }
+    },
+    
+    "logging": {
+      "type": "object",
+      "description": "Logging precision and output formatting policies",
+      "required": ["level", "format", "outputs"],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
+          "description": "Minimum logging level"
+        },
+        "format": {
+          "type": "string",
+          "enum": ["json", "structured", "plain"],
+          "description": "Log message format"
+        },
+        "outputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["type", "enabled"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["console", "file", "redis", "syslog"],
+                "description": "Output destination type"
+              },
+              "enabled": {
+                "type": "boolean",
+                "description": "Enable this output"
+              },
+              "path": {
+                "type": "string",
+                "description": "File path for file output"
+              },
+              "rotation": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "max_size_mb": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "backup_count": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "fields": {
+          "type": "object",
+          "description": "Additional logging fields configuration",
+          "properties": {
+            "include_timestamp": {
+              "type": "boolean",
+              "description": "Include timestamp in logs"
+            },
+            "include_thread_id": {
+              "type": "boolean",
+              "description": "Include thread ID in logs"
+            },
+            "include_process_id": {
+              "type": "boolean",
+              "description": "Include process ID in logs"
+            },
+            "include_uid_lineage": {
+              "type": "boolean",
+              "description": "Include UID lineage in logs"
+            },
+            "mas_lite_compliance": {
+              "type": "boolean",
+              "description": "Enforce MAS Lite Protocol v2.1 log format"
+            }
+          }
+        },
+        "__comment": {
+          "type": "string",
+          "description": "Logging configuration notes"
+        }
+      }
+    },
+    
+    "output": {
+      "type": "object",
+      "description": "Output formatting and delivery policies",
+      "required": ["format", "delivery", "validation"],
+      "properties": {
+        "format": {
+          "type": "object",
+          "required": ["type", "encoding"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["json", "xml", "yaml", "plain"],
+              "description": "Output format type"
+            },
+            "encoding": {
+              "type": "string",
+              "enum": ["utf-8", "ascii", "latin-1"],
+              "description": "Character encoding"
+            },
+            "pretty_print": {
+              "type": "boolean",
+              "description": "Enable pretty printing for structured formats"
+            },
+            "compression": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "algorithm": {
+                  "type": "string",
+                  "enum": ["gzip", "deflate", "brotli"]
+                }
+              }
+            }
+          }
+        },
+        "delivery": {
+          "type": "object",
+          "required": ["method", "reliability"],
+          "properties": {
+            "method": {
+              "type": "string",
+              "enum": ["synchronous", "asynchronous", "batch"],
+              "description": "Output delivery method"
+            },
+            "reliability": {
+              "type": "string",
+              "enum": ["at_least_once", "at_most_once", "exactly_once"],
+              "description": "Delivery reliability guarantee"
+            },
+            "batch_size": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Batch size for batched delivery"
+            },
+            "flush_interval_ms": {
+              "type": "integer",
+              "minimum": 100,
+              "description": "Flush interval for batched delivery"
+            }
+          }
+        },
+        "validation": {
+          "type": "object",
+          "required": ["enabled", "schema_validation"],
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "Enable output validation"
+            },
+            "schema_validation": {
+              "type": "boolean",
+              "description": "Validate against output schema"
+            },
+            "checksum_enabled": {
+              "type": "boolean",
+              "description": "Include SHA256 checksum in output"
+            },
+            "mas_lite_compliance": {
+              "type": "boolean",
+              "description": "Enforce MAS Lite Protocol v2.1 output format"
+            }
+          }
+        },
+        "__comment": {
+          "type": "string",
+          "description": "Output configuration notes"
+        }
+      }
+    }
+  },
+  
+  "definitions": {
+    "model_config": {
+      "type": "object",
+      "required": ["model_id", "provider", "timeout_seconds", "confidence_threshold"],
+      "properties": {
+        "model_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]+$",
+          "description": "Unique model identifier"
+        },
+        "provider": {
+          "type": "string",
+          "enum": ["openai", "anthropic", "google", "local"],
+          "description": "Model provider"
+        },
+        "timeout_seconds": {
+          "type": "integer",
+          "minimum": 5,
+          "maximum": 600,
+          "description": "Model timeout in seconds"
+        },
+        "confidence_threshold": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "Minimum confidence threshold"
+        },
+        "max_tokens": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Maximum token limit"
+        },
+        "temperature": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 2.0,
+          "description": "Model temperature setting"
+        }
+      }
+    },
+    
+    "fallback_model_config": {
+      "allOf": [
+        {"$ref": "#/definitions/model_config"},
+        {
+          "type": "object",
+          "required": ["fallback_conditions"],
+          "properties": {
+            "fallback_conditions": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["timeout", "low_confidence", "error", "rate_limit", "unavailable"]
+              },
+              "description": "Conditions that trigger this fallback"
+            },
+            "priority": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Fallback priority (lower = higher priority)"
+            }
+          }
+        }
+      ]
+    }
+  }
+} 

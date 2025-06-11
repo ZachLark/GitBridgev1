@@ -1,0 +1,155 @@
+{
+  "policy_metadata": {
+    "policy_id": "audit_policy_001",
+    "version": "1.0.0",
+    "created_at": "2025-06-10T17:48:00.000Z",
+    "profile_type": "audit",
+    "description": "Comprehensive audit profile for full compliance logging and detailed operation tracking",
+    "__comment": "Audit profile optimized for compliance, data integrity, and complete traceability"
+  },
+  
+  "execution_profile": {
+    "name": "audit",
+    "priority": 8,
+    "timeout_seconds": 300,
+    "max_concurrent_tasks": 10,
+    "memory_limit_mb": 512,
+    "enable_debug": true,
+    "__comment": "Conservative execution limits with full debug tracing for audit compliance"
+  },
+  
+  "routing": {
+    "primary_model": {
+      "model_id": "gpt-4o-audit",
+      "provider": "openai",
+      "timeout_seconds": 120,
+      "confidence_threshold": 0.85,
+      "max_tokens": 4096,
+      "temperature": 0.1
+    },
+    "fallback_chain": [
+      {
+        "model_id": "claude-3-audit",
+        "provider": "anthropic",
+        "timeout_seconds": 90,
+        "confidence_threshold": 0.80,
+        "max_tokens": 4096,
+        "temperature": 0.1,
+        "fallback_conditions": ["timeout", "low_confidence", "error"],
+        "priority": 1
+      },
+      {
+        "model_id": "local-audit-model",
+        "provider": "local",
+        "timeout_seconds": 60,
+        "confidence_threshold": 0.75,
+        "max_tokens": 2048,
+        "temperature": 0.0,
+        "fallback_conditions": ["timeout", "error", "rate_limit"],
+        "priority": 2
+      }
+    ],
+    "selection_strategy": "confidence",
+    "load_balancing": {
+      "enabled": false,
+      "algorithm": "round_robin",
+      "weights": {}
+    },
+    "__comment": "Audit routing prioritizes confidence and consistency over speed"
+  },
+  
+  "fallbacks": {
+    "escalation_thresholds": {
+      "confidence_threshold": 0.75,
+      "timeout_threshold": 300,
+      "error_rate_threshold": 0.1,
+      "latency_threshold_ms": 10000
+    },
+    "retry_policy": {
+      "max_retries": 5,
+      "base_delay_ms": 1000,
+      "backoff_multiplier": 2.0,
+      "jitter_enabled": true
+    },
+    "circuit_breaker": {
+      "failure_threshold": 3,
+      "recovery_timeout_ms": 30000,
+      "half_open_max_calls": 2
+    },
+    "__comment": "Conservative fallback settings with aggressive retry for audit reliability"
+  },
+  
+  "uid_lineage": {
+    "threading_strategy": "hierarchical",
+    "lineage_depth": 10,
+    "uid_format": {
+      "pattern": "{timestamp}_{entropy}_{agent_id}_{sequence}_{parent_ref}",
+      "components": ["timestamp", "entropy", "agent_id", "sequence", "parent_ref"],
+      "separator": "_"
+    },
+    "persistence": {
+      "enabled": true,
+      "storage_backend": "redis",
+      "retention_hours": 8760
+    },
+    "__comment": "Full lineage tracking with 1-year retention for audit compliance"
+  },
+  
+  "logging": {
+    "level": "DEBUG",
+    "format": "json",
+    "outputs": [
+      {
+        "type": "file",
+        "enabled": true,
+        "path": "/logs/audit/smartrepo_audit.log",
+        "rotation": {
+          "enabled": true,
+          "max_size_mb": 100,
+          "backup_count": 50
+        }
+      },
+      {
+        "type": "console",
+        "enabled": true
+      },
+      {
+        "type": "redis",
+        "enabled": true
+      }
+    ],
+    "fields": {
+      "include_timestamp": true,
+      "include_thread_id": true,
+      "include_process_id": true,
+      "include_uid_lineage": true,
+      "mas_lite_compliance": true
+    },
+    "__comment": "Maximum logging detail for complete audit trail with MAS Lite v2.1 compliance"
+  },
+  
+  "output": {
+    "format": {
+      "type": "json",
+      "encoding": "utf-8",
+      "pretty_print": true,
+      "compression": {
+        "enabled": false,
+        "algorithm": "gzip"
+      }
+    },
+    "delivery": {
+      "method": "synchronous",
+      "reliability": "exactly_once",
+      "batch_size": 1,
+      "flush_interval_ms": 0
+    },
+    "validation": {
+      "enabled": true,
+      "schema_validation": true,
+      "checksum_enabled": true,
+      "mas_lite_compliance": true
+    },
+    "__comment": "Synchronous delivery with full validation for audit integrity"
+  }
+} 

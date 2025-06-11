@@ -1,0 +1,31 @@
+{
+  "mode": "fallback",
+  "count": 3,
+  "types": [
+    "all"
+  ],
+  "status": "placeholder",
+  "session_id": "7afc0ecc33549ab6",
+  "start_time": "2025-06-10T17:10:20.924156+00:00",
+  "end_time": "2025-06-10T17:10:20.924245+00:00",
+  "command": "fallback",
+  "parameters": {
+    "command": "fallback",
+    "count": 3,
+    "fallback_types": [
+      "all"
+    ],
+    "input_file": null,
+    "output_file": null,
+    "threads": 50,
+    "duration": 30,
+    "verbose": true,
+    "no_color": false
+  },
+  "errors": [],
+  "warnings": [
+    "Fallback simulation not yet implemented (P18P8S2)"
+  ],
+  "mas_lite_protocol": "v2.1",
+  "version": "P18P8_v1.0"
+}

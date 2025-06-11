@@ -1,0 +1,139 @@
+{
+  "examples": {
+    "register_agent": {
+      "request": {
+        "agent_id": "agent1",
+        "capacity": 10
+      },
+      "response": {
+        "agent_id": "agent1",
+        "status": "registered",
+        "capacity": 10,
+        "latency_ms": 45
+      }
+    },
+    "route_task": {
+      "request": {
+        "task_id": "task_001",
+        "agent": "agent1"
+      },
+      "response": {
+        "task_id": "task_001",
+        "agent": "agent1",
+        "status": "routed",
+        "capacity_remaining": 9,
+        "total_tasks_processed": 15,
+        "latency_ms": 48
+      }
+    },
+    "get_agent_status": {
+      "request": {
+        "agent_id": "agent1"
+      },
+      "response": {
+        "agent_id": "agent1",
+        "status": "active",
+        "capacity": 10,
+        "tasks": ["task_001", "task_002"],
+        "tasks_count": 2,
+        "total_tasks_processed": 15,
+        "error_count": 0,
+        "last_active": 1685847300.123,
+        "latency_ms": 32
+      }
+    },
+    "route_to_maslite": {
+      "request": {
+        "task_id": "task_001",
+        "agent": "agent1"
+      },
+      "response": {
+        "status": "queued",
+        "task_id": "task_001",
+        "agent": "agent1",
+        "maslite_status": "pending_gbp18",
+        "protocol_version": "2.1",
+        "latency_ms": 25
+      }
+    },
+    "get_metrics": {
+      "request": {},
+      "response": {
+        "routing_avg_ms": 48.5,
+        "registration_avg_ms": 45.2,
+        "status_update_avg_ms": 32.8
+      }
+    },
+    "error_responses": {
+      "agent_not_found": {
+        "task_id": "task_001",
+        "agent": "unknown_agent",
+        "status": "error",
+        "error": "ERR_ROUTING_001: Agent Not Found",
+        "latency_ms": 15
+      },
+      "invalid_task": {
+        "task_id": "",
+        "agent": "agent1",
+        "status": "error",
+        "error": "ERR_ROUTING_002: Invalid Task ID",
+        "latency_ms": 12
+      },
+      "capacity_exceeded": {
+        "task_id": "task_011",
+        "agent": "agent1",
+        "status": "error",
+        "error": "ERR_ROUTING_005: Agent Capacity Exceeded",
+        "latency_ms": 35
+      },
+      "agent_status_invalid": {
+        "task_id": "task_001",
+        "agent": "agent1",
+        "status": "error",
+        "error": "ERR_ROUTING_006: Agent Status Invalid",
+        "latency_ms": 18
+      },
+      "task_already_assigned": {
+        "task_id": "task_001",
+        "agent": "agent2",
+        "status": "error",
+        "error": "ERR_ROUTING_007: Task Already Assigned",
+        "latency_ms": 22
+      }
+    },
+    "log_entries": {
+      "task_routed": {
+        "operation": "route",
+        "task_id": "task_001",
+        "agent": "agent1",
+        "timestamp": "2025-06-03T10:15:30Z",
+        "error_code": null,
+        "latency_ms": 48
+      },
+      "agent_registered": {
+        "operation": "register",
+        "task_id": "none",
+        "agent": "agent1",
+        "timestamp": "2025-06-03T10:15:00Z",
+        "error_code": null,
+        "latency_ms": 45
+      },
+      "routing_error": {
+        "operation": "route",
+        "task_id": "task_011",
+        "agent": "agent1",
+        "timestamp": "2025-06-03T10:16:00Z",
+        "error_code": "ERR_ROUTING_005",
+        "latency_ms": 35
+      },
+      "status_update": {
+        "operation": "update_status",
+        "task_id": "none",
+        "agent": "agent1",
+        "timestamp": "2025-06-03T10:17:00Z",
+        "error_code": null,
+        "latency_ms": 32
+      }
+    }
+  }
+} 

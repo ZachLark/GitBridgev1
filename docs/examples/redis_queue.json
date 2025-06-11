@@ -3,13 +3,180 @@
   "payload": {
     "id": "123",
     "type": "commit",
-    "repo": "ZachLark/GitBridgev1",
-    "branch": "feature/gbp12-queue-task-chain",
-    "commit": {
-      "sha": "abc123def456",
-      "message": "feat: Complete GBP13 with integration tests",
-      "author": "zach@erudite.com"
+    "repository": {
+      "name": "GitBridgev1",
+      "owner": "ZachLark",
+      "branch": "feature/gbp13-redis"
     },
-    "timestamp": "2025-06-02T12:00:00Z"
+    "commit": {
+      "sha": "7a651e3c7b9d84f5142eeaf96f3b5025f514a9f2",
+      "message": "feat: Complete GBP13 with fault tests",
+      "author": {
+        "name": "Zach",
+        "email": "zach@erudite.com"
+      },
+      "timestamp": "2025-06-02T22:48:00-07:00"
+    },
+    "changes": {
+      "added": ["docs/figma/gbp13_redis_dashboard.fig"],
+      "modified": [
+        "tests/integration/test_redis_queue_integration.py",
+        "docs/performance/gbp13_metrics.md"
+      ],
+      "removed": []
+    }
+  },
+  "timestamp": "2025-06-02T22:48:00-07:00",
+  "version": "2.1.0",
+  "examples": {
+    "task_queue": {
+      "enqueue": {
+        "request": {
+          "task_id": "task_001",
+          "type": "route",
+          "payload": {
+            "agent": "agent1",
+            "priority": 1,
+            "timeout_ms": 5000
+          },
+          "timestamp": "2025-06-03T15:15:30Z"
+        },
+        "response": {
+          "status": "queued",
+          "position": 1,
+          "estimated_wait_ms": 100,
+          "latency_ms": 15
+        }
+      },
+      "dequeue": {
+        "request": {
+          "agent_id": "agent1",
+          "capacity": 1
+        },
+        "response": {
+          "task_id": "task_001",
+          "type": "route",
+          "payload": {
+            "agent": "agent1",
+            "priority": 1,
+            "timeout_ms": 5000
+          },
+          "timestamp": "2025-06-03T15:15:30Z",
+          "latency_ms": 12
+        }
+      }
+    },
+    "vote_queue": {
+      "enqueue": {
+        "request": {
+          "task_id": "task_001",
+          "agent_id": "agent1",
+          "vote_value": 8,
+          "timestamp": "2025-06-03T15:15:31Z"
+        },
+        "response": {
+          "status": "accepted",
+          "vote_count": 1,
+          "latency_ms": 10
+        }
+      },
+      "get_votes": {
+        "request": {
+          "task_id": "task_001"
+        },
+        "response": {
+          "task_id": "task_001",
+          "votes": {
+            "agent1": 8,
+            "agent2": 5,
+            "agent3": 3
+          },
+          "consensus": {
+            "achieved": true,
+            "leader": "agent1",
+            "score": 0.75
+          },
+          "latency_ms": 8
+        }
+      }
+    },
+    "metrics_queue": {
+      "enqueue": {
+        "request": {
+          "timestamp": "2025-06-03T15:15:32Z",
+          "metrics": {
+            "queue_depth": 5,
+            "processing_time_ms": 312.8,
+            "error_count": 0,
+            "vote_latency_ms": 45
+          }
+        },
+        "response": {
+          "status": "recorded",
+          "latency_ms": 5
+        }
+      },
+      "get_metrics": {
+        "request": {
+          "start_time": "2025-06-03T15:00:00Z",
+          "end_time": "2025-06-03T15:15:32Z"
+        },
+        "response": {
+          "metrics": {
+            "average_queue_depth": 4.2,
+            "average_processing_time_ms": 315.5,
+            "total_error_count": 12,
+            "average_vote_latency_ms": 42.8
+          },
+          "latency_ms": 25
+        }
+      }
+    },
+    "error_handling": {
+      "queue_full": {
+        "error": "ERR_QUEUE_001: Queue capacity exceeded",
+        "details": {
+          "queue_size": 1000,
+          "max_size": 1000,
+          "task_id": "task_002"
+        },
+        "latency_ms": 5
+      },
+      "invalid_vote": {
+        "error": "ERR_QUEUE_002: Invalid vote value",
+        "details": {
+          "task_id": "task_001",
+          "agent_id": "agent1",
+          "vote_value": 11,
+          "allowed_range": "0-10"
+        },
+        "latency_ms": 3
+      },
+      "task_not_found": {
+        "error": "ERR_QUEUE_003: Task not found",
+        "details": {
+          "task_id": "task_999"
+        },
+        "latency_ms": 2
+      }
+    },
+    "performance_metrics": {
+      "queue_performance": {
+        "average_enqueue_latency_ms": 12.5,
+        "average_dequeue_latency_ms": 11.2,
+        "average_vote_latency_ms": 8.5,
+        "average_metrics_latency_ms": 15.0
+      },
+      "memory_usage": {
+        "queue_size_bytes": 524288,
+        "vote_cache_bytes": 262144,
+        "metrics_buffer_bytes": 131072
+      },
+      "throughput": {
+        "tasks_per_second": 100,
+        "votes_per_second": 50,
+        "metrics_per_second": 10
+      }
+    }
   }
 } 

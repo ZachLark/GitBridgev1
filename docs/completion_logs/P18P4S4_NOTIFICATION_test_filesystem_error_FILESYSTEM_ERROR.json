@@ -1,0 +1,15 @@
+{
+  "repo_id": "test_filesystem_error",
+  "error_code": "FILESYSTEM_ERROR",
+  "severity": "critical",
+  "message": "FALLBACK NOTIFICATION - CRITICAL SEVERITY: Repository test_filesystem_error encountered FILESYSTEM_ERROR. Action: Notify system administrators of filesystem issues. Human review required: True.",
+  "timestamp": "2025-06-09T07:13:26.759175+00:00",
+  "requires_human_review": true,
+  "trigger_conditions": [
+    "insufficient disk space",
+    "file permission errors",
+    "directory creation failed",
+    "file system corruption"
+  ],
+  "recommended_action": "Notify system administrators of filesystem issues"
+}

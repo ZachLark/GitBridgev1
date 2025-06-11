@@ -1,0 +1,28 @@
+{
+  "repo_id": "integration_test_readme_generation_failed",
+  "error_code": "README_GENERATION_FAILED",
+  "retry_count": 2,
+  "fallback_type": "AUTO_RETRY",
+  "status": "scheduled",
+  "created_at": "2025-06-09T07:13:27.417826+00:00",
+  "next_retry_at": "2025-06-09T07:13:27.417845+00:00",
+  "original_spec": {
+    "fallback_type": "AUTO_RETRY",
+    "trigger_conditions": [
+      "README.md generation failed",
+      "template processing error",
+      "content generation timeout"
+    ],
+    "recommended_action": "Retry README generation with simplified template",
+    "requires_human_review": false,
+    "gpt_prompt_template": "\nTask: Generate simplified README for failed repository creation.\n\nContext: README generation failed for task: {task_id}\nError Details: {error_details}\nAvailable Metadata: {metadata}\n\nPlease create a basic README.md with:\n1. Project title and description\n2. Basic usage instructions\n3. Installation steps\n4. Contributing guidelines\n5. License information\n\nKeep content minimal but informative. Ensure \u2265500 characters.\n",
+    "auto_retry_count": 2,
+    "severity": "low",
+    "estimated_resolution_time": "3-5 minutes",
+    "error_code": "README_GENERATION_FAILED",
+    "protocol_version": "MAS_Lite_v2.1",
+    "timestamp": "2025-06-09T07:13:27.224177+00:00",
+    "specification_hash": "bcabd00d40fe5397",
+    "repo_id": "integration_test_readme_generation_failed"
+  }
+}

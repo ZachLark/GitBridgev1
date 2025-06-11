@@ -1,0 +1,89 @@
+# GitBridge Webhook Configuration
+# MAS Lite Protocol v2.1 Compliant
+
+metrics:
+  collection_interval: 15  # seconds
+  prometheus_port: 9090
+  alert_thresholds:
+    retry_count: 5
+    queue_depth: 800
+    error_rate: 0.01
+    dropout_rate: 0.05
+    latency_ms: 350  # Optimized from 500ms to 350ms for GBP24
+  performance_targets:
+    vote_processing_ms: 100
+    task_creation_ms: 50
+    edge_case_handling_ms: 200
+    task_routing_ms: 100
+    agent_registration_ms: 50
+    status_updates_ms: 30
+    cli_operations_ms: 150
+
+logging:
+  level: "INFO"
+  format: "json"
+  compression: true  # Enable log compression
+  rotation:
+    max_size_mb: 10
+    backup_count: 5
+    compress_backups: true
+  files:
+    task_log: "logs/task_log.json"
+    ai_router_log: "logs/ai_router_log.json"
+    error_log: "logs/error_log.json"
+    metrics_log: "logs/metrics.json"
+    mas_log: "logs/mas_lite.json"
+    audit_log: "logs/audit.json"
+
+redis:
+  host: "localhost"
+  port: 6379
+  db: 0
+  max_connections: 100
+  timeout: 5.0
+  retry:
+    max_attempts: 3
+    delay_ms: 200
+    backoff: "exponential"
+
+routing:
+  vote_sequence:
+    timeout_ms: 500
+    min_votes: 2
+    consensus_threshold: 0.6
+  capacity:
+    default: 10
+    max: 50
+    warning_threshold: 0.8
+  error_handling:
+    retry_count: 5
+    backoff_ms: 200
+    max_delay_ms: 2000
+
+security:
+  authentication:
+    enabled: true
+    token_expiry: 3600
+    refresh_enabled: true
+  encryption:
+    algorithm: "AES-256-GCM"
+    key_rotation: 86400
+  rate_limiting:
+    enabled: true
+    max_requests: 1000
+    window_seconds: 60
+
+mas_lite:
+  protocol_version: "2.1"
+  features:
+    authentication: true
+    error_handling: true
+    logging: true
+    ui_accessibility: true
+    task_delegation: true
+  endpoints:
+    base_url: "http://localhost:3333"
+    health: "/health"
+    metrics: "/metrics"
+    agents: "/agents"
+    tasks: "/tasks" 

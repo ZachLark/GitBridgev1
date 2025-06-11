@@ -1,0 +1,134 @@
+openapi: 3.0.0
+info:
+  title: GitBridge Task Generator API
+  version: '1.0'
+  description: Task generation and routing API for GitBridge GBP14
+
+paths:
+  /task/generate:
+    post:
+      summary: Generate and route task
+      description: Create a new task and route it to an agent
+      operationId: generateTask
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskRequest'
+      responses:
+        '200':
+          description: Task generated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResponse'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /task/vote:
+    post:
+      summary: Submit vote for task routing
+      description: Submit agent vote for task routing decision
+      operationId: submitVote
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VoteRequest'
+      responses:
+        '200':
+          description: Vote submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoteResponse'
+        '400':
+          description: Invalid vote
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    TaskRequest:
+      type: object
+      required:
+        - task_id
+        - agent_target
+      properties:
+        task_id:
+          type: string
+          description: Unique task identifier
+        agent_target:
+          type: string
+          description: Target agent identifier
+        payload:
+          type: object
+          description: Task payload data
+
+    TaskResponse:
+      type: object
+      properties:
+        task_id:
+          type: string
+        agent_target:
+          type: string
+        status:
+          type: string
+          enum: [created, routed, pending, error]
+        vote_sequence:
+          type: object
+          additionalProperties:
+            type: integer
+
+    VoteRequest:
+      type: object
+      required:
+        - task_id
+        - agent_id
+        - vote_value
+      properties:
+        task_id:
+          type: string
+        agent_id:
+          type: string
+        vote_value:
+          type: integer
+          minimum: 0
+          maximum: 10
+
+    VoteResponse:
+      type: object
+      properties:
+        task_id:
+          type: string
+        status:
+          type: string
+          enum: [accepted, rejected, pending]
+        current_votes:
+          type: object
+          additionalProperties:
+            type: integer
+
+    ErrorResponse:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
+        details:
+          type: object 

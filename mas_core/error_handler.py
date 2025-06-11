@@ -1,21 +1,27 @@
 """
-Error handling for GitBridge.
+Error handling for GitBridge MAS Lite implementation.
 
-This module provides error handling functionality for GitBridge's event processing
-system, handling task errors, consensus errors, and queue errors.
-
-MAS Lite Protocol v2.1 References:
-- Section 6.2: Error Handling Requirements
-- Section 6.3: Error Recovery
-- Section 6.4: Error Reporting
+This module provides centralized error handling functionality for GitBridge's
+event processing system, following MAS Lite Protocol v2.1 error handling requirements.
 """
 
-import logging
-from typing import Dict, Any, Optional
+import uuid
 from enum import Enum
+from typing import Dict, Any, List, Optional
+from datetime import datetime, timezone
+from dataclasses import dataclass
+
 from .utils.logging import MASLogger
 
 logger = MASLogger(__name__)
+
+class ErrorCategory(str, Enum):
+    """Error categories."""
+    TASK = "task"
+    QUEUE = "queue"
+    CONSENSUS = "consensus"
+    METRICS = "metrics"
+    SYSTEM = "system"
 
 class ErrorSeverity(str, Enum):
     """Error severity levels."""
@@ -24,20 +30,25 @@ class ErrorSeverity(str, Enum):
     ERROR = "error"
     CRITICAL = "critical"
 
-class ErrorCategory(str, Enum):
-    """Error categories."""
-    TASK = "task"
-    CONSENSUS = "consensus"
-    QUEUE = "queue"
-    SYSTEM = "system"
+@dataclass
+class MASError:
+    """MAS error data structure."""
+    error_id: str
+    error_type: ErrorCategory
+    message: str
+    timestamp: str
+    context: Dict[str, Any]
+    severity: ErrorSeverity
+    task_id: Optional[str] = None
+    recovery_attempted: bool = False
+    recovery_successful: bool = False
 
 class ErrorHandler:
-    """Error handler for GitBridge."""
+    """Error handler."""
     
     def __init__(self):
         """Initialize error handler."""
-        self.errors: Dict[str, Dict[str, Any]] = {}
-        self.logger = MASLogger("error_handler")
+        self.error_log: List[MASError] = []
         
     def handle_error(
         self,
@@ -45,86 +56,94 @@ class ErrorHandler:
         category: ErrorCategory,
         severity: ErrorSeverity,
         message: str,
-        details: Optional[Dict[str, Any]] = None
-    ) -> None:
+        details: Dict[str, Any],
+        task_id: Optional[str] = None
+    ) -> bool:
         """Handle an error.
         
         Args:
-            error_id: Error identifier
+            error_id: Unique error identifier
             category: Error category
             severity: Error severity
             message: Error message
-            details: Optional error details
-        """
-        error = {
-            "category": category,
-            "severity": severity,
-            "message": message,
-            "details": details or {},
-            "timestamp": "2025-06-02T12:00:00Z"
-        }
-        
-        self.errors[error_id] = error
-        
-        if severity == ErrorSeverity.CRITICAL:
-            self.logger.critical(f"{category} error: {message}", extra=details)
-        elif severity == ErrorSeverity.ERROR:
-            self.logger.error(f"{category} error: {message}", extra=details)
-        elif severity == ErrorSeverity.WARNING:
-            self.logger.warning(f"{category} warning: {message}", extra=details)
-        else:
-            self.logger.info(f"{category} info: {message}", extra=details)
-            
-    def get_error(self, error_id: str) -> Optional[Dict[str, Any]]:
-        """Get error by ID.
-        
-        Args:
-            error_id: Error identifier
+            details: Error details
+            task_id: Optional task identifier
             
         Returns:
-            Optional[Dict[str, Any]]: Error details if found
+            bool: True if error handled successfully
         """
-        return self.errors.get(error_id)
-        
-    def clear_error(self, error_id: str) -> None:
-        """Clear error by ID.
-        
-        Args:
-            error_id: Error identifier
-        """
-        if error_id in self.errors:
-            del self.errors[error_id]
+        try:
+            error = MASError(
+                error_id=error_id,
+                error_type=category,
+                message=message,
+                timestamp=datetime.now(timezone.utc).isoformat(),
+                context=details,
+                severity=severity,
+                task_id=task_id
+            )
             
-    def get_errors_by_category(self, category: ErrorCategory) -> Dict[str, Dict[str, Any]]:
+            self.error_log.append(error)
+            return True
+            
+        except Exception:
+            return False
+            
+    def get_errors_by_category(self, category: ErrorCategory) -> List[MASError]:
         """Get errors by category.
         
         Args:
             category: Error category
             
         Returns:
-            Dict[str, Dict[str, Any]]: Errors in the category
+            List[MASError]: List of errors
         """
-        return {
-            error_id: error
-            for error_id, error in self.errors.items()
-            if error["category"] == category
-        }
+        return [error for error in self.error_log if error.error_type == category]
         
-    def get_errors_by_severity(self, severity: ErrorSeverity) -> Dict[str, Dict[str, Any]]:
+    def get_errors_by_severity(self, severity: ErrorSeverity) -> List[MASError]:
         """Get errors by severity.
         
         Args:
             severity: Error severity
             
         Returns:
-            Dict[str, Dict[str, Any]]: Errors with the severity
+            List[MASError]: List of errors
         """
-        return {
-            error_id: error
-            for error_id, error in self.errors.items()
-            if error["severity"] == severity
-        }
+        return [error for error in self.error_log if error.severity == severity]
         
-    def clear_all_errors(self) -> None:
-        """Clear all errors."""
-        self.errors.clear() 
+    def get_errors_by_task(self, task_id: str) -> List[MASError]:
+        """Get errors by task.
+        
+        Args:
+            task_id: Task identifier
+            
+        Returns:
+            List[MASError]: List of errors
+        """
+        return [error for error in self.error_log if error.task_id == task_id]
+        
+    def clear_errors(self) -> None:
+        """Clear error log."""
+        self.error_log.clear()
+        
+    def get_error_count(self) -> int:
+        """Get total error count.
+        
+        Returns:
+            int: Total number of errors
+        """
+        return len(self.error_log)
+        
+    def get_error(self, error_id: str) -> Optional[MASError]:
+        """Get error by ID.
+        
+        Args:
+            error_id: Error identifier
+            
+        Returns:
+            Optional[MASError]: Error if found, None otherwise
+        """
+        for error in self.error_log:
+            if error.error_id == error_id:
+                return error
+        return None 

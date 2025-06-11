@@ -1,0 +1,205 @@
+{
+  "mode": "replay",
+  "input_file": "fallback_audit_20250610_101253.json",
+  "output_file": "custom_replay_transcript.json",
+  "status": "completed",
+  "transcript": {
+    "replay_session_id": "83fe046742eab880",
+    "input_file": "fallback_audit_20250610_101253.json",
+    "total_nodes": 5,
+    "successful_replays": 5,
+    "failed_replays": 0,
+    "start_time": "2025-06-10T17:16:18.602336+00:00",
+    "end_time": "2025-06-10T17:16:19.153050+00:00",
+    "execution_time_ms": 550,
+    "nodes": [
+      {
+        "node_id": "0b037dc515f656e0",
+        "uid": "7b94423f82417b02",
+        "agent": "gpt4_turbo",
+        "timestamp": "2025-06-10T17:12:52.158323+00:00",
+        "confidence_score": 0.33986152959785854,
+        "fallback_flag": true,
+        "model_id": "gpt4_turbo",
+        "error_code": null,
+        "escalation_reason": "Model gpt4_turbo exceeded short timeout threshold (2889ms)",
+        "processing_time_ms": 2889,
+        "parent_uid": null,
+        "children_uids": [],
+        "mas_lite_protocol": "v2.1"
+      },
+      {
+        "node_id": "f4f6938801d004db",
+        "uid": "3cef57ae5cfdca7e",
+        "agent": "gpt4",
+        "timestamp": "2025-06-10T17:12:52.453974+00:00",
+        "confidence_score": 0.3169328507162494,
+        "fallback_flag": true,
+        "model_id": "gpt4",
+        "error_code": null,
+        "escalation_reason": "Model gpt4 exceeded short timeout threshold (2908ms)",
+        "processing_time_ms": 2908,
+        "parent_uid": null,
+        "children_uids": [],
+        "mas_lite_protocol": "v2.1"
+      },
+      {
+        "node_id": "d5e516a1708b4fc1",
+        "uid": "b0c325e8ec873d2b",
+        "agent": "gpt4_turbo",
+        "timestamp": "2025-06-10T17:12:53.267217+00:00",
+        "confidence_score": 0.30907009916893935,
+        "fallback_flag": true,
+        "model_id": "gpt4_turbo",
+        "error_code": null,
+        "escalation_reason": "Model gpt4_turbo exceeded medium timeout threshold (8126ms)",
+        "processing_time_ms": 8126,
+        "parent_uid": null,
+        "children_uids": [],
+        "mas_lite_protocol": "v2.1"
+      },
+      {
+        "node_id": "090574ed3d87b2a1",
+        "uid": "a427dfca85b5d6bc",
+        "agent": "gemini_pro",
+        "timestamp": "2025-06-10T17:12:53.412181+00:00",
+        "confidence_score": 0.0,
+        "fallback_flag": true,
+        "model_id": "gemini_pro",
+        "error_code": "INTERNAL_ERROR",
+        "escalation_reason": "Model gemini_pro failed with error: INTERNAL_ERROR",
+        "processing_time_ms": 1407,
+        "parent_uid": null,
+        "children_uids": [],
+        "mas_lite_protocol": "v2.1"
+      },
+      {
+        "node_id": "d678164c88b8c32d",
+        "uid": "86d71f270c172151",
+        "agent": "gpt3_5_turbo",
+        "timestamp": "2025-06-10T17:12:53.587823+00:00",
+        "confidence_score": 0.0,
+        "fallback_flag": true,
+        "model_id": "gpt3_5_turbo",
+        "error_code": "INTERNAL_ERROR",
+        "escalation_reason": "Model gpt3_5_turbo failed with error: INTERNAL_ERROR",
+        "processing_time_ms": 1729,
+        "parent_uid": null,
+        "children_uids": [],
+        "mas_lite_protocol": "v2.1"
+      }
+    ],
+    "lineage_analysis": {
+      "total_nodes": 5,
+      "unique_agents": 4,
+      "fallback_count": 5,
+      "confidence_statistics": {
+        "average": 0.19317289589660946,
+        "minimum": 0.0,
+        "maximum": 0.33986152959785854,
+        "below_threshold_count": 5
+      },
+      "temporal_analysis": {
+        "first_event": "2025-06-10T17:12:52.158323+00:00",
+        "last_event": "2025-06-10T17:12:53.587823+00:00",
+        "time_span_seconds": 1.4295
+      },
+      "agent_distribution": {
+        "gpt4_turbo": 2,
+        "gpt4": 1,
+        "gemini_pro": 1,
+        "gpt3_5_turbo": 1
+      },
+      "error_patterns": {
+        "INTERNAL_ERROR": 2
+      },
+      "escalation_triggers": {
+        "Model gpt4_turbo exceeded short timeout threshold (2889ms)": 1,
+        "Model gpt4 exceeded short timeout threshold (2908ms)": 1,
+        "Model gpt4_turbo exceeded medium timeout threshold (8126ms)": 1,
+        "Model gemini_pro failed with error: INTERNAL_ERROR": 1,
+        "Model gpt3_5_turbo failed with error: INTERNAL_ERROR": 1
+      },
+      "processing_time_statistics": {
+        "average_ms": 3411.8,
+        "minimum_ms": 1407,
+        "maximum_ms": 8126,
+        "total_ms": 17059
+      }
+    },
+    "errors": [],
+    "mas_lite_protocol": "v2.1"
+  },
+  "lineage_analysis": {
+    "total_nodes": 5,
+    "unique_agents": 4,
+    "fallback_count": 5,
+    "confidence_statistics": {
+      "average": 0.19317289589660946,
+      "minimum": 0.0,
+      "maximum": 0.33986152959785854,
+      "below_threshold_count": 5
+    },
+    "temporal_analysis": {
+      "first_event": "2025-06-10T17:12:52.158323+00:00",
+      "last_event": "2025-06-10T17:12:53.587823+00:00",
+      "time_span_seconds": 1.4295
+    },
+    "agent_distribution": {
+      "gpt4_turbo": 2,
+      "gpt4": 1,
+      "gemini_pro": 1,
+      "gpt3_5_turbo": 1
+    },
+    "error_patterns": {
+      "INTERNAL_ERROR": 2
+    },
+    "escalation_triggers": {
+      "Model gpt4_turbo exceeded short timeout threshold (2889ms)": 1,
+      "Model gpt4 exceeded short timeout threshold (2908ms)": 1,
+      "Model gpt4_turbo exceeded medium timeout threshold (8126ms)": 1,
+      "Model gemini_pro failed with error: INTERNAL_ERROR": 1,
+      "Model gpt3_5_turbo failed with error: INTERNAL_ERROR": 1
+    },
+    "processing_time_statistics": {
+      "average_ms": 3411.8,
+      "minimum_ms": 1407,
+      "maximum_ms": 8126,
+      "total_ms": 17059
+    }
+  },
+  "total_nodes": 5,
+  "successful_replays": 5,
+  "failed_replays": 0,
+  "success_rate": 100.0,
+  "execution_time_ms": 550,
+  "session_id": "83fe046742eab880",
+  "start_time": "2025-06-10T17:16:18.601029+00:00",
+  "end_time": "2025-06-10T17:16:19.154397+00:00",
+  "command": "replay",
+  "parameters": {
+    "command": "replay",
+    "count": 10,
+    "fallback_types": [
+      "all"
+    ],
+    "input_file": "fallback_audit_20250610_101253.json",
+    "output_file": "custom_replay_transcript.json",
+    "threads": 50,
+    "duration": 30,
+    "verbose": true,
+    "no_color": false
+  },
+  "errors": [],
+  "warnings": [
+    "   Escalation: Model gpt4_turbo exceeded short timeout threshold (2889ms)",
+    "   Escalation: Model gpt4 exceeded short timeout threshold (2908ms)",
+    "   Escalation: Model gpt4_turbo exceeded medium timeout threshold (8126ms)",
+    "   Error Code: INTERNAL_ERROR",
+    "   Escalation: Model gemini_pro failed with error: INTERNAL_ERROR",
+    "   Error Code: INTERNAL_ERROR",
+    "   Escalation: Model gpt3_5_turbo failed with error: INTERNAL_ERROR"
+  ],
+  "mas_lite_protocol": "v2.1",
+  "version": "P18P8_v1.0"
+}

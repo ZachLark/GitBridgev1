@@ -1,0 +1,240 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.13.3, pytest-8.0.0, pluggy-1.6.0
+rootdir: /Users/zach/GitBridgev1
+configfile: pytest.ini
+plugins: asyncio-0.23.5, cov-4.1.0, hypothesis-6.98.0, mock-3.12.0
+asyncio: mode=Mode.STRICT
+collected 75 items
+
+tests/unit/mas_core/test_consensus.py::test_consensus_round_validation PASSED [  1%]
+tests/unit/mas_core/test_consensus.py::test_get_consensus_success 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:19 [    INFO] {"asctime": "2025-06-07T22:20:19.240539+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round 0e8265fc-2437-4f00-a60a-068b7debedd4", "taskName": "Task-81f51914", "round_id": "0e8265fc-2437-4f00-a60a-068b7debedd4", "node_id": "node_0", "vote": "approve"} (logging.py:186)
+2025-06-07 15:20:19 [    INFO] {"asctime": "2025-06-07T22:20:19.253051+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round 0e8265fc-2437-4f00-a60a-068b7debedd4", "taskName": "Task-81f51914", "round_id": "0e8265fc-2437-4f00-a60a-068b7debedd4", "node_id": "node_1", "vote": "approve"} (logging.py:186)
+2025-06-07 15:20:19 [    INFO] {"asctime": "2025-06-07T22:20:19.253636+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round 0e8265fc-2437-4f00-a60a-068b7debedd4", "taskName": "Task-81f51914", "round_id": "0e8265fc-2437-4f00-a60a-068b7debedd4", "node_id": "node_2", "vote": "approve"} (logging.py:186)
+PASSED                                                                   [  2%]
+tests/unit/mas_core/test_consensus.py::test_get_consensus_rejection 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:19 [    INFO] {"asctime": "2025-06-07T22:20:19.357839+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round cf5f1dd9-19ef-45d3-9123-1744d0a878d0", "taskName": "Task-81f51914", "round_id": "cf5f1dd9-19ef-45d3-9123-1744d0a878d0", "node_id": "node_0", "vote": "reject"} (logging.py:186)
+2025-06-07 15:20:19 [    INFO] {"asctime": "2025-06-07T22:20:19.358360+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round cf5f1dd9-19ef-45d3-9123-1744d0a878d0", "taskName": "Task-81f51914", "round_id": "cf5f1dd9-19ef-45d3-9123-1744d0a878d0", "node_id": "node_1", "vote": "reject"} (logging.py:186)
+2025-06-07 15:20:19 [    INFO] {"asctime": "2025-06-07T22:20:19.358636+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round cf5f1dd9-19ef-45d3-9123-1744d0a878d0", "taskName": "Task-81f51914", "round_id": "cf5f1dd9-19ef-45d3-9123-1744d0a878d0", "node_id": "node_2", "vote": "reject"} (logging.py:186)
+PASSED                                                                   [  4%]
+tests/unit/mas_core/test_consensus.py::test_get_consensus_timeout PASSED [  5%]
+tests/unit/mas_core/test_consensus.py::test_vote_validation PASSED       [  6%]
+tests/unit/mas_core/test_consensus.py::test_cleanup PASSED               [  8%]
+tests/unit/mas_core/test_consensus.py::test_mixed_votes 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:24 [    INFO] {"asctime": "2025-06-07T22:20:24.676610+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round d77c750d-8a2b-4b27-abb4-1ab71ea3aacc", "taskName": "Task-81f51914", "round_id": "d77c750d-8a2b-4b27-abb4-1ab71ea3aacc", "node_id": "node_1", "vote": "approve"} (logging.py:186)
+2025-06-07 15:20:24 [    INFO] {"asctime": "2025-06-07T22:20:24.677133+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round d77c750d-8a2b-4b27-abb4-1ab71ea3aacc", "taskName": "Task-81f51914", "round_id": "d77c750d-8a2b-4b27-abb4-1ab71ea3aacc", "node_id": "node_2", "vote": "reject"} (logging.py:186)
+2025-06-07 15:20:24 [    INFO] {"asctime": "2025-06-07T22:20:24.677402+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round d77c750d-8a2b-4b27-abb4-1ab71ea3aacc", "taskName": "Task-81f51914", "round_id": "d77c750d-8a2b-4b27-abb4-1ab71ea3aacc", "node_id": "node_3", "vote": "abstain"} (logging.py:186)
+2025-06-07 15:20:24 [    INFO] {"asctime": "2025-06-07T22:20:24.677680+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round d77c750d-8a2b-4b27-abb4-1ab71ea3aacc", "taskName": "Task-81f51914", "round_id": "d77c750d-8a2b-4b27-abb4-1ab71ea3aacc", "node_id": "node_4", "vote": "approve"} (logging.py:186)
+2025-06-07 15:20:24 [    INFO] {"asctime": "2025-06-07T22:20:24.677933+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round d77c750d-8a2b-4b27-abb4-1ab71ea3aacc", "taskName": "Task-81f51914", "round_id": "d77c750d-8a2b-4b27-abb4-1ab71ea3aacc", "node_id": "node_5", "vote": "approve"} (logging.py:186)
+PASSED                                                                   [  9%]
+tests/unit/mas_core/test_consensus.py::test_consensus_deadlock 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:24 [    INFO] {"asctime": "2025-06-07T22:20:24.782684+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round ffbb8237-c3e5-418c-8fce-4edd17795cfd", "taskName": "Task-81f51914", "round_id": "ffbb8237-c3e5-418c-8fce-4edd17795cfd", "node_id": "node_1", "vote": "approve"} (logging.py:186)
+2025-06-07 15:20:24 [    INFO] {"asctime": "2025-06-07T22:20:24.783513+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round ffbb8237-c3e5-418c-8fce-4edd17795cfd", "taskName": "Task-81f51914", "round_id": "ffbb8237-c3e5-418c-8fce-4edd17795cfd", "node_id": "node_2", "vote": "reject"} (logging.py:186)
+2025-06-07 15:20:24 [    INFO] {"asctime": "2025-06-07T22:20:24.784005+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round ffbb8237-c3e5-418c-8fce-4edd17795cfd", "taskName": "Task-81f51914", "round_id": "ffbb8237-c3e5-418c-8fce-4edd17795cfd", "node_id": "node_3", "vote": "abstain"} (logging.py:186)
+PASSED                                                                   [ 10%]
+tests/unit/mas_core/test_consensus.py::test_ineligible_voter 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:24 [    INFO] {"asctime": "2025-06-07T22:20:24.888224+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round 1002ed4e-8840-46d8-aa4d-a976c1fd91a5", "taskName": "Task-81f51914", "round_id": "1002ed4e-8840-46d8-aa4d-a976c1fd91a5", "node_id": "invalid_node", "vote": "approve"} (logging.py:186)
+PASSED                                                                   [ 12%]
+tests/unit/mas_core/test_consensus.py::TestConsensusManager::test_init PASSED [ 13%]
+tests/unit/mas_core/test_consensus.py::TestConsensusManager::test_start_vote 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:24 [    INFO] {"asctime": "2025-06-07T22:20:24.996486+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round d03ed47e-e9ed-49f7-b601-01431f9710ef", "taskName": "Task-81f51914", "round_id": "d03ed47e-e9ed-49f7-b601-01431f9710ef", "node_id": "node_1", "vote": "approve"} (logging.py:186)
+PASSED                                                                   [ 14%]
+tests/unit/mas_core/test_consensus.py::TestConsensusManager::test_cast_vote 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:25 [    INFO] {"asctime": "2025-06-07T22:20:25.100917+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round 1ccae6d5-1e05-4477-8746-b6e1568f27ef", "taskName": "Task-81f51914", "round_id": "1ccae6d5-1e05-4477-8746-b6e1568f27ef", "node_id": "node_1", "vote": "approve"} (logging.py:186)
+2025-06-07 15:20:25 [    INFO] {"asctime": "2025-06-07T22:20:25.101420+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round 1ccae6d5-1e05-4477-8746-b6e1568f27ef", "taskName": "Task-81f51914", "round_id": "1ccae6d5-1e05-4477-8746-b6e1568f27ef", "node_id": "node_2", "vote": "approve"} (logging.py:186)
+2025-06-07 15:20:25 [    INFO] {"asctime": "2025-06-07T22:20:25.101696+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round 1ccae6d5-1e05-4477-8746-b6e1568f27ef", "taskName": "Task-81f51914", "round_id": "1ccae6d5-1e05-4477-8746-b6e1568f27ef", "node_id": "node_3", "vote": "approve"} (logging.py:186)
+PASSED                                                                   [ 16%]
+tests/unit/mas_core/test_consensus.py::TestConsensusManager::test_get_results 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:25 [    INFO] {"asctime": "2025-06-07T22:20:25.204991+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round ccd1d3c1-e3c5-45b9-a495-7aa44a7e9c21", "taskName": "Task-81f51914", "round_id": "ccd1d3c1-e3c5-45b9-a495-7aa44a7e9c21", "node_id": "node_1", "vote": "reject"} (logging.py:186)
+2025-06-07 15:20:25 [    INFO] {"asctime": "2025-06-07T22:20:25.205487+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round ccd1d3c1-e3c5-45b9-a495-7aa44a7e9c21", "taskName": "Task-81f51914", "round_id": "ccd1d3c1-e3c5-45b9-a495-7aa44a7e9c21", "node_id": "node_2", "vote": "reject"} (logging.py:186)
+2025-06-07 15:20:25 [    INFO] {"asctime": "2025-06-07T22:20:25.205750+00:00", "name": "mas_core.consensus", "levelname": "INFO", "message": "Vote cast for round ccd1d3c1-e3c5-45b9-a495-7aa44a7e9c21", "taskName": "Task-81f51914", "round_id": "ccd1d3c1-e3c5-45b9-a495-7aa44a7e9c21", "node_id": "node_3", "vote": "reject"} (logging.py:186)
+PASSED                                                                   [ 17%]
+tests/unit/mas_core/test_event_queue.py::test_queue_init PASSED          [ 18%]
+tests/unit/mas_core/test_event_queue.py::test_enqueue_success 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:25 [    INFO] {"asctime": "2025-06-07T22:20:25.211230+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event enqueued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 1} (logging.py:186)
+PASSED                                                                   [ 20%]
+tests/unit/mas_core/test_event_queue.py::test_dequeue_success 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:25 [    INFO] {"asctime": "2025-06-07T22:20:25.214142+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event enqueued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 1} (logging.py:186)
+2025-06-07 15:20:25 [    INFO] {"asctime": "2025-06-07T22:20:25.214580+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event dequeued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 0} (logging.py:186)
+PASSED                                                                   [ 21%]
+tests/unit/mas_core/test_event_queue.py::test_queue_full 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:25 [    INFO] {"asctime": "2025-06-07T22:20:25.217360+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event enqueued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 1} (logging.py:186)
+2025-06-07 15:20:25 [    INFO] {"asctime": "2025-06-07T22:20:25.217761+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event enqueued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 2} (logging.py:186)
+2025-06-07 15:20:25 [    INFO] {"asctime": "2025-06-07T22:20:25.218041+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event enqueued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 3} (logging.py:186)
+2025-06-07 15:20:25 [    INFO] {"asctime": "2025-06-07T22:20:25.218320+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event enqueued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 4} (logging.py:186)
+2025-06-07 15:20:25 [    INFO] {"asctime": "2025-06-07T22:20:25.218609+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event enqueued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 5} (logging.py:186)
+PASSED                                                                   [ 22%]
+tests/unit/mas_core/test_event_queue.py::test_dequeue_empty PASSED       [ 24%]
+tests/unit/mas_core/test_event_queue.py::test_queue_cleanup 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:27 [   ERROR] Task was destroyed but it is pending!
+task: <Task pending name='Task-8' coro=<ConsensusManager.get_consensus() done, defined at /Users/zach/GitBridgev1/mas_core/consensus.py:110> wait_for=<Future pending cb=[Task.task_wakeup()]>> (base_events.py:1865)
+2025-06-07 15:20:27 [   ERROR] Task was destroyed but it is pending!
+task: <Task pending name='Task-10' coro=<ConsensusManager.get_consensus() done, defined at /Users/zach/GitBridgev1/mas_core/consensus.py:110> wait_for=<Future pending cb=[Task.task_wakeup()]>> (base_events.py:1865)
+2025-06-07 15:20:27 [   ERROR] Task was destroyed but it is pending!
+task: <Task pending name='Task-11' coro=<ConsensusManager.get_consensus() done, defined at /Users/zach/GitBridgev1/mas_core/consensus.py:110> wait_for=<Future pending cb=[Task.task_wakeup()]>> (base_events.py:1865)
+2025-06-07 15:20:27 [   ERROR] Task was destroyed but it is pending!
+task: <Task pending name='Task-12' coro=<ConsensusManager.get_consensus() done, defined at /Users/zach/GitBridgev1/mas_core/consensus.py:110> wait_for=<Future pending cb=[Task.task_wakeup()]>> (base_events.py:1865)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.230813+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event enqueued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 1} (logging.py:186)
+PASSED                                                                   [ 25%]
+tests/unit/mas_core/test_event_queue.py::test_queue_context_manager 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.234350+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event enqueued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 1} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.234832+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event dequeued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 0} (logging.py:186)
+PASSED                                                                   [ 26%]
+tests/unit/mas_core/test_event_queue.py::test_queue_health_check PASSED  [ 28%]
+tests/unit/mas_core/test_event_queue.py::test_queue_depth 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.242054+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event enqueued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 1} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.242583+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event dequeued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 0} (logging.py:186)
+PASSED                                                                   [ 29%]
+tests/unit/mas_core/test_event_queue.py::test_queue_size 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.245930+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event enqueued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 1} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.246424+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event dequeued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 0} (logging.py:186)
+PASSED                                                                   [ 30%]
+tests/unit/mas_core/test_event_queue.py::test_concurrent_operations 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.249691+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event enqueued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 1} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.250146+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event dequeued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 0} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.350746+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event enqueued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 1} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.351225+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event dequeued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 0} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.452336+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event enqueued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 1} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.453177+00:00", "name": "mas_core.event_queue", "levelname": "INFO", "message": "Event dequeued", "taskName": "Task-d31fa1eb", "event_type": "test_event", "queue_size": 0} (logging.py:186)
+PASSED                                                                   [ 32%]
+tests/unit/mas_core/test_event_queue.py::test_queue_timeout PASSED       [ 33%]
+tests/unit/mas_core/test_task_chain.py::test_create_task 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.664982+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Created task test_001", "taskName": "Task-848189ea", "task_id": "test_001"} (logging.py:186)
+PASSED                                                                   [ 34%]
+tests/unit/mas_core/test_task_chain.py::test_create_task_invalid_data PASSED [ 36%]
+tests/unit/mas_core/test_task_chain.py::test_create_task_concurrent_limit 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.670710+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Created task test_0", "taskName": "Task-848189ea", "task_id": "test_0"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.671172+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Created task test_1", "taskName": "Task-848189ea", "task_id": "test_1"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.671500+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Created task test_2", "taskName": "Task-848189ea", "task_id": "test_2"} (logging.py:186)
+PASSED                                                                   [ 37%]
+tests/unit/mas_core/test_task_chain.py::test_update_task_state_valid 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.674637+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Created task test_001", "taskName": "Task-848189ea", "task_id": "test_001"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.675120+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Updated task test_001 state to TaskState.InProgress", "taskName": "Task-848189ea", "task_id": "test_001", "state": "InProgress"} (logging.py:186)
+PASSED                                                                   [ 38%]
+tests/unit/mas_core/test_task_chain.py::test_update_task_state_invalid 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.677866+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Created task test_001", "taskName": "Task-848189ea", "task_id": "test_001"} (logging.py:186)
+PASSED                                                                   [ 40%]
+tests/unit/mas_core/test_task_chain.py::test_update_task_state_not_found PASSED [ 41%]
+tests/unit/mas_core/test_task_chain.py::test_get_task 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.683318+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Created task test_001", "taskName": "Task-848189ea", "task_id": "test_001"} (logging.py:186)
+PASSED                                                                   [ 42%]
+tests/unit/mas_core/test_task_chain.py::test_get_task_not_found PASSED   [ 44%]
+tests/unit/mas_core/test_task_chain.py::test_list_tasks 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.689060+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Created task test_001", "taskName": "Task-848189ea", "task_id": "test_001"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.689552+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Created task test_002", "taskName": "Task-848189ea", "task_id": "test_002"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.689880+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Created task test_003", "taskName": "Task-848189ea", "task_id": "test_003"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.690220+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Updated task test_001 state to TaskState.InProgress", "taskName": "Task-848189ea", "task_id": "test_001", "state": "InProgress"} (logging.py:186)
+PASSED                                                                   [ 45%]
+tests/unit/mas_core/test_task_chain.py::test_task_state_transitions 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.693335+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Created task test_001", "taskName": "Task-848189ea", "task_id": "test_001"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.693831+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Updated task test_001 state to TaskState.InProgress", "taskName": "Task-848189ea", "task_id": "test_001", "state": "InProgress"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.694105+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Updated task test_001 state to TaskState.Blocked", "taskName": "Task-848189ea", "task_id": "test_001", "state": "Blocked"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.694363+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Updated task test_001 state to TaskState.InProgress", "taskName": "Task-848189ea", "task_id": "test_001", "state": "InProgress"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.694618+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Updated task test_001 state to TaskState.Failed", "taskName": "Task-848189ea", "task_id": "test_001", "state": "Failed"} (logging.py:186)
+PASSED                                                                   [ 46%]
+tests/unit/mas_core/test_task_chain.py::test_task_metadata 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.698009+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Created task test_001", "taskName": "Task-848189ea", "task_id": "test_001"} (logging.py:186)
+PASSED                                                                   [ 48%]
+tests/unit/mas_core/test_task_chain.py::test_task_cleanup 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.700934+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Created task test_001", "taskName": "Task-848189ea", "task_id": "test_001"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.701389+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Created task test_002", "taskName": "Task-848189ea", "task_id": "test_002"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.701731+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Created task test_003", "taskName": "Task-848189ea", "task_id": "test_003"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.702065+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Updated task test_001 state to TaskState.InProgress", "taskName": "Task-848189ea", "task_id": "test_001", "state": "InProgress"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.702338+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Updated task test_002 state to TaskState.InProgress", "taskName": "Task-848189ea", "task_id": "test_002", "state": "InProgress"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.702605+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Updated task test_002 state to TaskState.Failed", "taskName": "Task-848189ea", "task_id": "test_002", "state": "Failed"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.702857+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Updated task test_003 state to TaskState.InProgress", "taskName": "Task-848189ea", "task_id": "test_003", "state": "InProgress"} (logging.py:186)
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.703105+00:00", "name": "mas_core.task_chain", "levelname": "INFO", "message": "Updated task test_003 state to TaskState.Failed", "taskName": "Task-848189ea", "task_id": "test_003", "state": "Failed"} (logging.py:186)
+PASSED                                                                   [ 49%]
+tests/unit/mas_core/test_queue.py::test_queue_is_abstract PASSED         [ 50%]
+tests/unit/mas_core/test_queue.py::test_concrete_implementation PASSED   [ 52%]
+tests/unit/mas_core/test_queue.py::test_queue_after_cleanup PASSED       [ 53%]
+tests/unit/mas_core/test_queue.py::test_dequeue_empty_queue PASSED       [ 54%]
+tests/unit/mas_core/test_queue.py::test_multiple_events PASSED           [ 56%]
+tests/unit/mas_core/test_pipeline.py::test_pipeline_init PASSED          [ 57%]
+tests/unit/mas_core/test_pipeline.py::test_process_event_success 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.720525+00:00", "name": "mas_core.pipeline", "levelname": "INFO", "message": "Processed event for task 9722c19f-1b6a-4a5d-be98-85e39c91e93b", "taskName": "Task-c292b5bc", "task_id": "9722c19f-1b6a-4a5d-be98-85e39c91e93b", "event_type": "test_event"} (logging.py:186)
+PASSED                                                                   [ 58%]
+tests/unit/mas_core/test_pipeline.py::test_process_event_invalid PASSED  [ 60%]
+tests/unit/mas_core/test_pipeline.py::test_process_event_create_task_fail PASSED [ 61%]
+tests/unit/mas_core/test_pipeline.py::test_process_event_update_state_fail PASSED [ 62%]
+tests/unit/mas_core/test_pipeline.py::test_pipeline_stop 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:27 [    INFO] {"asctime": "2025-06-07T22:20:27.733389+00:00", "name": "mas_core.pipeline", "levelname": "INFO", "message": "Stopping MAS pipeline", "taskName": "Task-c292b5bc"} (logging.py:186)
+PASSED                                                                   [ 64%]
+tests/unit/mas_core/test_pipeline.py::test_pipeline_cleanup PASSED       [ 65%]
+tests/unit/mas_core/test_pipeline.py::test_cleanup_loop PASSED           [ 66%]
+tests/unit/mas_core/test_pipeline.py::test_process_event_exception PASSED [ 68%]
+tests/unit/mas_core/test_pipeline.py::test_cleanup_exception PASSED      [ 69%]
+tests/unit/mas_core/test_pipeline.py::test_stop_exception 
+-------------------------------- live log call ---------------------------------
+2025-06-07 15:20:28 [    INFO] {"asctime": "2025-06-07T22:20:28.748788+00:00", "name": "mas_core.pipeline", "levelname": "INFO", "message": "Stopping MAS pipeline", "taskName": "Task-c292b5bc"} (logging.py:186)
+PASSED                                                                   [ 70%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateTaskId::test_valid_task_ids PASSED [ 72%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateTaskId::test_invalid_task_ids PASSED [ 73%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateTimestamp::test_valid_timestamps PASSED [ 74%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateTimestamp::test_invalid_timestamps PASSED [ 76%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateTask::test_valid_task PASSED [ 77%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateTask::test_missing_required_fields PASSED [ 78%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateTask::test_invalid_field_types PASSED [ 80%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateTask::test_invalid_task_id PASSED [ 81%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateTask::test_invalid_timestamp PASSED [ 82%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateTask::test_invalid_priority_level PASSED [ 84%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateTask::test_invalid_consensus_state PASSED [ 85%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateAgentAssignment::test_valid_assignment PASSED [ 86%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateAgentAssignment::test_empty_assignment PASSED [ 88%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateAgentAssignment::test_invalid_agent_id PASSED [ 89%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateAgentAssignment::test_invalid_role PASSED [ 90%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateConsensusVote::test_valid_vote PASSED [ 92%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateConsensusVote::test_missing_required_fields PASSED [ 93%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateConsensusVote::test_invalid_field_types PASSED [ 94%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateConsensusVote::test_invalid_task_id_in_vote PASSED [ 96%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateConsensusVote::test_invalid_timestamp_in_vote PASSED [ 97%]
+tests/unit/mas_core/utils/test_validation.py::TestValidateConsensusVote::test_invalid_vote_value PASSED [ 98%]
+tests/unit/mas_core/utils/test_validation.py::TestGenerateTaskId::test_generate_task_id PASSED [100%]
+
+---------- coverage: platform darwin, python 3.13.3-final-0 ----------
+Name                           Stmts   Miss  Cover   Missing
+------------------------------------------------------------
+mas_core/__init__.py               0      0   100%
+mas_core/consensus.py            119     17    86%   73, 76, 79, 84-85, 89, 139-152, 265-279, 287-289
+mas_core/error_handler.py         49      7    86%   89-90, 101, 112, 123, 127, 135
+mas_core/event_queue.py           92     21    77%   59, 113-139, 186-195, 203, 207-209, 255-264
+mas_core/metrics.py              114     39    66%   99, 136-168, 172-193, 207-209, 235-236, 247, 262, 269-271
+mas_core/pipeline.py              82     20    76%   49-82, 185-187
+mas_core/queue.py                 13      0   100%
+mas_core/redis_queue.py           98     98     0%   8-255
+mas_core/task_chain.py           133     22    83%   191, 221-249, 272-285, 326-328
+mas_core/utils/logging.py         59     16    73%   99, 118, 137, 155-162, 172, 195-196, 205-206, 215-216, 225-226, 230
+mas_core/utils/validation.py      55      0   100%
+------------------------------------------------------------
+TOTAL                            814    240    71%
+
+FAIL Required test coverage of 80% not reached. Total coverage: 70.52%
+
+============================= 75 passed in 10.26s ==============================
