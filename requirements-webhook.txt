@@ -5,6 +5,7 @@ aiohttp==3.9.1
 asyncio==3.4.3
 prometheus-client==0.19.0
 cryptography==41.0.7
+fastapi==0.104.1  # Added for webhook integration tests
 # TODO: mas-core==2.1.0 package not found on PyPI - needs manual review
 # mas-core==2.1.0  # MAS Core components including Redis queue
 
