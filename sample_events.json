@@ -1,0 +1,51 @@
+{
+  "github_pr": {
+    "event_id": "gh_pr_12345_20250111_001",
+    "timestamp": "2025-06-19T15:45:26.058076+00:00",
+    "source": "github",
+    "event_type": "pull_request",
+    "context": "Repository: octocat/Hello-World\nPull Request #123: Add user authentication feature\nAuthor: @alice-dev\nBranch: feature/user-auth -> main\n\nChanges:\n- Added JWT token authentication\n- Implemented user login/logout endpoints\n- Added password hashing with bcrypt\n- Created user model with SQLAlchemy\n\nFiles changed:\n- src/auth/jwt_handler.py (new)\n- src/models/user.py (new)\n- src/routes/auth.py (new)\n- tests/test_auth.py (new)\n\nThe PR includes comprehensive tests and documentation.",
+    "goal": "Review this pull request for security best practices, code quality, and potential issues. Provide actionable feedback for the author.",
+    "tone": "reviewer",
+    "requested_output": "pr_comment",
+    "priority": 7,
+    "tags": [
+      "security",
+      "authentication",
+      "backend"
+    ],
+    "metadata": {
+      "repo": "octocat/Hello-World",
+      "pr_number": 123,
+      "author": "alice-dev",
+      "base_branch": "main",
+      "head_branch": "feature/user-auth"
+    },
+    "protocol_version": "2.1",
+    "session_id": null
+  },
+  "cursor_test_failure": {
+    "event_id": "cursor_test_20250111_002",
+    "timestamp": "2025-06-19T15:45:26.058471+00:00",
+    "source": "cursor",
+    "event_type": "test_log",
+    "context": "Test Suite: GitBridge Integration Tests\nFailed Test: test_gpt4o_webhook_integration\nDuration: 2.34s\nError: AssertionError: Expected response time < 2.0s, got 2.34s\n\nTest Details:\n- Endpoint: POST /webhook/gpt4o\n- Payload: GitHub push event\n- Expected: 200 OK with response time < 2.0s\n- Actual: 200 OK with response time 2.34s\n\nStack Trace:\nFile \"tests/test_webhook_integration.py\", line 45, in test_gpt4o_webhook_integration\n    assert response_time < 2.0, f\"Response time {response_time}s exceeds 2.0s threshold\"\n\nEnvironment:\n- Python 3.13.3\n- OpenAI API: gpt-4o\n- Redis: localhost:6379\n- Load: Medium (5 concurrent requests)",
+    "goal": "Analyze this test failure and provide recommendations for improving response time. Consider if the 2.0s threshold is realistic and suggest optimizations.",
+    "tone": "technical",
+    "requested_output": "diagnostic",
+    "priority": 5,
+    "tags": [
+      "performance",
+      "testing",
+      "webhook"
+    ],
+    "metadata": {
+      "test_suite": "GitBridge Integration Tests",
+      "test_name": "test_gpt4o_webhook_integration",
+      "failure_type": "performance",
+      "environment": "development"
+    },
+    "protocol_version": "2.1",
+    "session_id": null
+  }
+}

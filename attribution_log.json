@@ -1,0 +1,20 @@
+[
+  {
+    "master_task_id": "task_1",
+    "confidence_score": 0.9013108614232209,
+    "composition_strategy": "hierarchical",
+    "created_at": "2025-06-19T23:40:23.062639+00:00",
+    "attribution_map": {
+      "69a5d356b5049b9d19ac52acc9cec73b": [
+        "openai_gpt4o"
+      ],
+      "3ede61e25c0e5a19acd483dbec918e28": [
+        "chatgpt_gpt4"
+      ],
+      "12653c39f8319a15246378ffa5e34b22": [
+        "cursor_assistant"
+      ]
+    },
+    "conflict_resolution_log": []
+  }
+]

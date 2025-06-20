@@ -1,2 +1,16 @@
 GitBridgev1
 logs/cursor_live_status.log
+
+# GitBridge Token Management Protocol - Sensitive Files
+.env
+.env.alt
+token_audit_log.md
+token_expiration_monitor.log
+/docs/github_tokens/token_audit_log.md
+/meta/token_registry.json
+
+# Additional security exclusions
+*.key
+*.pem
+*.p12
+config/secrets.yaml

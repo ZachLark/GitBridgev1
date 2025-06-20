@@ -1,0 +1,16 @@
+{
+  "node_id": "test_1",
+  "agent_id": "openai_gpt4o",
+  "task_context": "analysis",
+  "result": {
+    "confidence": 0.9,
+    "content": "Test analysis"
+  },
+  "timestamp": "2025-06-19T23:40:22.418776+00:00",
+  "metadata": {
+    "type": "analysis",
+    "priority": "high"
+  },
+  "links": [],
+  "persistence_hash": "ade755080987c598"
+}

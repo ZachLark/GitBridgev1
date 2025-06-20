@@ -1,0 +1,122 @@
+[
+  {
+    "node_id": "node_1_20250619_155308",
+    "agent_id": "openai_gpt4o",
+    "task_context": "analysis",
+    "result": {
+      "result": "Initial analysis"
+    },
+    "timestamp": "2025-06-19T22:53:08.063363+00:00",
+    "metadata": {},
+    "links": [
+      "node_2_20250619_155308"
+    ]
+  },
+  {
+    "node_id": "node_2_20250619_155308",
+    "agent_id": "cursor_assistant",
+    "task_context": "review",
+    "result": {
+      "result": "Code review"
+    },
+    "timestamp": "2025-06-19T22:53:08.063938+00:00",
+    "metadata": {},
+    "links": []
+  },
+  {
+    "node_id": "node_3_20250619_155308",
+    "agent_id": "cursor_assistant",
+    "task_context": "security_review",
+    "result": {
+      "content": "Security analysis by Cursor: No critical vulnerabilities found. Recommend implementing input validation and using parameterized queries.",
+      "confidence": 0.9199999999999999,
+      "completion_time": 2.7,
+      "token_usage": {
+        "total": 177,
+        "prompt": 57,
+        "completion": 107
+      }
+    },
+    "timestamp": "2025-06-19T22:53:08.066320+00:00",
+    "metadata": {
+      "subtask_id": "task_1_20250619_155308_security_review",
+      "task_type": "security_review",
+      "domain": "code_review",
+      "priority": 0.9
+    },
+    "links": []
+  },
+  {
+    "node_id": "node_4_20250619_155308",
+    "agent_id": "cursor_assistant",
+    "task_context": "performance_review",
+    "result": {
+      "content": "Performance review by Cursor: Database queries can be optimized. Consider adding indexes and implementing caching.",
+      "confidence": 0.94,
+      "completion_time": 2.9,
+      "token_usage": {
+        "total": 199,
+        "prompt": 69,
+        "completion": 109
+      }
+    },
+    "timestamp": "2025-06-19T22:53:08.066369+00:00",
+    "metadata": {
+      "subtask_id": "task_1_20250619_155308_performance_review",
+      "task_type": "performance_review",
+      "domain": "code_review",
+      "priority": 0.8
+    },
+    "links": []
+  },
+  {
+    "node_id": "node_5_20250619_155308",
+    "agent_id": "cursor_assistant",
+    "task_context": "readability_review",
+    "result": {
+      "content": "Code quality assessment by Cursor: Code follows PEP 8 standards. Suggest adding more comprehensive error handling.",
+      "confidence": 0.98,
+      "completion_time": 2.3,
+      "token_usage": {
+        "total": 183,
+        "prompt": 53,
+        "completion": 113
+      }
+    },
+    "timestamp": "2025-06-19T22:53:08.066413+00:00",
+    "metadata": {
+      "subtask_id": "task_1_20250619_155308_readability_review",
+      "task_type": "readability_review",
+      "domain": "code_review",
+      "priority": 0.7
+    },
+    "links": []
+  },
+  {
+    "node_id": "node_6_20250619_155308",
+    "agent_id": "synthesizer_specialist",
+    "task_context": "final_composition",
+    "result": {
+      "composed_content": "# Main Analysis\n\nCode quality assessment by Cursor: Code follows PEP 8 standards. Suggest adding more comprehensive error handling.\n\n# Supplementary Insights\n\n## Cursor\n\nPerformance review by Cursor: Database queries can be optimized. Consider adding indexes and implementing caching.\n\n## Cursor\n\nSecurity analysis by Cursor: No critical vulnerabilities found. Recommend implementing input validation and using parameterized queries.\n",
+      "confidence_score": 0.9471413003995641,
+      "attribution_map": {
+        "e0ff885b1e58948002b95c6ba58e90f1": [
+          "cursor_assistant"
+        ],
+        "054e3d6dfd8353b4a3c163d90d20a23b": [
+          "cursor_assistant"
+        ],
+        "23adbc192db2c141934e3596bed2e40a": [
+          "cursor_assistant"
+        ]
+      }
+    },
+    "timestamp": "2025-06-19T22:53:08.069026+00:00",
+    "metadata": {
+      "master_task_id": "task_1_20250619_155308",
+      "composition_strategy": "hierarchical",
+      "conflicts_resolved": 0
+    },
+    "links": []
+  }
+]

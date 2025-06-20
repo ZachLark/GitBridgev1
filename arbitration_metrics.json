@@ -1,0 +1,412 @@
+{
+  "metrics_schema": {
+    "version": "1.0.0",
+    "created_at": "2025-06-19T17:30:00+00:00",
+    "updated_at": "2025-06-19T17:30:00+00:00",
+    "description": "Comprehensive metrics schema for GitBridge arbitration system",
+    "collection_interval_ms": 60000,
+    "retention_days": 30
+  },
+  "performance_metrics": {
+    "response_times": {
+      "description": "Arbitration response time statistics",
+      "metrics": {
+        "avg_response_time_ms": {
+          "type": "float",
+          "unit": "milliseconds",
+          "description": "Average time to complete arbitration"
+        },
+        "p50_response_time_ms": {
+          "type": "float",
+          "unit": "milliseconds",
+          "description": "50th percentile response time"
+        },
+        "p95_response_time_ms": {
+          "type": "float",
+          "unit": "milliseconds",
+          "description": "95th percentile response time"
+        },
+        "p99_response_time_ms": {
+          "type": "float",
+          "unit": "milliseconds",
+          "description": "99th percentile response time"
+        },
+        "max_response_time_ms": {
+          "type": "float",
+          "unit": "milliseconds",
+          "description": "Maximum response time observed"
+        },
+        "min_response_time_ms": {
+          "type": "float",
+          "unit": "milliseconds",
+          "description": "Minimum response time observed"
+        }
+      }
+    },
+    "throughput": {
+      "description": "Arbitration throughput statistics",
+      "metrics": {
+        "arbitrations_per_minute": {
+          "type": "float",
+          "unit": "arbitrations/minute",
+          "description": "Number of arbitrations completed per minute"
+        },
+        "arbitrations_per_hour": {
+          "type": "float",
+          "unit": "arbitrations/hour",
+          "description": "Number of arbitrations completed per hour"
+        },
+        "concurrent_arbitrations": {
+          "type": "integer",
+          "unit": "count",
+          "description": "Number of arbitrations currently in progress"
+        },
+        "queue_length": {
+          "type": "integer",
+          "unit": "count",
+          "description": "Number of arbitrations waiting in queue"
+        }
+      }
+    },
+    "error_rates": {
+      "description": "Error and failure statistics",
+      "metrics": {
+        "error_rate": {
+          "type": "float",
+          "unit": "percentage",
+          "description": "Percentage of arbitrations that resulted in errors"
+        },
+        "timeout_rate": {
+          "type": "float",
+          "unit": "percentage",
+          "description": "Percentage of arbitrations that timed out"
+        },
+        "fallback_rate": {
+          "type": "float",
+          "unit": "percentage",
+          "description": "Percentage of arbitrations that used fallback strategy"
+        },
+        "total_errors": {
+          "type": "integer",
+          "unit": "count",
+          "description": "Total number of errors encountered"
+        },
+        "total_timeouts": {
+          "type": "integer",
+          "unit": "count",
+          "description": "Total number of timeouts encountered"
+        },
+        "total_fallbacks": {
+          "type": "integer",
+          "unit": "count",
+          "description": "Total number of fallback executions"
+        }
+      }
+    }
+  },
+  "strategy_metrics": {
+    "usage_statistics": {
+      "description": "Strategy usage and performance statistics",
+      "metrics": {
+        "strategy_usage_count": {
+          "type": "object",
+          "description": "Count of times each strategy was used",
+          "example": {
+            "majority_vote": 150,
+            "confidence_weight": 300,
+            "recency_bias": 75,
+            "cost_aware": 50,
+            "latency_aware": 100,
+            "hybrid_score": 200
+          }
+        },
+        "strategy_success_rate": {
+          "type": "object",
+          "description": "Success rate for each strategy",
+          "example": {
+            "majority_vote": 0.95,
+            "confidence_weight": 0.98,
+            "recency_bias": 0.92,
+            "cost_aware": 0.94,
+            "latency_aware": 0.96,
+            "hybrid_score": 0.97
+          }
+        },
+        "strategy_avg_response_time": {
+          "type": "object",
+          "description": "Average response time for each strategy",
+          "example": {
+            "majority_vote": 1500,
+            "confidence_weight": 1200,
+            "recency_bias": 1800,
+            "cost_aware": 2000,
+            "latency_aware": 800,
+            "hybrid_score": 2500
+          }
+        },
+        "strategy_fallback_rate": {
+          "type": "object",
+          "description": "Fallback rate for each strategy",
+          "example": {
+            "majority_vote": 0.05,
+            "confidence_weight": 0.02,
+            "recency_bias": 0.08,
+            "cost_aware": 0.06,
+            "latency_aware": 0.04,
+            "hybrid_score": 0.03
+          }
+        }
+      }
+    },
+    "strategy_effectiveness": {
+      "description": "Strategy effectiveness and quality metrics",
+      "metrics": {
+        "avg_confidence_by_strategy": {
+          "type": "object",
+          "description": "Average confidence scores by strategy",
+          "example": {
+            "majority_vote": 0.85,
+            "confidence_weight": 0.92,
+            "recency_bias": 0.88,
+            "cost_aware": 0.90,
+            "latency_aware": 0.87,
+            "hybrid_score": 0.94
+          }
+        },
+        "conflict_resolution_success": {
+          "type": "object",
+          "description": "Success rate in resolving different conflict types",
+          "example": {
+            "contradiction": 0.95,
+            "quality_dispute": 0.92,
+            "error": 0.88,
+            "timeout": 0.85
+          }
+        }
+      }
+    }
+  },
+  "agent_metrics": {
+    "performance_by_agent": {
+      "description": "Performance statistics for each agent",
+      "metrics": {
+        "agent_win_rate": {
+          "type": "object",
+          "description": "Percentage of arbitrations won by each agent",
+          "example": {
+            "openai_gpt4o": 0.45,
+            "grok_3": 0.35,
+            "cursor_assistant": 0.20
+          }
+        },
+        "agent_avg_confidence": {
+          "type": "object",
+          "description": "Average confidence scores by agent",
+          "example": {
+            "openai_gpt4o": 0.92,
+            "grok_3": 0.88,
+            "cursor_assistant": 0.85
+          }
+        },
+        "agent_error_rate": {
+          "type": "object",
+          "description": "Error rate for each agent",
+          "example": {
+            "openai_gpt4o": 0.02,
+            "grok_3": 0.05,
+            "cursor_assistant": 0.08
+          }
+        },
+        "agent_avg_response_time": {
+          "type": "object",
+          "description": "Average response time for each agent",
+          "example": {
+            "openai_gpt4o": 1500,
+            "grok_3": 2000,
+            "cursor_assistant": 1200
+          }
+        },
+        "agent_cost_per_arbitration": {
+          "type": "object",
+          "description": "Average cost per arbitration for each agent",
+          "example": {
+            "openai_gpt4o": 0.03,
+            "grok_3": 0.01,
+            "cursor_assistant": 0.005
+          }
+        }
+      }
+    },
+    "agent_specialization": {
+      "description": "Agent performance by task type",
+      "metrics": {
+        "agent_task_success_rate": {
+          "type": "object",
+          "description": "Success rate by agent and task type",
+          "example": {
+            "openai_gpt4o": {
+              "code_review": 0.95,
+              "data_analysis": 0.92,
+              "testing": 0.94
+            },
+            "grok_3": {
+              "security_analysis": 0.96,
+              "data_analysis": 0.90
+            },
+            "cursor_assistant": {
+              "documentation": 0.93,
+              "refactoring": 0.91
+            }
+          }
+        }
+      }
+    }
+  },
+  "task_metrics": {
+    "task_type_statistics": {
+      "description": "Statistics by task type",
+      "metrics": {
+        "task_type_volume": {
+          "type": "object",
+          "description": "Number of arbitrations by task type",
+          "example": {
+            "code_review": 200,
+            "security_analysis": 150,
+            "data_analysis": 300,
+            "documentation": 100,
+            "testing": 250,
+            "refactoring": 120,
+            "general": 500
+          }
+        },
+        "task_type_avg_response_time": {
+          "type": "object",
+          "description": "Average response time by task type",
+          "example": {
+            "code_review": 2500,
+            "security_analysis": 3500,
+            "data_analysis": 4000,
+            "documentation": 1500,
+            "testing": 3000,
+            "refactoring": 2800,
+            "general": 2000
+          }
+        },
+        "task_type_success_rate": {
+          "type": "object",
+          "description": "Success rate by task type",
+          "example": {
+            "code_review": 0.94,
+            "security_analysis": 0.96,
+            "data_analysis": 0.92,
+            "documentation": 0.95,
+            "testing": 0.93,
+            "refactoring": 0.91,
+            "general": 0.90
+          }
+        }
+      }
+    }
+  },
+  "system_metrics": {
+    "resource_usage": {
+      "description": "System resource usage statistics",
+      "metrics": {
+        "cpu_usage_percent": {
+          "type": "float",
+          "unit": "percentage",
+          "description": "CPU usage percentage"
+        },
+        "memory_usage_mb": {
+          "type": "float",
+          "unit": "megabytes",
+          "description": "Memory usage in megabytes"
+        },
+        "disk_usage_percent": {
+          "type": "float",
+          "unit": "percentage",
+          "description": "Disk usage percentage"
+        },
+        "network_io_mbps": {
+          "type": "float",
+          "unit": "megabits per second",
+          "description": "Network I/O rate"
+        }
+      }
+    },
+    "health_indicators": {
+      "description": "System health and status indicators",
+      "metrics": {
+        "system_uptime_seconds": {
+          "type": "integer",
+          "unit": "seconds",
+          "description": "System uptime in seconds"
+        },
+        "plugin_health_status": {
+          "type": "object",
+          "description": "Health status of loaded plugins",
+          "example": {
+            "majority_vote": "healthy",
+            "confidence_weight": "healthy",
+            "recency_bias": "healthy",
+            "cost_aware": "healthy",
+            "latency_aware": "healthy",
+            "hybrid_score": "healthy"
+          }
+        },
+        "circuit_breaker_status": {
+          "type": "object",
+          "description": "Circuit breaker status for different components",
+          "example": {
+            "openai_gpt4o": "closed",
+            "grok_3": "closed",
+            "cursor_assistant": "closed"
+          }
+        }
+      }
+    }
+  },
+  "real_time_metrics": {
+    "current_status": {
+      "description": "Current system status and real-time metrics",
+      "metrics": {
+        "active_arbitrations": {
+          "type": "integer",
+          "unit": "count",
+          "description": "Number of currently active arbitrations"
+        },
+        "queue_length": {
+          "type": "integer",
+          "unit": "count",
+          "description": "Number of arbitrations in queue"
+        },
+        "last_arbitration_time": {
+          "type": "string",
+          "format": "ISO 8601",
+          "description": "Timestamp of last completed arbitration"
+        },
+        "system_status": {
+          "type": "string",
+          "enum": ["healthy", "degraded", "critical"],
+          "description": "Overall system health status"
+        }
+      }
+    }
+  },
+  "metadata": {
+    "author": "GitBridge Development Team",
+    "environment": "production",
+    "tags": ["metrics", "monitoring", "arbitration", "performance"],
+    "compatibility": {
+      "min_version": "1.0.0",
+      "max_version": "2.0.0"
+    },
+    "last_updated_by": "P22P5S1T1",
+    "export_formats": ["json", "csv", "prometheus"],
+    "retention_policy": {
+      "raw_data_days": 7,
+      "aggregated_data_days": 30,
+      "archived_data_days": 365
+    }
+  }
+} 

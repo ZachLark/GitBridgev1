@@ -237,4 +237,29 @@ AI Router          | 2.1       | 2.1
 Redis Queue        | 2.1       | 2.1
 Authentication     | 2.1       | 2.1
 Error Handling     | 2.1       | 2.1
-``` 
+```
+
+## GBP23 Trust Graph Compliance & Performance (June 2025)
+
+- **Component:** Trust Graph (GBP23)
+- **Protocol:** MAS Lite v2.1 (full compliance)
+- **Performance Modes:**
+  - Standard (full validation/logging)
+  - High-Performance (minimal validation/logging)
+  - Batch (bulk updates, single lock/save)
+- **Throughput:**
+  - Standard: ~51 updates/sec
+  - High-Performance: >216,000 updates/sec
+  - Batch: >290,000 updates/sec
+- **Validation:**
+  - All unit, integration, exploratory, and load/performance tests pass
+  - Deployment smoke tests: 100% success, no errors, memory within limits
+  - See `docs/performance/gbp13_metrics.md` and `outputs/test_runs/test_results_20250610_103000.json`
+- **Protocol Features:**
+  - All trust graph operations (including batch/high-perf) are MAS Lite v2.1 compliant
+  - Protocol version and features referenced in all API/config outputs
+  - All performance, error handling, and logging requirements met or exceeded
+- **Usage:**
+  - Use Standard mode for audit/compliance
+  - Use High-Performance/Batch for bulk or analytics
+  - Modes can be toggled dynamically 

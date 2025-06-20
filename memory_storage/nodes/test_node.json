@@ -1,0 +1,12 @@
+{
+  "node_id": "test_node",
+  "agent_id": "test_agent",
+  "task_context": "test_context",
+  "result": {
+    "test": "data"
+  },
+  "timestamp": "2025-06-19T23:40:22.780871+00:00",
+  "metadata": {},
+  "links": [],
+  "persistence_hash": "4f04abce97edd457"
+}

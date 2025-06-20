@@ -1,0 +1,339 @@
+{
+  "phase": "GBP21",
+  "part": "P21P1",
+  "step": "P21P1S1",
+  "timestamp": "2025-06-19 15:30",
+  "description": "Multi-Agent Role Assignment Protocol - Defines AI agent roles, domains, and priorities",
+  "agents": [
+    {
+      "agent_name": "OpenAI",
+      "agent_id": "openai_gpt4o",
+      "roles": ["Synthesizer", "Optimizer", "Editor"],
+      "priority_weight": 0.9,
+      "domains": ["general", "code_review", "analysis", "explanation"],
+      "default_model": "gpt-4o",
+      "strengths": ["comprehensive_analysis", "structured_output", "reliability"],
+      "weaknesses": ["cost", "latency"],
+      "metadata": {
+        "provider": "openai",
+        "api_version": "v1",
+        "max_tokens": 4000
+      }
+    },
+    {
+      "agent_name": "Grok",
+      "agent_id": "grok_3",
+      "roles": ["Challenger", "Innovator", "Synthesizer"],
+      "priority_weight": 0.8,
+      "domains": ["creative", "problem_solving", "code_review", "analysis"],
+      "default_model": "grok-3-mini",
+      "strengths": ["creativity", "cost_efficiency", "novel_approaches"],
+      "weaknesses": ["consistency", "structured_output"],
+      "metadata": {
+        "provider": "xai",
+        "api_version": "v1",
+        "max_tokens": 4000,
+        "reasoning_effort": "high"
+      }
+    },
+    {
+      "agent_name": "Cursor",
+      "agent_id": "cursor_assistant",
+      "roles": ["Editor", "Code_Specialist", "Optimizer"],
+      "priority_weight": 0.85,
+      "domains": ["code_review", "refactoring", "optimization", "documentation"],
+      "default_model": "cursor_ai",
+      "strengths": ["code_understanding", "refactoring", "best_practices"],
+      "weaknesses": ["general_knowledge", "creative_tasks"],
+      "metadata": {
+        "provider": "cursor",
+        "specialization": "code_development",
+        "context_awareness": "high"
+      }
+    },
+    {
+      "agent_name": "GrokWriter",
+      "agent_id": "grok_writer",
+      "roles": ["Writer", "Synthesizer", "Editor"],
+      "priority_weight": 0.75,
+      "domains": ["content_creation", "documentation", "explanation"],
+      "default_model": "grok-3-mini",
+      "strengths": ["writing_quality", "creativity", "engagement"],
+      "weaknesses": ["technical_depth", "precision"],
+      "metadata": {
+        "provider": "xai",
+        "specialization": "content_writing",
+        "tone_adaptability": "high"
+      }
+    },
+    {
+      "agent_name": "ChatGPT",
+      "agent_id": "chatgpt_gpt4",
+      "roles": ["Synthesizer", "Explainer", "Generalist"],
+      "priority_weight": 0.85,
+      "domains": ["general", "explanation", "education", "conversation"],
+      "default_model": "gpt-4",
+      "strengths": ["conversation", "explanation", "general_knowledge"],
+      "weaknesses": ["specialized_tasks", "cost"],
+      "metadata": {
+        "provider": "openai",
+        "specialization": "conversation",
+        "response_style": "conversational"
+      }
+    },
+    {
+      "agent_name": "Synthesizer",
+      "agent_id": "synthesizer_specialist",
+      "roles": ["Synthesizer", "Integrator", "Coordinator"],
+      "priority_weight": 0.95,
+      "domains": ["integration", "synthesis", "coordination"],
+      "default_model": "hybrid",
+      "strengths": ["integration", "coordination", "synthesis"],
+      "weaknesses": ["original_creation", "specialized_knowledge"],
+      "metadata": {
+        "provider": "hybrid",
+        "specialization": "multi_agent_coordination",
+        "role": "meta_agent"
+      }
+    }
+  ],
+  "roles": {
+    "Synthesizer": {
+      "description": "Combines and integrates information from multiple sources",
+      "priority": 0.9,
+      "domains": ["integration", "synthesis", "coordination"],
+      "required_skills": ["analysis", "integration", "coordination"]
+    },
+    "Optimizer": {
+      "description": "Improves and refines existing solutions",
+      "priority": 0.8,
+      "domains": ["optimization", "refinement", "improvement"],
+      "required_skills": ["analysis", "optimization", "best_practices"]
+    },
+    "Challenger": {
+      "description": "Questions assumptions and provides alternative perspectives",
+      "priority": 0.7,
+      "domains": ["critical_thinking", "validation", "challenge"],
+      "required_skills": ["critical_thinking", "validation", "creativity"]
+    },
+    "Editor": {
+      "description": "Reviews and improves content quality and structure",
+      "priority": 0.85,
+      "domains": ["editing", "review", "quality_assurance"],
+      "required_skills": ["attention_to_detail", "quality_assurance", "structure"]
+    },
+    "Innovator": {
+      "description": "Generates novel approaches and creative solutions",
+      "priority": 0.75,
+      "domains": ["innovation", "creativity", "novel_solutions"],
+      "required_skills": ["creativity", "innovation", "problem_solving"]
+    },
+    "Code_Specialist": {
+      "description": "Specializes in code-related tasks and technical implementation",
+      "priority": 0.9,
+      "domains": ["code_review", "implementation", "technical"],
+      "required_skills": ["programming", "technical_knowledge", "best_practices"]
+    },
+    "Writer": {
+      "description": "Creates high-quality written content",
+      "priority": 0.8,
+      "domains": ["content_creation", "writing", "communication"],
+      "required_skills": ["writing", "communication", "clarity"]
+    },
+    "Explainer": {
+      "description": "Simplifies complex concepts and provides clear explanations",
+      "priority": 0.8,
+      "domains": ["explanation", "education", "communication"],
+      "required_skills": ["communication", "clarity", "pedagogy"]
+    },
+    "Generalist": {
+      "description": "Handles a wide range of general tasks",
+      "priority": 0.7,
+      "domains": ["general", "versatile", "broad"],
+      "required_skills": ["versatility", "general_knowledge", "adaptability"]
+    },
+    "Integrator": {
+      "description": "Combines multiple inputs into coherent outputs",
+      "priority": 0.9,
+      "domains": ["integration", "coordination", "synthesis"],
+      "required_skills": ["coordination", "integration", "synthesis"]
+    },
+    "Coordinator": {
+      "description": "Manages and coordinates multi-agent workflows",
+      "priority": 0.95,
+      "domains": ["coordination", "management", "workflow"],
+      "required_skills": ["coordination", "management", "workflow_optimization"]
+    }
+  },
+  "task_domains": {
+    "general": {
+      "description": "General-purpose tasks and queries",
+      "preferred_roles": ["Generalist", "Synthesizer", "Explainer"],
+      "priority": 0.7
+    },
+    "code_review": {
+      "description": "Code review and analysis tasks",
+      "preferred_roles": ["Code_Specialist", "Editor", "Optimizer"],
+      "priority": 0.9
+    },
+    "analysis": {
+      "description": "Data and information analysis",
+      "preferred_roles": ["Synthesizer", "Analyst", "Optimizer"],
+      "priority": 0.85
+    },
+    "explanation": {
+      "description": "Explaining complex concepts",
+      "preferred_roles": ["Explainer", "Writer", "Synthesizer"],
+      "priority": 0.8
+    },
+    "creative": {
+      "description": "Creative and innovative tasks",
+      "preferred_roles": ["Innovator", "Writer", "Challenger"],
+      "priority": 0.75
+    },
+    "problem_solving": {
+      "description": "Complex problem-solving tasks",
+      "preferred_roles": ["Innovator", "Synthesizer", "Optimizer"],
+      "priority": 0.9
+    },
+    "content_creation": {
+      "description": "Content creation and writing",
+      "preferred_roles": ["Writer", "Editor", "Synthesizer"],
+      "priority": 0.8
+    },
+    "documentation": {
+      "description": "Documentation and technical writing",
+      "preferred_roles": ["Writer", "Editor", "Code_Specialist"],
+      "priority": 0.85
+    },
+    "education": {
+      "description": "Educational content and explanations",
+      "preferred_roles": ["Explainer", "Writer", "Synthesizer"],
+      "priority": 0.8
+    },
+    "conversation": {
+      "description": "Conversational interactions",
+      "preferred_roles": ["Generalist", "Explainer", "Writer"],
+      "priority": 0.7
+    },
+    "integration": {
+      "description": "Integrating multiple sources and perspectives",
+      "preferred_roles": ["Integrator", "Synthesizer", "Coordinator"],
+      "priority": 0.95
+    },
+    "synthesis": {
+      "description": "Synthesizing information from multiple sources",
+      "preferred_roles": ["Synthesizer", "Integrator", "Coordinator"],
+      "priority": 0.9
+    },
+    "coordination": {
+      "description": "Coordinating multi-agent workflows",
+      "preferred_roles": ["Coordinator", "Integrator", "Synthesizer"],
+      "priority": 0.95
+    },
+    "optimization": {
+      "description": "Optimizing and improving solutions",
+      "preferred_roles": ["Optimizer", "Code_Specialist", "Editor"],
+      "priority": 0.85
+    },
+    "refinement": {
+      "description": "Refining and improving existing content",
+      "preferred_roles": ["Editor", "Optimizer", "Code_Specialist"],
+      "priority": 0.8
+    },
+    "improvement": {
+      "description": "Improving quality and performance",
+      "preferred_roles": ["Optimizer", "Editor", "Code_Specialist"],
+      "priority": 0.8
+    },
+    "critical_thinking": {
+      "description": "Critical analysis and validation",
+      "preferred_roles": ["Challenger", "Analyst", "Editor"],
+      "priority": 0.8
+    },
+    "validation": {
+      "description": "Validating and verifying information",
+      "preferred_roles": ["Challenger", "Editor", "Analyst"],
+      "priority": 0.85
+    },
+    "challenge": {
+      "description": "Challenging assumptions and providing alternatives",
+      "preferred_roles": ["Challenger", "Innovator", "Analyst"],
+      "priority": 0.75
+    },
+    "editing": {
+      "description": "Editing and improving content",
+      "preferred_roles": ["Editor", "Writer", "Optimizer"],
+      "priority": 0.85
+    },
+    "review": {
+      "description": "Reviewing and assessing content",
+      "preferred_roles": ["Editor", "Challenger", "Analyst"],
+      "priority": 0.85
+    },
+    "quality_assurance": {
+      "description": "Ensuring quality and standards",
+      "preferred_roles": ["Editor", "Analyst", "Optimizer"],
+      "priority": 0.9
+    },
+    "innovation": {
+      "description": "Innovative and creative solutions",
+      "preferred_roles": ["Innovator", "Challenger", "Writer"],
+      "priority": 0.75
+    },
+    "novel_solutions": {
+      "description": "Novel and creative problem-solving",
+      "preferred_roles": ["Innovator", "Challenger", "Synthesizer"],
+      "priority": 0.8
+    },
+    "implementation": {
+      "description": "Technical implementation tasks",
+      "preferred_roles": ["Code_Specialist", "Optimizer", "Generalist"],
+      "priority": 0.9
+    },
+    "technical": {
+      "description": "Technical and specialized tasks",
+      "preferred_roles": ["Code_Specialist", "Analyst", "Optimizer"],
+      "priority": 0.9
+    },
+    "writing": {
+      "description": "Writing and content creation",
+      "preferred_roles": ["Writer", "Editor", "Synthesizer"],
+      "priority": 0.8
+    },
+    "communication": {
+      "description": "Communication and interaction",
+      "preferred_roles": ["Writer", "Explainer", "Generalist"],
+      "priority": 0.75
+    },
+    "versatile": {
+      "description": "Versatile and adaptable tasks",
+      "preferred_roles": ["Generalist", "Synthesizer", "Explainer"],
+      "priority": 0.7
+    },
+    "broad": {
+      "description": "Broad and general tasks",
+      "preferred_roles": ["Generalist", "Synthesizer", "Explainer"],
+      "priority": 0.7
+    },
+    "management": {
+      "description": "Management and coordination tasks",
+      "preferred_roles": ["Coordinator", "Integrator", "Synthesizer"],
+      "priority": 0.9
+    },
+    "workflow": {
+      "description": "Workflow and process management",
+      "preferred_roles": ["Coordinator", "Integrator", "Manager"],
+      "priority": 0.9
+    }
+  },
+  "workflow_config": {
+    "default_coordination_strategy": "hierarchical",
+    "conflict_resolution_method": "meta_evaluator",
+    "memory_sharing_enabled": true,
+    "attribution_tracking_enabled": true,
+    "dynamic_role_adjustment": true,
+    "max_agents_per_task": 5,
+    "min_confidence_threshold": 0.7
+  }
+} 

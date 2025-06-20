@@ -1,0 +1,29 @@
+{
+  "fallback_chains": {
+    "fragmentation_strategy": [
+      "comprehensive",
+      "structured",
+      "simple"
+    ],
+    "conflict_resolution": [
+      "meta_evaluator",
+      "arbitration",
+      "synthesis"
+    ],
+    "composition_strategy": [
+      "hierarchical",
+      "sequential",
+      "synthetic"
+    ],
+    "fallback_strategy": [
+      "agent_rotation",
+      "priority_based",
+      "random"
+    ]
+  },
+  "plugin_settings": {
+    "auto_reload": true,
+    "validation_strict": false,
+    "max_plugins_per_type": 10
+  }
+}

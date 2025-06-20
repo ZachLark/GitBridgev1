@@ -1,0 +1,1635 @@
+[2025-06-19 13:10:59,678] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:10:59,751] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 13:10:59,751] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 13:10:59,751] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 13:11:27,067] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:11:27,155] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 13:11:27,155] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 13:11:27,155] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 13:11:27,156] [token-usage] INFO: OpenAI provider initialized successfully
+[2025-06-19 13:11:27,156] [token-usage] WARNING: Failed to initialize Grok provider: No xAI API key found. Please provide one via:
+1. Constructor parameter
+2. XAI_API_KEY environment variable
+3. .env file
+4. GitHub Actions secrets
+[2025-06-19 13:11:27,156] [token-usage] INFO: SmartRouter initialized with 1 providers
+[2025-06-19 13:11:27,156] [token-usage] INFO: Available providers: ['openai']
+[2025-06-19 13:11:27,156] [token-usage] INFO: Strategy: hybrid
+[2025-06-19 13:11:27,156] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 13:11:29,064] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-06-19 13:11:29,201] [token-usage] ERROR: OpenAI connection test failed: TokenUsageLogger.log_usage() got an unexpected keyword argument 'prompt_tokens'
+[2025-06-19 13:11:29,201] [token-usage] WARNING: Health check failed for openai: TokenUsageLogger.log_usage() got an unexpected keyword argument 'prompt_tokens'
+[2025-06-19 13:22:27,953] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:22:28,040] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 13:22:28,041] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 13:22:28,041] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 13:22:28,041] [token-usage] INFO: OpenAI provider initialized successfully
+[2025-06-19 13:22:28,041] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:22:28,088] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 13:22:28,088] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 13:22:28,088] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 13:22:28,088] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 13:22:28,088] [token-usage] INFO: Grok provider initialized successfully
+[2025-06-19 13:22:28,088] [token-usage] INFO: SmartRouter initialized with 2 providers
+[2025-06-19 13:22:28,089] [token-usage] INFO: Available providers: ['openai', 'grok']
+[2025-06-19 13:22:28,089] [token-usage] INFO: Strategy: hybrid
+[2025-06-19 13:22:28,089] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 13:22:29,319] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-06-19 13:22:29,396] [token-usage] ERROR: OpenAI connection test failed: TokenUsageLogger.log_usage() got an unexpected keyword argument 'prompt_tokens'
+[2025-06-19 13:22:29,396] [token-usage] WARNING: Health check failed for openai: TokenUsageLogger.log_usage() got an unexpected keyword argument 'prompt_tokens'
+[2025-06-19 13:22:29,396] [token-usage] ERROR: Grok connection test failed: Completions.create() got an unexpected keyword argument 'reasoning'
+[2025-06-19 13:22:29,397] [token-usage] ERROR: Non-retryable error: Unexpected error: Completions.create() got an unexpected keyword argument 'reasoning'
+[2025-06-19 13:22:29,397] [token-usage] WARNING: Health check failed for grok: Unexpected error: Completions.create() got an unexpected keyword argument 'reasoning'
+[2025-06-19 13:24:52,973] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:24:53,096] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 13:24:53,096] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 13:24:53,097] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 13:24:53,098] [token-usage] INFO: OpenAI provider initialized successfully
+[2025-06-19 13:24:53,098] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:24:53,260] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 13:24:53,260] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 13:24:53,260] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 13:24:53,260] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 13:24:53,261] [token-usage] INFO: Grok provider initialized successfully
+[2025-06-19 13:24:53,261] [token-usage] INFO: SmartRouter initialized with 2 providers
+[2025-06-19 13:24:53,261] [token-usage] INFO: Available providers: ['openai', 'grok']
+[2025-06-19 13:24:53,261] [token-usage] INFO: Strategy: hybrid
+[2025-06-19 13:24:53,261] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 13:24:53,261] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 13:24:53,261] [token-usage] INFO: AI request - Task: general, Strategy: hybrid
+[2025-06-19 13:24:53,261] [token-usage] INFO: Prompt length: 67 characters
+[2025-06-19 13:24:54,858] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-06-19 13:24:54,891] [token-usage] ERROR: OpenAI connection test failed: TokenUsageLogger.log_usage() got an unexpected keyword argument 'prompt_tokens'
+[2025-06-19 13:24:54,892] [token-usage] WARNING: Health check failed for openai: TokenUsageLogger.log_usage() got an unexpected keyword argument 'prompt_tokens'
+[2025-06-19 13:24:54,892] [token-usage] ERROR: Grok connection test failed: Completions.create() got an unexpected keyword argument 'reasoning'
+[2025-06-19 13:24:54,892] [token-usage] ERROR: Non-retryable error: Unexpected error: Completions.create() got an unexpected keyword argument 'reasoning'
+[2025-06-19 13:24:54,892] [token-usage] WARNING: Health check failed for grok: Unexpected error: Completions.create() got an unexpected keyword argument 'reasoning'
+[2025-06-19 13:24:54,892] [token-usage] ERROR: Grok response generation failed: Completions.create() got an unexpected keyword argument 'reasoning'
+[2025-06-19 13:24:54,892] [token-usage] ERROR: Non-retryable error: Unexpected error: Completions.create() got an unexpected keyword argument 'reasoning'
+[2025-06-19 13:24:54,892] [token-usage] WARNING: Request failed via grok: Unexpected error: Completions.create() got an unexpected keyword argument 'reasoning'
+[2025-06-19 13:25:04,893] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-06-19 13:25:04,936] [token-usage] ERROR: OpenAI response generation failed: TokenUsageLogger.log_usage() got an unexpected keyword argument 'prompt_tokens'
+[2025-06-19 13:25:04,936] [token-usage] WARNING: Request failed via openai: TokenUsageLogger.log_usage() got an unexpected keyword argument 'prompt_tokens'
+[2025-06-19 13:25:04,936] [token-usage] ERROR: Grok response generation failed: Completions.create() got an unexpected keyword argument 'reasoning'
+[2025-06-19 13:25:04,936] [token-usage] ERROR: Non-retryable error: Unexpected error: Completions.create() got an unexpected keyword argument 'reasoning'
+[2025-06-19 13:25:04,936] [token-usage] WARNING: Request failed via grok: Unexpected error: Completions.create() got an unexpected keyword argument 'reasoning'
+[2025-06-19 13:25:14,006] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-06-19 13:25:14,007] [token-usage] ERROR: OpenAI response generation failed: TokenUsageLogger.log_usage() got an unexpected keyword argument 'prompt_tokens'
+[2025-06-19 13:25:14,007] [token-usage] WARNING: Request failed via openai: TokenUsageLogger.log_usage() got an unexpected keyword argument 'prompt_tokens'
+[2025-06-19 13:25:14,007] [token-usage] ERROR: Grok response generation failed: Completions.create() got an unexpected keyword argument 'reasoning'
+[2025-06-19 13:25:14,008] [token-usage] ERROR: Non-retryable error: Unexpected error: Completions.create() got an unexpected keyword argument 'reasoning'
+[2025-06-19 13:25:14,008] [token-usage] WARNING: Request failed via grok: Unexpected error: Completions.create() got an unexpected keyword argument 'reasoning'
+[2025-06-19 13:25:26,983] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-06-19 13:25:26,984] [token-usage] ERROR: OpenAI response generation failed: TokenUsageLogger.log_usage() got an unexpected keyword argument 'prompt_tokens'
+[2025-06-19 13:25:26,985] [token-usage] WARNING: Request failed via openai: TokenUsageLogger.log_usage() got an unexpected keyword argument 'prompt_tokens'
+[2025-06-19 13:25:26,985] [token-usage] ERROR: AI request failed: TokenUsageLogger.log_usage() got an unexpected keyword argument 'prompt_tokens'
+[2025-06-19 13:25:26,985] [token-usage] ERROR: Integration test failed: TokenUsageLogger.log_usage() got an unexpected keyword argument 'prompt_tokens'
+[2025-06-19 13:26:02,391] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:26:02,461] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 13:26:02,461] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 13:26:02,461] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 13:26:02,462] [token-usage] INFO: OpenAI provider initialized successfully
+[2025-06-19 13:26:02,462] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:26:02,526] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 13:26:02,527] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 13:26:02,527] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 13:26:02,527] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 13:26:02,527] [token-usage] INFO: Grok provider initialized successfully
+[2025-06-19 13:26:02,527] [token-usage] INFO: SmartRouter initialized with 2 providers
+[2025-06-19 13:26:02,527] [token-usage] INFO: Available providers: ['openai', 'grok']
+[2025-06-19 13:26:02,527] [token-usage] INFO: Strategy: hybrid
+[2025-06-19 13:26:02,528] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 13:26:02,528] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 13:26:02,528] [token-usage] INFO: AI request - Task: general, Strategy: hybrid
+[2025-06-19 13:26:02,528] [token-usage] INFO: Prompt length: 67 characters
+[2025-06-19 13:26:03,358] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:26:03.367022", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 21, "completion_tokens": 5, "total_tokens": 26, "cost_usd": 0.00026, "latency": 0.8385391235351562, "success": true, "error": null}
+[2025-06-19 13:26:03,367] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 26, Cost: $0.0003, Latency: 0.84s
+[2025-06-19 13:26:03,367] [token-usage] INFO: OpenAI connection test successful - 0.84s
+[2025-06-19 13:26:03,367] [token-usage] WARNING: Health check failed for openai: float division by zero
+[2025-06-19 13:26:04,211] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:26:04.212738", "model": "grok-3", "provider": "grok", "prompt_tokens": 22, "completion_tokens": 7, "total_tokens": 29, "cost_usd": 5.800000000000001e-05, "latency": 0.8446872234344482, "success": true, "error": null}
+[2025-06-19 13:26:04,212] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 29, Cost: $0.0001, Latency: 0.84s
+[2025-06-19 13:26:04,213] [token-usage] INFO: Grok connection test successful - 0.84s
+[2025-06-19 13:26:04,213] [token-usage] WARNING: Health check failed for grok: float division by zero
+[2025-06-19 13:26:17,460] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:26:17.461230", "model": "grok-3", "provider": "grok", "prompt_tokens": 17, "completion_tokens": 865, "total_tokens": 882, "cost_usd": 0.001764, "latency": 13.247751235961914, "success": true, "error": null}
+[2025-06-19 13:26:17,461] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 882, Cost: $0.0018, Latency: 13.25s
+[2025-06-19 13:26:17,461] [token-usage] INFO: Grok response generated - 13.25s, 882 tokens
+[2025-06-19 13:26:17,461] [token-usage] INFO: Request successful via grok (attempt 1)
+[2025-06-19 13:26:17,462] [token-usage] ERROR: AI request failed: Object of type RoutingStrategy is not JSON serializable
+[2025-06-19 13:26:17,462] [token-usage] ERROR: Integration test failed: Object of type RoutingStrategy is not JSON serializable
+[2025-06-19 13:26:49,766] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:26:49,832] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 13:26:49,834] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 13:26:49,834] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 13:26:49,835] [token-usage] INFO: OpenAI provider initialized successfully
+[2025-06-19 13:26:49,836] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:26:49,887] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 13:26:49,888] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 13:26:49,888] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 13:26:49,888] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 13:26:49,888] [token-usage] INFO: Grok provider initialized successfully
+[2025-06-19 13:26:49,888] [token-usage] INFO: SmartRouter initialized with 2 providers
+[2025-06-19 13:26:49,888] [token-usage] INFO: Available providers: ['openai', 'grok']
+[2025-06-19 13:26:49,888] [token-usage] INFO: Strategy: hybrid
+[2025-06-19 13:26:49,888] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 13:26:49,888] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 13:26:49,888] [token-usage] INFO: AI request - Task: general, Strategy: hybrid
+[2025-06-19 13:26:49,888] [token-usage] INFO: Prompt length: 67 characters
+[2025-06-19 13:26:50,675] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:26:50.677123", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 21, "completion_tokens": 5, "total_tokens": 26, "cost_usd": 0.00026, "latency": 0.7882797718048096, "success": true, "error": null}
+[2025-06-19 13:26:50,677] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 26, Cost: $0.0003, Latency: 0.79s
+[2025-06-19 13:26:50,677] [token-usage] INFO: OpenAI connection test successful - 0.79s
+[2025-06-19 13:26:50,677] [token-usage] WARNING: Health check failed for openai: float division by zero
+[2025-06-19 13:26:51,132] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:26:51.133774", "model": "grok-3", "provider": "grok", "prompt_tokens": 22, "completion_tokens": 7, "total_tokens": 29, "cost_usd": 5.800000000000001e-05, "latency": 0.4559590816497803, "success": true, "error": null}
+[2025-06-19 13:26:51,133] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 29, Cost: $0.0001, Latency: 0.46s
+[2025-06-19 13:26:51,134] [token-usage] INFO: Grok connection test successful - 0.46s
+[2025-06-19 13:26:51,134] [token-usage] WARNING: Health check failed for grok: float division by zero
+[2025-06-19 13:27:04,602] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:27:04.603657", "model": "grok-3", "provider": "grok", "prompt_tokens": 17, "completion_tokens": 1041, "total_tokens": 1058, "cost_usd": 0.0021160000000000003, "latency": 13.469253301620483, "success": true, "error": null}
+[2025-06-19 13:27:04,603] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 1058, Cost: $0.0021, Latency: 13.47s
+[2025-06-19 13:27:04,603] [token-usage] INFO: Grok response generated - 13.47s, 1058 tokens
+[2025-06-19 13:27:04,604] [token-usage] INFO: Request successful via grok (attempt 1)
+[2025-06-19 13:27:04,604] [token-usage] INFO: Routing decision: grok (hybrid, confidence: 0.89)
+[2025-06-19 13:27:04,604] [token-usage] INFO: Response received from grok (confidence: 0.89, time: 14.72s, tokens: 1058)
+[2025-06-19 13:29:10,409] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:29:10,480] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 13:29:10,481] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 13:29:10,481] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 13:29:10,482] [token-usage] INFO: OpenAI provider initialized successfully
+[2025-06-19 13:29:10,482] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:29:10,546] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 13:29:10,547] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 13:29:10,547] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 13:29:10,547] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 13:29:10,547] [token-usage] INFO: Grok provider initialized successfully
+[2025-06-19 13:29:10,547] [token-usage] INFO: SmartRouter initialized with 2 providers
+[2025-06-19 13:29:10,547] [token-usage] INFO: Available providers: ['openai', 'grok']
+[2025-06-19 13:29:10,548] [token-usage] INFO: Strategy: hybrid
+[2025-06-19 13:29:10,548] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 13:29:10,548] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 13:29:29,936] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:29:29,996] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 13:29:29,997] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 13:29:29,997] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 13:29:29,997] [token-usage] INFO: OpenAI provider initialized successfully
+[2025-06-19 13:29:29,997] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:29:30,050] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 13:29:30,050] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 13:29:30,050] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 13:29:30,050] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 13:29:30,050] [token-usage] INFO: Grok provider initialized successfully
+[2025-06-19 13:29:30,051] [token-usage] INFO: SmartRouter initialized with 2 providers
+[2025-06-19 13:29:30,051] [token-usage] INFO: Available providers: ['openai', 'grok']
+[2025-06-19 13:29:30,051] [token-usage] INFO: Strategy: hybrid
+[2025-06-19 13:29:30,051] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 13:29:30,051] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 13:31:48,190] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:31:48,327] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 13:31:48,327] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 13:31:48,327] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 13:31:48,328] [token-usage] INFO: OpenAI provider initialized successfully
+[2025-06-19 13:31:48,328] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:31:48,375] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 13:31:48,375] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 13:31:48,375] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 13:31:48,375] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 13:31:48,376] [token-usage] INFO: Grok provider initialized successfully
+[2025-06-19 13:31:48,376] [token-usage] INFO: SmartRouter initialized with 2 providers
+[2025-06-19 13:31:48,376] [token-usage] INFO: Available providers: ['openai', 'grok']
+[2025-06-19 13:31:48,376] [token-usage] INFO: Strategy: hybrid
+[2025-06-19 13:31:48,376] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 13:31:48,376] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 13:31:48,376] [token-usage] INFO: AI request - Task: general, Strategy: hybrid
+[2025-06-19 13:31:48,376] [token-usage] INFO: Prompt length: 34 characters
+[2025-06-19 13:31:49,893] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:31:49.920694", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 21, "completion_tokens": 5, "total_tokens": 26, "cost_usd": 0.00026, "latency": 1.5437729358673096, "success": true, "error": null}
+[2025-06-19 13:31:49,921] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 26, Cost: $0.0003, Latency: 1.54s
+[2025-06-19 13:31:49,921] [token-usage] INFO: OpenAI connection test successful - 1.54s
+[2025-06-19 13:31:49,921] [token-usage] WARNING: Health check failed for openai: float division by zero
+[2025-06-19 13:31:50,606] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:31:50.607084", "model": "grok-3", "provider": "grok", "prompt_tokens": 22, "completion_tokens": 7, "total_tokens": 29, "cost_usd": 5.800000000000001e-05, "latency": 0.6857132911682129, "success": true, "error": null}
+[2025-06-19 13:31:50,607] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 29, Cost: $0.0001, Latency: 0.69s
+[2025-06-19 13:31:50,607] [token-usage] INFO: Grok connection test successful - 0.69s
+[2025-06-19 13:31:50,607] [token-usage] WARNING: Health check failed for grok: float division by zero
+[2025-06-19 13:32:09,481] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:32:09.489922", "model": "grok-3", "provider": "grok", "prompt_tokens": 10, "completion_tokens": 1529, "total_tokens": 1539, "cost_usd": 0.003078, "latency": 18.882027864456177, "success": true, "error": null}
+[2025-06-19 13:32:09,490] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 1539, Cost: $0.0031, Latency: 18.88s
+[2025-06-19 13:32:09,490] [token-usage] INFO: Grok response generated - 18.88s, 1539 tokens
+[2025-06-19 13:32:09,490] [token-usage] INFO: Request successful via grok (attempt 1)
+[2025-06-19 13:32:09,491] [token-usage] INFO: Routing decision: grok (hybrid, confidence: 0.90)
+[2025-06-19 13:32:09,491] [token-usage] INFO: Response received from grok (confidence: 0.90, time: 21.11s, tokens: 1539)
+[2025-06-19 13:32:34,715] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:32:34,802] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 13:32:34,802] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 13:32:34,802] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 13:32:34,803] [token-usage] INFO: OpenAI provider initialized successfully
+[2025-06-19 13:32:34,803] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:32:34,851] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 13:32:34,851] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 13:32:34,851] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 13:32:34,851] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 13:32:34,851] [token-usage] INFO: Grok provider initialized successfully
+[2025-06-19 13:32:34,852] [token-usage] INFO: SmartRouter initialized with 2 providers
+[2025-06-19 13:32:34,852] [token-usage] INFO: Available providers: ['openai', 'grok']
+[2025-06-19 13:32:34,852] [token-usage] INFO: Strategy: hybrid
+[2025-06-19 13:32:34,852] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 13:32:34,852] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 13:33:03,169] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:33:03,236] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 13:33:03,236] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 13:33:03,236] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 13:33:03,237] [token-usage] INFO: OpenAI provider initialized successfully
+[2025-06-19 13:33:03,237] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:33:03,276] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 13:33:03,276] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 13:33:03,276] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 13:33:03,276] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 13:33:03,276] [token-usage] INFO: Grok provider initialized successfully
+[2025-06-19 13:33:03,276] [token-usage] INFO: SmartRouter initialized with 2 providers
+[2025-06-19 13:33:03,276] [token-usage] INFO: Available providers: ['openai', 'grok']
+[2025-06-19 13:33:03,276] [token-usage] INFO: Strategy: hybrid
+[2025-06-19 13:33:03,277] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 13:33:03,277] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 13:33:08,627] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:33:08,673] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 13:33:08,674] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 13:33:08,674] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 13:33:08,674] [token-usage] INFO: OpenAI provider initialized successfully
+[2025-06-19 13:33:08,675] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:33:08,716] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 13:33:08,716] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 13:33:08,716] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 13:33:08,716] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 13:33:08,716] [token-usage] INFO: Grok provider initialized successfully
+[2025-06-19 13:33:08,716] [token-usage] INFO: SmartRouter initialized with 2 providers
+[2025-06-19 13:33:08,716] [token-usage] INFO: Available providers: ['openai', 'grok']
+[2025-06-19 13:33:08,716] [token-usage] INFO: Strategy: hybrid
+[2025-06-19 13:33:08,716] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 13:33:08,716] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 13:33:08,717] [token-usage] INFO: AI request - Task: code_review, Strategy: hybrid
+[2025-06-19 13:33:08,717] [token-usage] INFO: Prompt length: 154 characters
+[2025-06-19 13:33:09,971] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:33:11.023868", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 21, "completion_tokens": 5, "total_tokens": 26, "cost_usd": 0.00026, "latency": 2.3066391944885254, "success": true, "error": null}
+[2025-06-19 13:33:11,024] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 26, Cost: $0.0003, Latency: 2.31s
+[2025-06-19 13:33:11,024] [token-usage] INFO: OpenAI connection test successful - 2.31s
+[2025-06-19 13:33:11,024] [token-usage] WARNING: Health check failed for openai: float division by zero
+[2025-06-19 13:33:11,520] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:33:11.521771", "model": "grok-3", "provider": "grok", "prompt_tokens": 22, "completion_tokens": 7, "total_tokens": 29, "cost_usd": 5.800000000000001e-05, "latency": 0.49710512161254883, "success": true, "error": null}
+[2025-06-19 13:33:11,521] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 29, Cost: $0.0001, Latency: 0.50s
+[2025-06-19 13:33:11,522] [token-usage] INFO: Grok connection test successful - 0.50s
+[2025-06-19 13:33:11,522] [token-usage] WARNING: Health check failed for grok: float division by zero
+[2025-06-19 13:33:24,503] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:33:24.512231", "model": "grok-3", "provider": "grok", "prompt_tokens": 44, "completion_tokens": 1126, "total_tokens": 1170, "cost_usd": 0.00234, "latency": 12.989672183990479, "success": true, "error": null}
+[2025-06-19 13:33:24,512] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 1170, Cost: $0.0023, Latency: 12.99s
+[2025-06-19 13:33:24,512] [token-usage] INFO: Grok response generated - 12.99s, 1170 tokens
+[2025-06-19 13:33:24,512] [token-usage] INFO: Request successful via grok (attempt 1)
+[2025-06-19 13:33:24,513] [token-usage] INFO: Routing decision: grok (hybrid, confidence: 0.88)
+[2025-06-19 13:33:24,513] [token-usage] INFO: Response received from grok (confidence: 0.88, time: 15.80s, tokens: 1170)
+[2025-06-19 13:33:24,513] [token-usage] INFO: AI request - Task: analysis, Strategy: hybrid
+[2025-06-19 13:33:24,514] [token-usage] INFO: Prompt length: 83 characters
+[2025-06-19 13:33:25,122] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:33:25.123228", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 21, "completion_tokens": 5, "total_tokens": 26, "cost_usd": 0.00026, "latency": 0.6000199317932129, "success": true, "error": null}
+[2025-06-19 13:33:25,123] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 26, Cost: $0.0003, Latency: 0.60s
+[2025-06-19 13:33:25,123] [token-usage] INFO: OpenAI connection test successful - 0.60s
+[2025-06-19 13:33:25,123] [token-usage] WARNING: Health check failed for openai: float division by zero
+[2025-06-19 13:33:25,520] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:33:25.521973", "model": "grok-3", "provider": "grok", "prompt_tokens": 22, "completion_tokens": 7, "total_tokens": 29, "cost_usd": 5.800000000000001e-05, "latency": 0.39811086654663086, "success": true, "error": null}
+[2025-06-19 13:33:25,522] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 29, Cost: $0.0001, Latency: 0.40s
+[2025-06-19 13:33:25,522] [token-usage] INFO: Grok connection test successful - 0.40s
+[2025-06-19 13:33:27,330] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:33:27.331361", "model": "grok-3", "provider": "grok", "prompt_tokens": 23, "completion_tokens": 122, "total_tokens": 145, "cost_usd": 0.00029, "latency": 1.8086981773376465, "success": true, "error": null}
+[2025-06-19 13:33:27,331] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 145, Cost: $0.0003, Latency: 1.81s
+[2025-06-19 13:33:27,331] [token-usage] INFO: Grok response generated - 1.81s, 145 tokens
+[2025-06-19 13:33:27,331] [token-usage] INFO: Request successful via grok (attempt 1)
+[2025-06-19 13:33:27,332] [token-usage] INFO: Routing decision: grok (hybrid, confidence: 1.00)
+[2025-06-19 13:33:27,332] [token-usage] INFO: Response received from grok (confidence: 1.00, time: 2.81s, tokens: 145)
+[2025-06-19 13:33:27,332] [token-usage] INFO: AI request - Task: code_generation, Strategy: hybrid
+[2025-06-19 13:33:27,332] [token-usage] INFO: Prompt length: 66 characters
+[2025-06-19 13:33:27,954] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:33:27.959504", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 21, "completion_tokens": 5, "total_tokens": 26, "cost_usd": 0.00026, "latency": 0.626971960067749, "success": true, "error": null}
+[2025-06-19 13:33:27,959] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 26, Cost: $0.0003, Latency: 0.63s
+[2025-06-19 13:33:27,959] [token-usage] INFO: OpenAI connection test successful - 0.63s
+[2025-06-19 13:33:27,959] [token-usage] WARNING: Health check failed for openai: float division by zero
+[2025-06-19 13:33:28,400] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:33:28.401268", "model": "grok-3", "provider": "grok", "prompt_tokens": 22, "completion_tokens": 7, "total_tokens": 29, "cost_usd": 5.800000000000001e-05, "latency": 0.4412412643432617, "success": true, "error": null}
+[2025-06-19 13:33:28,401] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 29, Cost: $0.0001, Latency: 0.44s
+[2025-06-19 13:33:28,401] [token-usage] INFO: Grok connection test successful - 0.44s
+[2025-06-19 13:33:35,679] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:33:35.690784", "model": "grok-3", "provider": "grok", "prompt_tokens": 17, "completion_tokens": 879, "total_tokens": 896, "cost_usd": 0.001792, "latency": 7.2891411781311035, "success": true, "error": null}
+[2025-06-19 13:33:35,690] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 896, Cost: $0.0018, Latency: 7.29s
+[2025-06-19 13:33:35,691] [token-usage] INFO: Grok response generated - 7.29s, 896 tokens
+[2025-06-19 13:33:35,691] [token-usage] INFO: Request successful via grok (attempt 1)
+[2025-06-19 13:33:35,691] [token-usage] INFO: Routing decision: grok (hybrid, confidence: 1.00)
+[2025-06-19 13:33:35,691] [token-usage] INFO: Response received from grok (confidence: 1.00, time: 8.36s, tokens: 896)
+[2025-06-19 13:33:35,691] [token-usage] INFO: AI request - Task: explanation, Strategy: hybrid
+[2025-06-19 13:33:35,692] [token-usage] INFO: Prompt length: 52 characters
+[2025-06-19 13:33:36,169] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:33:36.172408", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 21, "completion_tokens": 5, "total_tokens": 26, "cost_usd": 0.00026, "latency": 0.48024702072143555, "success": true, "error": null}
+[2025-06-19 13:33:36,172] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 26, Cost: $0.0003, Latency: 0.48s
+[2025-06-19 13:33:36,172] [token-usage] INFO: OpenAI connection test successful - 0.48s
+[2025-06-19 13:33:36,172] [token-usage] WARNING: Health check failed for openai: float division by zero
+[2025-06-19 13:33:36,582] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:33:36.582759", "model": "grok-3", "provider": "grok", "prompt_tokens": 22, "completion_tokens": 7, "total_tokens": 29, "cost_usd": 5.800000000000001e-05, "latency": 0.40990710258483887, "success": true, "error": null}
+[2025-06-19 13:33:36,582] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 29, Cost: $0.0001, Latency: 0.41s
+[2025-06-19 13:33:36,583] [token-usage] INFO: Grok connection test successful - 0.41s
+[2025-06-19 13:33:51,707] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:33:51.708643", "model": "grok-3", "provider": "grok", "prompt_tokens": 15, "completion_tokens": 1283, "total_tokens": 1298, "cost_usd": 0.0025960000000000002, "latency": 15.125518798828125, "success": true, "error": null}
+[2025-06-19 13:33:51,708] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 1298, Cost: $0.0026, Latency: 15.13s
+[2025-06-19 13:33:51,708] [token-usage] INFO: Grok response generated - 15.13s, 1298 tokens
+[2025-06-19 13:33:51,709] [token-usage] INFO: Request successful via grok (attempt 1)
+[2025-06-19 13:33:51,709] [token-usage] INFO: Routing decision: grok (hybrid, confidence: 0.90)
+[2025-06-19 13:33:51,709] [token-usage] INFO: Response received from grok (confidence: 0.90, time: 16.02s, tokens: 1298)
+[2025-06-19 13:34:17,072] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:34:17,129] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 13:34:17,130] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 13:34:17,130] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 13:34:17,131] [token-usage] INFO: OpenAI provider initialized successfully
+[2025-06-19 13:34:17,131] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:34:17,176] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 13:34:17,176] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 13:34:17,176] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 13:34:17,176] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 13:34:17,176] [token-usage] INFO: Grok provider initialized successfully
+[2025-06-19 13:34:17,177] [token-usage] INFO: SmartRouter initialized with 2 providers
+[2025-06-19 13:34:17,177] [token-usage] INFO: Available providers: ['openai', 'grok']
+[2025-06-19 13:34:17,177] [token-usage] INFO: Strategy: hybrid
+[2025-06-19 13:34:17,177] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 13:34:17,177] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 13:34:17,177] [token-usage] INFO: Routing strategy changed to: cost_optimized
+[2025-06-19 13:34:17,177] [token-usage] INFO: Router strategy changed to: cost_optimized
+[2025-06-19 13:35:50,146] [token-usage] INFO: ✅ CursorTranslator initialized with workspace: cursor_workspace
+[2025-06-19 13:35:50,146] [token-usage] INFO: ✅ GrokWebhookHandler initialized with SmartRouter integration
+[2025-06-19 13:35:50,146] [token-usage] ERROR: ❌ SmartRouter webhook processing failed: cannot import name 'RequestedOutput' from 'utils.schema_validator' (/Users/zach/GitBridgev1/utils/schema_validator.py)
+[2025-06-19 13:36:38,985] [token-usage] INFO: ✅ CursorTranslator initialized with workspace: cursor_workspace
+[2025-06-19 13:36:38,985] [token-usage] INFO: ✅ GrokWebhookHandler initialized with SmartRouter integration
+[2025-06-19 13:36:38,985] [token-usage] ERROR: ❌ SmartRouter webhook processing failed: type object 'EventType' has no attribute 'COMMENT'
+[2025-06-19 13:36:56,577] [token-usage] INFO: ✅ CursorTranslator initialized with workspace: cursor_workspace
+[2025-06-19 13:36:56,578] [token-usage] INFO: ✅ GrokWebhookHandler initialized with SmartRouter integration
+[2025-06-19 13:36:56,578] [token-usage] ERROR: ❌ SmartRouter webhook processing failed: type object 'EventSource' has no attribute 'GITLAB'
+[2025-06-19 13:37:11,225] [token-usage] INFO: ✅ CursorTranslator initialized with workspace: cursor_workspace
+[2025-06-19 13:37:11,225] [token-usage] INFO: ✅ GrokWebhookHandler initialized with SmartRouter integration
+[2025-06-19 13:37:11,226] [token-usage] ERROR: ❌ SmartRouter webhook processing failed: 'GPT4oEventSchema' object has no attribute 'payload'
+[2025-06-19 13:37:32,769] [token-usage] INFO: ✅ CursorTranslator initialized with workspace: cursor_workspace
+[2025-06-19 13:37:32,769] [token-usage] INFO: ✅ GrokWebhookHandler initialized with SmartRouter integration
+[2025-06-19 13:37:32,770] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:37:32,815] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 13:37:32,815] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 13:37:32,815] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 13:37:32,815] [token-usage] INFO: OpenAI provider initialized successfully
+[2025-06-19 13:37:32,815] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 13:37:32,854] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 13:37:32,854] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 13:37:32,854] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 13:37:32,854] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 13:37:32,854] [token-usage] INFO: Grok provider initialized successfully
+[2025-06-19 13:37:32,854] [token-usage] INFO: SmartRouter initialized with 2 providers
+[2025-06-19 13:37:32,854] [token-usage] INFO: Available providers: ['openai', 'grok']
+[2025-06-19 13:37:32,855] [token-usage] INFO: Strategy: hybrid
+[2025-06-19 13:37:32,855] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 13:37:32,855] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 13:37:32,855] [token-usage] INFO: Routing strategy changed to: hybrid
+[2025-06-19 13:37:32,855] [token-usage] INFO: Strategy overridden to: hybrid
+[2025-06-19 13:37:32,855] [token-usage] INFO: AI request - Task: webhook_processing, Strategy: hybrid
+[2025-06-19 13:37:32,855] [token-usage] INFO: Prompt length: 960 characters
+[2025-06-19 13:37:33,638] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:37:33.647243", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 21, "completion_tokens": 5, "total_tokens": 26, "cost_usd": 0.00026, "latency": 0.7915961742401123, "success": true, "error": null}
+[2025-06-19 13:37:33,647] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 26, Cost: $0.0003, Latency: 0.79s
+[2025-06-19 13:37:33,647] [token-usage] INFO: OpenAI connection test successful - 0.79s
+[2025-06-19 13:37:33,647] [token-usage] WARNING: Health check failed for openai: float division by zero
+[2025-06-19 13:37:40,581] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:37:40.582318", "model": "grok-3", "provider": "grok", "prompt_tokens": 22, "completion_tokens": 7, "total_tokens": 29, "cost_usd": 5.800000000000001e-05, "latency": 6.934402942657471, "success": true, "error": null}
+[2025-06-19 13:37:40,582] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 29, Cost: $0.0001, Latency: 6.93s
+[2025-06-19 13:37:40,582] [token-usage] INFO: Grok connection test successful - 6.93s
+[2025-06-19 13:37:40,582] [token-usage] WARNING: Health check failed for grok: float division by zero
+[2025-06-19 13:37:57,100] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T13:37:57.102792", "model": "grok-3", "provider": "grok", "prompt_tokens": 227, "completion_tokens": 1167, "total_tokens": 1394, "cost_usd": 0.0027879999999999997, "latency": 16.519973754882812, "success": true, "error": null}
+[2025-06-19 13:37:57,103] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 1394, Cost: $0.0028, Latency: 16.52s
+[2025-06-19 13:37:57,103] [token-usage] INFO: Grok response generated - 16.52s, 1394 tokens
+[2025-06-19 13:37:57,103] [token-usage] INFO: Request successful via grok (attempt 1)
+[2025-06-19 13:37:57,103] [token-usage] INFO: Routing decision: grok (hybrid, confidence: 0.80)
+[2025-06-19 13:37:57,103] [token-usage] INFO: Response received from grok (confidence: 0.80, time: 24.25s, tokens: 1394)
+[2025-06-19 13:37:57,103] [token-usage] INFO: 📝 Webhook processed - Event: smartrouter_github_pull_request_1750365452
+[2025-06-19 13:37:57,104] [token-usage] INFO:    Provider: grok
+[2025-06-19 13:37:57,104] [token-usage] INFO:    Model: grok-3
+[2025-06-19 13:37:57,104] [token-usage] INFO:    Response Time: 24.25s
+[2025-06-19 13:37:57,104] [token-usage] INFO:    Tokens: 1394
+[2025-06-19 13:37:57,104] [token-usage] INFO:    Routing Confidence: 0.80
+[2025-06-19 13:37:57,104] [token-usage] INFO:    Strategy: hybrid
+[2025-06-19 13:37:57,104] [token-usage] INFO:    Reasoning: Hybrid routing - Cost: 0.38, Performance: 1.00, Availability: 0.50
+[2025-06-19 13:37:57,104] [token-usage] INFO:    OPENAI - Latency: 0.00s, Success: 100.00%
+[2025-06-19 13:37:57,105] [token-usage] INFO:    GROK - Latency: 24.25s, Success: 100.00%
+[2025-06-19 13:37:57,105] [token-usage] ERROR: ❌ Cursor routing failed: 'CursorTranslator' object has no attribute 'create_task_file'
+[2025-06-19 14:13:00,104] [token-usage] INFO: 🚀 Starting SmartRouter Test Suite
+[2025-06-19 14:13:00,116] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:13:00,116] [token-usage] INFO: Running: Initialization
+[2025-06-19 14:13:00,116] [token-usage] INFO: ==================================================
+[2025-06-19 14:13:00,116] [token-usage] INFO: === Testing SmartRouter Initialization ===
+[2025-06-19 14:13:00,116] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:00,184] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 14:13:00,185] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:13:00,185] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 14:13:00,185] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:00,228] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 14:13:00,228] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 14:13:00,228] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:13:00,228] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 14:13:00,228] [token-usage] INFO: Health check thread started (interval: 60s)
+[2025-06-19 14:13:00,229] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:13:00,229] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:13:00,229] [token-usage] INFO: ✅ Default initialization successful
+[2025-06-19 14:13:00,229] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:00,269] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 14:13:00,269] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:13:00,269] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 14:13:00,269] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:00,309] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 14:13:00,309] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 14:13:00,309] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:13:00,309] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 14:13:00,309] [token-usage] INFO: Health check thread started (interval: 60s)
+[2025-06-19 14:13:00,309] [token-usage] INFO: SmartRouter initialized with strategy: cost_optimized
+[2025-06-19 14:13:00,309] [token-usage] INFO: Weights - Cost: 0.8, Performance: 0.1, Availability: 0.1
+[2025-06-19 14:13:00,309] [token-usage] INFO: ✅ Custom initialization successful
+[2025-06-19 14:13:00,309] [token-usage] INFO: ✅ Provider initialization successful
+[2025-06-19 14:13:00,310] [token-usage] INFO: ✅ Initialization: PASSED
+[2025-06-19 14:13:00,310] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:13:00,310] [token-usage] INFO: Running: Health Checks
+[2025-06-19 14:13:00,310] [token-usage] INFO: ==================================================
+[2025-06-19 14:13:00,310] [token-usage] INFO: === Testing Health Checks ===
+[2025-06-19 14:13:00,310] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:00,351] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 14:13:00,351] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:13:00,351] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 14:13:00,351] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:00,390] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 14:13:00,390] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 14:13:00,390] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:13:00,390] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 14:13:00,390] [token-usage] INFO: Health check thread started (interval: 5s)
+[2025-06-19 14:13:00,390] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:13:00,390] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:13:02,391] [token-usage] INFO: Health status: {'openai': True, 'grok': True}
+[2025-06-19 14:13:02,391] [token-usage] INFO: openai: healthy=True, requests=0, latency=0.00s
+[2025-06-19 14:13:02,391] [token-usage] INFO: grok: healthy=True, requests=0, latency=0.00s
+[2025-06-19 14:13:02,391] [token-usage] INFO: SmartRouter shutdown complete
+[2025-06-19 14:13:02,391] [token-usage] INFO: ✅ Health check test successful
+[2025-06-19 14:13:02,392] [token-usage] INFO: ✅ Health Checks: PASSED
+[2025-06-19 14:13:02,392] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:13:02,392] [token-usage] INFO: Running: Routing Strategies
+[2025-06-19 14:13:02,392] [token-usage] INFO: ==================================================
+[2025-06-19 14:13:02,392] [token-usage] INFO: === Testing Routing Strategies ===
+[2025-06-19 14:13:02,392] [token-usage] INFO: Testing strategy: cost_optimized
+[2025-06-19 14:13:02,392] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:02,431] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 14:13:02,431] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:13:02,431] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 14:13:02,432] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:02,471] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 14:13:02,471] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 14:13:02,472] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:13:02,472] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 14:13:02,474] [token-usage] INFO: Health check thread started (interval: 60s)
+[2025-06-19 14:13:02,475] [token-usage] INFO: SmartRouter initialized with strategy: cost_optimized
+[2025-06-19 14:13:02,475] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:13:02,475] [token-usage] INFO:   openai: score=0.500, metrics={'cost_score': 0.5}
+[2025-06-19 14:13:02,475] [token-usage] INFO:   grok: score=0.500, metrics={'cost_score': 0.5}
+[2025-06-19 14:13:02,475] [token-usage] INFO: SmartRouter shutdown complete
+[2025-06-19 14:13:02,475] [token-usage] INFO: Testing strategy: performance_optimized
+[2025-06-19 14:13:02,475] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:02,516] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 14:13:02,516] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:13:02,516] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 14:13:02,516] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:02,555] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 14:13:02,555] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 14:13:02,555] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:13:02,555] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 14:13:02,555] [token-usage] INFO: Health check thread started (interval: 60s)
+[2025-06-19 14:13:02,555] [token-usage] INFO: SmartRouter initialized with strategy: performance_optimized
+[2025-06-19 14:13:02,555] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:13:02,555] [token-usage] INFO:   openai: score=1.000, metrics={'performance_score': 1.0}
+[2025-06-19 14:13:02,555] [token-usage] INFO:   grok: score=1.000, metrics={'performance_score': 1.0}
+[2025-06-19 14:13:02,556] [token-usage] INFO: SmartRouter shutdown complete
+[2025-06-19 14:13:02,556] [token-usage] INFO: Testing strategy: availability_optimized
+[2025-06-19 14:13:02,556] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:02,593] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 14:13:02,594] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:13:02,594] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 14:13:02,594] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:02,633] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 14:13:02,633] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 14:13:02,633] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:13:02,633] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 14:13:02,633] [token-usage] INFO: Health check thread started (interval: 60s)
+[2025-06-19 14:13:02,633] [token-usage] INFO: SmartRouter initialized with strategy: availability_optimized
+[2025-06-19 14:13:02,633] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:13:02,633] [token-usage] INFO:   openai: score=1.000, metrics={'availability_score': 1.0}
+[2025-06-19 14:13:02,633] [token-usage] INFO:   grok: score=1.000, metrics={'availability_score': 1.0}
+[2025-06-19 14:13:02,634] [token-usage] INFO: SmartRouter shutdown complete
+[2025-06-19 14:13:02,634] [token-usage] INFO: Testing strategy: hybrid
+[2025-06-19 14:13:02,634] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:02,673] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 14:13:02,673] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:13:02,673] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 14:13:02,674] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:02,712] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 14:13:02,712] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 14:13:02,712] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:13:02,712] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 14:13:02,713] [token-usage] INFO: Health check thread started (interval: 60s)
+[2025-06-19 14:13:02,713] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:13:02,713] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:13:02,713] [token-usage] INFO:   openai: score=0.800, metrics={'cost_score': 0.5, 'performance_score': 1.0, 'availability_score': 1.0, 'weights': {'cost': 0.4, 'performance': 0.3, 'availability': 0.3}}
+[2025-06-19 14:13:02,713] [token-usage] INFO:   grok: score=0.800, metrics={'cost_score': 0.5, 'performance_score': 1.0, 'availability_score': 1.0, 'weights': {'cost': 0.4, 'performance': 0.3, 'availability': 0.3}}
+[2025-06-19 14:13:02,713] [token-usage] INFO: SmartRouter shutdown complete
+[2025-06-19 14:13:02,714] [token-usage] INFO: Testing strategy: round_robin
+[2025-06-19 14:13:02,714] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:02,753] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 14:13:02,753] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:13:02,753] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 14:13:02,753] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:02,798] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 14:13:02,798] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 14:13:02,798] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:13:02,798] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 14:13:02,798] [token-usage] INFO: Health check thread started (interval: 60s)
+[2025-06-19 14:13:02,798] [token-usage] INFO: SmartRouter initialized with strategy: round_robin
+[2025-06-19 14:13:02,799] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:13:02,799] [token-usage] INFO:   openai: score=1.000, metrics={'request_ratio': 0.0}
+[2025-06-19 14:13:02,799] [token-usage] INFO:   grok: score=1.000, metrics={'request_ratio': 0.0}
+[2025-06-19 14:13:02,799] [token-usage] INFO: SmartRouter shutdown complete
+[2025-06-19 14:13:02,799] [token-usage] INFO: ✅ Routing strategies test successful
+[2025-06-19 14:13:02,799] [token-usage] INFO: ✅ Routing Strategies: PASSED
+[2025-06-19 14:13:02,799] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:13:02,799] [token-usage] INFO: Running: Actual Requests
+[2025-06-19 14:13:02,799] [token-usage] INFO: ==================================================
+[2025-06-19 14:13:02,800] [token-usage] INFO: === Testing Actual Requests ===
+[2025-06-19 14:13:02,800] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:02,838] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 14:13:02,838] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:13:02,838] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 14:13:02,839] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:02,876] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 14:13:02,877] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 14:13:02,877] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:13:02,877] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 14:13:02,877] [token-usage] INFO: Health check thread started (interval: 60s)
+[2025-06-19 14:13:02,877] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:13:02,877] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:13:02,877] [token-usage] INFO: Testing: general - 'Hello, how are you?...'
+[2025-06-19 14:13:02,877] [token-usage] INFO: Routing request to openai (confidence: 1.00)
+[2025-06-19 14:13:04,120] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:13:04.216783", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 13, "completion_tokens": 30, "total_tokens": 43, "cost_usd": 0.00043, "latency": 1.3389780521392822, "success": true, "error": null}
+[2025-06-19 14:13:04,217] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 43, Cost: $0.0004, Latency: 1.34s
+[2025-06-19 14:13:04,217] [token-usage] INFO: OpenAI response generated - 1.34s, 43 tokens
+[2025-06-19 14:13:04,217] [token-usage] INFO: Request completed via openai (time: 1.34s, tokens: 43)
+[2025-06-19 14:13:04,217] [token-usage] INFO:   ✅ Response from openai
+[2025-06-19 14:13:04,217] [token-usage] INFO:   Content: Hello! I'm just a computer program, so I don't have feelings, but I'm here and ready to help you. Ho...
+[2025-06-19 14:13:04,217] [token-usage] INFO:   Time: 1.34s
+[2025-06-19 14:13:04,217] [token-usage] INFO:   Tokens: 43
+[2025-06-19 14:13:04,217] [token-usage] INFO:   Confidence: 1.00
+[2025-06-19 14:13:04,217] [token-usage] INFO: Testing: code_review - 'Review this code: def hello(): print('world')...'
+[2025-06-19 14:13:04,218] [token-usage] INFO: Routing request to grok (confidence: 1.00)
+[2025-06-19 14:13:05,691] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:13:05.692511", "model": "grok-3", "provider": "grok", "prompt_tokens": 17, "completion_tokens": 100, "total_tokens": 117, "cost_usd": 0.00023400000000000002, "latency": 1.474259853363037, "success": true, "error": null}
+[2025-06-19 14:13:05,692] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 117, Cost: $0.0002, Latency: 1.47s
+[2025-06-19 14:13:05,692] [token-usage] INFO: Grok response generated - 1.47s, 117 tokens
+[2025-06-19 14:13:05,692] [token-usage] INFO: Request completed via grok (time: 1.47s, tokens: 117)
+[2025-06-19 14:13:05,693] [token-usage] INFO:   ✅ Response from grok
+[2025-06-19 14:13:05,693] [token-usage] INFO:   Content: Let's review the provided Python code:
+
+```python
+def hello():
+    print('world')
+```
+
+### Observati...
+[2025-06-19 14:13:05,693] [token-usage] INFO:   Time: 1.47s
+[2025-06-19 14:13:05,693] [token-usage] INFO:   Tokens: 117
+[2025-06-19 14:13:05,693] [token-usage] INFO:   Confidence: 1.00
+[2025-06-19 14:13:05,693] [token-usage] INFO: Testing: analysis - 'Analyze the performance implications of this algor...'
+[2025-06-19 14:13:05,693] [token-usage] INFO: Routing request to grok (confidence: 1.00)
+[2025-06-19 14:13:06,986] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:13:06.987512", "model": "grok-3", "provider": "grok", "prompt_tokens": 13, "completion_tokens": 100, "total_tokens": 113, "cost_usd": 0.00022600000000000002, "latency": 1.2938940525054932, "success": true, "error": null}
+[2025-06-19 14:13:06,987] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 113, Cost: $0.0002, Latency: 1.29s
+[2025-06-19 14:13:06,987] [token-usage] INFO: Grok response generated - 1.29s, 113 tokens
+[2025-06-19 14:13:06,988] [token-usage] INFO: Request completed via grok (time: 1.29s, tokens: 113)
+[2025-06-19 14:13:06,988] [token-usage] INFO:   ✅ Response from grok
+[2025-06-19 14:13:06,988] [token-usage] INFO:   Content: Since you haven't provided a specific algorithm to analyze, I'll outline a general framework for ana...
+[2025-06-19 14:13:06,988] [token-usage] INFO:   Time: 1.29s
+[2025-06-19 14:13:06,988] [token-usage] INFO:   Tokens: 113
+[2025-06-19 14:13:06,988] [token-usage] INFO:   Confidence: 1.00
+[2025-06-19 14:13:06,988] [token-usage] INFO: Final metrics for openai:
+[2025-06-19 14:13:06,988] [token-usage] INFO:   Total requests: 1
+[2025-06-19 14:13:06,988] [token-usage] INFO:   Success rate: 1.00
+[2025-06-19 14:13:06,988] [token-usage] INFO:   Avg latency: 1.34s
+[2025-06-19 14:13:06,988] [token-usage] INFO:   Is healthy: True
+[2025-06-19 14:13:06,988] [token-usage] INFO: Final metrics for grok:
+[2025-06-19 14:13:06,988] [token-usage] INFO:   Total requests: 2
+[2025-06-19 14:13:06,988] [token-usage] INFO:   Success rate: 1.00
+[2025-06-19 14:13:06,988] [token-usage] INFO:   Avg latency: 1.38s
+[2025-06-19 14:13:06,988] [token-usage] INFO:   Is healthy: True
+[2025-06-19 14:13:06,989] [token-usage] INFO: SmartRouter shutdown complete
+[2025-06-19 14:13:06,989] [token-usage] INFO: ✅ Actual requests test successful
+[2025-06-19 14:13:06,989] [token-usage] INFO: ✅ Actual Requests: PASSED
+[2025-06-19 14:13:06,989] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:13:06,989] [token-usage] INFO: Running: Failover
+[2025-06-19 14:13:06,989] [token-usage] INFO: ==================================================
+[2025-06-19 14:13:06,989] [token-usage] INFO: === Testing Failover Mechanism ===
+[2025-06-19 14:13:06,989] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:07,029] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 14:13:07,029] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:13:07,029] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 14:13:07,029] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:07,068] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 14:13:07,068] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 14:13:07,069] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:13:07,069] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 14:13:07,069] [token-usage] INFO: Health check thread started (interval: 60s)
+[2025-06-19 14:13:07,069] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:13:07,069] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:13:07,069] [token-usage] INFO: Routing request to openai (confidence: 1.00)
+[2025-06-19 14:13:08,151] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:13:08.153543", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 16, "completion_tokens": 23, "total_tokens": 39, "cost_usd": 0.00039, "latency": 1.083918809890747, "success": true, "error": null}
+[2025-06-19 14:13:08,153] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 39, Cost: $0.0004, Latency: 1.08s
+[2025-06-19 14:13:08,153] [token-usage] INFO: OpenAI response generated - 1.08s, 39 tokens
+[2025-06-19 14:13:08,153] [token-usage] INFO: Request completed via openai (time: 1.08s, tokens: 39)
+[2025-06-19 14:13:08,154] [token-usage] INFO: ✅ Request completed via openai
+[2025-06-19 14:13:08,154] [token-usage] INFO: SmartRouter shutdown complete
+[2025-06-19 14:13:08,154] [token-usage] INFO: ✅ Failover test completed
+[2025-06-19 14:13:08,154] [token-usage] INFO: ✅ Failover: PASSED
+[2025-06-19 14:13:08,154] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:13:08,154] [token-usage] INFO: Running: Metrics and History
+[2025-06-19 14:13:08,154] [token-usage] INFO: ==================================================
+[2025-06-19 14:13:08,154] [token-usage] INFO: === Testing Metrics and History ===
+[2025-06-19 14:13:08,154] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:08,197] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 14:13:08,197] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:13:08,197] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 14:13:08,197] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:08,239] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 14:13:08,239] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 14:13:08,240] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:13:08,240] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 14:13:08,240] [token-usage] INFO: Health check thread started (interval: 60s)
+[2025-06-19 14:13:08,240] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:13:08,240] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:13:08,240] [token-usage] INFO: Routing request to openai (confidence: 1.00)
+[2025-06-19 14:13:09,582] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:13:09.614606", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 11, "completion_tokens": 21, "total_tokens": 32, "cost_usd": 0.00032, "latency": 1.3739368915557861, "success": true, "error": null}
+[2025-06-19 14:13:09,614] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 32, Cost: $0.0003, Latency: 1.37s
+[2025-06-19 14:13:09,614] [token-usage] INFO: OpenAI response generated - 1.37s, 32 tokens
+[2025-06-19 14:13:09,614] [token-usage] INFO: Request completed via openai (time: 1.37s, tokens: 32)
+[2025-06-19 14:13:09,615] [token-usage] INFO: Request 1 completed via openai
+[2025-06-19 14:13:09,615] [token-usage] INFO: Routing request to grok (confidence: 1.00)
+[2025-06-19 14:13:10,571] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:13:10.572426", "model": "grok-3", "provider": "grok", "prompt_tokens": 10, "completion_tokens": 46, "total_tokens": 56, "cost_usd": 0.000112, "latency": 0.957146167755127, "success": true, "error": null}
+[2025-06-19 14:13:10,572] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 56, Cost: $0.0001, Latency: 0.96s
+[2025-06-19 14:13:10,572] [token-usage] INFO: Grok response generated - 0.96s, 56 tokens
+[2025-06-19 14:13:10,572] [token-usage] INFO: Request completed via grok (time: 0.96s, tokens: 56)
+[2025-06-19 14:13:10,572] [token-usage] INFO: Request 2 completed via grok
+[2025-06-19 14:13:10,573] [token-usage] INFO: Routing request to grok (confidence: 1.00)
+[2025-06-19 14:13:11,527] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:13:11.528570", "model": "grok-3", "provider": "grok", "prompt_tokens": 10, "completion_tokens": 44, "total_tokens": 54, "cost_usd": 0.000108, "latency": 0.9553768634796143, "success": true, "error": null}
+[2025-06-19 14:13:11,528] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 54, Cost: $0.0001, Latency: 0.96s
+[2025-06-19 14:13:11,528] [token-usage] INFO: Grok response generated - 0.96s, 54 tokens
+[2025-06-19 14:13:11,529] [token-usage] INFO: Request completed via grok (time: 0.96s, tokens: 54)
+[2025-06-19 14:13:11,529] [token-usage] INFO: Request 3 completed via grok
+[2025-06-19 14:13:11,529] [token-usage] INFO: Routing history (last 3 decisions):
+[2025-06-19 14:13:11,529] [token-usage] INFO:   2025-06-19 14:13:08.240599: openai (confidence: 1.00)
+[2025-06-19 14:13:11,529] [token-usage] INFO:   2025-06-19 14:13:09.615174: grok (confidence: 1.00)
+[2025-06-19 14:13:11,529] [token-usage] INFO:   2025-06-19 14:13:10.573066: grok (confidence: 1.00)
+[2025-06-19 14:13:11,529] [token-usage] INFO: Provider metrics:
+[2025-06-19 14:13:11,529] [token-usage] INFO:   openai:
+[2025-06-19 14:13:11,529] [token-usage] INFO:     Requests: 1
+[2025-06-19 14:13:11,529] [token-usage] INFO:     Failed: 0
+[2025-06-19 14:13:11,529] [token-usage] INFO:     Success rate: 1.00
+[2025-06-19 14:13:11,529] [token-usage] INFO:     Avg latency: 1.37s
+[2025-06-19 14:13:11,530] [token-usage] INFO:     Avg cost per 1k tokens: $0.0100
+[2025-06-19 14:13:11,530] [token-usage] INFO:   grok:
+[2025-06-19 14:13:11,530] [token-usage] INFO:     Requests: 2
+[2025-06-19 14:13:11,530] [token-usage] INFO:     Failed: 0
+[2025-06-19 14:13:11,530] [token-usage] INFO:     Success rate: 1.00
+[2025-06-19 14:13:11,530] [token-usage] INFO:     Avg latency: 0.96s
+[2025-06-19 14:13:11,530] [token-usage] INFO:     Avg cost per 1k tokens: $0.0050
+[2025-06-19 14:13:11,530] [token-usage] INFO: SmartRouter shutdown complete
+[2025-06-19 14:13:11,530] [token-usage] INFO: ✅ Metrics and history test successful
+[2025-06-19 14:13:11,530] [token-usage] INFO: ✅ Metrics and History: PASSED
+[2025-06-19 14:13:11,530] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:13:11,530] [token-usage] INFO: Running: Strategy Changes
+[2025-06-19 14:13:11,530] [token-usage] INFO: ==================================================
+[2025-06-19 14:13:11,530] [token-usage] INFO: === Testing Strategy Changes ===
+[2025-06-19 14:13:11,530] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:11,572] [token-usage] INFO: Using model from environment: gpt-4o
+[2025-06-19 14:13:11,573] [token-usage] INFO: OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:13:11,573] [token-usage] INFO: Project: gbtest, Max tokens: 4000
+[2025-06-19 14:13:11,573] [token-usage] INFO: Using API key from environment variable
+[2025-06-19 14:13:11,611] [token-usage] INFO: Using model from environment: grok-3
+[2025-06-19 14:13:11,612] [token-usage] INFO: GrokClient initialized with model: grok-3
+[2025-06-19 14:13:11,612] [token-usage] INFO: Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:13:11,612] [token-usage] INFO: Reasoning effort: high
+[2025-06-19 14:13:11,612] [token-usage] INFO: Health check thread started (interval: 60s)
+[2025-06-19 14:13:11,612] [token-usage] INFO: SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:13:11,612] [token-usage] INFO: Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:13:11,612] [token-usage] INFO: Routing strategy changed to: cost_optimized
+[2025-06-19 14:13:11,612] [token-usage] INFO: ✅ Strategy changed to: cost_optimized
+[2025-06-19 14:13:11,612] [token-usage] INFO: Routing strategy changed to: performance_optimized
+[2025-06-19 14:13:11,612] [token-usage] INFO: ✅ Strategy changed to: performance_optimized
+[2025-06-19 14:13:11,612] [token-usage] INFO: Routing strategy changed to: availability_optimized
+[2025-06-19 14:13:11,612] [token-usage] INFO: ✅ Strategy changed to: availability_optimized
+[2025-06-19 14:13:11,613] [token-usage] INFO: Routing strategy changed to: round_robin
+[2025-06-19 14:13:11,613] [token-usage] INFO: ✅ Strategy changed to: round_robin
+[2025-06-19 14:13:11,613] [token-usage] INFO: Routing strategy changed to: hybrid
+[2025-06-19 14:13:11,613] [token-usage] INFO: Weights updated - Cost: 0.60, Performance: 0.30, Availability: 0.10
+[2025-06-19 14:13:11,613] [token-usage] INFO: ✅ Weight changes successful
+[2025-06-19 14:13:11,613] [token-usage] INFO: SmartRouter shutdown complete
+[2025-06-19 14:13:11,613] [token-usage] INFO: ✅ Strategy changes test successful
+[2025-06-19 14:13:11,613] [token-usage] INFO: ✅ Strategy Changes: PASSED
+[2025-06-19 14:13:11,613] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:13:11,613] [token-usage] INFO: TEST SUMMARY
+[2025-06-19 14:13:11,613] [token-usage] INFO: ==================================================
+[2025-06-19 14:13:11,614] [token-usage] INFO: Initialization: ✅ PASSED
+[2025-06-19 14:13:11,614] [token-usage] INFO: Health Checks: ✅ PASSED
+[2025-06-19 14:13:11,614] [token-usage] INFO: Routing Strategies: ✅ PASSED
+[2025-06-19 14:13:11,614] [token-usage] INFO: Actual Requests: ✅ PASSED
+[2025-06-19 14:13:11,614] [token-usage] INFO: Failover: ✅ PASSED
+[2025-06-19 14:13:11,614] [token-usage] INFO: Metrics and History: ✅ PASSED
+[2025-06-19 14:13:11,614] [token-usage] INFO: Strategy Changes: ✅ PASSED
+[2025-06-19 14:13:11,614] [token-usage] INFO: 
+Overall: 7/7 tests passed
+[2025-06-19 14:13:11,614] [token-usage] INFO: 🎉 All tests passed! SmartRouter is ready for production.
+[2025-06-19 14:36:05,497] [token-usage] INFO: 🚀 Starting SmartRouter Test Suite
+[2025-06-19 14:36:05,497] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:36:05,498] [token-usage] INFO: Running: Initialization
+[2025-06-19 14:36:05,498] [token-usage] INFO: ==================================================
+[2025-06-19 14:36:05,498] [token-usage] INFO: === Testing SmartRouter Initialization ===
+[2025-06-19 14:36:05,498] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:36:05,951] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:36:05,951] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:36:05,952] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:36:05,952] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:36:06,000] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:36:06,001] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:36:06,001] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:36:06,001] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:36:06,001] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:36:06,001] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:36:06,019] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:36:06,019] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:36:06,036] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:36:06,037] [token-usage] INFO: ✅ Default initialization successful
+[2025-06-19 14:36:06,037] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:36:06,081] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:36:06,081] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:36:06,081] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:36:06,081] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:36:06,122] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:36:06,122] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:36:06,122] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:36:06,122] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:36:06,122] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:36:06,123] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:36:06,123] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:36:06,123] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: cost_optimized
+[2025-06-19 14:36:06,123] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.8, Performance: 0.1, Availability: 0.1
+[2025-06-19 14:36:06,123] [token-usage] INFO: ✅ Custom initialization successful
+[2025-06-19 14:36:06,123] [token-usage] INFO: ✅ Provider initialization successful
+[2025-06-19 14:36:06,123] [token-usage] INFO: ✅ Initialization: PASSED
+[2025-06-19 14:36:06,123] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:36:06,123] [token-usage] INFO: Running: Health Checks
+[2025-06-19 14:36:06,124] [token-usage] INFO: ==================================================
+[2025-06-19 14:36:06,124] [token-usage] INFO: === Testing Health Checks ===
+[2025-06-19 14:36:06,124] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:36:06,165] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:36:06,165] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:36:06,165] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:36:06,165] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:36:06,206] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:36:06,206] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:36:06,206] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:36:06,206] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:36:06,207] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:36:06,207] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:36:06,207] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 5s)
+[2025-06-19 14:36:06,207] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:36:06,207] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:36:08,208] [token-usage] INFO: Health status: {'openai': True, 'grok': True}
+[2025-06-19 14:36:08,208] [token-usage] INFO: openai: healthy=True, requests=0, latency=0.00s
+[2025-06-19 14:36:08,208] [token-usage] INFO: grok: healthy=True, requests=0, latency=0.00s
+[2025-06-19 14:36:08,224] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:36:08,224] [token-usage] INFO: ✅ Health check test successful
+[2025-06-19 14:36:08,224] [token-usage] INFO: ✅ Health Checks: PASSED
+[2025-06-19 14:36:08,224] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:36:08,224] [token-usage] INFO: Running: Routing Strategies
+[2025-06-19 14:36:08,224] [token-usage] INFO: ==================================================
+[2025-06-19 14:36:08,224] [token-usage] INFO: === Testing Routing Strategies ===
+[2025-06-19 14:36:08,224] [token-usage] INFO: Testing strategy: cost_optimized
+[2025-06-19 14:36:08,225] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:36:08,268] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:36:08,268] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:36:08,268] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:36:08,268] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:36:08,312] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:36:08,312] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:36:08,312] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:36:08,312] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:36:08,312] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:36:08,312] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:36:08,313] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:36:08,313] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: cost_optimized
+[2025-06-19 14:36:08,313] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:36:08,313] [token-usage] INFO:   openai: score=0.500, metrics={'cost_score': 0.5}
+[2025-06-19 14:36:08,313] [token-usage] INFO:   grok: score=0.500, metrics={'cost_score': 0.5}
+[2025-06-19 14:36:08,313] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:36:08,313] [token-usage] INFO: Testing strategy: performance_optimized
+[2025-06-19 14:36:08,313] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:36:08,356] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:36:08,356] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:36:08,356] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:36:08,356] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:36:08,395] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:36:08,396] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:36:08,396] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:36:08,396] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:36:08,396] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:36:08,396] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:36:08,396] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:36:08,396] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: performance_optimized
+[2025-06-19 14:36:08,396] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:36:08,396] [token-usage] INFO:   openai: score=1.000, metrics={'performance_score': 1.0}
+[2025-06-19 14:36:08,397] [token-usage] INFO:   grok: score=1.000, metrics={'performance_score': 1.0}
+[2025-06-19 14:36:08,397] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:36:08,397] [token-usage] INFO: Testing strategy: availability_optimized
+[2025-06-19 14:36:08,397] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:36:08,438] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:36:08,438] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:36:08,438] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:36:08,438] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:36:08,489] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:36:08,489] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:36:08,489] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:36:08,489] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:36:08,489] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:36:08,489] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:36:08,489] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:36:08,489] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: availability_optimized
+[2025-06-19 14:36:08,490] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:36:08,490] [token-usage] INFO:   openai: score=1.000, metrics={'availability_score': 1.0}
+[2025-06-19 14:36:08,490] [token-usage] INFO:   grok: score=1.000, metrics={'availability_score': 1.0}
+[2025-06-19 14:36:08,490] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:36:08,490] [token-usage] INFO: Testing strategy: hybrid
+[2025-06-19 14:36:08,490] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:36:08,533] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:36:08,534] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:36:08,534] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:36:08,534] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:36:08,575] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:36:08,575] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:36:08,576] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:36:08,576] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:36:08,576] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:36:08,576] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:36:08,576] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:36:08,576] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:36:08,576] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:36:08,577] [token-usage] INFO:   openai: score=0.800, metrics={'cost_score': 0.5, 'performance_score': 1.0, 'availability_score': 1.0, 'weights': {'cost': 0.4, 'performance': 0.3, 'availability': 0.3}}
+[2025-06-19 14:36:08,577] [token-usage] INFO:   grok: score=0.800, metrics={'cost_score': 0.5, 'performance_score': 1.0, 'availability_score': 1.0, 'weights': {'cost': 0.4, 'performance': 0.3, 'availability': 0.3}}
+[2025-06-19 14:36:08,577] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:36:08,577] [token-usage] INFO: Testing strategy: round_robin
+[2025-06-19 14:36:08,577] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:36:08,622] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:36:08,623] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:36:08,623] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:36:08,623] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:36:08,662] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:36:08,662] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:36:08,662] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:36:08,662] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:36:08,662] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:36:08,663] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:36:08,663] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:36:08,663] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: round_robin
+[2025-06-19 14:36:08,663] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:36:08,663] [token-usage] INFO:   openai: score=1.000, metrics={'request_ratio': 0.0}
+[2025-06-19 14:36:08,663] [token-usage] INFO:   grok: score=1.000, metrics={'request_ratio': 0.0}
+[2025-06-19 14:36:08,663] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:36:08,664] [token-usage] INFO: ✅ Routing strategies test successful
+[2025-06-19 14:36:08,664] [token-usage] INFO: ✅ Routing Strategies: PASSED
+[2025-06-19 14:36:08,664] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:36:08,664] [token-usage] INFO: Running: Actual Requests
+[2025-06-19 14:36:08,664] [token-usage] INFO: ==================================================
+[2025-06-19 14:36:08,664] [token-usage] INFO: === Testing Actual Requests ===
+[2025-06-19 14:36:08,664] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:36:08,707] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:36:08,707] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:36:08,707] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:36:08,707] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:36:08,754] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:36:08,754] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:36:08,754] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:36:08,754] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:36:08,754] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:36:08,754] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:36:08,755] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:36:08,755] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:36:08,755] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:36:08,755] [token-usage] INFO: Testing: general - 'Hello, how are you?...'
+[2025-06-19 14:36:08,773] [token-usage] INFO: [P20P7S3T1] Routing request to openai (confidence: 1.00)
+[2025-06-19 14:36:10,699] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:36:10.803174", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 13, "completion_tokens": 30, "total_tokens": 43, "cost_usd": 0.00043, "latency": 2.0292470455169678, "success": true, "error": null}
+[2025-06-19 14:36:10,804] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 43, Cost: $0.0004, Latency: 2.03s
+[2025-06-19 14:36:10,804] [token-usage] INFO: [P20P7S2T1] OpenAI response generated - 2.03s, 43 tokens
+[2025-06-19 14:36:10,817] [token-usage] INFO: [P20P7S3T1] Request completed via openai (time: 2.05s, tokens: 43)
+[2025-06-19 14:36:10,817] [token-usage] INFO:   ✅ Response from openai
+[2025-06-19 14:36:10,817] [token-usage] INFO:   Content: Hello! I'm just a computer program, so I don't have feelings, but I'm here and ready to help you. Ho...
+[2025-06-19 14:36:10,817] [token-usage] INFO:   Time: 2.05s
+[2025-06-19 14:36:10,817] [token-usage] INFO:   Tokens: 43
+[2025-06-19 14:36:10,818] [token-usage] INFO:   Confidence: 1.00
+[2025-06-19 14:36:10,818] [token-usage] INFO: Testing: code_review - 'Review this code: def hello(): print('world')...'
+[2025-06-19 14:36:10,818] [token-usage] INFO: [P20P7S3T1] Routing request to grok (confidence: 1.00)
+[2025-06-19 14:36:12,397] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:36:12.412223", "model": "grok-3", "provider": "grok", "prompt_tokens": 17, "completion_tokens": 100, "total_tokens": 117, "cost_usd": 0.00023400000000000002, "latency": 1.5937340259552002, "success": true, "error": null}
+[2025-06-19 14:36:12,412] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 117, Cost: $0.0002, Latency: 1.59s
+[2025-06-19 14:36:12,412] [token-usage] INFO: [P20P7S2T2] Grok response generated - 1.59s, 117 tokens
+[2025-06-19 14:36:12,412] [token-usage] INFO: [P20P7S3T1] Request completed via grok (time: 1.59s, tokens: 117)
+[2025-06-19 14:36:12,412] [token-usage] INFO:   ✅ Response from grok
+[2025-06-19 14:36:12,413] [token-usage] INFO:   Content: Let's review the provided Python code:
+
+```python
+def hello():
+    print('world')
+```
+
+### Review:
+1...
+[2025-06-19 14:36:12,413] [token-usage] INFO:   Time: 1.59s
+[2025-06-19 14:36:12,413] [token-usage] INFO:   Tokens: 117
+[2025-06-19 14:36:12,413] [token-usage] INFO:   Confidence: 1.00
+[2025-06-19 14:36:12,413] [token-usage] INFO: Testing: analysis - 'Analyze the performance implications of this algor...'
+[2025-06-19 14:36:12,413] [token-usage] INFO: [P20P7S3T1] Routing request to grok (confidence: 1.00)
+[2025-06-19 14:36:21,461] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:36:21.462737", "model": "grok-3", "provider": "grok", "prompt_tokens": 13, "completion_tokens": 100, "total_tokens": 113, "cost_usd": 0.00022600000000000002, "latency": 9.049278020858765, "success": true, "error": null}
+[2025-06-19 14:36:21,462] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 113, Cost: $0.0002, Latency: 9.05s
+[2025-06-19 14:36:21,463] [token-usage] INFO: [P20P7S2T2] Grok response generated - 9.05s, 113 tokens
+[2025-06-19 14:36:21,463] [token-usage] INFO: [P20P7S3T1] Request completed via grok (time: 9.05s, tokens: 113)
+[2025-06-19 14:36:21,464] [token-usage] INFO:   ✅ Response from grok
+[2025-06-19 14:36:21,464] [token-usage] INFO:   Content: I don't see any algorithm provided to analyze. Could you please share the specific algorithm or code...
+[2025-06-19 14:36:21,464] [token-usage] INFO:   Time: 9.05s
+[2025-06-19 14:36:21,464] [token-usage] INFO:   Tokens: 113
+[2025-06-19 14:36:21,464] [token-usage] INFO:   Confidence: 1.00
+[2025-06-19 14:36:21,464] [token-usage] INFO: Final metrics for openai:
+[2025-06-19 14:36:21,464] [token-usage] INFO:   Total requests: 1
+[2025-06-19 14:36:21,464] [token-usage] INFO:   Success rate: 1.00
+[2025-06-19 14:36:21,464] [token-usage] INFO:   Avg latency: 2.05s
+[2025-06-19 14:36:21,464] [token-usage] INFO:   Is healthy: True
+[2025-06-19 14:36:21,465] [token-usage] INFO: Final metrics for grok:
+[2025-06-19 14:36:21,465] [token-usage] INFO:   Total requests: 2
+[2025-06-19 14:36:21,465] [token-usage] INFO:   Success rate: 1.00
+[2025-06-19 14:36:21,465] [token-usage] INFO:   Avg latency: 5.32s
+[2025-06-19 14:36:21,465] [token-usage] INFO:   Is healthy: True
+[2025-06-19 14:36:21,465] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:36:21,465] [token-usage] INFO: ✅ Actual requests test successful
+[2025-06-19 14:36:21,465] [token-usage] INFO: ✅ Actual Requests: PASSED
+[2025-06-19 14:36:21,465] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:36:21,465] [token-usage] INFO: Running: Failover
+[2025-06-19 14:36:21,465] [token-usage] INFO: ==================================================
+[2025-06-19 14:36:21,465] [token-usage] INFO: === Testing Failover Mechanism ===
+[2025-06-19 14:36:21,466] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:36:21,534] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:36:21,534] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:36:21,534] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:36:21,534] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:36:21,579] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:36:21,579] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:36:21,579] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:36:21,579] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:36:21,579] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:36:21,579] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:36:21,580] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:36:21,580] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:36:21,580] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:36:21,580] [token-usage] INFO: [P20P7S3T1] Routing request to openai (confidence: 1.00)
+[2025-06-19 14:36:22,838] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:36:22.852043", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 16, "completion_tokens": 35, "total_tokens": 51, "cost_usd": 0.0005099999999999999, "latency": 1.271514892578125, "success": true, "error": null}
+[2025-06-19 14:36:22,852] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 51, Cost: $0.0005, Latency: 1.27s
+[2025-06-19 14:36:22,852] [token-usage] INFO: [P20P7S2T1] OpenAI response generated - 1.27s, 51 tokens
+[2025-06-19 14:36:22,852] [token-usage] INFO: [P20P7S3T1] Request completed via openai (time: 1.27s, tokens: 51)
+[2025-06-19 14:36:22,853] [token-usage] INFO: ✅ Request completed via openai
+[2025-06-19 14:36:22,853] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:36:22,853] [token-usage] INFO: ✅ Failover test completed
+[2025-06-19 14:36:22,853] [token-usage] INFO: ✅ Failover: PASSED
+[2025-06-19 14:36:22,853] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:36:22,853] [token-usage] INFO: Running: Metrics and History
+[2025-06-19 14:36:22,853] [token-usage] INFO: ==================================================
+[2025-06-19 14:36:22,853] [token-usage] INFO: === Testing Metrics and History ===
+[2025-06-19 14:36:22,853] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:36:22,900] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:36:22,900] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:36:22,900] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:36:22,900] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:36:22,944] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:36:22,944] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:36:22,945] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:36:22,945] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:36:22,945] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:36:22,945] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:36:22,945] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:36:22,971] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:36:22,971] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:36:22,971] [token-usage] INFO: [P20P7S3T1] Routing request to openai (confidence: 1.00)
+[2025-06-19 14:36:24,476] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:36:24.478962", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 11, "completion_tokens": 24, "total_tokens": 35, "cost_usd": 0.00035000000000000005, "latency": 1.5069360733032227, "success": true, "error": null}
+[2025-06-19 14:36:24,479] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 35, Cost: $0.0004, Latency: 1.51s
+[2025-06-19 14:36:24,479] [token-usage] INFO: [P20P7S2T1] OpenAI response generated - 1.51s, 35 tokens
+[2025-06-19 14:36:24,479] [token-usage] INFO: [P20P7S3T1] Request completed via openai (time: 1.51s, tokens: 35)
+[2025-06-19 14:36:24,480] [token-usage] INFO: Request 1 completed via openai
+[2025-06-19 14:36:24,480] [token-usage] INFO: [P20P7S3T1] Routing request to grok (confidence: 1.00)
+[2025-06-19 14:36:25,806] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:36:25.823226", "model": "grok-3", "provider": "grok", "prompt_tokens": 10, "completion_tokens": 43, "total_tokens": 53, "cost_usd": 0.000106, "latency": 1.3430421352386475, "success": true, "error": null}
+[2025-06-19 14:36:25,823] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 53, Cost: $0.0001, Latency: 1.34s
+[2025-06-19 14:36:25,823] [token-usage] INFO: [P20P7S2T2] Grok response generated - 1.34s, 53 tokens
+[2025-06-19 14:36:25,824] [token-usage] INFO: [P20P7S3T1] Request completed via grok (time: 1.34s, tokens: 53)
+[2025-06-19 14:36:25,824] [token-usage] INFO: Request 2 completed via grok
+[2025-06-19 14:36:25,824] [token-usage] INFO: [P20P7S3T1] Routing request to grok (confidence: 1.00)
+[2025-06-19 14:36:26,762] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:36:26.763052", "model": "grok-3", "provider": "grok", "prompt_tokens": 10, "completion_tokens": 50, "total_tokens": 60, "cost_usd": 0.00012, "latency": 0.9382636547088623, "success": true, "error": null}
+[2025-06-19 14:36:26,763] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 60, Cost: $0.0001, Latency: 0.94s
+[2025-06-19 14:36:26,763] [token-usage] INFO: [P20P7S2T2] Grok response generated - 0.94s, 60 tokens
+[2025-06-19 14:36:26,763] [token-usage] INFO: [P20P7S3T1] Request completed via grok (time: 0.94s, tokens: 60)
+[2025-06-19 14:36:26,763] [token-usage] INFO: Request 3 completed via grok
+[2025-06-19 14:36:26,763] [token-usage] INFO: Routing history (last 3 decisions):
+[2025-06-19 14:36:26,764] [token-usage] INFO:   2025-06-19 14:36:22.971924: openai (confidence: 1.00)
+[2025-06-19 14:36:26,764] [token-usage] INFO:   2025-06-19 14:36:24.480113: grok (confidence: 1.00)
+[2025-06-19 14:36:26,764] [token-usage] INFO:   2025-06-19 14:36:25.824600: grok (confidence: 1.00)
+[2025-06-19 14:36:26,764] [token-usage] INFO: Provider metrics:
+[2025-06-19 14:36:26,764] [token-usage] INFO:   openai:
+[2025-06-19 14:36:26,764] [token-usage] INFO:     Requests: 1
+[2025-06-19 14:36:26,764] [token-usage] INFO:     Failed: 0
+[2025-06-19 14:36:26,764] [token-usage] INFO:     Success rate: 1.00
+[2025-06-19 14:36:26,764] [token-usage] INFO:     Avg latency: 1.51s
+[2025-06-19 14:36:26,764] [token-usage] INFO:     Avg cost per 1k tokens: $0.0100
+[2025-06-19 14:36:26,764] [token-usage] INFO:   grok:
+[2025-06-19 14:36:26,764] [token-usage] INFO:     Requests: 2
+[2025-06-19 14:36:26,764] [token-usage] INFO:     Failed: 0
+[2025-06-19 14:36:26,764] [token-usage] INFO:     Success rate: 1.00
+[2025-06-19 14:36:26,765] [token-usage] INFO:     Avg latency: 1.14s
+[2025-06-19 14:36:26,765] [token-usage] INFO:     Avg cost per 1k tokens: $0.0050
+[2025-06-19 14:36:26,765] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:36:26,765] [token-usage] INFO: ✅ Metrics and history test successful
+[2025-06-19 14:36:26,765] [token-usage] INFO: ✅ Metrics and History: PASSED
+[2025-06-19 14:36:26,765] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:36:26,765] [token-usage] INFO: Running: Strategy Changes
+[2025-06-19 14:36:26,765] [token-usage] INFO: ==================================================
+[2025-06-19 14:36:26,765] [token-usage] INFO: === Testing Strategy Changes ===
+[2025-06-19 14:36:26,766] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:36:26,810] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:36:26,810] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:36:26,810] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:36:26,810] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:36:26,855] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:36:26,856] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:36:26,856] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:36:26,856] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:36:26,856] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:36:26,856] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:36:26,856] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:36:26,856] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:36:26,857] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:36:26,857] [token-usage] INFO: [P20P7S3T1] Routing strategy changed to: cost_optimized
+[2025-06-19 14:36:26,857] [token-usage] INFO: ✅ Strategy changed to: cost_optimized
+[2025-06-19 14:36:26,857] [token-usage] INFO: [P20P7S3T1] Routing strategy changed to: performance_optimized
+[2025-06-19 14:36:26,857] [token-usage] INFO: ✅ Strategy changed to: performance_optimized
+[2025-06-19 14:36:26,857] [token-usage] INFO: [P20P7S3T1] Routing strategy changed to: availability_optimized
+[2025-06-19 14:36:26,857] [token-usage] INFO: ✅ Strategy changed to: availability_optimized
+[2025-06-19 14:36:26,857] [token-usage] INFO: [P20P7S3T1] Routing strategy changed to: round_robin
+[2025-06-19 14:36:26,857] [token-usage] INFO: ✅ Strategy changed to: round_robin
+[2025-06-19 14:36:26,858] [token-usage] INFO: [P20P7S3T1] Routing strategy changed to: hybrid
+[2025-06-19 14:36:26,858] [token-usage] INFO: [P20P7S3T1] Weights updated - Cost: 0.60, Performance: 0.30, Availability: 0.10
+[2025-06-19 14:36:26,858] [token-usage] INFO: ✅ Weight changes successful
+[2025-06-19 14:36:26,858] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:36:26,858] [token-usage] INFO: ✅ Strategy changes test successful
+[2025-06-19 14:36:26,858] [token-usage] INFO: ✅ Strategy Changes: PASSED
+[2025-06-19 14:36:26,858] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:36:26,858] [token-usage] INFO: TEST SUMMARY
+[2025-06-19 14:36:26,858] [token-usage] INFO: ==================================================
+[2025-06-19 14:36:26,858] [token-usage] INFO: Initialization: ✅ PASSED
+[2025-06-19 14:36:26,858] [token-usage] INFO: Health Checks: ✅ PASSED
+[2025-06-19 14:36:26,859] [token-usage] INFO: Routing Strategies: ✅ PASSED
+[2025-06-19 14:36:26,859] [token-usage] INFO: Actual Requests: ✅ PASSED
+[2025-06-19 14:36:26,859] [token-usage] INFO: Failover: ✅ PASSED
+[2025-06-19 14:36:26,859] [token-usage] INFO: Metrics and History: ✅ PASSED
+[2025-06-19 14:36:26,859] [token-usage] INFO: Strategy Changes: ✅ PASSED
+[2025-06-19 14:36:26,859] [token-usage] INFO: 
+Overall: 7/7 tests passed
+[2025-06-19 14:36:26,859] [token-usage] INFO: 🎉 All tests passed! SmartRouter is ready for production.
+[2025-06-19 14:36:43,873] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:36:43,990] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:36:43,991] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:36:43,991] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:36:54,231] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:36:54,311] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:36:54,311] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:36:54,311] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:36:54,312] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:36:54,352] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:36:54,353] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:36:54,353] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:36:54,353] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:36:54,353] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:36:54,353] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:36:54,353] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:36:54,353] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:36:54,353] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:36:54,353] [token-usage] INFO: [P20P7S4T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:45:49,915] [token-usage] INFO: 🚀 Starting SmartRouter Test Suite
+[2025-06-19 14:45:49,927] [token-usage] INFO: ==================================================
+[2025-06-19 14:45:49,928] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:45:49,928] [token-usage] INFO: Running: Initialization
+[2025-06-19 14:45:49,928] [token-usage] INFO: ==================================================
+[2025-06-19 14:45:49,928] [token-usage] INFO: === Testing SmartRouter Initialization ===
+[2025-06-19 14:45:49,928] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:45:49,998] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:45:49,998] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:45:49,998] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:45:49,998] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:45:50,037] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:45:50,037] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:45:50,037] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:45:50,037] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:45:50,037] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:45:50,037] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:45:50,038] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:45:50,038] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:45:50,038] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:45:50,038] [token-usage] INFO: ✅ Default initialization successful
+[2025-06-19 14:45:50,038] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:45:50,081] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:45:50,082] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:45:50,082] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:45:50,082] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:45:50,123] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:45:50,123] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:45:50,123] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:45:50,123] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:45:50,123] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:45:50,123] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:45:50,123] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:45:50,123] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: cost_optimized
+[2025-06-19 14:45:50,124] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.8, Performance: 0.1, Availability: 0.1
+[2025-06-19 14:45:50,124] [token-usage] INFO: ✅ Custom initialization successful
+[2025-06-19 14:45:50,124] [token-usage] INFO: ✅ Provider initialization successful
+[2025-06-19 14:45:50,124] [token-usage] INFO: ✅ Initialization: PASSED
+[2025-06-19 14:45:50,124] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:45:50,124] [token-usage] INFO: Running: Health Checks
+[2025-06-19 14:45:50,124] [token-usage] INFO: ==================================================
+[2025-06-19 14:45:50,124] [token-usage] INFO: === Testing Health Checks ===
+[2025-06-19 14:45:50,124] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:45:50,164] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:45:50,164] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:45:50,164] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:45:50,164] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:45:50,204] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:45:50,205] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:45:50,205] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:45:50,205] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:45:50,205] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:45:50,205] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:45:50,205] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 5s)
+[2025-06-19 14:45:50,205] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:45:50,205] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:45:53,208] [token-usage] INFO: Health status: {'openai': True, 'grok': True}
+[2025-06-19 14:45:53,208] [token-usage] INFO: openai: healthy=True, requests=0, latency=0.00s
+[2025-06-19 14:45:53,208] [token-usage] INFO: grok: healthy=True, requests=0, latency=0.00s
+[2025-06-19 14:45:53,208] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:45:53,208] [token-usage] INFO: ✅ Health check test successful
+[2025-06-19 14:45:53,208] [token-usage] INFO: ✅ Health Checks: PASSED
+[2025-06-19 14:45:53,208] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:45:53,209] [token-usage] INFO: Running: Routing Strategies
+[2025-06-19 14:45:53,209] [token-usage] INFO: ==================================================
+[2025-06-19 14:45:53,209] [token-usage] INFO: === Testing Routing Strategies ===
+[2025-06-19 14:45:53,209] [token-usage] INFO: Testing strategy: cost_optimized
+[2025-06-19 14:45:53,209] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:45:53,250] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:45:53,250] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:45:53,250] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:45:53,251] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:45:53,294] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:45:53,294] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:45:53,294] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:45:53,294] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:45:53,294] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:45:53,294] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:45:53,294] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:45:53,295] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: cost_optimized
+[2025-06-19 14:45:53,295] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:45:53,295] [token-usage] INFO:   openai: score=0.500, metrics={'cost_score': 0.5}
+[2025-06-19 14:45:53,295] [token-usage] INFO:   grok: score=0.500, metrics={'cost_score': 0.5}
+[2025-06-19 14:45:53,295] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:45:53,295] [token-usage] INFO: Testing strategy: performance_optimized
+[2025-06-19 14:45:53,295] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:45:53,334] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:45:53,334] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:45:53,334] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:45:53,334] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:45:53,374] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:45:53,374] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:45:53,374] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:45:53,374] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:45:53,374] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:45:53,374] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:45:53,374] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:45:53,374] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: performance_optimized
+[2025-06-19 14:45:53,374] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:45:53,374] [token-usage] INFO:   openai: score=1.000, metrics={'performance_score': 1.0}
+[2025-06-19 14:45:53,375] [token-usage] INFO:   grok: score=1.000, metrics={'performance_score': 1.0}
+[2025-06-19 14:45:53,375] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:45:53,375] [token-usage] INFO: Testing strategy: availability_optimized
+[2025-06-19 14:45:53,375] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:45:53,415] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:45:53,415] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:45:53,415] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:45:53,415] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:45:53,455] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:45:53,455] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:45:53,456] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:45:53,456] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:45:53,456] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:45:53,456] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:45:53,456] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:45:53,456] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: availability_optimized
+[2025-06-19 14:45:53,456] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:45:53,456] [token-usage] INFO:   openai: score=1.000, metrics={'availability_score': 1.0}
+[2025-06-19 14:45:53,456] [token-usage] INFO:   grok: score=1.000, metrics={'availability_score': 1.0}
+[2025-06-19 14:45:53,457] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:45:53,457] [token-usage] INFO: Testing strategy: hybrid
+[2025-06-19 14:45:53,457] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:45:53,496] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:45:53,497] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:45:53,497] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:45:53,497] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:45:53,535] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:45:53,535] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:45:53,535] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:45:53,535] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:45:53,536] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:45:53,536] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:45:53,536] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:45:53,536] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:45:53,536] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:45:53,536] [token-usage] INFO:   openai: score=0.800, metrics={'cost_score': 0.5, 'performance_score': 1.0, 'availability_score': 1.0, 'weights': {'cost': 0.4, 'performance': 0.3, 'availability': 0.3}}
+[2025-06-19 14:45:53,536] [token-usage] INFO:   grok: score=0.800, metrics={'cost_score': 0.5, 'performance_score': 1.0, 'availability_score': 1.0, 'weights': {'cost': 0.4, 'performance': 0.3, 'availability': 0.3}}
+[2025-06-19 14:45:53,536] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:45:53,536] [token-usage] INFO: Testing strategy: round_robin
+[2025-06-19 14:45:53,536] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:45:53,578] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:45:53,578] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:45:53,578] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:45:53,578] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:45:53,624] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:45:53,624] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:45:53,624] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:45:53,624] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:45:53,624] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:45:53,624] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:45:53,625] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:45:53,625] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: round_robin
+[2025-06-19 14:45:53,625] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:45:53,625] [token-usage] INFO:   openai: score=1.000, metrics={'request_ratio': 0.0}
+[2025-06-19 14:45:53,625] [token-usage] INFO:   grok: score=1.000, metrics={'request_ratio': 0.0}
+[2025-06-19 14:45:53,625] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:45:53,626] [token-usage] INFO: ✅ Routing strategies test successful
+[2025-06-19 14:45:53,626] [token-usage] INFO: ✅ Routing Strategies: PASSED
+[2025-06-19 14:45:53,626] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:45:53,626] [token-usage] INFO: Running: Actual Requests
+[2025-06-19 14:45:53,626] [token-usage] INFO: ==================================================
+[2025-06-19 14:45:53,626] [token-usage] INFO: === Testing Actual Requests ===
+[2025-06-19 14:45:53,626] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:45:53,666] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:45:53,666] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:45:53,666] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:45:53,666] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:45:53,705] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:45:53,705] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:45:53,705] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:45:53,705] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:45:53,706] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:45:53,706] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:45:53,706] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:45:53,706] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:45:53,706] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:45:53,706] [token-usage] INFO: Testing: general - 'Hello, how are you?...'
+[2025-06-19 14:45:53,706] [token-usage] INFO: [P20P7S3T1] Routing request to openai (confidence: 1.00)
+[2025-06-19 14:45:54,956] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:45:55.003073", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 13, "completion_tokens": 30, "total_tokens": 43, "cost_usd": 0.00043, "latency": 1.2961509227752686, "success": true, "error": null}
+[2025-06-19 14:45:55,003] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 43, Cost: $0.0004, Latency: 1.30s
+[2025-06-19 14:45:55,003] [token-usage] INFO: [P20P7S2T1] OpenAI response generated - 1.30s, 43 tokens
+[2025-06-19 14:45:55,015] [token-usage] INFO: [P20P7S3T1] Request completed via openai (time: 1.30s, tokens: 43)
+[2025-06-19 14:45:55,015] [token-usage] INFO:   ✅ Response from openai
+[2025-06-19 14:45:55,016] [token-usage] INFO:   Content: Hello! I'm just a computer program, so I don't have feelings, but I'm here and ready to help you. Ho...
+[2025-06-19 14:45:55,016] [token-usage] INFO:   Time: 1.30s
+[2025-06-19 14:45:55,016] [token-usage] INFO:   Tokens: 43
+[2025-06-19 14:45:55,016] [token-usage] INFO:   Confidence: 1.00
+[2025-06-19 14:45:55,016] [token-usage] INFO: Testing: code_review - 'Review this code: def hello():...'
+[2025-06-19 14:45:55,016] [token-usage] INFO: [P20P7S3T1] Routing request to grok (confidence: 1.00)
+[2025-06-19 14:46:01,801] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:46:01.808733", "model": "grok-3", "provider": "grok", "prompt_tokens": 17, "completion_tokens": 585, "total_tokens": 602, "cost_usd": 0.001204, "latency": 6.791938066482544, "success": true, "error": null}
+[2025-06-19 14:46:01,808] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 602, Cost: $0.0012, Latency: 6.79s
+[2025-06-19 14:46:01,809] [token-usage] INFO: [P20P7S2T2] Grok response generated - 6.79s, 602 tokens
+[2025-06-19 14:46:01,809] [token-usage] INFO: [P20P7S3T1] Request completed via grok (time: 6.79s, tokens: 602)
+[2025-06-19 14:46:01,809] [token-usage] INFO:   ✅ Response from grok
+[2025-06-19 14:46:01,809] [token-usage] INFO:   Content: Let's review the provided Python code:
+
+```python
+def hello():
+    print('world')
+```
+
+### Observati...
+[2025-06-19 14:46:01,810] [token-usage] INFO:   Time: 6.79s
+[2025-06-19 14:46:01,810] [token-usage] INFO:   Tokens: 602
+[2025-06-19 14:46:01,810] [token-usage] INFO:   Confidence: 1.00
+[2025-06-19 14:46:01,810] [token-usage] INFO: Testing: analysis - 'Analyze the performance implic...'
+[2025-06-19 14:46:01,810] [token-usage] INFO: [P20P7S3T1] Routing request to openai (confidence: 1.00)
+[2025-06-19 14:46:09,376] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:46:09.391628", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 14, "completion_tokens": 483, "total_tokens": 497, "cost_usd": 0.0049700000000000005, "latency": 7.581161260604858, "success": true, "error": null}
+[2025-06-19 14:46:09,391] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 497, Cost: $0.0050, Latency: 7.58s
+[2025-06-19 14:46:09,391] [token-usage] INFO: [P20P7S2T1] OpenAI response generated - 7.58s, 497 tokens
+[2025-06-19 14:46:09,392] [token-usage] INFO: [P20P7S3T1] Request completed via openai (time: 7.58s, tokens: 497)
+[2025-06-19 14:46:09,392] [token-usage] INFO:   ✅ Response from openai
+[2025-06-19 14:46:09,392] [token-usage] INFO:   Content: To analyze the performance implications of an algorithm, we need to consider several factors, includ...
+[2025-06-19 14:46:09,392] [token-usage] INFO:   Time: 7.58s
+[2025-06-19 14:46:09,392] [token-usage] INFO:   Tokens: 497
+[2025-06-19 14:46:09,392] [token-usage] INFO:   Confidence: 1.00
+[2025-06-19 14:46:09,393] [token-usage] INFO: Final metrics for openai:
+[2025-06-19 14:46:09,393] [token-usage] INFO:   Total requests: 2
+[2025-06-19 14:46:09,393] [token-usage] INFO:   Success rate: 1.00
+[2025-06-19 14:46:09,393] [token-usage] INFO:   Avg latency: 4.44s
+[2025-06-19 14:46:09,393] [token-usage] INFO:   Is healthy: True
+[2025-06-19 14:46:09,393] [token-usage] INFO: Final metrics for grok:
+[2025-06-19 14:46:09,393] [token-usage] INFO:   Total requests: 1
+[2025-06-19 14:46:09,393] [token-usage] INFO:   Success rate: 1.00
+[2025-06-19 14:46:09,393] [token-usage] INFO:   Avg latency: 6.79s
+[2025-06-19 14:46:09,394] [token-usage] INFO:   Is healthy: True
+[2025-06-19 14:46:09,394] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:46:09,394] [token-usage] INFO: ✅ Actual requests test successful
+[2025-06-19 14:46:09,394] [token-usage] INFO: ✅ Actual Requests: PASSED
+[2025-06-19 14:46:09,394] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:46:09,394] [token-usage] INFO: Running: Failover
+[2025-06-19 14:46:09,394] [token-usage] INFO: ==================================================
+[2025-06-19 14:46:09,394] [token-usage] INFO: === Testing Failover Mechanism ===
+[2025-06-19 14:46:09,394] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:46:09,433] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:46:09,433] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:46:09,434] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:46:09,434] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:46:09,474] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:46:09,474] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:46:09,474] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:46:09,474] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:46:09,474] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:46:09,474] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:46:09,474] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:46:09,474] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:46:09,475] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:46:09,475] [token-usage] INFO: [P20P7S3T1] Routing request to openai (confidence: 1.00)
+[2025-06-19 14:46:23,838] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:46:23.841320", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 11, "completion_tokens": 452, "total_tokens": 463, "cost_usd": 0.0046300000000000004, "latency": 14.365992069244385, "success": true, "error": null}
+[2025-06-19 14:46:23,841] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 463, Cost: $0.0046, Latency: 14.37s
+[2025-06-19 14:46:23,841] [token-usage] INFO: [P20P7S2T1] OpenAI response generated - 14.37s, 463 tokens
+[2025-06-19 14:46:23,842] [token-usage] INFO: [P20P7S3T1] Request completed via openai (time: 14.37s, tokens: 463)
+[2025-06-19 14:46:23,842] [token-usage] INFO: ✅ Request completed via openai
+[2025-06-19 14:46:23,842] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:46:23,842] [token-usage] INFO: ✅ Failover test completed
+[2025-06-19 14:46:23,842] [token-usage] INFO: ✅ Failover: PASSED
+[2025-06-19 14:46:23,842] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:46:23,842] [token-usage] INFO: Running: Metrics and History
+[2025-06-19 14:46:23,842] [token-usage] INFO: ==================================================
+[2025-06-19 14:46:23,842] [token-usage] INFO: === Testing Metrics and History ===
+[2025-06-19 14:46:23,843] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:46:23,884] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:46:23,884] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:46:23,884] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:46:23,884] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:46:23,927] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:46:23,927] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:46:23,927] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:46:23,927] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:46:23,927] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:46:23,927] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:46:23,927] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:46:23,927] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:46:23,927] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:46:23,928] [token-usage] INFO: [P20P7S3T1] Routing request to openai (confidence: 1.00)
+[2025-06-19 14:46:24,866] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:46:24.868064", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 11, "completion_tokens": 16, "total_tokens": 27, "cost_usd": 0.00027, "latency": 0.939863920211792, "success": true, "error": null}
+[2025-06-19 14:46:24,868] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 27, Cost: $0.0003, Latency: 0.94s
+[2025-06-19 14:46:24,868] [token-usage] INFO: [P20P7S2T1] OpenAI response generated - 0.94s, 27 tokens
+[2025-06-19 14:46:24,869] [token-usage] INFO: [P20P7S3T1] Request completed via openai (time: 0.94s, tokens: 27)
+[2025-06-19 14:46:24,869] [token-usage] INFO: Request 1 completed via openai
+[2025-06-19 14:46:24,869] [token-usage] INFO: [P20P7S3T1] Routing request to grok (confidence: 1.00)
+[2025-06-19 14:46:25,960] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:46:25.961544", "model": "grok-3", "provider": "grok", "prompt_tokens": 10, "completion_tokens": 44, "total_tokens": 54, "cost_usd": 0.000108, "latency": 1.0918421745300293, "success": true, "error": null}
+[2025-06-19 14:46:25,961] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 54, Cost: $0.0001, Latency: 1.09s
+[2025-06-19 14:46:25,961] [token-usage] INFO: [P20P7S2T2] Grok response generated - 1.09s, 54 tokens
+[2025-06-19 14:46:25,962] [token-usage] INFO: [P20P7S3T1] Request completed via grok (time: 1.09s, tokens: 54)
+[2025-06-19 14:46:25,962] [token-usage] INFO: Request 2 completed via grok
+[2025-06-19 14:46:25,962] [token-usage] INFO: [P20P7S3T1] Routing request to grok (confidence: 1.00)
+[2025-06-19 14:46:26,635] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:46:26.635957", "model": "grok-3", "provider": "grok", "prompt_tokens": 10, "completion_tokens": 34, "total_tokens": 44, "cost_usd": 8.8e-05, "latency": 0.6733620166778564, "success": true, "error": null}
+[2025-06-19 14:46:26,636] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 44, Cost: $0.0001, Latency: 0.67s
+[2025-06-19 14:46:26,636] [token-usage] INFO: [P20P7S2T2] Grok response generated - 0.67s, 44 tokens
+[2025-06-19 14:46:26,636] [token-usage] INFO: [P20P7S3T1] Request completed via grok (time: 0.67s, tokens: 44)
+[2025-06-19 14:46:26,636] [token-usage] INFO: Request 3 completed via grok
+[2025-06-19 14:46:26,637] [token-usage] INFO: Routing history (last 3 decisions):
+[2025-06-19 14:46:26,637] [token-usage] INFO:    2025-06-19 14:46:23.928086: openai (confidence: 1.00)
+[2025-06-19 14:46:26,637] [token-usage] INFO:    2025-06-19 14:46:24.869540: grok (confidence: 1.00)
+[2025-06-19 14:46:26,637] [token-usage] INFO:    2025-06-19 14:46:25.962428: grok (confidence: 1.00)
+[2025-06-19 14:46:26,637] [token-usage] INFO: Provider metrics:
+[2025-06-19 14:46:26,637] [token-usage] INFO:   openai:
+[2025-06-19 14:46:26,637] [token-usage] INFO:     Requests: 1
+[2025-06-19 14:46:26,637] [token-usage] INFO:     Failed: 0
+[2025-06-19 14:46:26,637] [token-usage] INFO:     Success rate: 1.00
+[2025-06-19 14:46:26,637] [token-usage] INFO:     Avg latency: 0.94s
+[2025-06-19 14:46:26,637] [token-usage] INFO:     Avg cost per 1k tokens: $0.0100
+[2025-06-19 14:46:26,638] [token-usage] INFO:   grok:
+[2025-06-19 14:46:26,638] [token-usage] INFO:     Requests: 2
+[2025-06-19 14:46:26,638] [token-usage] INFO:     Failed: 0
+[2025-06-19 14:46:26,638] [token-usage] INFO:     Success rate: 1.00
+[2025-06-19 14:46:26,638] [token-usage] INFO:     Avg latency: 0.88s
+[2025-06-19 14:46:26,638] [token-usage] INFO:     Avg cost per 1k tokens: $0.0050
+[2025-06-19 14:46:26,638] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:46:26,638] [token-usage] INFO: ✅ Metrics and history test successful
+[2025-06-19 14:46:26,638] [token-usage] INFO: ✅ Metrics and History: PASSED
+[2025-06-19 14:46:26,638] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:46:26,638] [token-usage] INFO: Running: Strategy Changes
+[2025-06-19 14:46:26,638] [token-usage] INFO: ==================================================
+[2025-06-19 14:46:26,638] [token-usage] INFO: === Testing Strategy Changes ===
+[2025-06-19 14:46:26,638] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:46:26,678] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:46:26,679] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:46:26,679] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:46:26,679] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:46:26,720] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:46:26,720] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:46:26,720] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:46:26,720] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:46:26,720] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:46:26,720] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:46:26,720] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:46:26,720] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:46:26,721] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:46:26,721] [token-usage] INFO: [P20P7S3T1] Routing strategy changed to: cost_optimized
+[2025-06-19 14:46:26,721] [token-usage] INFO: ✅ Strategy changed to: cost_optimized
+[2025-06-19 14:46:26,721] [token-usage] INFO: [P20P7S3T1] Routing strategy changed to: performance_optimized
+[2025-06-19 14:46:26,721] [token-usage] INFO: ✅ Strategy changed to: performance_optimized
+[2025-06-19 14:46:26,721] [token-usage] INFO: [P20P7S3T1] Routing strategy changed to: availability_optimized
+[2025-06-19 14:46:26,721] [token-usage] INFO: ✅ Strategy changed to: availability_optimized
+[2025-06-19 14:46:26,721] [token-usage] INFO: [P20P7S3T1] Routing strategy changed to: round_robin
+[2025-06-19 14:46:26,721] [token-usage] INFO: ✅ Strategy changed to: round_robin
+[2025-06-19 14:46:26,721] [token-usage] INFO: [P20P7S3T1] Routing strategy changed to: hybrid
+[2025-06-19 14:46:26,721] [token-usage] INFO: ✅ Strategy changed to: hybrid
+[2025-06-19 14:46:26,722] [token-usage] INFO: [P20P7S3T1] Weights updated - Cost: 0.60, Performance: 0.30, Availability: 0.10
+[2025-06-19 14:46:26,722] [token-usage] INFO: ✅ Weight changes successful
+[2025-06-19 14:46:26,722] [token-usage] INFO: [P20P7S3T1] SmartRouter shutdown complete
+[2025-06-19 14:46:26,722] [token-usage] INFO: ✅ Strategy changes test successful
+[2025-06-19 14:46:26,722] [token-usage] INFO: ✅ Strategy Changes: PASSED
+[2025-06-19 14:46:26,722] [token-usage] INFO: 
+==================================================
+[2025-06-19 14:46:26,723] [token-usage] INFO: TEST SUMMARY
+[2025-06-19 14:46:26,723] [token-usage] INFO: ==================================================
+[2025-06-19 14:46:26,723] [token-usage] INFO: Initialization: ✅ PASSED
+[2025-06-19 14:46:26,723] [token-usage] INFO: Health Checks: ✅ PASSED
+[2025-06-19 14:46:26,723] [token-usage] INFO: Routing Strategies: ✅ PASSED
+[2025-06-19 14:46:26,723] [token-usage] INFO: Actual Requests: ✅ PASSED
+[2025-06-19 14:46:26,723] [token-usage] INFO: Failover: ✅ PASSED
+[2025-06-19 14:46:26,723] [token-usage] INFO: Metrics and History: ✅ PASSED
+[2025-06-19 14:46:26,723] [token-usage] INFO: Strategy Changes: ✅ PASSED
+[2025-06-19 14:46:26,723] [token-usage] INFO: 
+Overall: 7/7 tests passed
+[2025-06-19 14:46:26,724] [token-usage] INFO: 🎉 All tests passed! SmartRouter is ready for production.
+[2025-06-19 14:48:47,507] [token-usage] INFO: [P20P8S1T1] Testing Meta-Evaluator System
+[2025-06-19 14:48:47,508] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:48:47,558] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:48:47,559] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:48:47,559] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:48:47,559] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:48:47,601] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:48:47,601] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:48:47,601] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:48:47,601] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:48:47,601] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:48:47,601] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:48:47,601] [token-usage] INFO: [P20P8S1T1] MetaEvaluator initialized with weights: {'latency': 0.2, 'cost': 0.15, 'relevance': 0.25, 'reliability': 0.2, 'comprehensiveness': 0.1, 'accuracy': 0.1}
+[2025-06-19 14:48:47,601] [token-usage] INFO: [P20P8S1T1] Testing: explanation
+[2025-06-19 14:48:47,602] [token-usage] INFO: [P20P8S1T1] Starting side-by-side comparison for explanation task
+[2025-06-19 14:48:59,257] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:48:59.260643", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 15, "completion_tokens": 495, "total_tokens": 510, "cost_usd": 0.0051, "latency": 11.658485889434814, "success": true, "error": null}
+[2025-06-19 14:48:59,260] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 510, Cost: $0.0051, Latency: 11.66s
+[2025-06-19 14:48:59,261] [token-usage] INFO: [P20P7S2T1] OpenAI response generated - 11.66s, 510 tokens
+[2025-06-19 14:49:13,281] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:49:13.304843", "model": "grok-3", "provider": "grok", "prompt_tokens": 14, "completion_tokens": 1083, "total_tokens": 1097, "cost_usd": 0.002194, "latency": 14.043415069580078, "success": true, "error": null}
+[2025-06-19 14:49:13,305] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 1097, Cost: $0.0022, Latency: 14.04s
+[2025-06-19 14:49:13,305] [token-usage] INFO: [P20P7S2T2] Grok response generated - 14.04s, 1097 tokens
+[2025-06-19 14:49:13,305] [token-usage] INFO: [P20P8S1T1] Evaluating openai response for explanation task
+[2025-06-19 14:49:13,305] [token-usage] INFO: [P20P8S1T1] openai evaluation complete - Score: 0.602
+[2025-06-19 14:49:13,305] [token-usage] INFO: [P20P8S1T1] Evaluating grok response for explanation task
+[2025-06-19 14:49:13,312] [token-usage] INFO: [P20P8S1T1] grok evaluation complete - Score: 0.586
+[2025-06-19 14:49:13,313] [token-usage] INFO: [P20P8S1T1] Comparison result stored
+[2025-06-19 14:49:13,313] [token-usage] INFO: [P20P8S1T1] Comparison complete - Winner: openai (confidence: 0.03)
+[2025-06-19 14:49:13,313] [token-usage] INFO: [P20P8S1T1] Winner: openai (confidence: 0.03)
+[2025-06-19 14:49:13,313] [token-usage] INFO: [P20P8S1T1] Testing: code_review
+[2025-06-19 14:49:13,314] [token-usage] INFO: [P20P8S1T1] Starting side-by-side comparison for code_review task
+[2025-06-19 14:49:20,174] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:49:20.175314", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 18, "completion_tokens": 340, "total_tokens": 358, "cost_usd": 0.00358, "latency": 6.861199855804443, "success": true, "error": null}
+[2025-06-19 14:49:20,175] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 358, Cost: $0.0036, Latency: 6.86s
+[2025-06-19 14:49:20,175] [token-usage] INFO: [P20P7S2T1] OpenAI response generated - 6.86s, 358 tokens
+[2025-06-19 14:49:28,300] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:49:28.302122", "model": "grok-3", "provider": "grok", "prompt_tokens": 17, "completion_tokens": 511, "total_tokens": 528, "cost_usd": 0.001056, "latency": 8.126365900039673, "success": true, "error": null}
+[2025-06-19 14:49:28,302] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 528, Cost: $0.0011, Latency: 8.13s
+[2025-06-19 14:49:28,302] [token-usage] INFO: [P20P7S2T2] Grok response generated - 8.13s, 528 tokens
+[2025-06-19 14:49:28,302] [token-usage] INFO: [P20P8S1T1] Evaluating openai response for code_review task
+[2025-06-19 14:49:28,302] [token-usage] INFO: [P20P8S1T1] openai evaluation complete - Score: 0.759
+[2025-06-19 14:49:28,302] [token-usage] INFO: [P20P8S1T1] Evaluating grok response for code_review task
+[2025-06-19 14:49:28,303] [token-usage] INFO: [P20P8S1T1] grok evaluation complete - Score: 0.678
+[2025-06-19 14:49:28,303] [token-usage] INFO: [P20P8S1T1] Comparison result stored
+[2025-06-19 14:49:28,303] [token-usage] INFO: [P20P8S1T1] Comparison complete - Winner: openai (confidence: 0.11)
+[2025-06-19 14:49:28,304] [token-usage] INFO: [P20P8S1T1] Winner: openai (confidence: 0.11)
+[2025-06-19 14:49:28,304] [token-usage] INFO: [P20P8S1T1] Testing: analysis
+[2025-06-19 14:49:28,304] [token-usage] INFO: [P20P8S1T1] Starting side-by-side comparison for analysis task
+[2025-06-19 14:49:36,963] [token-usage] INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:49:37.097484", "model": "gpt-4o", "provider": "openai", "prompt_tokens": 14, "completion_tokens": 710, "total_tokens": 724, "cost_usd": 0.00724, "latency": 8.792998313903809, "success": true, "error": null}
+[2025-06-19 14:49:37,097] [token-usage] INFO: Token usage logged - Model: gpt-4o, Tokens: 724, Cost: $0.0072, Latency: 8.79s
+[2025-06-19 14:49:37,097] [token-usage] INFO: [P20P7S2T1] OpenAI response generated - 8.79s, 724 tokens
+[2025-06-19 14:49:54,682] [token-usage] INFO: HTTP Request: POST https://api.x.ai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2025-06-19T14:49:54.700196", "model": "grok-3", "provider": "grok", "prompt_tokens": 13, "completion_tokens": 1475, "total_tokens": 1488, "cost_usd": 0.002976, "latency": 17.602195978164673, "success": true, "error": null}
+[2025-06-19 14:49:54,700] [token-usage] INFO: Token usage logged - Model: grok-3, Tokens: 1488, Cost: $0.0030, Latency: 17.60s
+[2025-06-19 14:49:54,700] [token-usage] INFO: [P20P7S2T2] Grok response generated - 17.60s, 1488 tokens
+[2025-06-19 14:49:54,700] [token-usage] INFO: [P20P8S1T1] Evaluating openai response for analysis task
+[2025-06-19 14:49:54,700] [token-usage] INFO: [P20P8S1T1] openai evaluation complete - Score: 0.666
+[2025-06-19 14:49:54,700] [token-usage] INFO: [P20P8S1T1] Evaluating grok response for analysis task
+[2025-06-19 14:49:54,702] [token-usage] INFO: [P20P8S1T1] grok evaluation complete - Score: 0.588
+[2025-06-19 14:49:54,720] [token-usage] INFO: [P20P8S1T1] Comparison result stored
+[2025-06-19 14:49:54,720] [token-usage] INFO: [P20P8S1T1] Comparison complete - Winner: openai (confidence: 0.12)
+[2025-06-19 14:49:54,720] [token-usage] INFO: [P20P8S1T1] Winner: openai (confidence: 0.12)
+[2025-06-19 14:49:54,747] [token-usage] INFO: [P20P8S1T1] Evaluation summary: {'total_comparisons': 3, 'openai_wins': 3, 'grok_wins': 0, 'ties': 0, 'avg_confidence': 0.08302530079482387, 'recent_comparisons': [{'timestamp': '2025-06-19T21:49:13.312945+00:00', 'prompt': 'Explain the benefits of using multiple AI providers', 'task_type': 'explanation', 'winner': 'openai', 'confidence': 0.02619344126193439, 'comparison_notes': 'openai was 2.4s faster; openai slightly outperformed the other', 'openai_evaluation': {'provider': 'openai', 'response_time': 11.658485889434814, 'token_count': 510, 'cost': 0.0051, 'relevance_score': 0.875, 'comprehensiveness_score': 1.0, 'accuracy_score': 0.7, 'reliability_score': 0.7000000000000001, 'overall_score': 0.60225, 'evaluation_notes': 'High relevance to prompt; Comprehensive response; Slow response time'}, 'grok_evaluation': {'provider': 'grok', 'response_time': 14.043415069580078, 'token_count': 1097, 'cost': 0.005485, 'relevance_score': 0.875, 'comprehensiveness_score': 1.0, 'accuracy_score': 0.7, 'reliability_score': 0.6500000000000001, 'overall_score': 0.586475, 'evaluation_notes': 'High relevance to prompt; Comprehensive response; Reliability concerns; Slow response time'}}, {'timestamp': '2025-06-19T21:49:28.303607+00:00', 'prompt': "Review this code: def hello(): print('world')", 'task_type': 'code_review', 'winner': 'openai', 'confidence': 0.10697653538801621, 'comparison_notes': 'openai slightly outperformed the other', 'openai_evaluation': {'provider': 'openai', 'response_time': 6.861199855804443, 'token_count': 358, 'cost': 0.00358, 'relevance_score': 1.0, 'comprehensiveness_score': 1.0, 'accuracy_score': 0.7, 'reliability_score': 0.9, 'overall_score': 0.7590760028839111, 'evaluation_notes': 'High relevance to prompt; Comprehensive response; Slow response time'}, 'grok_evaluation': {'provider': 'grok', 'response_time': 8.126365900039673, 'token_count': 528, 'cost': 0.00264, 'relevance_score': 1.0, 'comprehensiveness_score': 1.0, 'accuracy_score': 0.7, 'reliability_score': 0.55, 'overall_score': 0.6778726819992065, 'evaluation_notes': 'High relevance to prompt; Comprehensive response; Reliability concerns; Slow response time'}}, {'timestamp': '2025-06-19T21:49:54.702109+00:00', 'prompt': 'Analyze the performance implications of this algorithm', 'task_type': 'analysis', 'winner': 'openai', 'confidence': 0.115905925734521, 'comparison_notes': 'openai was 8.8s faster; openai slightly outperformed the other', 'openai_evaluation': {'provider': 'openai', 'response_time': 8.792998313903809, 'token_count': 724, 'cost': 0.00724, 'relevance_score': 1.0, 'comprehensiveness_score': 1.0, 'accuracy_score': 0.7, 'reliability_score': 0.9, 'overall_score': 0.6655400337219238, 'evaluation_notes': 'High relevance to prompt; Comprehensive response; Slow response time'}, 'grok_evaluation': {'provider': 'grok', 'response_time': 17.602195978164673, 'token_count': 1488, 'cost': 0.00744, 'relevance_score': 1.0, 'comprehensiveness_score': 1.0, 'accuracy_score': 0.7, 'reliability_score': 0.6500000000000001, 'overall_score': 0.5883999999999999, 'evaluation_notes': 'High relevance to prompt; Comprehensive response; Reliability concerns; Slow response time'}}]}
+[2025-06-19 14:54:53,700] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:54:53,765] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:54:53,765] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:54:53,765] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:54:53,765] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:54:53,805] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:54:53,805] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:54:53,805] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:54:53,806] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:54:53,806] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:54:53,806] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:54:53,806] [token-usage] INFO: [P20P7S3T1] Health check thread started (interval: 60s)
+[2025-06-19 14:54:53,806] [token-usage] INFO: [P20P7S3T1] SmartRouter initialized with strategy: hybrid
+[2025-06-19 14:54:53,806] [token-usage] INFO: [P20P7S3T1] Weights - Cost: 0.4, Performance: 0.3, Availability: 0.3
+[2025-06-19 14:56:44,159] [token-usage] WARNING: Matplotlib is building the font cache; this may take a moment.
+[2025-06-19 14:57:08,665] [token-usage] INFO: Failed to extract font properties from /System/Library/Fonts/Apple Color Emoji.ttc: Could not set the fontsize (invalid pixel size; error code 0x17)
+[2025-06-19 14:57:10,323] [token-usage] INFO: Failed to extract font properties from /System/Library/Fonts/Supplemental/NISC18030.ttf: Could not set the fontsize (invalid pixel size; error code 0x17)
+[2025-06-19 14:57:10,324] [token-usage] INFO: Failed to extract font properties from /System/Library/Fonts/LastResort.otf: tuple indices must be integers or slices, not str
+[2025-06-19 14:57:11,660] [token-usage] INFO: generated new fontManager
+[2025-06-19 14:57:12,049] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 14:57:12,115] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 14:57:12,117] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 14:57:12,117] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000
+[2025-06-19 14:57:12,117] [token-usage] INFO: [P20P7S2T2] Using API key from environment variable
+[2025-06-19 14:57:12,176] [token-usage] INFO: [P20P7S2T2] Using model from environment: grok-3
+[2025-06-19 14:57:12,176] [token-usage] INFO: [P20P7S2T2] GrokClient initialized with model: grok-3
+[2025-06-19 14:57:12,176] [token-usage] INFO: [P20P7S2T2] Project: gbtestgrok, Max tokens: 4000
+[2025-06-19 14:57:12,176] [token-usage] INFO: [P20P7S2T2] Reasoning effort: high
+[2025-06-19 14:57:12,176] [token-usage] WARNING: [P20P7S2T2] Non-default model selected: grok-3
+[2025-06-19 14:57:12,176] [token-usage] INFO: [P20P7S2T2] Consider using 'grok-3-mini' for optimal cost/performance balance
+[2025-06-19 14:57:12,176] [token-usage] INFO: [P20P8S1T1] MetaEvaluator initialized with weights: {'latency': 0.2, 'cost': 0.15, 'relevance': 0.25, 'reliability': 0.2, 'comprehensiveness': 0.1, 'accuracy': 0.1}
+[2025-06-19 15:01:59,076] [token-usage] INFO: [P20P7S2T1] Using API key from environment variable
+[2025-06-19 15:01:59,148] [token-usage] INFO: [P20P7S2T1] Using model from environment: gpt-4o
+[2025-06-19 15:01:59,148] [token-usage] INFO: [P20P7S2T1] OpenAIClient initialized with model: gpt-4o
+[2025-06-19 15:01:59,148] [token-usage] INFO: [P20P7S2T1] Project: gbtest, Max tokens: 4000

@@ -1,0 +1,39 @@
+[
+  {
+    "node_id": "node_1_20250619_164023",
+    "agent_id": "openai_gpt4o",
+    "task_context": "code_review",
+    "result": {
+      "summary": "No issues found."
+    },
+    "timestamp": "2025-06-19T23:40:23.155249+00:00",
+    "metadata": {},
+    "links": [
+      "node_2_20250619_164023"
+    ]
+  },
+  {
+    "node_id": "node_2_20250619_164023",
+    "agent_id": "cursor_assistant",
+    "task_context": "code_review",
+    "result": {
+      "summary": "Refactor suggested."
+    },
+    "timestamp": "2025-06-19T23:40:23.155515+00:00",
+    "metadata": {},
+    "links": [
+      "node_1_20250619_164023"
+    ]
+  },
+  {
+    "node_id": "node_3_20250619_164023",
+    "agent_id": "grok_3",
+    "task_context": "analysis",
+    "result": {
+      "insight": "Potential optimization."
+    },
+    "timestamp": "2025-06-19T23:40:23.155526+00:00",
+    "metadata": {},
+    "links": []
+  }
+]

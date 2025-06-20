@@ -1,0 +1,10 @@
+{
+  "default_strategy": "majority_vote",
+  "fallback_strategy": "confidence_weight",
+  "timeout_ms": 30000,
+  "max_retries": 3,
+  "logging": {
+    "enabled": true,
+    "level": "INFO"
+  }
+}

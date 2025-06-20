@@ -1,0 +1,40 @@
+
+{
+  "timestamp": "2025-06-19T16:27:35.500883+00:00",
+  "translation_id": "trans_1750350455",
+  "original_event_id": "gh_pr_12345_20250111_001",
+  "source": "github",
+  "event_type": "pull_request",
+  "gpt_model": "gpt-4o",
+  "gpt_response_time": 2.5,
+  "cursor_file_path": "cursor_workspace/gh_pr_12345_20250111_001_20250619_092735.suggestion.md",
+  "cursor_file_type": "suggestion",
+  "confidence": "medium",
+  "content_preview": "This is a sample GPT-4o response for testing the translator. It contains suggestions for improving code quality and security."
+}
+
+{
+  "timestamp": "2025-06-19T16:28:26.519209+00:00",
+  "translation_id": "trans_1750350506",
+  "original_event_id": "gh_pr_12345_20250111_001",
+  "source": "github",
+  "event_type": "pull_request",
+  "gpt_model": "gpt-4o",
+  "gpt_response_time": 3.2,
+  "cursor_file_path": "cursor_workspace/gh_pr_12345_20250111_001_20250619_092826.suggestion.md",
+  "cursor_file_type": "suggestion",
+  "confidence": "medium",
+  "content_preview": "This pull request looks good overall, but I have a few suggestions for improvement:\n\n**Security Considerations:**\n1. Add input validation to the JWT token handler\n2. Implement proper token expiration ..."
+}
+
+{
+  "timestamp": "2025-06-19T16:28:26.519470+00:00",
+  "event_type": "integration_success",
+  "original_event_id": "gh_pr_12345_20250111_001",
+  "source": "github",
+  "gpt_model": "gpt-4o",
+  "gpt_response_time": 3.2,
+  "cursor_file_path": "cursor_workspace/gh_pr_12345_20250111_001_20250619_092826.suggestion.md",
+  "cursor_file_type": "suggestion",
+  "confidence": "medium"
+}

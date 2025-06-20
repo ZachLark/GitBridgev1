@@ -1,0 +1,2 @@
+[console_scripts]
+gitbridge-trust = trust_graph:main

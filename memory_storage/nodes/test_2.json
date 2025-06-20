@@ -1,0 +1,16 @@
+{
+  "node_id": "test_2",
+  "agent_id": "grok_3",
+  "task_context": "review",
+  "result": {
+    "confidence": 0.8,
+    "content": "Test review"
+  },
+  "timestamp": "2025-06-19T22:40:22.419019+00:00",
+  "metadata": {
+    "type": "review",
+    "priority": "medium"
+  },
+  "links": [],
+  "persistence_hash": "29588705e5bfda87"
+}
