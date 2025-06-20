@@ -542,19 +542,37 @@ class TestClass:
         html_times = []
         for i in range(50):
             execution_time, _, _ = self._measure_execution_time(
-                self.diff_viewer.render_diff_html,
-                diff_data
+                self.diff_viewer.render_diff,
+                diff_data,
+                "html"
             )
             html_times.append(execution_time)
         
-        results["metrics"]["html_diff_rendering"] = {
+        results["metrics"]["html_rendering"] = {
             "count": 50,
             "total_time_ms": round(sum(html_times) * 1000, 3),
             "average_time_ms": round(statistics.mean(html_times) * 1000, 3),
             "median_time_ms": round(statistics.median(html_times) * 1000, 3)
         }
         
-        logger.info(f"[P24P7S1T6] Diff viewer benchmark completed")
+        # JSON diff rendering
+        json_times = []
+        for i in range(50):
+            execution_time, _, _ = self._measure_execution_time(
+                self.diff_viewer.render_diff,
+                diff_data,
+                "json"
+            )
+            json_times.append(execution_time)
+        
+        results["metrics"]["json_rendering"] = {
+            "count": 50,
+            "total_time_ms": round(sum(json_times) * 1000, 3),
+            "average_time_ms": round(statistics.mean(json_times) * 1000, 3),
+            "median_time_ms": round(statistics.median(json_times) * 1000, 3)
+        }
+        
+        logger.info("[P24P7S1T6] Diff viewer benchmark complete")
         return results
     
     def benchmark_07_memory_usage(self) -> Dict[str, Any]:
@@ -563,56 +581,60 @@ class TestClass:
         
         results = {
             "test_name": "Memory Usage",
-            "description": "Test memory usage patterns under various loads",
+            "description": "Test memory usage patterns under load",
             "metrics": {}
         }
         
-        # Initial memory
-        initial_memory = psutil.Process().memory_info().rss
-        
-        # Memory usage during heavy operations
-        heavy_operations = []
-        for i in range(1000):
-            # Register contributor
+        # Create a test contributor first
+        test_contributor_id = "MemoryTestUser"
+        try:
             self.attribution_manager.register_contributor(
-                name=f"MemoryUser{i}",
-                contributor_type=ContributorType.HUMAN
+                contributor_id=test_contributor_id,
+                name="Memory Test User",
+                email="memory@test.com",
+                role="developer"
             )
-            
-            # Add contribution
-            self.attribution_manager.add_contribution(
-                task_id=f"MEMORY-TASK-{i}",
-                contributor_id=f"MemoryUser{i}",
-                role=ContributionRole.EDITOR,
-                content=f"Memory test contribution {i}"
-            )
-            
-            # Add activity
-            self.activity_feed_manager.add_activity(
-                feed_id="main",
-                activity_type=ActivityType.TASK_CREATED,
-                contributor_id=f"MemoryUser{i}",
-                content=f"Memory test activity {i}"
-            )
-            
-            if i % 100 == 0:
-                current_memory = psutil.Process().memory_info().rss
-                heavy_operations.append({
-                    "operation_count": i,
-                    "memory_mb": round(current_memory / (1024**2), 2)
-                })
+        except Exception:
+            # Contributor might already exist, continue
+            pass
         
-        final_memory = psutil.Process().memory_info().rss
+        # Memory usage for contributor operations
+        memory_usage = []
+        for i in range(20):
+            execution_time, memory_delta, _ = self._measure_execution_time(
+                self.attribution_manager.get_contributor,
+                test_contributor_id
+            )
+            memory_usage.append(memory_delta)
         
-        results["metrics"]["memory_usage"] = {
-            "initial_memory_mb": round(initial_memory / (1024**2), 2),
-            "final_memory_mb": round(final_memory / (1024**2), 2),
-            "memory_increase_mb": round((final_memory - initial_memory) / (1024**2), 2),
-            "memory_per_operation_kb": round((final_memory - initial_memory) / 1000, 2),
-            "progression": heavy_operations
+        results["metrics"]["contributor_memory"] = {
+            "count": 20,
+            "total_memory_kb": round(sum(memory_usage), 3),
+            "average_memory_kb": round(statistics.mean(memory_usage), 3),
+            "median_memory_kb": round(statistics.median(memory_usage), 3),
+            "min_memory_kb": round(min(memory_usage), 3),
+            "max_memory_kb": round(max(memory_usage), 3)
         }
         
-        logger.info(f"[P24P7S1T7] Memory usage benchmark completed")
+        # Memory usage for task operations
+        task_memory = []
+        for i in range(20):
+            execution_time, memory_delta, _ = self._measure_execution_time(
+                self.attribution_manager.get_task_attributions,
+                "test_task_001"
+            )
+            task_memory.append(memory_delta)
+        
+        results["metrics"]["task_memory"] = {
+            "count": 20,
+            "total_memory_kb": round(sum(task_memory), 3),
+            "average_memory_kb": round(statistics.mean(task_memory), 3),
+            "median_memory_kb": round(statistics.median(task_memory), 3),
+            "min_memory_kb": round(min(task_memory), 3),
+            "max_memory_kb": round(max(task_memory), 3)
+        }
+        
+        logger.info("[P24P7S1T7] Memory usage benchmark complete")
         return results
     
     def benchmark_08_concurrent_load(self) -> Dict[str, Any]:

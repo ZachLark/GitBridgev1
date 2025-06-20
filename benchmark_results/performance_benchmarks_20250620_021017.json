@@ -1,0 +1,197 @@
+{
+  "timestamp": "2025-06-20T09:10:01.285089+00:00",
+  "phase": "GBP24",
+  "benchmark_suite": "Phase 24 Performance Benchmarks",
+  "system_info": {
+    "cpu_count": 8,
+    "memory_total_gb": 16.0,
+    "memory_available_gb": 5.41,
+    "python_version": "3.13.3 (v3.13.3:6280bb54784, Apr  8 2025, 10:47:54) [Clang 15.0.0 (clang-1500.3.9.4)]",
+    "platform": "darwin"
+  },
+  "tests": {
+    "benchmark_01": {
+      "test_name": "Contributor Registration",
+      "description": "Test performance of contributor registration with various loads",
+      "metrics": {
+        "single_registration": {
+          "execution_time_ms": 21.42,
+          "memory_delta_kb": 172.0
+        },
+        "batch_registration": {
+          "count": 100,
+          "total_time_ms": 2033.841,
+          "average_time_ms": 20.338,
+          "median_time_ms": 20.184,
+          "min_time_ms": 17.851,
+          "max_time_ms": 28.945,
+          "total_memory_kb": 1108.0,
+          "average_memory_kb": 11.08
+        },
+        "concurrent_registration": {
+          "threads": 10,
+          "total_time_ms": 1134.8,
+          "average_time_ms": 113.48,
+          "median_time_ms": 104.766,
+          "min_time_ms": 67.127,
+          "max_time_ms": 158.961
+        }
+      }
+    },
+    "benchmark_02": {
+      "test_name": "Task Attribution",
+      "description": "Test performance of task attribution operations",
+      "metrics": {
+        "single_attribution": {
+          "execution_time_ms": 23.628,
+          "memory_delta_kb": 0.0
+        },
+        "multi_attribution": {
+          "count": 20,
+          "total_time_ms": 466.31,
+          "average_time_ms": 23.315,
+          "median_time_ms": 23.42
+        },
+        "attribution_retrieval": {
+          "count": 100,
+          "total_time_ms": 1.973,
+          "average_time_ms": 0.02,
+          "median_time_ms": 0.019,
+          "min_time_ms": 0.018,
+          "max_time_ms": 0.052
+        }
+      }
+    },
+    "benchmark_03": {
+      "test_name": "Changelog Management",
+      "description": "Test performance of changelog creation and revision management",
+      "metrics": {
+        "changelog_creation": {
+          "count": 50,
+          "total_time_ms": 1.137,
+          "average_time_ms": 0.023,
+          "median_time_ms": 0.019
+        },
+        "revision_addition": {
+          "count": 100,
+          "total_time_ms": 1964.301,
+          "average_time_ms": 19.643,
+          "median_time_ms": 17.578
+        },
+        "changelog_retrieval": {
+          "count": 100,
+          "total_time_ms": 1.942,
+          "average_time_ms": 0.019,
+          "median_time_ms": 0.019
+        }
+      }
+    },
+    "benchmark_04": {
+      "test_name": "Activity Feed",
+      "description": "Test performance of activity feed operations",
+      "metrics": {
+        "activity_addition": {
+          "count": 200,
+          "total_time_ms": 4297.886,
+          "average_time_ms": 21.489,
+          "median_time_ms": 21.294
+        },
+        "feed_retrieval": {
+          "count": 50,
+          "total_time_ms": 2.943,
+          "average_time_ms": 0.059,
+          "median_time_ms": 0.055
+        },
+        "concurrent_activity": {
+          "threads": 20,
+          "total_time_ms": 6510.81,
+          "average_time_ms": 325.541,
+          "median_time_ms": 359.256
+        }
+      }
+    },
+    "benchmark_05": {
+      "test_name": "Task Card Rendering",
+      "description": "Test performance of task card rendering in different formats",
+      "metrics": {
+        "html_rendering": {
+          "count": 100,
+          "total_time_ms": 3.358,
+          "average_time_ms": 0.034,
+          "median_time_ms": 0.031
+        },
+        "json_rendering": {
+          "count": 100,
+          "total_time_ms": 4.737,
+          "average_time_ms": 0.047,
+          "median_time_ms": 0.033
+        },
+        "markdown_rendering": {
+          "count": 100,
+          "total_time_ms": 3.197,
+          "average_time_ms": 0.032,
+          "median_time_ms": 0.03
+        }
+      }
+    },
+    "benchmark_06": {
+      "test_name": "Diff Viewer",
+      "description": "Test performance of diff generation and rendering",
+      "metrics": {
+        "diff_generation": {
+          "count": 50,
+          "total_time_ms": 4.431,
+          "average_time_ms": 0.089,
+          "median_time_ms": 0.082
+        },
+        "html_rendering": {
+          "count": 50,
+          "total_time_ms": 3.377,
+          "average_time_ms": 0.068,
+          "median_time_ms": 0.047
+        },
+        "json_rendering": {
+          "count": 50,
+          "total_time_ms": 2.628,
+          "average_time_ms": 0.053,
+          "median_time_ms": 0.049
+        }
+      }
+    },
+    "benchmark_07": {
+      "error": "'AttributionManager' object has no attribute 'get_contributor'",
+      "test_name": "benchmark_07_memory_usage"
+    },
+    "benchmark_08": {
+      "test_name": "Concurrent Load",
+      "description": "Test system performance under concurrent load",
+      "metrics": {
+        "concurrent_mixed_operations": {
+          "threads": 50,
+          "total_time_ms": 158097.782,
+          "average_time_ms": 3161.956,
+          "median_time_ms": 3309.385,
+          "min_time_ms": 1144.605,
+          "max_time_ms": 3835.223
+        }
+      }
+    }
+  },
+  "summary": {
+    "total_tests": 8,
+    "successful_tests": 7,
+    "failed_tests": 1,
+    "total_execution_time_ms": 174580.50100000002,
+    "average_execution_time_ms": 24940.072,
+    "performance_score": 40
+  },
+  "recommendations": [
+    "Consider implementing batch contributor registration API to reduce average registration time (currently 20.34ms)",
+    "Implement Redis caching for frequently accessed data",
+    "Consider database indexing for task_id and contributor_id fields",
+    "Implement connection pooling for database operations",
+    "Add monitoring and alerting for performance metrics",
+    "Consider implementing rate limiting for API endpoints",
+    "Optimize JSON serialization for large datasets"
+  ]
+}
