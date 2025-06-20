@@ -1,12 +1,12 @@
 {
-  "demo_timestamp": "2025-06-20T01:43:46.526342",
+  "demo_timestamp": "2025-06-20T02:16:46.873801",
   "phase": "Phase 24 - Collaboration & Task Attribution",
   "status": "completed",
   "summary": {
-    "contributors_registered": 30,
-    "tasks_with_attributions": 3,
-    "changelog_revisions": 24,
-    "total_activities": 132,
+    "contributors_registered": 558,
+    "tasks_with_attributions": 105,
+    "changelog_revisions": 228,
+    "total_activities": 694,
     "files_processed": 2
   },
   "components_tested": [

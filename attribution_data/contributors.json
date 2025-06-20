@@ -5029,5 +5029,59 @@
     "email": null,
     "metadata": {},
     "created_at": "2025-06-20 09:10:14.256604+00:00"
+  },
+  {
+    "contributor_id": "6b3251949f7b0e98",
+    "name": "Alice Developer",
+    "contributor_type": "human",
+    "avatar_url": "https://example.com/alice.jpg",
+    "email": "alice@example.com",
+    "metadata": {},
+    "created_at": "2025-06-20 09:16:45.658546+00:00"
+  },
+  {
+    "contributor_id": "b0d02ef58310a399",
+    "name": "Bob CodeReviewer",
+    "contributor_type": "human",
+    "avatar_url": "https://example.com/bob.jpg",
+    "email": "bob@example.com",
+    "metadata": {},
+    "created_at": "2025-06-20 09:16:45.716909+00:00"
+  },
+  {
+    "contributor_id": "479f690a81f89132",
+    "name": "AI Assistant GPT-4",
+    "contributor_type": "ai",
+    "avatar_url": "https://example.com/ai-assistant.jpg",
+    "email": null,
+    "metadata": {
+      "model": "gpt-4",
+      "version": "1.0"
+    },
+    "created_at": "2025-06-20 09:16:45.776815+00:00"
+  },
+  {
+    "contributor_id": "c1741d9256a75ef3",
+    "name": "Code Generator Bot",
+    "contributor_type": "ai",
+    "avatar_url": "https://example.com/code-bot.jpg",
+    "email": null,
+    "metadata": {
+      "model": "claude-3",
+      "version": "2.1"
+    },
+    "created_at": "2025-06-20 09:16:45.836104+00:00"
+  },
+  {
+    "contributor_id": "2c9f3aa69a8d87bc",
+    "name": "System Monitor",
+    "contributor_type": "system",
+    "avatar_url": null,
+    "email": null,
+    "metadata": {
+      "component": "monitoring",
+      "version": "1.0"
+    },
+    "created_at": "2025-06-20 09:16:45.892737+00:00"
   }
 ]

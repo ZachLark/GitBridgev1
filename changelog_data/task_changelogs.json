@@ -313,11 +313,63 @@
         },
         "metadata": {},
         "timestamp": "2025-06-20 08:43:46.451012+00:00"
+      },
+      {
+        "revision_id": "e37d3e96-c29f-467a-bddc-5a0ce30a915d",
+        "task_id": "TASK-001",
+        "contributor_id": "6b3251949f7b0e98",
+        "revision_number": 13,
+        "description": "Initial implementation with basic logging",
+        "changes": [
+          {
+            "change_id": "3515e63e-f07b-4726-9b0b-2c2f4dbf407f",
+            "file_path": "main.py",
+            "change_type": "modified",
+            "old_content": "#!/usr/bin/env python3\n\"\"\"\nGitBridge Main Application\nSimple example application.\n\"\"\"\n\ndef main():\n    print(\"Hello, GitBridge!\")\n    return 0\n\nif __name__ == \"__main__\":\n    main()\n",
+            "new_content": "#!/usr/bin/env python3\n\"\"\"\nGitBridge Main Application\nEnhanced example application with logging.\n\"\"\"\n\nimport logging\n\ndef main():\n    logging.basicConfig(level=logging.INFO)\n    logger = logging.getLogger(__name__)\n    \n    logger.info(\"Starting GitBridge application\")\n    print(\"Hello, GitBridge!\")\n    logger.info(\"Application completed successfully\")\n    return 0\n\nif __name__ == \"__main__\":\n    main()\n",
+            "diff": "--- a/main.py\n+++ b/main.py\n@@ -1,11 +1,18 @@\n #!/usr/bin/env python3\n\n \"\"\"\n\n GitBridge Main Application\n\n-Simple example application.\n\n+Enhanced example application with logging.\n\n \"\"\"\n\n \n\n+import logging\n\n+\n\n def main():\n\n+    logging.basicConfig(level=logging.INFO)\n\n+    logger = logging.getLogger(__name__)\n\n+    \n\n+    logger.info(\"Starting GitBridge application\")\n\n     print(\"Hello, GitBridge!\")\n\n+    logger.info(\"Application completed successfully\")\n\n     return 0\n\n \n\n if __name__ == \"__main__\":\n",
+            "metadata": {},
+            "timestamp": "2025-06-20 09:16:46.469807+00:00"
+          }
+        ],
+        "confidence_score": 0.9,
+        "token_usage": {
+          "input": 150,
+          "output": 300
+        },
+        "metadata": {},
+        "timestamp": "2025-06-20 09:16:46.469812+00:00"
+      },
+      {
+        "revision_id": "b0214d7c-dcae-48ef-b150-e2f2ca354ac1",
+        "task_id": "TASK-001",
+        "contributor_id": "b0d02ef58310a399",
+        "revision_number": 14,
+        "description": "Enhanced logging with file output and proper setup",
+        "changes": [
+          {
+            "change_id": "6faf393e-4e86-4034-99e5-14443a33f0a9",
+            "file_path": "main.py",
+            "change_type": "modified",
+            "old_content": "#!/usr/bin/env python3\n\"\"\"\nGitBridge Main Application\nEnhanced example application with logging.\n\"\"\"\n\nimport logging\n\ndef main():\n    logging.basicConfig(level=logging.INFO)\n    logger = logging.getLogger(__name__)\n    \n    logger.info(\"Starting GitBridge application\")\n    print(\"Hello, GitBridge!\")\n    logger.info(\"Application completed successfully\")\n    return 0\n\nif __name__ == \"__main__\":\n    main()\n",
+            "new_content": "#!/usr/bin/env python3\n\"\"\"\nGitBridge Main Application\nProduction-ready example application.\n\"\"\"\n\nimport logging\nimport sys\nfrom pathlib import Path\n\ndef setup_logging():\n    \"\"\"Set up application logging.\"\"\"\n    log_dir = Path(\"logs\")\n    log_dir.mkdir(exist_ok=True)\n    \n    logging.basicConfig(\n        level=logging.INFO,\n        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',\n        handlers=[\n            logging.FileHandler(log_dir / \"app.log\"),\n            logging.StreamHandler(sys.stdout)\n        ]\n    )\n\ndef main():\n    \"\"\"Main application entry point.\"\"\"\n    setup_logging()\n    logger = logging.getLogger(__name__)\n    \n    logger.info(\"Starting GitBridge application\")\n    print(\"Hello, GitBridge!\")\n    logger.info(\"Application completed successfully\")\n    return 0\n\nif __name__ == \"__main__\":\n    main()\n",
+            "diff": "--- a/main.py\n+++ b/main.py\n@@ -1,13 +1,30 @@\n #!/usr/bin/env python3\n\n \"\"\"\n\n GitBridge Main Application\n\n-Enhanced example application with logging.\n\n+Production-ready example application.\n\n \"\"\"\n\n \n\n import logging\n\n+import sys\n\n+from pathlib import Path\n\n+\n\n+def setup_logging():\n\n+    \"\"\"Set up application logging.\"\"\"\n\n+    log_dir = Path(\"logs\")\n\n+    log_dir.mkdir(exist_ok=True)\n\n+    \n\n+    logging.basicConfig(\n\n+        level=logging.INFO,\n\n+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',\n\n+        handlers=[\n\n+            logging.FileHandler(log_dir / \"app.log\"),\n\n+            logging.StreamHandler(sys.stdout)\n\n+        ]\n\n+    )\n\n \n\n def main():\n\n-    logging.basicConfig(level=logging.INFO)\n\n+    \"\"\"Main application entry point.\"\"\"\n\n+    setup_logging()\n\n     logger = logging.getLogger(__name__)\n\n     \n\n     logger.info(\"Starting GitBridge application\")\n",
+            "metadata": {},
+            "timestamp": "2025-06-20 09:16:46.517739+00:00"
+          }
+        ],
+        "confidence_score": 0.9,
+        "token_usage": {
+          "input": 150,
+          "output": 300
+        },
+        "metadata": {},
+        "timestamp": "2025-06-20 09:16:46.517744+00:00"
       }
     ],
-    "current_revision": 12,
+    "current_revision": 14,
     "created_at": "2025-06-20 08:41:51.698462+00:00",
-    "updated_at": "2025-06-20 08:43:46.451014+00:00"
+    "updated_at": "2025-06-20 09:16:46.517746+00:00"
   },
   {
     "task_id": "TASK-002",
@@ -633,11 +685,63 @@
         },
         "metadata": {},
         "timestamp": "2025-06-20 08:43:46.472798+00:00"
+      },
+      {
+        "revision_id": "cf035161-0c9b-4bdb-a5ca-11cf4b18b3f6",
+        "task_id": "TASK-002",
+        "contributor_id": "479f690a81f89132",
+        "revision_number": 13,
+        "description": "Initial configuration structure",
+        "changes": [
+          {
+            "change_id": "89d9490f-d11a-4f77-8d30-29335237bc8e",
+            "file_path": "config.json",
+            "change_type": "modified",
+            "old_content": "{\n  \"app_name\": \"GitBridge\",\n  \"version\": \"1.0.0\"\n}",
+            "new_content": "{\n  \"app_name\": \"GitBridge\",\n  \"version\": \"1.1.0\",\n  \"features\": {\n    \"logging\": true,\n    \"debug\": false\n  }\n}",
+            "diff": "--- a/config.json\n+++ b/config.json\n@@ -1,4 +1,8 @@\n {\n\n   \"app_name\": \"GitBridge\",\n\n-  \"version\": \"1.0.0\"\n\n+  \"version\": \"1.1.0\",\n\n+  \"features\": {\n\n+    \"logging\": true,\n\n+    \"debug\": false\n\n+  }\n\n }",
+            "metadata": {},
+            "timestamp": "2025-06-20 09:16:46.565802+00:00"
+          }
+        ],
+        "confidence_score": 0.9,
+        "token_usage": {
+          "input": 150,
+          "output": 300
+        },
+        "metadata": {},
+        "timestamp": "2025-06-20 09:16:46.565807+00:00"
+      },
+      {
+        "revision_id": "81bb0e53-b540-4505-b038-c28a5876ec1f",
+        "task_id": "TASK-002",
+        "contributor_id": "c1741d9256a75ef3",
+        "revision_number": 14,
+        "description": "Enhanced configuration with database settings",
+        "changes": [
+          {
+            "change_id": "0fb159fb-42f9-47d0-ac76-a74abe8c0595",
+            "file_path": "config.json",
+            "change_type": "modified",
+            "old_content": "{\n  \"app_name\": \"GitBridge\",\n  \"version\": \"1.1.0\",\n  \"features\": {\n    \"logging\": true,\n    \"debug\": false\n  }\n}",
+            "new_content": "{\n  \"app_name\": \"GitBridge\",\n  \"version\": \"1.2.0\",\n  \"features\": {\n    \"logging\": true,\n    \"debug\": false,\n    \"monitoring\": true\n  },\n  \"database\": {\n    \"host\": \"localhost\",\n    \"port\": 5432\n  }\n}",
+            "diff": "--- a/config.json\n+++ b/config.json\n@@ -1,8 +1,13 @@\n {\n\n   \"app_name\": \"GitBridge\",\n\n-  \"version\": \"1.1.0\",\n\n+  \"version\": \"1.2.0\",\n\n   \"features\": {\n\n     \"logging\": true,\n\n-    \"debug\": false\n\n+    \"debug\": false,\n\n+    \"monitoring\": true\n\n+  },\n\n+  \"database\": {\n\n+    \"host\": \"localhost\",\n\n+    \"port\": 5432\n\n   }\n\n }",
+            "metadata": {},
+            "timestamp": "2025-06-20 09:16:46.614047+00:00"
+          }
+        ],
+        "confidence_score": 0.9,
+        "token_usage": {
+          "input": 150,
+          "output": 300
+        },
+        "metadata": {},
+        "timestamp": "2025-06-20 09:16:46.614064+00:00"
       }
     ],
-    "current_revision": 12,
+    "current_revision": 14,
     "created_at": "2025-06-20 08:41:51.735361+00:00",
-    "updated_at": "2025-06-20 08:43:46.472800+00:00"
+    "updated_at": "2025-06-20 09:16:46.614066+00:00"
   },
   {
     "task_id": "TASK-003",
