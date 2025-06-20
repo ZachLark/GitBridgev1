@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GitBridge Collaboration Dashboard - Real-time collaboration and attribution tracking">
     <title>GitBridge - Collaboration Dashboard</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #48bb78;
+            --warning-color: #ed8936;
+            --error-color: #e53e3e;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f7fafc;
+            --border-color: #e2e8f0;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 12px 40px rgba(0, 0, 0, 0.15);
+            --border-radius: 15px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #7c3aed;
+            --secondary-color: #8b5cf6;
+            --accent-color: #10b981;
+            --warning-color: #f59e0b;
+            --error-color: #ef4444;
+            --text-primary: #f7fafc;
+            --text-secondary: #a0aec0;
+            --bg-primary: #1a202c;
+            --bg-secondary: #2d3748;
+            --border-color: #4a5568;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,198 +46,500 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             min-height: 100vh;
-            color: #333;
+            color: var(--text-primary);
+            transition: var(--transition);
+            line-height: 1.6;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
         
         .header {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .header {
+            background: rgba(26, 32, 44, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .header h1 {
-            color: #4a5568;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-            font-weight: 300;
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
         }
         
-        .header p {
-            color: #718096;
-            font-size: 1.1em;
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .header-text h1 {
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 2.8em;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header-text p {
+            color: var(--text-secondary);
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+        
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .connection-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .connection-status.connected {
+            background: rgba(72, 187, 120, 0.1);
+            color: var(--accent-color);
+            border: 1px solid rgba(72, 187, 120, 0.3);
+        }
+        
+        .connection-status.disconnected {
+            background: rgba(229, 62, 62, 0.1);
+            color: var(--error-color);
+            border: 1px solid rgba(229, 62, 62, 0.3);
+        }
+        
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-online {
+            background-color: var(--accent-color);
+        }
+        
+        .status-offline {
+            background-color: var(--error-color);
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
         
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 35px;
         }
         
         .stat-card {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            padding: 30px;
             text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-medium);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .stat-card {
+            background: rgba(26, 32, 44, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         }
         
         .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .stat-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
         }
         
         .stat-number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #667eea;
+            font-size: 3em;
+            font-weight: 800;
+            color: var(--primary-color);
             margin-bottom: 10px;
+            font-variant-numeric: tabular-nums;
         }
         
         .stat-label {
-            color: #718096;
+            color: var(--text-secondary);
             font-size: 1.1em;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
         }
         
         .content-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 20px;
+            gap: 30px;
         }
         
-        .main-content {
+        .main-content, .sidebar {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
-        .sidebar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+        [data-theme="dark"] .main-content,
+        [data-theme="dark"] .sidebar {
+            background: rgba(26, 32, 44, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .section-title {
-            color: #4a5568;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-            font-weight: 600;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 10px;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            font-size: 1.6em;
+            font-weight: 700;
+            border-bottom: 3px solid var(--border-color);
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-title i {
+            color: var(--primary-color);
         }
         
         .activity-list {
-            max-height: 400px;
+            max-height: 500px;
             overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) var(--bg-secondary);
+        }
+        
+        .activity-list::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .activity-list::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+            border-radius: 4px;
+        }
+        
+        .activity-list::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
         }
         
         .activity-item {
-            padding: 15px;
-            border-bottom: 1px solid #e2e8f0;
-            transition: background-color 0.3s ease;
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+            border-radius: 8px;
+            margin-bottom: 8px;
         }
         
         .activity-item:hover {
-            background-color: #f7fafc;
+            background-color: var(--bg-secondary);
+            transform: translateX(5px);
         }
         
         .activity-item:last-child {
             border-bottom: none;
+            margin-bottom: 0;
         }
         
         .activity-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
         
         .activity-type {
-            background: #667eea;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 0.8em;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
         
         .activity-time {
-            color: #718096;
+            color: var(--text-secondary);
             font-size: 0.9em;
+            font-weight: 500;
         }
         
         .activity-content {
-            color: #4a5568;
-            line-height: 1.5;
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 1.05em;
         }
         
         .nav-links {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
         
         .nav-link {
-            display: block;
-            padding: 15px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
             text-decoration: none;
-            border-radius: 10px;
-            text-align: center;
+            border-radius: 12px;
             font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
         }
         
         .nav-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .nav-link i {
+            font-size: 1.2em;
+        }
+        
+        .quick-actions {
+            margin-top: 30px;
+        }
+        
+        .action-button {
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .action-button:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
         }
         
-        .status-indicator {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid white;
             border-radius: 50%;
-            margin-right: 10px;
+            animation: spin 1s linear infinite;
         }
         
-        .status-online {
-            background-color: #48bb78;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
-        .status-offline {
-            background-color: #e53e3e;
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 16px 24px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            z-index: 1000;
+            transform: translateX(400px);
+            transition: var(--transition);
         }
         
-        @media (max-width: 768px) {
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.success {
+            background: var(--accent-color);
+        }
+        
+        .notification.error {
+            background: var(--error-color);
+        }
+        
+        .notification.warning {
+            background: var(--warning-color);
+        }
+        
+        @media (max-width: 1024px) {
             .content-grid {
                 grid-template-columns: 1fr;
             }
             
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header-text h1 {
+                font-size: 2.2em;
+            }
+            
             .stats-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            .stat-card {
+                padding: 25px;
+            }
+            
+            .main-content, .sidebar {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-text h1 {
+                font-size: 1.8em;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Focus styles for keyboard navigation */
+        .nav-link:focus,
+        .action-button:focus,
+        .theme-toggle:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --border-color: #000000;
+                --text-secondary: #000000;
+            }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -212,26 +547,42 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>GitBridge Collaboration Dashboard</h1>
-            <p>Phase 24 - Real-time collaboration and attribution tracking</p>
-            <div class="status-indicator status-online"></div>
-            <span id="connection-status">Connected</span>
+            <div class="header-content">
+                <div class="header-text">
+                    <h1><i class="fas fa-code-branch"></i> GitBridge</h1>
+                    <p>Phase 24 - Real-time collaboration and attribution tracking</p>
+                </div>
+                <div class="header-controls">
+                    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                        <span id="theme-text">Dark Mode</span>
+                    </button>
+                    <div class="connection-status" id="connection-status">
+                        <div class="status-indicator status-online" id="status-indicator"></div>
+                        <span id="status-text">Connected</span>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <div class="stats-grid">
             <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
                 <div class="stat-number" id="total-contributors">{{ collaboration_stats.total_contributors if collaboration_stats else 0 }}</div>
                 <div class="stat-label">Total Contributors</div>
             </div>
             <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-tasks"></i></div>
                 <div class="stat-number" id="total-tasks">{{ collaboration_stats.total_tasks if collaboration_stats else 0 }}</div>
                 <div class="stat-label">Total Tasks</div>
             </div>
             <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-clock"></i></div>
                 <div class="stat-number" id="recent-activities">{{ collaboration_stats.recent_activities if collaboration_stats else 0 }}</div>
                 <div class="stat-label">Recent Activities</div>
             </div>
             <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-handshake"></i></div>
                 <div class="stat-number" id="active-collaborations">{{ collaboration_stats.active_collaborations if collaboration_stats else 0 }}</div>
                 <div class="stat-label">Active Collaborations</div>
             </div>
@@ -239,11 +590,14 @@
         
         <div class="content-grid">
             <div class="main-content">
-                <h2 class="section-title">Recent Activity Feed</h2>
-                <div class="activity-list" id="activity-feed">
+                <h2 class="section-title">
+                    <i class="fas fa-stream"></i>
+                    Recent Activity Feed
+                </h2>
+                <div class="activity-list" id="activity-feed" role="feed" aria-label="Activity feed">
                     {% if recent_activities %}
                         {% for activity in recent_activities %}
-                        <div class="activity-item">
+                        <div class="activity-item" role="article">
                             <div class="activity-header">
                                 <span class="activity-type">{{ activity.activity_type.value.replace('_', ' ').title() }}</span>
                                 <span class="activity-time">{{ activity.timestamp.strftime('%H:%M') }}</span>
@@ -260,39 +614,104 @@
             </div>
             
             <div class="sidebar">
-                <h2 class="section-title">Navigation</h2>
+                <h2 class="section-title">
+                    <i class="fas fa-compass"></i>
+                    Navigation
+                </h2>
                 <div class="nav-links">
-                    <a href="/attribution" class="nav-link">Attribution Overview</a>
-                    <a href="/changelog" class="nav-link">Changelog</a>
-                    <a href="/activity-feed" class="nav-link">Activity Feed</a>
-                    <a href="/diff" class="nav-link">Diff Viewer</a>
+                    <a href="/attribution" class="nav-link" aria-label="View attribution overview">
+                        <i class="fas fa-user-tag"></i>
+                        Attribution Overview
+                    </a>
+                    <a href="/changelog" class="nav-link" aria-label="View changelog">
+                        <i class="fas fa-history"></i>
+                        Changelog
+                    </a>
+                    <a href="/activity-feed" class="nav-link" aria-label="View activity feed">
+                        <i class="fas fa-rss"></i>
+                        Activity Feed
+                    </a>
+                    <a href="/diff" class="nav-link" aria-label="View diff viewer">
+                        <i class="fas fa-code"></i>
+                        Diff Viewer
+                    </a>
                 </div>
                 
-                <h2 class="section-title" style="margin-top: 30px;">Quick Actions</h2>
-                <div class="nav-links">
-                    <button class="nav-link" onclick="exportData('attribution')">Export Attribution</button>
-                    <button class="nav-link" onclick="exportData('changelog')">Export Changelog</button>
-                    <button class="nav-link" onclick="exportData('activity')">Export Activity</button>
+                <div class="quick-actions">
+                    <h2 class="section-title">
+                        <i class="fas fa-download"></i>
+                        Quick Actions
+                    </h2>
+                    <button class="action-button" onclick="exportData('attribution')" aria-label="Export attribution data">
+                        <i class="fas fa-file-export"></i>
+                        Export Attribution
+                        <div class="loading-spinner" id="attribution-spinner"></div>
+                    </button>
+                    <button class="action-button" onclick="exportData('changelog')" aria-label="Export changelog data">
+                        <i class="fas fa-file-export"></i>
+                        Export Changelog
+                        <div class="loading-spinner" id="changelog-spinner"></div>
+                    </button>
+                    <button class="action-button" onclick="exportData('activity')" aria-label="Export activity data">
+                        <i class="fas fa-file-export"></i>
+                        Export Activity
+                        <div class="loading-spinner" id="activity-spinner"></div>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
     
+    <div id="notification" class="notification" role="alert" aria-live="polite"></div>
+    
     <script>
+        // Theme management
+        let currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        updateThemeUI();
+        
+        function toggleTheme() {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            localStorage.setItem('theme', currentTheme);
+            updateThemeUI();
+        }
+        
+        function updateThemeUI() {
+            const icon = document.getElementById('theme-icon');
+            const text = document.getElementById('theme-text');
+            
+            if (currentTheme === 'dark') {
+                icon.className = 'fas fa-sun';
+                text.textContent = 'Light Mode';
+            } else {
+                icon.className = 'fas fa-moon';
+                text.textContent = 'Dark Mode';
+            }
+        }
+        
         // Initialize Socket.IO connection
         const socket = io();
         
         socket.on('connect', function() {
             console.log('Connected to server');
-            document.getElementById('connection-status').textContent = 'Connected';
-            document.querySelector('.status-indicator').className = 'status-indicator status-online';
+            updateConnectionStatus('Connected', 'connected');
         });
         
         socket.on('disconnect', function() {
             console.log('Disconnected from server');
-            document.getElementById('connection-status').textContent = 'Disconnected';
-            document.querySelector('.status-indicator').className = 'status-indicator status-offline';
+            updateConnectionStatus('Disconnected', 'disconnected');
         });
+        
+        function updateConnectionStatus(text, status) {
+            const statusElement = document.getElementById('status-text');
+            const indicator = document.getElementById('status-indicator');
+            const container = document.getElementById('connection-status');
+            
+            statusElement.textContent = text;
+            container.className = `connection-status ${status}`;
+            indicator.className = `status-indicator status-${status === 'connected' ? 'online' : 'offline'}`;
+        }
         
         // Subscribe to main activity feed
         socket.emit('subscribe_feed', {
@@ -302,18 +721,21 @@
         
         socket.on('subscribed_feed', function(data) {
             console.log('Subscribed to feed:', data);
+            showNotification('Successfully connected to activity feed', 'success');
         });
         
         // Handle real-time activity updates
         socket.on('activity_update', function(data) {
             console.log('New activity:', data);
             addActivityToFeed(data);
+            showNotification('New activity received', 'success');
         });
         
         function addActivityToFeed(activity) {
             const activityFeed = document.getElementById('activity-feed');
             const activityItem = document.createElement('div');
             activityItem.className = 'activity-item';
+            activityItem.setAttribute('role', 'article');
             
             const timestamp = new Date(activity.timestamp).toLocaleTimeString();
             const activityType = activity.activity_type.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
@@ -346,24 +768,58 @@
             recentActivitiesElement.textContent = currentCount + 1;
         }
         
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            
+            // Show notification
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
         function exportData(type) {
+            const spinner = document.getElementById(`${type}-spinner`);
+            spinner.style.display = 'inline-block';
+            
             fetch(`/api/mas/export/${type}`)
                 .then(response => response.json())
                 .then(data => {
+                    spinner.style.display = 'none';
                     if (data.status === 'exported') {
-                        alert(`${type.charAt(0).toUpperCase() + type.slice(1)} data exported successfully to ${data.output_path}`);
+                        showNotification(`${type.charAt(0).toUpperCase() + type.slice(1)} data exported successfully`, 'success');
                     } else {
-                        alert('Export failed: ' + data.error);
+                        showNotification('Export failed: ' + data.error, 'error');
                     }
                 })
                 .catch(error => {
+                    spinner.style.display = 'none';
                     console.error('Export error:', error);
-                    alert('Export failed: ' + error.message);
+                    showNotification('Export failed: ' + error.message, 'error');
                 });
         }
         
         // Auto-refresh stats every 30 seconds
         setInterval(updateStats, 30000);
+        
+        // Keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const notification = document.getElementById('notification');
+                notification.classList.remove('show');
+            }
+        });
+        
+        // Initialize with current theme
+        document.addEventListener('DOMContentLoaded', function() {
+            updateThemeUI();
+        });
     </script>
 </body>
 </html> 

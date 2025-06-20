@@ -3,8 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GitBridge Attribution Overview - Track contributor contributions and task attributions">
     <title>GitBridge - Attribution Overview</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #48bb78;
+            --warning-color: #ed8936;
+            --error-color: #e53e3e;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f7fafc;
+            --border-color: #e2e8f0;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 12px 40px rgba(0, 0, 0, 0.15);
+            --border-radius: 15px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #7c3aed;
+            --secondary-color: #8b5cf6;
+            --accent-color: #10b981;
+            --warning-color: #f59e0b;
+            --error-color: #ef4444;
+            --text-primary: #f7fafc;
+            --text-secondary: #a0aec0;
+            --bg-primary: #1a202c;
+            --bg-secondary: #2d3748;
+            --border-color: #4a5568;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,307 +46,654 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             min-height: 100vh;
-            color: #333;
+            color: var(--text-primary);
+            transition: var(--transition);
+            line-height: 1.6;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
         
         .header {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .header {
+            background: rgba(26, 32, 44, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .header h1 {
-            color: #4a5568;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-            font-weight: 300;
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
         }
         
-        .header p {
-            color: #718096;
-            font-size: 1.1em;
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        
-        .attribution-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 20px;
-        }
-        
-        .attribution-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .attribution-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .task-header {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e2e8f0;
+            flex-wrap: wrap;
+            gap: 20px;
         }
         
-        .task-title {
-            font-size: 1.3em;
-            font-weight: 600;
-            color: #4a5568;
+        .header-text h1 {
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 2.8em;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .task-id {
-            background: #667eea;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 8px;
-            font-size: 0.9em;
-            font-weight: 600;
+        .header-text p {
+            color: var(--text-secondary);
+            font-size: 1.2em;
+            font-weight: 500;
         }
         
-        .collaboration-score {
+        .header-controls {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            gap: 15px;
         }
         
-        .score-label {
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-weight: 600;
-            color: #4a5568;
-            margin-right: 10px;
+            color: var(--text-primary);
         }
         
-        .score-value {
-            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+        .theme-toggle:hover {
+            background: var(--primary-color);
             color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-weight: 600;
+            transform: translateY(-2px);
         }
         
-        .contributors-section {
-            margin-bottom: 20px;
+        .back-button {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        
+        .back-button:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .section-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .section-card {
+            background: rgba(26, 32, 44, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         }
         
         .section-title {
-            color: #4a5568;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-            font-weight: 600;
-        }
-        
-        .contributor-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .contributor-item {
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            font-size: 1.6em;
+            font-weight: 700;
+            border-bottom: 3px solid var(--border-color);
+            padding-bottom: 15px;
             display: flex;
             align-items: center;
-            padding: 10px;
-            background: #f7fafc;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
+            gap: 12px;
         }
         
-        .contributor-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #667eea;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .section-title i {
+            color: var(--primary-color);
+        }
+        
+        .contributor-list, .task-list {
+            max-height: 400px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) var(--bg-secondary);
+        }
+        
+        .contributor-list::-webkit-scrollbar,
+        .task-list::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .contributor-list::-webkit-scrollbar-track,
+        .task-list::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+            border-radius: 4px;
+        }
+        
+        .contributor-list::-webkit-scrollbar-thumb,
+        .task-list::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+        
+        .contributor-item, .task-item {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            background: var(--bg-secondary);
+        }
+        
+        .contributor-item:hover, .task-item:hover {
+            background-color: var(--primary-color);
             color: white;
-            font-weight: 600;
-            margin-right: 15px;
+            transform: translateX(5px);
         }
         
-        .contributor-info {
-            flex: 1;
+        .contributor-item:last-child, .task-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
         }
         
-        .contributor-name {
-            font-weight: 600;
-            color: #4a5568;
-            margin-bottom: 2px;
+        .contributor-header, .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
         }
         
-        .contributor-role {
-            font-size: 0.9em;
-            color: #718096;
+        .contributor-name, .task-title {
+            font-weight: 700;
+            font-size: 1.1em;
         }
         
-        .contributor-type {
-            background: #e2e8f0;
-            color: #4a5568;
-            padding: 2px 8px;
-            border-radius: 12px;
+        .contributor-type, .task-status {
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
             font-size: 0.8em;
-            font-weight: 600;
             text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
         
-        .contributions-section {
-            margin-top: 20px;
+        .contributor-details, .task-details {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+        
+        .contributor-stats, .task-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85em;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .stat-item i {
+            color: var(--primary-color);
+        }
+        
+        .full-width-section {
+            grid-column: 1 / -1;
+        }
+        
+        .attribution-details {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .attribution-details {
+            background: rgba(26, 32, 44, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .attribution-details::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
         }
         
         .contribution-item {
-            padding: 10px;
-            background: #f7fafc;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            border-left: 3px solid #48bb78;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            background: var(--bg-secondary);
+            transition: var(--transition);
+        }
+        
+        .contribution-item:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-light);
         }
         
         .contribution-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
         
         .contribution-role {
-            background: #48bb78;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 2px 8px;
-            border-radius: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
             font-size: 0.8em;
-            font-weight: 600;
             text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
         
         .contribution-time {
+            color: var(--text-secondary);
             font-size: 0.9em;
-            color: #718096;
+            font-weight: 500;
         }
         
         .contribution-content {
-            color: #4a5568;
-            line-height: 1.4;
-            font-size: 0.95em;
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 1.05em;
         }
         
-        .no-attribution {
+        .empty-state {
             text-align: center;
-            color: #718096;
-            font-style: italic;
             padding: 40px 20px;
+            color: var(--text-secondary);
         }
         
-        @media (max-width: 768px) {
-            .attribution-grid {
+        .empty-state i {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .empty-state h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 16px 24px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            z-index: 1000;
+            transform: translateX(400px);
+            transition: var(--transition);
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.success {
+            background: var(--accent-color);
+        }
+        
+        .notification.error {
+            background: var(--error-color);
+        }
+        
+        .notification.warning {
+            background: var(--warning-color);
+        }
+        
+        @media (max-width: 1024px) {
+            .content-grid {
                 grid-template-columns: 1fr;
             }
             
-            .task-header {
+            .header-content {
                 flex-direction: column;
-                align-items: flex-start;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header-text h1 {
+                font-size: 2.2em;
+            }
+            
+            .section-card {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-text h1 {
+                font-size: 1.8em;
+            }
+            
+            .header-controls {
+                flex-direction: column;
                 gap: 10px;
+            }
+            
+            .contributor-stats, .task-stats {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+        
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Focus styles for keyboard navigation */
+        .theme-toggle:focus,
+        .back-button:focus,
+        .contributor-item:focus,
+        .task-item:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --border-color: #000000;
+                --text-secondary: #000000;
+            }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="/" class="back-link">← Back to Dashboard</a>
-        
         <div class="header">
-            <h1>Attribution Overview</h1>
-            <p>Track contributions and collaboration across all tasks</p>
+            <div class="header-content">
+                <div class="header-text">
+                    <h1><i class="fas fa-user-tag"></i> Attribution Overview</h1>
+                    <p>Track contributor contributions and task attributions</p>
+                </div>
+                <div class="header-controls">
+                    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                        <span id="theme-text">Dark Mode</span>
+                    </button>
+                    <a href="/" class="back-button" aria-label="Back to dashboard">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Dashboard
+                    </a>
+                </div>
+            </div>
         </div>
         
-        <div class="attribution-grid">
-            {% if attributions %}
-                {% for attribution in attributions %}
-                <div class="attribution-card">
-                    <div class="task-header">
-                        <div class="task-title">{{ attribution.task_title or 'Unknown Task' }}</div>
-                        <div class="task-id">#{{ attribution.task_id }}</div>
-                    </div>
-                    
-                    <div class="collaboration-score">
-                        <span class="score-label">Collaboration Score:</span>
-                        <span class="score-value">{{ "%.1f"|format(attribution.collaboration_score) }}</span>
-                    </div>
-                    
-                    {% if attribution.contributors %}
-                    <div class="contributors-section">
-                        <h3 class="section-title">Contributors</h3>
-                        <div class="contributor-list">
-                            {% for contributor in attribution.contributors %}
-                            <div class="contributor-item">
-                                <div class="contributor-avatar">
-                                    {{ contributor.name[0].upper() if contributor.name else '?' }}
-                                </div>
-                                <div class="contributor-info">
-                                    <div class="contributor-name">{{ contributor.name }}</div>
-                                    <div class="contributor-role">{{ contributor.primary_role or 'Contributor' }}</div>
-                                </div>
-                                <div class="contributor-type">{{ contributor.type }}</div>
+        <div class="content-grid">
+            <div class="section-card">
+                <h2 class="section-title">
+                    <i class="fas fa-users"></i>
+                    Contributors
+                </h2>
+                <div class="contributor-list" role="list" aria-label="Contributors list">
+                    {% if contributors %}
+                        {% for contributor in contributors %}
+                        <div class="contributor-item" role="listitem" tabindex="0">
+                            <div class="contributor-header">
+                                <span class="contributor-name">{{ contributor.name }}</span>
+                                <span class="contributor-type">{{ contributor.contributor_type.value.title() }}</span>
                             </div>
-                            {% endfor %}
+                            <div class="contributor-details">
+                                ID: {{ contributor.contributor_id }}
+                            </div>
+                            <div class="contributor-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-tasks"></i>
+                                    <span>{{ contributor.contributions|length }} contributions</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>{{ contributor.registered_at.strftime('%Y-%m-%d') }}</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="empty-state">
+                            <i class="fas fa-users"></i>
+                            <h3>No Contributors</h3>
+                            <p>No contributors have been registered yet.</p>
+                        </div>
                     {% endif %}
-                    
-                    {% if attribution.recent_contributions %}
-                    <div class="contributions-section">
-                        <h3 class="section-title">Recent Contributions</h3>
-                        {% for contribution in attribution.recent_contributions[:3] %}
-                        <div class="contribution-item">
+                </div>
+            </div>
+            
+            <div class="section-card">
+                <h2 class="section-title">
+                    <i class="fas fa-tasks"></i>
+                    Tasks with Attributions
+                </h2>
+                <div class="task-list" role="list" aria-label="Tasks list">
+                    {% if task_attributions %}
+                        {% for task_id, attribution in task_attributions.items() %}
+                        <div class="task-item" role="listitem" tabindex="0">
+                            <div class="task-header">
+                                <span class="task-title">{{ task_id }}</span>
+                                <span class="task-status">{{ attribution.contributions|length }} contributors</span>
+                            </div>
+                            <div class="task-details">
+                                Created: {{ attribution.created_at.strftime('%Y-%m-%d %H:%M') }}
+                            </div>
+                            <div class="task-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-user-edit"></i>
+                                    <span>{{ attribution.contributions|length }} contributions</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-history"></i>
+                                    <span>{{ attribution.updated_at.strftime('%Y-%m-%d') }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="empty-state">
+                            <i class="fas fa-tasks"></i>
+                            <h3>No Tasks</h3>
+                            <p>No tasks with attributions found.</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="full-width-section">
+            <div class="attribution-details">
+                <h2 class="section-title">
+                    <i class="fas fa-chart-pie"></i>
+                    Detailed Attribution Analysis
+                </h2>
+                {% if detailed_attributions %}
+                    {% for task_id, attribution in detailed_attributions.items() %}
+                    <div class="contribution-item">
+                        <h3 style="margin-bottom: 15px; color: var(--text-primary);">{{ task_id }}</h3>
+                        {% for contribution in attribution.contributions %}
+                        <div class="contribution-item" style="margin-bottom: 10px;">
                             <div class="contribution-header">
-                                <span class="contribution-role">{{ contribution.role }}</span>
+                                <span class="contribution-role">{{ contribution.role.value.replace('_', ' ').title() }}</span>
                                 <span class="contribution-time">{{ contribution.timestamp.strftime('%H:%M') }}</span>
                             </div>
-                            <div class="contribution-content">{{ contribution.content[:100] }}{% if contribution.content|length > 100 %}...{% endif %}</div>
+                            <div class="contribution-content">
+                                <strong>{{ contribution.contributor_id }}</strong>: {{ contribution.content }}
+                            </div>
                         </div>
                         {% endfor %}
                     </div>
-                    {% endif %}
-                </div>
-                {% endfor %}
-            {% else %}
-                <div class="attribution-card">
-                    <div class="no-attribution">
-                        <h3>No Attribution Data</h3>
-                        <p>No tasks with attribution data found. Start collaborating to see attribution information here.</p>
+                    {% endfor %}
+                {% else %}
+                    <div class="empty-state">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>No Detailed Attributions</h3>
+                        <p>No detailed attribution data available.</p>
                     </div>
-                </div>
-            {% endif %}
+                {% endif %}
+            </div>
         </div>
     </div>
+    
+    <div id="notification" class="notification" role="alert" aria-live="polite"></div>
+    
+    <script>
+        // Theme management
+        let currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        updateThemeUI();
+        
+        function toggleTheme() {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            localStorage.setItem('theme', currentTheme);
+            updateThemeUI();
+        }
+        
+        function updateThemeUI() {
+            const icon = document.getElementById('theme-icon');
+            const text = document.getElementById('theme-text');
+            
+            if (currentTheme === 'dark') {
+                icon.className = 'fas fa-sun';
+                text.textContent = 'Light Mode';
+            } else {
+                icon.className = 'fas fa-moon';
+                text.textContent = 'Dark Mode';
+            }
+        }
+        
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            
+            // Show notification
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const notification = document.getElementById('notification');
+                notification.classList.remove('show');
+            }
+        });
+        
+        // Initialize with current theme
+        document.addEventListener('DOMContentLoaded', function() {
+            updateThemeUI();
+            showNotification('Attribution overview loaded successfully', 'success');
+        });
+    </script>
 </body>
 </html> 

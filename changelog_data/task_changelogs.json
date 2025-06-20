@@ -645,5 +645,2705 @@
     "current_revision": 0,
     "created_at": "2025-06-20 08:41:51.753252+00:00",
     "updated_at": "2025-06-20 08:41:51.753254+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-000",
+    "revisions": [
+      {
+        "revision_id": "77350b23-82d8-4c25-a28c-f150d93dad15",
+        "task_id": "CHANGELOG-TASK-000",
+        "contributor_id": "55afe7ee334b8a55",
+        "revision_number": 1,
+        "description": "Revision 0",
+        "changes": [
+          {
+            "change_id": "e40f91ab-05a9-4cf2-ad75-dd41f5a2bec0",
+            "file_path": "file_0.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 0\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.768618+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.768626+00:00"
+      },
+      {
+        "revision_id": "49dcdf42-2cd6-469b-9be5-39189e9eee04",
+        "task_id": "CHANGELOG-TASK-000",
+        "contributor_id": "fc1ffd893bee0554",
+        "revision_number": 2,
+        "description": "Revision 50",
+        "changes": [
+          {
+            "change_id": "09491310-9ef6-4c8b-94d2-281b59c67142",
+            "file_path": "file_50.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 50\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.236955+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.236959+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.155232+00:00",
+    "updated_at": "2025-06-20 08:55:25.236961+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-001",
+    "revisions": [
+      {
+        "revision_id": "13537015-f55e-4ce4-873a-980295da856c",
+        "task_id": "CHANGELOG-TASK-001",
+        "contributor_id": "c224de51aca623dc",
+        "revision_number": 1,
+        "description": "Revision 1",
+        "changes": [
+          {
+            "change_id": "3a54838e-d44e-4476-8a33-19ca11a61437",
+            "file_path": "file_1.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 1\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.774537+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.774543+00:00"
+      },
+      {
+        "revision_id": "d0d98b2d-38e7-4508-98d8-97979c26727a",
+        "task_id": "CHANGELOG-TASK-001",
+        "contributor_id": "1f3763ee861e5f14",
+        "revision_number": 2,
+        "description": "Revision 51",
+        "changes": [
+          {
+            "change_id": "54053876-d2e8-4be1-9bae-23e9ce027439",
+            "file_path": "file_51.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 51\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.246230+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.246235+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.157938+00:00",
+    "updated_at": "2025-06-20 08:55:25.246237+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-002",
+    "revisions": [
+      {
+        "revision_id": "d1520964-be0b-4688-984b-467b53543d97",
+        "task_id": "CHANGELOG-TASK-002",
+        "contributor_id": "1299c65c3defa433",
+        "revision_number": 1,
+        "description": "Revision 2",
+        "changes": [
+          {
+            "change_id": "1448d49b-fea3-4854-b075-f2645442888a",
+            "file_path": "file_2.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 2\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.781968+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.781973+00:00"
+      },
+      {
+        "revision_id": "cac8d503-e05c-4233-9810-d97be8029b33",
+        "task_id": "CHANGELOG-TASK-002",
+        "contributor_id": "a721146bc83dc917",
+        "revision_number": 2,
+        "description": "Revision 52",
+        "changes": [
+          {
+            "change_id": "f704aea3-e20b-4d8b-92c7-1cec423f8365",
+            "file_path": "file_52.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 52\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.255316+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.255321+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.164638+00:00",
+    "updated_at": "2025-06-20 08:55:25.255323+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-003",
+    "revisions": [
+      {
+        "revision_id": "90a8e9a5-0ddb-4992-aa5a-09809efd7689",
+        "task_id": "CHANGELOG-TASK-003",
+        "contributor_id": "c7b68cc79d2e3422",
+        "revision_number": 1,
+        "description": "Revision 3",
+        "changes": [
+          {
+            "change_id": "d975b116-090e-4370-87d3-954235b267bb",
+            "file_path": "file_3.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 3\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.787198+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.787203+00:00"
+      },
+      {
+        "revision_id": "06b68d25-33f4-4843-bd00-ebb2e198f8ce",
+        "task_id": "CHANGELOG-TASK-003",
+        "contributor_id": "e8d267f375d42b73",
+        "revision_number": 2,
+        "description": "Revision 53",
+        "changes": [
+          {
+            "change_id": "91381344-1e49-4c52-8ccf-aec4877d8bec",
+            "file_path": "file_53.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 53\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.265021+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.265025+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.167840+00:00",
+    "updated_at": "2025-06-20 08:55:25.265027+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-004",
+    "revisions": [
+      {
+        "revision_id": "73f5d36e-6b41-46cb-a90c-a93c414e021a",
+        "task_id": "CHANGELOG-TASK-004",
+        "contributor_id": "f823e7b23bca5a3d",
+        "revision_number": 1,
+        "description": "Revision 4",
+        "changes": [
+          {
+            "change_id": "18b19c27-5398-4c0b-a9a9-7f00f69c3306",
+            "file_path": "file_4.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 4\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.796209+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.796215+00:00"
+      },
+      {
+        "revision_id": "0dde3a1c-e874-4051-a256-f9774e8a691e",
+        "task_id": "CHANGELOG-TASK-004",
+        "contributor_id": "d0fdcd695b2d5d64",
+        "revision_number": 2,
+        "description": "Revision 54",
+        "changes": [
+          {
+            "change_id": "68e04a09-8941-47dd-a98b-84d5cf3570d0",
+            "file_path": "file_54.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 54\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.273562+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.273567+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.173065+00:00",
+    "updated_at": "2025-06-20 08:55:25.273568+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-005",
+    "revisions": [
+      {
+        "revision_id": "7cb7e573-b8e7-4177-8c30-6668d5e29e2f",
+        "task_id": "CHANGELOG-TASK-005",
+        "contributor_id": "87bd44327643a049",
+        "revision_number": 1,
+        "description": "Revision 5",
+        "changes": [
+          {
+            "change_id": "93455ccb-f9a6-46c6-9272-1ed82d5ff177",
+            "file_path": "file_5.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 5\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.802387+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.802392+00:00"
+      },
+      {
+        "revision_id": "0600888a-658b-41f9-8965-1f5480dae838",
+        "task_id": "CHANGELOG-TASK-005",
+        "contributor_id": "a0fe978fabaef60b",
+        "revision_number": 2,
+        "description": "Revision 55",
+        "changes": [
+          {
+            "change_id": "51bdfa03-0af0-45a1-85b9-bf4b695fe747",
+            "file_path": "file_55.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 55\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.283588+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.283593+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.187296+00:00",
+    "updated_at": "2025-06-20 08:55:25.283595+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-006",
+    "revisions": [
+      {
+        "revision_id": "5c00faba-f662-4ec7-805a-d0cc169f63e1",
+        "task_id": "CHANGELOG-TASK-006",
+        "contributor_id": "b856394bbac3156f",
+        "revision_number": 1,
+        "description": "Revision 6",
+        "changes": [
+          {
+            "change_id": "5f8c9e7a-81e4-4223-ab7e-9b55578524db",
+            "file_path": "file_6.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 6\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.808690+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.808695+00:00"
+      },
+      {
+        "revision_id": "3406126e-5ce4-4519-8c39-3d6f3442e7e1",
+        "task_id": "CHANGELOG-TASK-006",
+        "contributor_id": "16dbb23dba4dec17",
+        "revision_number": 2,
+        "description": "Revision 56",
+        "changes": [
+          {
+            "change_id": "b2afad82-f780-41f6-8685-8659603ef538",
+            "file_path": "file_56.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 56\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.292312+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.292317+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.190543+00:00",
+    "updated_at": "2025-06-20 08:55:25.292319+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-007",
+    "revisions": [
+      {
+        "revision_id": "372b8671-6244-4ab9-b2fa-25722ce3bce1",
+        "task_id": "CHANGELOG-TASK-007",
+        "contributor_id": "8cde27b90165842b",
+        "revision_number": 1,
+        "description": "Revision 7",
+        "changes": [
+          {
+            "change_id": "6f864168-b597-4f07-ad61-362112da87fa",
+            "file_path": "file_7.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 7\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.815938+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.815944+00:00"
+      },
+      {
+        "revision_id": "89248a83-e96e-46dd-8142-f71dd9b76a03",
+        "task_id": "CHANGELOG-TASK-007",
+        "contributor_id": "6f2a497a23f32f08",
+        "revision_number": 2,
+        "description": "Revision 57",
+        "changes": [
+          {
+            "change_id": "d0a58ae7-8d62-4967-884a-8939d9ff9182",
+            "file_path": "file_57.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 57\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.302667+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.302672+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.194365+00:00",
+    "updated_at": "2025-06-20 08:55:25.302674+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-008",
+    "revisions": [
+      {
+        "revision_id": "326d93c3-166c-4cbd-87c1-e65beeddbc12",
+        "task_id": "CHANGELOG-TASK-008",
+        "contributor_id": "aa87281e92345854",
+        "revision_number": 1,
+        "description": "Revision 8",
+        "changes": [
+          {
+            "change_id": "300242f6-4bc2-46be-96dd-db0fa711b72b",
+            "file_path": "file_8.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 8\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.822202+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.822207+00:00"
+      },
+      {
+        "revision_id": "969b2d22-cd4c-4ec6-a938-7a46699717f3",
+        "task_id": "CHANGELOG-TASK-008",
+        "contributor_id": "85989ccbb53d1d5c",
+        "revision_number": 2,
+        "description": "Revision 58",
+        "changes": [
+          {
+            "change_id": "de835d9d-3a9e-497b-8842-05c3ade5264a",
+            "file_path": "file_58.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 58\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.311737+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.311744+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.198917+00:00",
+    "updated_at": "2025-06-20 08:55:25.311745+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-009",
+    "revisions": [
+      {
+        "revision_id": "35a1c724-db0f-4eee-9367-3b13459eb724",
+        "task_id": "CHANGELOG-TASK-009",
+        "contributor_id": "59e64f620e5f89c0",
+        "revision_number": 1,
+        "description": "Revision 9",
+        "changes": [
+          {
+            "change_id": "898568b0-5f40-49f1-8c0f-899b9d7a9daa",
+            "file_path": "file_9.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 9\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.828626+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.828634+00:00"
+      },
+      {
+        "revision_id": "6f3a41d8-a807-47f9-975e-a5aac111909c",
+        "task_id": "CHANGELOG-TASK-009",
+        "contributor_id": "55a1e9b05b79a4b1",
+        "revision_number": 2,
+        "description": "Revision 59",
+        "changes": [
+          {
+            "change_id": "2ac7d42e-e458-4683-a208-ff23db4da8d1",
+            "file_path": "file_59.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 59\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.321554+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.321559+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.214500+00:00",
+    "updated_at": "2025-06-20 08:55:25.321560+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-010",
+    "revisions": [
+      {
+        "revision_id": "4f1aad7c-e7ea-4c12-b43d-a89920e779d2",
+        "task_id": "CHANGELOG-TASK-010",
+        "contributor_id": "fc1ffd893bee0554",
+        "revision_number": 1,
+        "description": "Revision 10",
+        "changes": [
+          {
+            "change_id": "69375bda-0fd0-46fb-bc19-89c69cf95bed",
+            "file_path": "file_10.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 10\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.837591+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.837597+00:00"
+      },
+      {
+        "revision_id": "7b090b65-637e-4627-8ddc-e4e36832378c",
+        "task_id": "CHANGELOG-TASK-010",
+        "contributor_id": "55afe7ee334b8a55",
+        "revision_number": 2,
+        "description": "Revision 60",
+        "changes": [
+          {
+            "change_id": "36e58728-23fd-4fee-ae0a-a6869be4d812",
+            "file_path": "file_60.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 60\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.332468+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.332473+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.237829+00:00",
+    "updated_at": "2025-06-20 08:55:25.332474+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-011",
+    "revisions": [
+      {
+        "revision_id": "6e565a37-a864-410e-9a1f-af9b544da822",
+        "task_id": "CHANGELOG-TASK-011",
+        "contributor_id": "1f3763ee861e5f14",
+        "revision_number": 1,
+        "description": "Revision 11",
+        "changes": [
+          {
+            "change_id": "3e3d991b-0b69-4cdd-a416-b3fb0e97e617",
+            "file_path": "file_11.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 11\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.844328+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.844336+00:00"
+      },
+      {
+        "revision_id": "81174323-3445-4f6d-8b55-4a5dcf892199",
+        "task_id": "CHANGELOG-TASK-011",
+        "contributor_id": "c224de51aca623dc",
+        "revision_number": 2,
+        "description": "Revision 61",
+        "changes": [
+          {
+            "change_id": "9878922d-5d09-452f-b959-4f22bd10cbe0",
+            "file_path": "file_61.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 61\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.341225+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.341229+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.268436+00:00",
+    "updated_at": "2025-06-20 08:55:25.341231+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-012",
+    "revisions": [
+      {
+        "revision_id": "24382a47-11ca-489b-9230-17150eca2498",
+        "task_id": "CHANGELOG-TASK-012",
+        "contributor_id": "a721146bc83dc917",
+        "revision_number": 1,
+        "description": "Revision 12",
+        "changes": [
+          {
+            "change_id": "43ccca8c-b048-459f-af73-bb9bdc46aa4f",
+            "file_path": "file_12.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 12\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.852746+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.852751+00:00"
+      },
+      {
+        "revision_id": "cd82736c-7c12-4df1-8c02-164d8121d5e5",
+        "task_id": "CHANGELOG-TASK-012",
+        "contributor_id": "1299c65c3defa433",
+        "revision_number": 2,
+        "description": "Revision 62",
+        "changes": [
+          {
+            "change_id": "cf4284f7-5088-4774-953d-afda8c857324",
+            "file_path": "file_62.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 62\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.352103+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.352108+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.277783+00:00",
+    "updated_at": "2025-06-20 08:55:25.352109+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-013",
+    "revisions": [
+      {
+        "revision_id": "a7000eec-c5d0-4315-954f-df1f2d70a769",
+        "task_id": "CHANGELOG-TASK-013",
+        "contributor_id": "e8d267f375d42b73",
+        "revision_number": 1,
+        "description": "Revision 13",
+        "changes": [
+          {
+            "change_id": "7aa18933-64b7-448a-9427-f51bd2e5d847",
+            "file_path": "file_13.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 13\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.858937+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.858943+00:00"
+      },
+      {
+        "revision_id": "933057ca-6198-4384-92aa-453eb1ff3909",
+        "task_id": "CHANGELOG-TASK-013",
+        "contributor_id": "c7b68cc79d2e3422",
+        "revision_number": 2,
+        "description": "Revision 63",
+        "changes": [
+          {
+            "change_id": "ce9dc18e-9126-460f-a605-8cef317111fb",
+            "file_path": "file_63.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 63\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.361215+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.361250+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.295260+00:00",
+    "updated_at": "2025-06-20 08:55:25.361254+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-014",
+    "revisions": [
+      {
+        "revision_id": "c220158b-6a0a-4d51-a3ba-ccf838df5f61",
+        "task_id": "CHANGELOG-TASK-014",
+        "contributor_id": "d0fdcd695b2d5d64",
+        "revision_number": 1,
+        "description": "Revision 14",
+        "changes": [
+          {
+            "change_id": "dbc716f1-b125-42fc-90d0-3c0e2a2059e8",
+            "file_path": "file_14.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 14\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.867673+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.867678+00:00"
+      },
+      {
+        "revision_id": "d6c68b0d-0cac-4ed4-a119-74e0f0a6d5dc",
+        "task_id": "CHANGELOG-TASK-014",
+        "contributor_id": "f823e7b23bca5a3d",
+        "revision_number": 2,
+        "description": "Revision 64",
+        "changes": [
+          {
+            "change_id": "c734f1ba-c9eb-46ac-afb1-d56228b6e52d",
+            "file_path": "file_64.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 64\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.371661+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.371666+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.313417+00:00",
+    "updated_at": "2025-06-20 08:55:25.371669+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-015",
+    "revisions": [
+      {
+        "revision_id": "f7d14f3b-ab53-43ea-a560-cdee2f4e75ff",
+        "task_id": "CHANGELOG-TASK-015",
+        "contributor_id": "a0fe978fabaef60b",
+        "revision_number": 1,
+        "description": "Revision 15",
+        "changes": [
+          {
+            "change_id": "e15eb8d0-44bf-4f74-9512-12b0deb76800",
+            "file_path": "file_15.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 15\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.874155+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.874162+00:00"
+      },
+      {
+        "revision_id": "edb9bfad-07d8-482d-a4ff-6fb8a34e3fd1",
+        "task_id": "CHANGELOG-TASK-015",
+        "contributor_id": "87bd44327643a049",
+        "revision_number": 2,
+        "description": "Revision 65",
+        "changes": [
+          {
+            "change_id": "95f48dd3-59e0-4928-8746-aa5907b7ff87",
+            "file_path": "file_65.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 65\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.382190+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.382195+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.329809+00:00",
+    "updated_at": "2025-06-20 08:55:25.382197+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-016",
+    "revisions": [
+      {
+        "revision_id": "84d89fb3-a5eb-4249-8ec9-a092bf33418e",
+        "task_id": "CHANGELOG-TASK-016",
+        "contributor_id": "16dbb23dba4dec17",
+        "revision_number": 1,
+        "description": "Revision 16",
+        "changes": [
+          {
+            "change_id": "0809ca8c-47e9-49de-b83f-cd9af91634fd",
+            "file_path": "file_16.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 16\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.885773+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.885778+00:00"
+      },
+      {
+        "revision_id": "9f074139-7255-492f-a42b-99b5db44fb70",
+        "task_id": "CHANGELOG-TASK-016",
+        "contributor_id": "b856394bbac3156f",
+        "revision_number": 2,
+        "description": "Revision 66",
+        "changes": [
+          {
+            "change_id": "3a468c46-bf32-493b-a8e0-bce4eb9c636c",
+            "file_path": "file_66.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 66\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.391913+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.391918+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.342722+00:00",
+    "updated_at": "2025-06-20 08:55:25.391919+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-017",
+    "revisions": [
+      {
+        "revision_id": "ce0ca7d3-1edc-4df9-913c-8fecd88ce2c4",
+        "task_id": "CHANGELOG-TASK-017",
+        "contributor_id": "6f2a497a23f32f08",
+        "revision_number": 1,
+        "description": "Revision 17",
+        "changes": [
+          {
+            "change_id": "dace9d2f-9329-4418-b28e-bf8b11fed64b",
+            "file_path": "file_17.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 17\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.892518+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.892522+00:00"
+      },
+      {
+        "revision_id": "43945bdd-c7f9-417e-b9cd-9850042a50f9",
+        "task_id": "CHANGELOG-TASK-017",
+        "contributor_id": "8cde27b90165842b",
+        "revision_number": 2,
+        "description": "Revision 67",
+        "changes": [
+          {
+            "change_id": "33dcf785-c223-4ab2-b8b6-0a623c61ca24",
+            "file_path": "file_67.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 67\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.402897+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.402902+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.358795+00:00",
+    "updated_at": "2025-06-20 08:55:25.402904+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-018",
+    "revisions": [
+      {
+        "revision_id": "d3fd67d2-4a23-4735-a70f-25307d49f65a",
+        "task_id": "CHANGELOG-TASK-018",
+        "contributor_id": "85989ccbb53d1d5c",
+        "revision_number": 1,
+        "description": "Revision 18",
+        "changes": [
+          {
+            "change_id": "96274aee-a808-412b-9956-628a6fb42c04",
+            "file_path": "file_18.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 18\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.900483+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.900489+00:00"
+      },
+      {
+        "revision_id": "745e74a9-931e-4b94-9cc4-f29571e8086d",
+        "task_id": "CHANGELOG-TASK-018",
+        "contributor_id": "aa87281e92345854",
+        "revision_number": 2,
+        "description": "Revision 68",
+        "changes": [
+          {
+            "change_id": "0c2b3d0b-49f8-4e5a-ab01-f7c44e0db201",
+            "file_path": "file_68.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 68\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.413240+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.413245+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.379361+00:00",
+    "updated_at": "2025-06-20 08:55:25.413247+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-019",
+    "revisions": [
+      {
+        "revision_id": "284e9254-931e-40d1-9f7b-534e9b6d6ae0",
+        "task_id": "CHANGELOG-TASK-019",
+        "contributor_id": "55a1e9b05b79a4b1",
+        "revision_number": 1,
+        "description": "Revision 19",
+        "changes": [
+          {
+            "change_id": "18a24d05-f588-49f9-ba48-9d5869710d22",
+            "file_path": "file_19.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 19\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.907307+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.907313+00:00"
+      },
+      {
+        "revision_id": "dc595ebd-72d2-42fd-8c43-a0db28fdce3d",
+        "task_id": "CHANGELOG-TASK-019",
+        "contributor_id": "59e64f620e5f89c0",
+        "revision_number": 2,
+        "description": "Revision 69",
+        "changes": [
+          {
+            "change_id": "90a603dc-170d-432e-b54c-ed60193d47f2",
+            "file_path": "file_69.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 69\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.422947+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.422952+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.391688+00:00",
+    "updated_at": "2025-06-20 08:55:25.422953+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-020",
+    "revisions": [
+      {
+        "revision_id": "28f3bd31-6413-4a9a-b8f3-ed39be0addf6",
+        "task_id": "CHANGELOG-TASK-020",
+        "contributor_id": "55afe7ee334b8a55",
+        "revision_number": 1,
+        "description": "Revision 20",
+        "changes": [
+          {
+            "change_id": "3ec7a6e5-fe12-42c6-b301-d5a502da7506",
+            "file_path": "file_20.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 20\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.914861+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.914866+00:00"
+      },
+      {
+        "revision_id": "2d9c7df7-9f96-4f23-8c39-1b5d8edf3588",
+        "task_id": "CHANGELOG-TASK-020",
+        "contributor_id": "fc1ffd893bee0554",
+        "revision_number": 2,
+        "description": "Revision 70",
+        "changes": [
+          {
+            "change_id": "0b68cc79-02e1-4654-abd6-7afba00923a6",
+            "file_path": "file_70.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 70\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.433951+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.433956+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.415624+00:00",
+    "updated_at": "2025-06-20 08:55:25.433958+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-021",
+    "revisions": [
+      {
+        "revision_id": "c3bccaa1-b3f2-40a4-9ae2-10b80ebd005d",
+        "task_id": "CHANGELOG-TASK-021",
+        "contributor_id": "c224de51aca623dc",
+        "revision_number": 1,
+        "description": "Revision 21",
+        "changes": [
+          {
+            "change_id": "aceb7d4a-62a0-4157-9c07-7a0e93a2b6a0",
+            "file_path": "file_21.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 21\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.922460+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.922466+00:00"
+      },
+      {
+        "revision_id": "a207017d-dd02-47b2-9781-7b7b1d0ac711",
+        "task_id": "CHANGELOG-TASK-021",
+        "contributor_id": "1f3763ee861e5f14",
+        "revision_number": 2,
+        "description": "Revision 71",
+        "changes": [
+          {
+            "change_id": "fd9d87b2-9fc6-400b-a604-0b4701d6a23a",
+            "file_path": "file_71.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 71\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.443500+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.443504+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.426670+00:00",
+    "updated_at": "2025-06-20 08:55:25.443506+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-022",
+    "revisions": [
+      {
+        "revision_id": "d7d2fee3-ca17-46d8-9c64-41d81649a835",
+        "task_id": "CHANGELOG-TASK-022",
+        "contributor_id": "1299c65c3defa433",
+        "revision_number": 1,
+        "description": "Revision 22",
+        "changes": [
+          {
+            "change_id": "44d98ca3-8e00-4aee-8b5a-af9eee23c80c",
+            "file_path": "file_22.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 22\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.930768+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.930773+00:00"
+      },
+      {
+        "revision_id": "2a5545ad-a999-4066-a9ea-1a20baefeda4",
+        "task_id": "CHANGELOG-TASK-022",
+        "contributor_id": "a721146bc83dc917",
+        "revision_number": 2,
+        "description": "Revision 72",
+        "changes": [
+          {
+            "change_id": "db9169f5-2703-4293-a487-507d8b19e139",
+            "file_path": "file_72.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 72\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.454250+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.454255+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.571259+00:00",
+    "updated_at": "2025-06-20 08:55:25.454257+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-023",
+    "revisions": [
+      {
+        "revision_id": "37af656b-0581-4d9c-9fe4-3d68d27cf5a1",
+        "task_id": "CHANGELOG-TASK-023",
+        "contributor_id": "c7b68cc79d2e3422",
+        "revision_number": 1,
+        "description": "Revision 23",
+        "changes": [
+          {
+            "change_id": "0611f019-ac99-4609-b949-cd2b747ae948",
+            "file_path": "file_23.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 23\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.938456+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.938462+00:00"
+      },
+      {
+        "revision_id": "985a44a6-bafe-4e1c-8c73-47a092c72331",
+        "task_id": "CHANGELOG-TASK-023",
+        "contributor_id": "e8d267f375d42b73",
+        "revision_number": 2,
+        "description": "Revision 73",
+        "changes": [
+          {
+            "change_id": "05d6dbe7-605f-4f9a-9e1d-81865b6182f7",
+            "file_path": "file_73.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 73\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.465211+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.465216+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.576332+00:00",
+    "updated_at": "2025-06-20 08:55:25.465217+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-024",
+    "revisions": [
+      {
+        "revision_id": "44e7918a-edfa-4c01-a6e9-f52393d15783",
+        "task_id": "CHANGELOG-TASK-024",
+        "contributor_id": "f823e7b23bca5a3d",
+        "revision_number": 1,
+        "description": "Revision 24",
+        "changes": [
+          {
+            "change_id": "07080bc6-d084-4a8a-82d8-65db90b387c5",
+            "file_path": "file_24.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 24\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.948101+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.948107+00:00"
+      },
+      {
+        "revision_id": "dff30192-c96c-47c9-adbd-4c2429d15cb7",
+        "task_id": "CHANGELOG-TASK-024",
+        "contributor_id": "d0fdcd695b2d5d64",
+        "revision_number": 2,
+        "description": "Revision 74",
+        "changes": [
+          {
+            "change_id": "57567290-af8d-48f3-a1ad-6473af2212ee",
+            "file_path": "file_74.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 74\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.474821+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.474825+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.581334+00:00",
+    "updated_at": "2025-06-20 08:55:25.474827+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-025",
+    "revisions": [
+      {
+        "revision_id": "97c1291a-bb30-4cac-a3d4-f8afc3d09349",
+        "task_id": "CHANGELOG-TASK-025",
+        "contributor_id": "87bd44327643a049",
+        "revision_number": 1,
+        "description": "Revision 25",
+        "changes": [
+          {
+            "change_id": "dbc1d5ed-2da7-48ec-a59a-d26ac226fd23",
+            "file_path": "file_25.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 25\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.955481+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.955486+00:00"
+      },
+      {
+        "revision_id": "c9a250ee-b223-4569-8bac-443eb3a29ee1",
+        "task_id": "CHANGELOG-TASK-025",
+        "contributor_id": "a0fe978fabaef60b",
+        "revision_number": 2,
+        "description": "Revision 75",
+        "changes": [
+          {
+            "change_id": "b2f65020-36cb-41d9-9317-1228938497e9",
+            "file_path": "file_75.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 75\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.486254+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.486259+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.585190+00:00",
+    "updated_at": "2025-06-20 08:55:25.486261+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-026",
+    "revisions": [
+      {
+        "revision_id": "92741a3d-95c2-4709-a319-66e65da373e9",
+        "task_id": "CHANGELOG-TASK-026",
+        "contributor_id": "b856394bbac3156f",
+        "revision_number": 1,
+        "description": "Revision 26",
+        "changes": [
+          {
+            "change_id": "d6c7fee8-7c37-496e-be9f-5b3f45b51ecd",
+            "file_path": "file_26.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 26\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.964038+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.964043+00:00"
+      },
+      {
+        "revision_id": "57f42f3d-b3c6-4dcf-8ad3-c5a69503181e",
+        "task_id": "CHANGELOG-TASK-026",
+        "contributor_id": "16dbb23dba4dec17",
+        "revision_number": 2,
+        "description": "Revision 76",
+        "changes": [
+          {
+            "change_id": "750a8be2-4fea-449b-ac53-43f5e6278384",
+            "file_path": "file_76.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 76\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.498995+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.499000+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.589125+00:00",
+    "updated_at": "2025-06-20 08:55:25.499001+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-027",
+    "revisions": [
+      {
+        "revision_id": "25d2a732-148f-4f0e-a31f-ded1fc6c3cd6",
+        "task_id": "CHANGELOG-TASK-027",
+        "contributor_id": "8cde27b90165842b",
+        "revision_number": 1,
+        "description": "Revision 27",
+        "changes": [
+          {
+            "change_id": "496d8a0c-cc48-4087-a05f-6a2dbba886a5",
+            "file_path": "file_27.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 27\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.971715+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.971720+00:00"
+      },
+      {
+        "revision_id": "48b33395-665a-4e2f-b605-d86286da9c0b",
+        "task_id": "CHANGELOG-TASK-027",
+        "contributor_id": "6f2a497a23f32f08",
+        "revision_number": 2,
+        "description": "Revision 77",
+        "changes": [
+          {
+            "change_id": "c2b32833-2c3c-4ce3-aa83-4fab42b71cf5",
+            "file_path": "file_77.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 77\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.509224+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.509229+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.593214+00:00",
+    "updated_at": "2025-06-20 08:55:25.509230+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-028",
+    "revisions": [
+      {
+        "revision_id": "311ce07d-d677-4e2e-af14-1d5f5fe46913",
+        "task_id": "CHANGELOG-TASK-028",
+        "contributor_id": "aa87281e92345854",
+        "revision_number": 1,
+        "description": "Revision 28",
+        "changes": [
+          {
+            "change_id": "da13e04d-d26c-441d-ad41-29eb970eb701",
+            "file_path": "file_28.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 28\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.980498+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.980503+00:00"
+      },
+      {
+        "revision_id": "fb7d1c0b-9919-49cb-92e1-dcb29dfb65e2",
+        "task_id": "CHANGELOG-TASK-028",
+        "contributor_id": "85989ccbb53d1d5c",
+        "revision_number": 2,
+        "description": "Revision 78",
+        "changes": [
+          {
+            "change_id": "479c5251-0523-445b-8828-1466327f86a1",
+            "file_path": "file_78.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 78\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.521172+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.521177+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.598979+00:00",
+    "updated_at": "2025-06-20 08:55:25.521178+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-029",
+    "revisions": [
+      {
+        "revision_id": "9cddface-de03-4490-9533-0fd0ca78178b",
+        "task_id": "CHANGELOG-TASK-029",
+        "contributor_id": "59e64f620e5f89c0",
+        "revision_number": 1,
+        "description": "Revision 29",
+        "changes": [
+          {
+            "change_id": "d86dffa8-afd6-43e5-9d0e-18474376fb91",
+            "file_path": "file_29.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 29\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.988734+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.988740+00:00"
+      },
+      {
+        "revision_id": "53bbd823-c844-457a-b2ce-cac6f93788df",
+        "task_id": "CHANGELOG-TASK-029",
+        "contributor_id": "55a1e9b05b79a4b1",
+        "revision_number": 2,
+        "description": "Revision 79",
+        "changes": [
+          {
+            "change_id": "b7fa0af6-d7d3-46ab-88c0-f063d00f052f",
+            "file_path": "file_79.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 79\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.532543+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.532548+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.603172+00:00",
+    "updated_at": "2025-06-20 08:55:25.532550+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-030",
+    "revisions": [
+      {
+        "revision_id": "7b831709-9a7d-49f2-9e4e-67d0ec57e511",
+        "task_id": "CHANGELOG-TASK-030",
+        "contributor_id": "fc1ffd893bee0554",
+        "revision_number": 1,
+        "description": "Revision 30",
+        "changes": [
+          {
+            "change_id": "b771b3d6-5fc6-4767-8ed7-e1d5a05789a1",
+            "file_path": "file_30.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 30\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:24.998330+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:24.998335+00:00"
+      },
+      {
+        "revision_id": "9fe42e07-f23d-402e-baf2-c3b9b369278c",
+        "task_id": "CHANGELOG-TASK-030",
+        "contributor_id": "55afe7ee334b8a55",
+        "revision_number": 2,
+        "description": "Revision 80",
+        "changes": [
+          {
+            "change_id": "06409247-56bf-4971-982f-d795ece20718",
+            "file_path": "file_80.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 80\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.542797+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.542802+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.607608+00:00",
+    "updated_at": "2025-06-20 08:55:25.542804+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-031",
+    "revisions": [
+      {
+        "revision_id": "8ab98ac4-720d-47a8-8b86-188e2879fb7c",
+        "task_id": "CHANGELOG-TASK-031",
+        "contributor_id": "1f3763ee861e5f14",
+        "revision_number": 1,
+        "description": "Revision 31",
+        "changes": [
+          {
+            "change_id": "118e0092-9a2e-4d2f-9f15-1b424ff43e50",
+            "file_path": "file_31.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 31\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.006939+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.006945+00:00"
+      },
+      {
+        "revision_id": "9a3ea408-a0f2-477a-ad54-f99bfc413c6f",
+        "task_id": "CHANGELOG-TASK-031",
+        "contributor_id": "c224de51aca623dc",
+        "revision_number": 2,
+        "description": "Revision 81",
+        "changes": [
+          {
+            "change_id": "44ad8ee7-e3e6-4a54-be2c-b0216b2fb45f",
+            "file_path": "file_81.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 81\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.553981+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.553986+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.613448+00:00",
+    "updated_at": "2025-06-20 08:55:25.553987+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-032",
+    "revisions": [
+      {
+        "revision_id": "b8e41fe5-d31f-449f-b689-20f198759145",
+        "task_id": "CHANGELOG-TASK-032",
+        "contributor_id": "a721146bc83dc917",
+        "revision_number": 1,
+        "description": "Revision 32",
+        "changes": [
+          {
+            "change_id": "05f7b9da-30f1-4060-8d91-b49e66d6a175",
+            "file_path": "file_32.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 32\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.016234+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.016239+00:00"
+      },
+      {
+        "revision_id": "3b57afef-e315-4139-8d30-1d861ff774ab",
+        "task_id": "CHANGELOG-TASK-032",
+        "contributor_id": "1299c65c3defa433",
+        "revision_number": 2,
+        "description": "Revision 82",
+        "changes": [
+          {
+            "change_id": "cbd330a3-04ca-40ca-b3e9-e83b184d40a4",
+            "file_path": "file_82.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 82\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.565373+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.565379+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.617972+00:00",
+    "updated_at": "2025-06-20 08:55:25.565380+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-033",
+    "revisions": [
+      {
+        "revision_id": "1114aea2-c381-48b2-ae79-fa3981d63023",
+        "task_id": "CHANGELOG-TASK-033",
+        "contributor_id": "e8d267f375d42b73",
+        "revision_number": 1,
+        "description": "Revision 33",
+        "changes": [
+          {
+            "change_id": "c9c8b7e8-a475-4096-892e-38214fdd8c13",
+            "file_path": "file_33.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 33\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.023979+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.023984+00:00"
+      },
+      {
+        "revision_id": "d230e5b7-8b62-4ebe-8191-db06ea894233",
+        "task_id": "CHANGELOG-TASK-033",
+        "contributor_id": "c7b68cc79d2e3422",
+        "revision_number": 2,
+        "description": "Revision 83",
+        "changes": [
+          {
+            "change_id": "ada0f15c-0b05-4fa4-824c-8d238b4dc9ae",
+            "file_path": "file_83.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 83\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.576313+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.576318+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.622059+00:00",
+    "updated_at": "2025-06-20 08:55:25.576319+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-034",
+    "revisions": [
+      {
+        "revision_id": "4ec171e9-7fb7-4c91-80ae-5afc598b6ddd",
+        "task_id": "CHANGELOG-TASK-034",
+        "contributor_id": "d0fdcd695b2d5d64",
+        "revision_number": 1,
+        "description": "Revision 34",
+        "changes": [
+          {
+            "change_id": "6535f286-1a79-4b4c-96ed-8c9aca6e1eea",
+            "file_path": "file_34.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 34\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.032905+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.032910+00:00"
+      },
+      {
+        "revision_id": "3148601e-f6fa-4c44-8a9c-a266f1da8ac0",
+        "task_id": "CHANGELOG-TASK-034",
+        "contributor_id": "f823e7b23bca5a3d",
+        "revision_number": 2,
+        "description": "Revision 84",
+        "changes": [
+          {
+            "change_id": "3d32a296-1d0b-402e-b701-153422355c4c",
+            "file_path": "file_84.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 84\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.588479+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.588484+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.626558+00:00",
+    "updated_at": "2025-06-20 08:55:25.588485+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-035",
+    "revisions": [
+      {
+        "revision_id": "95438341-af48-4b73-a7ce-2a2118782c7e",
+        "task_id": "CHANGELOG-TASK-035",
+        "contributor_id": "a0fe978fabaef60b",
+        "revision_number": 1,
+        "description": "Revision 35",
+        "changes": [
+          {
+            "change_id": "d29168bb-02d5-48c5-8728-c9e5a94b1314",
+            "file_path": "file_35.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 35\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.041253+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.041258+00:00"
+      },
+      {
+        "revision_id": "06943799-1760-461c-b1e7-3300772d9b4e",
+        "task_id": "CHANGELOG-TASK-035",
+        "contributor_id": "87bd44327643a049",
+        "revision_number": 2,
+        "description": "Revision 85",
+        "changes": [
+          {
+            "change_id": "13823268-b78c-4b23-b235-ed4b752cd61e",
+            "file_path": "file_85.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 85\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.600263+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.600267+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.631931+00:00",
+    "updated_at": "2025-06-20 08:55:25.600269+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-036",
+    "revisions": [
+      {
+        "revision_id": "ed451e12-72df-49a6-a7be-46629a92588a",
+        "task_id": "CHANGELOG-TASK-036",
+        "contributor_id": "16dbb23dba4dec17",
+        "revision_number": 1,
+        "description": "Revision 36",
+        "changes": [
+          {
+            "change_id": "1200d87b-e5bf-4d0e-a578-80f8bf2612ba",
+            "file_path": "file_36.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 36\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.050662+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.050667+00:00"
+      },
+      {
+        "revision_id": "25e4421c-09aa-46d3-9017-f68fb7d8a45e",
+        "task_id": "CHANGELOG-TASK-036",
+        "contributor_id": "b856394bbac3156f",
+        "revision_number": 2,
+        "description": "Revision 86",
+        "changes": [
+          {
+            "change_id": "4e19c0c5-d88b-455a-b64f-21fb88b836dd",
+            "file_path": "file_86.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 86\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.610357+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.610362+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.636042+00:00",
+    "updated_at": "2025-06-20 08:55:25.610363+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-037",
+    "revisions": [
+      {
+        "revision_id": "c9b6204a-344c-4f29-a5ee-b03914a2fb31",
+        "task_id": "CHANGELOG-TASK-037",
+        "contributor_id": "6f2a497a23f32f08",
+        "revision_number": 1,
+        "description": "Revision 37",
+        "changes": [
+          {
+            "change_id": "ecacb3a1-9ae1-4dac-9bfd-14383c1723c1",
+            "file_path": "file_37.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 37\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.058872+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.058878+00:00"
+      },
+      {
+        "revision_id": "729fed31-0598-4d02-b95f-55d1c5a8b971",
+        "task_id": "CHANGELOG-TASK-037",
+        "contributor_id": "8cde27b90165842b",
+        "revision_number": 2,
+        "description": "Revision 87",
+        "changes": [
+          {
+            "change_id": "5f0a8117-8872-41e2-a3bd-09febb88c89d",
+            "file_path": "file_87.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 87\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.622275+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.622280+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.640848+00:00",
+    "updated_at": "2025-06-20 08:55:25.622281+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-038",
+    "revisions": [
+      {
+        "revision_id": "8cf5ff59-4748-40eb-b17e-bec42d2629ff",
+        "task_id": "CHANGELOG-TASK-038",
+        "contributor_id": "85989ccbb53d1d5c",
+        "revision_number": 1,
+        "description": "Revision 38",
+        "changes": [
+          {
+            "change_id": "2b8bb4f2-a8f9-49ad-914a-7aa1f208da4f",
+            "file_path": "file_38.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 38\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.068918+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.068923+00:00"
+      },
+      {
+        "revision_id": "dc2ac098-74bf-4180-974b-82c63386cd98",
+        "task_id": "CHANGELOG-TASK-038",
+        "contributor_id": "aa87281e92345854",
+        "revision_number": 2,
+        "description": "Revision 88",
+        "changes": [
+          {
+            "change_id": "fc4fa1e5-7843-48b0-84a3-f1f7ad32d2fa",
+            "file_path": "file_88.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 88\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.634041+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.634045+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.646079+00:00",
+    "updated_at": "2025-06-20 08:55:25.634047+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-039",
+    "revisions": [
+      {
+        "revision_id": "cd39dc43-039b-4466-9d02-fc45f668590f",
+        "task_id": "CHANGELOG-TASK-039",
+        "contributor_id": "55a1e9b05b79a4b1",
+        "revision_number": 1,
+        "description": "Revision 39",
+        "changes": [
+          {
+            "change_id": "f7e03559-9c8b-4f63-95be-3df8ad030763",
+            "file_path": "file_39.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 39\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.076873+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.076877+00:00"
+      },
+      {
+        "revision_id": "d03a3022-8391-489f-b788-04df9d7e6706",
+        "task_id": "CHANGELOG-TASK-039",
+        "contributor_id": "59e64f620e5f89c0",
+        "revision_number": 2,
+        "description": "Revision 89",
+        "changes": [
+          {
+            "change_id": "8f6d261b-78d5-42c9-a8b2-32afc89ce07c",
+            "file_path": "file_89.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 89\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.645730+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.645739+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.650533+00:00",
+    "updated_at": "2025-06-20 08:55:25.645795+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-040",
+    "revisions": [
+      {
+        "revision_id": "6c730c88-f523-4bd9-85e0-826e871abed9",
+        "task_id": "CHANGELOG-TASK-040",
+        "contributor_id": "55afe7ee334b8a55",
+        "revision_number": 1,
+        "description": "Revision 40",
+        "changes": [
+          {
+            "change_id": "3c6922ff-45fc-405f-b8b5-4bca461b0d11",
+            "file_path": "file_40.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 40\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.086389+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.086394+00:00"
+      },
+      {
+        "revision_id": "0146a32a-5ce7-4e04-ac1d-37689b99760d",
+        "task_id": "CHANGELOG-TASK-040",
+        "contributor_id": "fc1ffd893bee0554",
+        "revision_number": 2,
+        "description": "Revision 90",
+        "changes": [
+          {
+            "change_id": "8127e4de-455b-4874-937d-582f92426379",
+            "file_path": "file_90.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 90\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.658124+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.658129+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.655203+00:00",
+    "updated_at": "2025-06-20 08:55:25.658131+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-041",
+    "revisions": [
+      {
+        "revision_id": "7d2d55b7-c541-46a8-98ea-28b29c1bace1",
+        "task_id": "CHANGELOG-TASK-041",
+        "contributor_id": "c224de51aca623dc",
+        "revision_number": 1,
+        "description": "Revision 41",
+        "changes": [
+          {
+            "change_id": "3b6f341f-99a7-4115-a626-b6822d529e6a",
+            "file_path": "file_41.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 41\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.096282+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.096289+00:00"
+      },
+      {
+        "revision_id": "9eead7a1-1d75-4c64-8ad7-f5341350fd23",
+        "task_id": "CHANGELOG-TASK-041",
+        "contributor_id": "1f3763ee861e5f14",
+        "revision_number": 2,
+        "description": "Revision 91",
+        "changes": [
+          {
+            "change_id": "11331dcf-b203-4190-9753-9982dfa351a0",
+            "file_path": "file_91.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 91\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.670768+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.670773+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.659609+00:00",
+    "updated_at": "2025-06-20 08:55:25.670775+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-042",
+    "revisions": [
+      {
+        "revision_id": "b7cdd575-7a67-423b-9eb5-eb6922c6b92e",
+        "task_id": "CHANGELOG-TASK-042",
+        "contributor_id": "1299c65c3defa433",
+        "revision_number": 1,
+        "description": "Revision 42",
+        "changes": [
+          {
+            "change_id": "7ddb8dbd-d95c-4af0-b42e-2bdeb98f7c36",
+            "file_path": "file_42.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 42\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.105915+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.105920+00:00"
+      },
+      {
+        "revision_id": "f4e54558-f711-4e29-afa6-2ecf170728b5",
+        "task_id": "CHANGELOG-TASK-042",
+        "contributor_id": "a721146bc83dc917",
+        "revision_number": 2,
+        "description": "Revision 92",
+        "changes": [
+          {
+            "change_id": "9169440a-9980-4e2c-b558-2185a915fcb0",
+            "file_path": "file_92.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 92\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.683517+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.683521+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.665518+00:00",
+    "updated_at": "2025-06-20 08:55:25.683523+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-043",
+    "revisions": [
+      {
+        "revision_id": "c1342a86-df8e-48aa-92dd-97442b7b2a82",
+        "task_id": "CHANGELOG-TASK-043",
+        "contributor_id": "c7b68cc79d2e3422",
+        "revision_number": 1,
+        "description": "Revision 43",
+        "changes": [
+          {
+            "change_id": "0f3fd158-c693-49e6-a0c4-9f697991bad9",
+            "file_path": "file_43.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 43\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.174222+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.174228+00:00"
+      },
+      {
+        "revision_id": "b0093a8f-a1e5-4f87-9ecb-b3d144d84262",
+        "task_id": "CHANGELOG-TASK-043",
+        "contributor_id": "e8d267f375d42b73",
+        "revision_number": 2,
+        "description": "Revision 93",
+        "changes": [
+          {
+            "change_id": "640d1e96-fc8c-4ec7-9638-9fb128fbceaf",
+            "file_path": "file_93.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 93\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.694302+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.694307+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.669772+00:00",
+    "updated_at": "2025-06-20 08:55:25.694308+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-044",
+    "revisions": [
+      {
+        "revision_id": "88960904-90ab-41a4-a80f-91be9cab5854",
+        "task_id": "CHANGELOG-TASK-044",
+        "contributor_id": "f823e7b23bca5a3d",
+        "revision_number": 1,
+        "description": "Revision 44",
+        "changes": [
+          {
+            "change_id": "7b9a494c-8e82-4d1b-9f1f-b1703f47ce33",
+            "file_path": "file_44.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 44\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.184194+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.184199+00:00"
+      },
+      {
+        "revision_id": "b768ac9e-9163-409a-a6a7-2b288cd5a644",
+        "task_id": "CHANGELOG-TASK-044",
+        "contributor_id": "d0fdcd695b2d5d64",
+        "revision_number": 2,
+        "description": "Revision 94",
+        "changes": [
+          {
+            "change_id": "a57f0580-ff16-4007-83f2-ac2e151169ef",
+            "file_path": "file_94.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 94\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.706473+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.706478+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.674169+00:00",
+    "updated_at": "2025-06-20 08:55:25.706479+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-045",
+    "revisions": [
+      {
+        "revision_id": "a931c22a-9db3-459b-be5a-f2588f5ee62c",
+        "task_id": "CHANGELOG-TASK-045",
+        "contributor_id": "87bd44327643a049",
+        "revision_number": 1,
+        "description": "Revision 45",
+        "changes": [
+          {
+            "change_id": "bc5312ac-b8b1-4dfc-9e22-1d77e67681eb",
+            "file_path": "file_45.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 45\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.191904+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.191909+00:00"
+      },
+      {
+        "revision_id": "56a532e8-fcbc-4ae2-b58a-dfca440ce2d0",
+        "task_id": "CHANGELOG-TASK-045",
+        "contributor_id": "a0fe978fabaef60b",
+        "revision_number": 2,
+        "description": "Revision 95",
+        "changes": [
+          {
+            "change_id": "cc0b5754-5eda-49fd-8f22-8e6d4438348b",
+            "file_path": "file_95.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 95\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.718464+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.718469+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.679872+00:00",
+    "updated_at": "2025-06-20 08:55:25.718471+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-046",
+    "revisions": [
+      {
+        "revision_id": "d434dfc0-941b-4da0-ac33-04f02a9fc548",
+        "task_id": "CHANGELOG-TASK-046",
+        "contributor_id": "b856394bbac3156f",
+        "revision_number": 1,
+        "description": "Revision 46",
+        "changes": [
+          {
+            "change_id": "5a701c23-5e0d-4245-a834-1c930ce0a4ce",
+            "file_path": "file_46.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 46\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.201110+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.201114+00:00"
+      },
+      {
+        "revision_id": "70d8ed17-ad82-4899-b95d-f7283e2fe054",
+        "task_id": "CHANGELOG-TASK-046",
+        "contributor_id": "16dbb23dba4dec17",
+        "revision_number": 2,
+        "description": "Revision 96",
+        "changes": [
+          {
+            "change_id": "19630828-aac6-4126-9e5e-8a8e5d4f0b29",
+            "file_path": "file_96.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 96\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.731147+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.731151+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.684928+00:00",
+    "updated_at": "2025-06-20 08:55:25.731153+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-047",
+    "revisions": [
+      {
+        "revision_id": "0bc2840a-288d-4b81-a165-0ba5b8b27061",
+        "task_id": "CHANGELOG-TASK-047",
+        "contributor_id": "8cde27b90165842b",
+        "revision_number": 1,
+        "description": "Revision 47",
+        "changes": [
+          {
+            "change_id": "81eb0e11-f722-47f6-8867-4ffff2e3dbcb",
+            "file_path": "file_47.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 47\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.208940+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.208945+00:00"
+      },
+      {
+        "revision_id": "417622c8-5014-4255-aba1-7c1b21356ccd",
+        "task_id": "CHANGELOG-TASK-047",
+        "contributor_id": "6f2a497a23f32f08",
+        "revision_number": 2,
+        "description": "Revision 97",
+        "changes": [
+          {
+            "change_id": "59210b0b-9aaa-4605-9021-728932b05ec1",
+            "file_path": "file_97.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 97\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.743175+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.743179+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.690000+00:00",
+    "updated_at": "2025-06-20 08:55:25.743181+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-048",
+    "revisions": [
+      {
+        "revision_id": "c536e526-d82f-4614-9268-44d09aa6ecbd",
+        "task_id": "CHANGELOG-TASK-048",
+        "contributor_id": "aa87281e92345854",
+        "revision_number": 1,
+        "description": "Revision 48",
+        "changes": [
+          {
+            "change_id": "b91f0e71-708b-40fe-b84f-bc997396274b",
+            "file_path": "file_48.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 48\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.218317+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.218321+00:00"
+      },
+      {
+        "revision_id": "5b608d3c-20fe-4c47-a19a-aa2120eba404",
+        "task_id": "CHANGELOG-TASK-048",
+        "contributor_id": "85989ccbb53d1d5c",
+        "revision_number": 2,
+        "description": "Revision 98",
+        "changes": [
+          {
+            "change_id": "741454fd-b4f3-461b-b919-11912b226e97",
+            "file_path": "file_98.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 98\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.755835+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.755840+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.739730+00:00",
+    "updated_at": "2025-06-20 08:55:25.755842+00:00"
+  },
+  {
+    "task_id": "CHANGELOG-TASK-049",
+    "revisions": [
+      {
+        "revision_id": "467d5d09-b8fd-4e91-ba55-7509b6d1c837",
+        "task_id": "CHANGELOG-TASK-049",
+        "contributor_id": "59e64f620e5f89c0",
+        "revision_number": 1,
+        "description": "Revision 49",
+        "changes": [
+          {
+            "change_id": "fda6f507-c549-42f0-b475-228036fe5d29",
+            "file_path": "file_49.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 49\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.226847+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.226851+00:00"
+      },
+      {
+        "revision_id": "afb9a4f5-96e4-4d51-8f15-85a4fd229753",
+        "task_id": "CHANGELOG-TASK-049",
+        "contributor_id": "55a1e9b05b79a4b1",
+        "revision_number": 2,
+        "description": "Revision 99",
+        "changes": [
+          {
+            "change_id": "3f6e0430-6b25-4061-9a23-a3cbf1c4904a",
+            "file_path": "file_99.py",
+            "change_type": "modified",
+            "old_content": null,
+            "new_content": "# Revision 99\nprint('Hello World')",
+            "diff": null,
+            "metadata": {},
+            "timestamp": "2025-06-20 08:55:25.768736+00:00"
+          }
+        ],
+        "confidence_score": 0.0,
+        "token_usage": {},
+        "metadata": {},
+        "timestamp": "2025-06-20 08:55:25.768741+00:00"
+      }
+    ],
+    "current_revision": 2,
+    "created_at": "2025-06-20 08:55:24.756983+00:00",
+    "updated_at": "2025-06-20 08:55:25.768743+00:00"
   }
 ]
