@@ -1,66 +1,53 @@
-# GitBridge Phase 24 Demo - Quick Start Guide
+# GitBridge Phase 24 Demo - The Easiest Quick Start Guide
 
-This guide provides simple, user-friendly instructions to launch the GitBridge Phase 24 demo.
+Welcome! This guide provides the simplest possible way to launch the GitBridge demo.
 
 ---
 
-## 🚀 Quick Start Instructions
+## 🚀 One-Click Launch Instructions
 
-The entire application is now managed by a single, simple command.
+No terminal, no commands. Just a simple double-click.
 
-1.  **Open your Terminal** (or Command Prompt on Windows).
-2.  **Navigate to the project directory**: `cd /path/to/GitBridgev1`
-3.  **Run the `start` command**:
+1.  **Find the correct file for your operating system:**
+    *   **On Windows:** `GitBridge Test Launch.bat`
+    *   **On macOS or Linux:** `GitBridge Test Launch.sh`
+
+2.  **Double-click the file.**
+
+That's it! A new window will appear, the server will start in the background, and your default web browser will automatically open to the demo startup page.
+
+---
+
+## ▶️ What Happens When You Launch
+
+1.  A terminal or command prompt window will open to show the startup progress.
+2.  The script automatically finds an available port and starts the server.
+3.  Your web browser opens to the GitBridge startup page.
+4.  Once the browser is open, you can safely close the terminal/command window. The server will keep running in the background.
+
+---
+
+## ⏹️ How to Stop the Application
+
+Since the server runs in the background, you need a way to stop it when you're done.
+
+1.  **Open your Terminal** (or Command Prompt).
+2.  **Navigate to the project directory** (if you aren't there already).
+3.  **Run the `stop` command:**
     ```bash
-    python run.py start
+    python run.py stop
     ```
-4.  **Wait a moment**: The script will automatically find an available port, start the server in the background, and open the demo page in your default web browser.
-5.  **Click "Start Live Demo"** on the web page that opens.
-
----
-
-## ⚙️ How to Manage the Application
-
-You now have full control over the application without needing technical expertise.
-
-### Check the Status
-Is the server running? Use the `status` command.
-```bash
-python run.py status
-```
-
-### Stop the Application
-When you are finished, use the `stop` command.
-```bash
-python run.py stop
-```
-
-### View Logs
-If something seems wrong, you can easily view the server logs.
-```bash
-python run.py logs
-```
-This will show the last 20 lines. To see more, use the `-n` flag (e.g., `python run.py logs -n 100`).
-
----
-
-## 🎯 What You'll See
-
--   A **user-friendly startup page** that checks the system status.
--   **Real-time collaboration** between AI and human agents.
--   **Live attribution tracking** for every single code change.
--   A **dynamic activity feed** showing all actions as they happen.
--   **Visual diffs** that clearly show what code was changed.
+    This will gracefully shut down the background server.
 
 ---
 
 ## 🛠️ Troubleshooting
 
--   **"Command not found"**: Ensure you are in the correct `GitBridgev1` directory.
--   **"Python not found"**: Make sure Python (version 3.8+) is installed and available in your system's PATH.
--   **Browser doesn't open**: The script will print the URL (e.g., `http://127.0.0.1:5001/startup`). You can copy and paste this into your browser manually.
--   **Server fails to start**: Use the `python run.py logs` command to see any error messages from the server.
+-   **"Permission Denied" on macOS/Linux:** If the `.sh` file doesn't run, you may need to give it permission. Open a terminal in the project folder and run: `chmod +x "GitBridge Test Launch.sh"`. Then try double-clicking it again.
+-   **"Python not found"**: This means Python is not installed or not in your system's PATH. Please install Python 3.8 or higher.
+-   **Browser doesn't open**: The terminal window will show the exact URL (like `http://127.0.0.1:5001/startup`). You can copy and paste this into your browser.
+-   **Server fails to start**: The terminal window may show an error. You can also get more details by running `python run.py logs`.
 
 ---
 
-**🎉 Enjoy the new, simplified GitBridge Phase 24 Demo!** 
+**🎉 Enjoy the one-click GitBridge Phase 24 Demo!** 
