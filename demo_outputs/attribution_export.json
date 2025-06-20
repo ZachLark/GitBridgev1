@@ -1,0 +1,1228 @@
+{
+  "export_timestamp": "2025-06-20T08:43:46.512713+00:00",
+  "contributors": [
+    {
+      "contributor_id": "0081e1cf0fb50f7b",
+      "name": "Alice Developer",
+      "contributor_type": "human",
+      "avatar_url": "https://example.com/alice.jpg",
+      "email": "alice@example.com",
+      "metadata": {},
+      "created_at": "2025-06-20 08:41:51.577744+00:00"
+    },
+    {
+      "contributor_id": "c4a8a5901259fb2d",
+      "name": "Bob CodeReviewer",
+      "contributor_type": "human",
+      "avatar_url": "https://example.com/bob.jpg",
+      "email": "bob@example.com",
+      "metadata": {},
+      "created_at": "2025-06-20 08:41:51.580757+00:00"
+    },
+    {
+      "contributor_id": "474f2937a1ecb9a1",
+      "name": "AI Assistant GPT-4",
+      "contributor_type": "ai",
+      "avatar_url": "https://example.com/ai-assistant.jpg",
+      "email": null,
+      "metadata": {
+        "model": "gpt-4",
+        "version": "1.0"
+      },
+      "created_at": "2025-06-20 08:41:51.583797+00:00"
+    },
+    {
+      "contributor_id": "70d2c2dda1047e03",
+      "name": "Code Generator Bot",
+      "contributor_type": "ai",
+      "avatar_url": "https://example.com/code-bot.jpg",
+      "email": null,
+      "metadata": {
+        "model": "claude-3",
+        "version": "2.1"
+      },
+      "created_at": "2025-06-20 08:41:51.585813+00:00"
+    },
+    {
+      "contributor_id": "79b2ad8c5ff5ca46",
+      "name": "System Monitor",
+      "contributor_type": "system",
+      "avatar_url": null,
+      "email": null,
+      "metadata": {
+        "component": "monitoring",
+        "version": "1.0"
+      },
+      "created_at": "2025-06-20 08:41:51.587625+00:00"
+    },
+    {
+      "contributor_id": "8c333b2e34434e3f",
+      "name": "Alice Developer",
+      "contributor_type": "human",
+      "avatar_url": "https://example.com/alice.jpg",
+      "email": "alice@example.com",
+      "metadata": {},
+      "created_at": "2025-06-20 08:41:55.103317+00:00"
+    },
+    {
+      "contributor_id": "e3d97aabfd350650",
+      "name": "Bob CodeReviewer",
+      "contributor_type": "human",
+      "avatar_url": "https://example.com/bob.jpg",
+      "email": "bob@example.com",
+      "metadata": {},
+      "created_at": "2025-06-20 08:41:55.108922+00:00"
+    },
+    {
+      "contributor_id": "be5bf4bf7efaa8ce",
+      "name": "AI Assistant GPT-4",
+      "contributor_type": "ai",
+      "avatar_url": "https://example.com/ai-assistant.jpg",
+      "email": null,
+      "metadata": {
+        "model": "gpt-4",
+        "version": "1.0"
+      },
+      "created_at": "2025-06-20 08:41:55.144507+00:00"
+    },
+    {
+      "contributor_id": "d2a586aed0b19911",
+      "name": "Code Generator Bot",
+      "contributor_type": "ai",
+      "avatar_url": "https://example.com/code-bot.jpg",
+      "email": null,
+      "metadata": {
+        "model": "claude-3",
+        "version": "2.1"
+      },
+      "created_at": "2025-06-20 08:41:55.236111+00:00"
+    },
+    {
+      "contributor_id": "a8a22881071b4f46",
+      "name": "System Monitor",
+      "contributor_type": "system",
+      "avatar_url": null,
+      "email": null,
+      "metadata": {
+        "component": "monitoring",
+        "version": "1.0"
+      },
+      "created_at": "2025-06-20 08:41:55.329259+00:00"
+    },
+    {
+      "contributor_id": "6035c75515b66208",
+      "name": "Alice Developer",
+      "contributor_type": "human",
+      "avatar_url": "https://example.com/alice.jpg",
+      "email": "alice@example.com",
+      "metadata": {},
+      "created_at": "2025-06-20 08:42:26.868466+00:00"
+    },
+    {
+      "contributor_id": "c894c8015f933172",
+      "name": "Bob CodeReviewer",
+      "contributor_type": "human",
+      "avatar_url": "https://example.com/bob.jpg",
+      "email": "bob@example.com",
+      "metadata": {},
+      "created_at": "2025-06-20 08:42:26.894352+00:00"
+    },
+    {
+      "contributor_id": "d6ae40337c697663",
+      "name": "AI Assistant GPT-4",
+      "contributor_type": "ai",
+      "avatar_url": "https://example.com/ai-assistant.jpg",
+      "email": null,
+      "metadata": {
+        "model": "gpt-4",
+        "version": "1.0"
+      },
+      "created_at": "2025-06-20 08:42:26.900066+00:00"
+    },
+    {
+      "contributor_id": "577f5c86c85fec8d",
+      "name": "Code Generator Bot",
+      "contributor_type": "ai",
+      "avatar_url": "https://example.com/code-bot.jpg",
+      "email": null,
+      "metadata": {
+        "model": "claude-3",
+        "version": "2.1"
+      },
+      "created_at": "2025-06-20 08:42:26.906214+00:00"
+    },
+    {
+      "contributor_id": "820c84e56ce293fb",
+      "name": "System Monitor",
+      "contributor_type": "system",
+      "avatar_url": null,
+      "email": null,
+      "metadata": {
+        "component": "monitoring",
+        "version": "1.0"
+      },
+      "created_at": "2025-06-20 08:42:26.911988+00:00"
+    },
+    {
+      "contributor_id": "b798c4f7b665987d",
+      "name": "Alice Developer",
+      "contributor_type": "human",
+      "avatar_url": "https://example.com/alice.jpg",
+      "email": "alice@example.com",
+      "metadata": {},
+      "created_at": "2025-06-20 08:42:58.997409+00:00"
+    },
+    {
+      "contributor_id": "af996d4adfdb6f62",
+      "name": "Bob CodeReviewer",
+      "contributor_type": "human",
+      "avatar_url": "https://example.com/bob.jpg",
+      "email": "bob@example.com",
+      "metadata": {},
+      "created_at": "2025-06-20 08:42:59.005570+00:00"
+    },
+    {
+      "contributor_id": "10852f1ffec6f186",
+      "name": "AI Assistant GPT-4",
+      "contributor_type": "ai",
+      "avatar_url": "https://example.com/ai-assistant.jpg",
+      "email": null,
+      "metadata": {
+        "model": "gpt-4",
+        "version": "1.0"
+      },
+      "created_at": "2025-06-20 08:42:59.013857+00:00"
+    },
+    {
+      "contributor_id": "1a10d21edbedff8d",
+      "name": "Code Generator Bot",
+      "contributor_type": "ai",
+      "avatar_url": "https://example.com/code-bot.jpg",
+      "email": null,
+      "metadata": {
+        "model": "claude-3",
+        "version": "2.1"
+      },
+      "created_at": "2025-06-20 08:42:59.021529+00:00"
+    },
+    {
+      "contributor_id": "e6fbc2e658136743",
+      "name": "System Monitor",
+      "contributor_type": "system",
+      "avatar_url": null,
+      "email": null,
+      "metadata": {
+        "component": "monitoring",
+        "version": "1.0"
+      },
+      "created_at": "2025-06-20 08:42:59.093859+00:00"
+    },
+    {
+      "contributor_id": "cf9d3a36d6408d01",
+      "name": "Alice Developer",
+      "contributor_type": "human",
+      "avatar_url": "https://example.com/alice.jpg",
+      "email": "alice@example.com",
+      "metadata": {},
+      "created_at": "2025-06-20 08:43:29.305909+00:00"
+    },
+    {
+      "contributor_id": "37ffeb9c775ef384",
+      "name": "Bob CodeReviewer",
+      "contributor_type": "human",
+      "avatar_url": "https://example.com/bob.jpg",
+      "email": "bob@example.com",
+      "metadata": {},
+      "created_at": "2025-06-20 08:43:29.315442+00:00"
+    },
+    {
+      "contributor_id": "6ce0fc3494ac8f0e",
+      "name": "AI Assistant GPT-4",
+      "contributor_type": "ai",
+      "avatar_url": "https://example.com/ai-assistant.jpg",
+      "email": null,
+      "metadata": {
+        "model": "gpt-4",
+        "version": "1.0"
+      },
+      "created_at": "2025-06-20 08:43:29.324537+00:00"
+    },
+    {
+      "contributor_id": "25f40b0717399f5e",
+      "name": "Code Generator Bot",
+      "contributor_type": "ai",
+      "avatar_url": "https://example.com/code-bot.jpg",
+      "email": null,
+      "metadata": {
+        "model": "claude-3",
+        "version": "2.1"
+      },
+      "created_at": "2025-06-20 08:43:29.333653+00:00"
+    },
+    {
+      "contributor_id": "814e4999722bae33",
+      "name": "System Monitor",
+      "contributor_type": "system",
+      "avatar_url": null,
+      "email": null,
+      "metadata": {
+        "component": "monitoring",
+        "version": "1.0"
+      },
+      "created_at": "2025-06-20 08:43:29.342320+00:00"
+    },
+    {
+      "contributor_id": "0637e18c282a4a52",
+      "name": "Alice Developer",
+      "contributor_type": "human",
+      "avatar_url": "https://example.com/alice.jpg",
+      "email": "alice@example.com",
+      "metadata": {},
+      "created_at": "2025-06-20 08:43:46.285558+00:00"
+    },
+    {
+      "contributor_id": "45aae8dadff67672",
+      "name": "Bob CodeReviewer",
+      "contributor_type": "human",
+      "avatar_url": "https://example.com/bob.jpg",
+      "email": "bob@example.com",
+      "metadata": {},
+      "created_at": "2025-06-20 08:43:46.295518+00:00"
+    },
+    {
+      "contributor_id": "6eb64b5028f5295e",
+      "name": "AI Assistant GPT-4",
+      "contributor_type": "ai",
+      "avatar_url": "https://example.com/ai-assistant.jpg",
+      "email": null,
+      "metadata": {
+        "model": "gpt-4",
+        "version": "1.0"
+      },
+      "created_at": "2025-06-20 08:43:46.305531+00:00"
+    },
+    {
+      "contributor_id": "8a9a0a89caf41f3e",
+      "name": "Code Generator Bot",
+      "contributor_type": "ai",
+      "avatar_url": "https://example.com/code-bot.jpg",
+      "email": null,
+      "metadata": {
+        "model": "claude-3",
+        "version": "2.1"
+      },
+      "created_at": "2025-06-20 08:43:46.315431+00:00"
+    },
+    {
+      "contributor_id": "a55c60409a3874c8",
+      "name": "System Monitor",
+      "contributor_type": "system",
+      "avatar_url": null,
+      "email": null,
+      "metadata": {
+        "component": "monitoring",
+        "version": "1.0"
+      },
+      "created_at": "2025-06-20 08:43:46.324925+00:00"
+    }
+  ],
+  "task_attributions": [
+    {
+      "task_id": "TASK-001",
+      "contributions": [
+        {
+          "contribution_id": "254a99db-9ef1-4784-ad93-1980c384c583",
+          "task_id": "TASK-001",
+          "contributor_id": "0081e1cf0fb50f7b",
+          "role": "creator",
+          "content": "Contribution to Implement logging system as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:51.593870+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "1317da71-3c01-48a1-8531-99aff35eff53",
+          "task_id": "TASK-001",
+          "contributor_id": "c4a8a5901259fb2d",
+          "role": "editor",
+          "content": "Contribution to Implement logging system as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:51.595920+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "8d763a4f-7e14-4ffb-8b15-497e7a314bf6",
+          "task_id": "TASK-001",
+          "contributor_id": "474f2937a1ecb9a1",
+          "role": "reviewer",
+          "content": "Contribution to Implement logging system as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:51.598734+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        },
+        {
+          "contribution_id": "613c7ef1-172f-4a8f-9605-b893603589a7",
+          "task_id": "TASK-001",
+          "contributor_id": "8c333b2e34434e3f",
+          "role": "creator",
+          "content": "Contribution to Implement logging system as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:55.346507+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "b27f3aec-9293-47eb-8a65-4506fdb8217c",
+          "task_id": "TASK-001",
+          "contributor_id": "e3d97aabfd350650",
+          "role": "editor",
+          "content": "Contribution to Implement logging system as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:55.376489+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "f5d6e471-6dc6-4d1c-8320-f90becdc569a",
+          "task_id": "TASK-001",
+          "contributor_id": "be5bf4bf7efaa8ce",
+          "role": "reviewer",
+          "content": "Contribution to Implement logging system as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:55.432593+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        },
+        {
+          "contribution_id": "5a6de2c1-5c97-4ff6-a2a1-f1e108fdc0fb",
+          "task_id": "TASK-001",
+          "contributor_id": "6035c75515b66208",
+          "role": "creator",
+          "content": "Contribution to Implement logging system as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:26.917193+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "da1ad2e1-26b1-413d-8d48-f22b5b4b588e",
+          "task_id": "TASK-001",
+          "contributor_id": "c894c8015f933172",
+          "role": "editor",
+          "content": "Contribution to Implement logging system as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:26.922963+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "b56c5e05-b11f-4120-9d92-3ab42a577ce0",
+          "task_id": "TASK-001",
+          "contributor_id": "d6ae40337c697663",
+          "role": "reviewer",
+          "content": "Contribution to Implement logging system as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:26.929134+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        },
+        {
+          "contribution_id": "62bb2d92-995c-4bfb-bbf8-5eba16d4fd1c",
+          "task_id": "TASK-001",
+          "contributor_id": "b798c4f7b665987d",
+          "role": "creator",
+          "content": "Contribution to Implement logging system as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:59.103609+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "82a387a4-296c-4f7a-83e6-2c66000433da",
+          "task_id": "TASK-001",
+          "contributor_id": "af996d4adfdb6f62",
+          "role": "editor",
+          "content": "Contribution to Implement logging system as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:59.111252+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "5b714bad-d008-495f-9d90-0956fc1a7f92",
+          "task_id": "TASK-001",
+          "contributor_id": "10852f1ffec6f186",
+          "role": "reviewer",
+          "content": "Contribution to Implement logging system as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:59.119725+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        },
+        {
+          "contribution_id": "bfef8bd4-619c-4944-ba08-30664d46e52b",
+          "task_id": "TASK-001",
+          "contributor_id": "cf9d3a36d6408d01",
+          "role": "creator",
+          "content": "Contribution to Implement logging system as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:29.354544+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "a9d82ab9-fb55-489e-8205-14c97e821ce5",
+          "task_id": "TASK-001",
+          "contributor_id": "37ffeb9c775ef384",
+          "role": "editor",
+          "content": "Contribution to Implement logging system as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:29.378386+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "c62f9ffd-5233-434c-b2ea-9ccfd30aa0dc",
+          "task_id": "TASK-001",
+          "contributor_id": "6ce0fc3494ac8f0e",
+          "role": "reviewer",
+          "content": "Contribution to Implement logging system as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:29.386721+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        },
+        {
+          "contribution_id": "2686bda9-3196-458a-82a7-64a203e0a960",
+          "task_id": "TASK-001",
+          "contributor_id": "0637e18c282a4a52",
+          "role": "creator",
+          "content": "Contribution to Implement logging system as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:46.339078+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "9850b131-01ec-4c2f-b707-55d4443dd4cf",
+          "task_id": "TASK-001",
+          "contributor_id": "45aae8dadff67672",
+          "role": "editor",
+          "content": "Contribution to Implement logging system as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:46.354185+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "4e633ed2-d760-470c-bbc1-7920e3e221a8",
+          "task_id": "TASK-001",
+          "contributor_id": "6eb64b5028f5295e",
+          "role": "reviewer",
+          "content": "Contribution to Implement logging system as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:46.367032+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        }
+      ],
+      "primary_contributor_id": "474f2937a1ecb9a1",
+      "collaboration_score": 0.895,
+      "created_at": "2025-06-20 08:41:51.593877+00:00",
+      "updated_at": "2025-06-20 08:43:46.367036+00:00"
+    },
+    {
+      "task_id": "TASK-002",
+      "contributions": [
+        {
+          "contribution_id": "5d93364f-b741-4c26-b43b-6a787d3f007f",
+          "task_id": "TASK-002",
+          "contributor_id": "0081e1cf0fb50f7b",
+          "role": "creator",
+          "content": "Contribution to Add configuration management as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:51.602839+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "e1b494a0-478e-4ea0-8add-e927acd80a28",
+          "task_id": "TASK-002",
+          "contributor_id": "c4a8a5901259fb2d",
+          "role": "editor",
+          "content": "Contribution to Add configuration management as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:51.607423+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "c7f1f439-6bf6-45eb-a38f-069b2b01d788",
+          "task_id": "TASK-002",
+          "contributor_id": "474f2937a1ecb9a1",
+          "role": "reviewer",
+          "content": "Contribution to Add configuration management as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:51.610424+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        },
+        {
+          "contribution_id": "71f6826e-adac-4e1f-959d-118fd892c810",
+          "task_id": "TASK-002",
+          "contributor_id": "8c333b2e34434e3f",
+          "role": "creator",
+          "content": "Contribution to Add configuration management as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:55.436281+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "c9f12a5d-372e-41e6-90ca-633108a9a0e3",
+          "task_id": "TASK-002",
+          "contributor_id": "e3d97aabfd350650",
+          "role": "editor",
+          "content": "Contribution to Add configuration management as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:55.442426+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "d60e3135-43e7-4e98-9c2b-9619c12eba51",
+          "task_id": "TASK-002",
+          "contributor_id": "be5bf4bf7efaa8ce",
+          "role": "reviewer",
+          "content": "Contribution to Add configuration management as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:55.447833+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        },
+        {
+          "contribution_id": "6c4490a6-0b39-4789-ae40-b176686a10f4",
+          "task_id": "TASK-002",
+          "contributor_id": "6035c75515b66208",
+          "role": "creator",
+          "content": "Contribution to Add configuration management as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:26.934710+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "6f0a66eb-49bc-47b6-b022-5706deb79445",
+          "task_id": "TASK-002",
+          "contributor_id": "c894c8015f933172",
+          "role": "editor",
+          "content": "Contribution to Add configuration management as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:26.940970+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "9a242803-b008-4c64-9d51-d298f9f0080f",
+          "task_id": "TASK-002",
+          "contributor_id": "d6ae40337c697663",
+          "role": "reviewer",
+          "content": "Contribution to Add configuration management as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:26.947074+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        },
+        {
+          "contribution_id": "be70abd4-3cf4-4f26-92c9-ba0a1a591484",
+          "task_id": "TASK-002",
+          "contributor_id": "b798c4f7b665987d",
+          "role": "creator",
+          "content": "Contribution to Add configuration management as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:59.127273+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "788fd1c0-ccf4-4620-8757-abcafb5dfec2",
+          "task_id": "TASK-002",
+          "contributor_id": "af996d4adfdb6f62",
+          "role": "editor",
+          "content": "Contribution to Add configuration management as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:59.135565+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "dbe6ed07-8fa3-4ad7-9594-632e555c35cc",
+          "task_id": "TASK-002",
+          "contributor_id": "10852f1ffec6f186",
+          "role": "reviewer",
+          "content": "Contribution to Add configuration management as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:59.143307+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        },
+        {
+          "contribution_id": "d63cffda-f252-4723-aa26-3c13ee6bcdf9",
+          "task_id": "TASK-002",
+          "contributor_id": "cf9d3a36d6408d01",
+          "role": "creator",
+          "content": "Contribution to Add configuration management as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:29.396227+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "e8005534-3d90-4e3b-9839-b3f87b06dcff",
+          "task_id": "TASK-002",
+          "contributor_id": "37ffeb9c775ef384",
+          "role": "editor",
+          "content": "Contribution to Add configuration management as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:29.404553+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "cf8fa48d-cbf8-47bf-a72a-70d5c96e6eba",
+          "task_id": "TASK-002",
+          "contributor_id": "6ce0fc3494ac8f0e",
+          "role": "reviewer",
+          "content": "Contribution to Add configuration management as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:29.414307+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        },
+        {
+          "contribution_id": "9de3cc62-08e8-4b8e-8dcd-a80fd4096937",
+          "task_id": "TASK-002",
+          "contributor_id": "0637e18c282a4a52",
+          "role": "creator",
+          "content": "Contribution to Add configuration management as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:46.377224+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "e11db0b2-1403-40cd-8189-41b37bd339c9",
+          "task_id": "TASK-002",
+          "contributor_id": "45aae8dadff67672",
+          "role": "editor",
+          "content": "Contribution to Add configuration management as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:46.388436+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "c7d82ccc-8ef5-4234-a59f-7b3694204a13",
+          "task_id": "TASK-002",
+          "contributor_id": "6eb64b5028f5295e",
+          "role": "reviewer",
+          "content": "Contribution to Add configuration management as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:46.398946+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        }
+      ],
+      "primary_contributor_id": "474f2937a1ecb9a1",
+      "collaboration_score": 0.895,
+      "created_at": "2025-06-20 08:41:51.602847+00:00",
+      "updated_at": "2025-06-20 08:43:46.398948+00:00"
+    },
+    {
+      "task_id": "TASK-003",
+      "contributions": [
+        {
+          "contribution_id": "4cf4ac65-1b06-46e9-bf73-c6e52867a8ca",
+          "task_id": "TASK-003",
+          "contributor_id": "0081e1cf0fb50f7b",
+          "role": "creator",
+          "content": "Contribution to Database integration as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:51.615147+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "8bc3472b-1314-4888-8dc1-a3c485ab8f7d",
+          "task_id": "TASK-003",
+          "contributor_id": "c4a8a5901259fb2d",
+          "role": "editor",
+          "content": "Contribution to Database integration as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:51.619593+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "fbdeefee-fac3-48d3-be39-29c0ffb89c3b",
+          "task_id": "TASK-003",
+          "contributor_id": "474f2937a1ecb9a1",
+          "role": "reviewer",
+          "content": "Contribution to Database integration as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:51.622797+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        },
+        {
+          "contribution_id": "f18028c1-7ac8-4512-9d91-9c971e0ba53f",
+          "task_id": "TASK-003",
+          "contributor_id": "8c333b2e34434e3f",
+          "role": "creator",
+          "content": "Contribution to Database integration as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:55.451723+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "255cf394-2a04-40e5-aaf4-4c929c924972",
+          "task_id": "TASK-003",
+          "contributor_id": "e3d97aabfd350650",
+          "role": "editor",
+          "content": "Contribution to Database integration as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:55.457060+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "a2b144ef-4c77-447f-9949-db771ff6e309",
+          "task_id": "TASK-003",
+          "contributor_id": "be5bf4bf7efaa8ce",
+          "role": "reviewer",
+          "content": "Contribution to Database integration as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:41:55.463122+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        },
+        {
+          "contribution_id": "dd3af16c-310f-4ecb-b209-9b8e78be5e96",
+          "task_id": "TASK-003",
+          "contributor_id": "6035c75515b66208",
+          "role": "creator",
+          "content": "Contribution to Database integration as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:26.953679+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "0e1ff64f-a9eb-4414-b4a9-7304ce16da92",
+          "task_id": "TASK-003",
+          "contributor_id": "c894c8015f933172",
+          "role": "editor",
+          "content": "Contribution to Database integration as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:26.959511+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "358a2de5-fe67-4dfb-a6fd-69a03d87b3f0",
+          "task_id": "TASK-003",
+          "contributor_id": "d6ae40337c697663",
+          "role": "reviewer",
+          "content": "Contribution to Database integration as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:26.965294+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        },
+        {
+          "contribution_id": "aba7e7cd-b2ac-4a8e-b492-d4ec1960c0ad",
+          "task_id": "TASK-003",
+          "contributor_id": "b798c4f7b665987d",
+          "role": "creator",
+          "content": "Contribution to Database integration as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:59.151460+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "b5fd4060-0117-43a9-8fe6-b402a7adefc4",
+          "task_id": "TASK-003",
+          "contributor_id": "af996d4adfdb6f62",
+          "role": "editor",
+          "content": "Contribution to Database integration as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:59.159410+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "914dcdea-0fc5-40e0-8a66-c422a31ef1d6",
+          "task_id": "TASK-003",
+          "contributor_id": "10852f1ffec6f186",
+          "role": "reviewer",
+          "content": "Contribution to Database integration as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:42:59.168241+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        },
+        {
+          "contribution_id": "afded379-70b3-4bb7-93e3-5ff636e075df",
+          "task_id": "TASK-003",
+          "contributor_id": "cf9d3a36d6408d01",
+          "role": "creator",
+          "content": "Contribution to Database integration as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:29.423157+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "d92b01a0-7e90-436b-a3e6-c7bfa3f42861",
+          "task_id": "TASK-003",
+          "contributor_id": "37ffeb9c775ef384",
+          "role": "editor",
+          "content": "Contribution to Database integration as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:29.431961+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "47c31f83-87f7-4088-ba32-254ac01492d9",
+          "task_id": "TASK-003",
+          "contributor_id": "6ce0fc3494ac8f0e",
+          "role": "reviewer",
+          "content": "Contribution to Database integration as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:29.441707+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        },
+        {
+          "contribution_id": "2b729b39-034a-4075-a001-ca0c299c8372",
+          "task_id": "TASK-003",
+          "contributor_id": "0637e18c282a4a52",
+          "role": "creator",
+          "content": "Contribution to Database integration as creator",
+          "confidence_score": 0.8,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:46.409533+00:00",
+          "metadata": {
+            "iteration": 1
+          }
+        },
+        {
+          "contribution_id": "88c27980-036b-4bfa-84f4-04ef91b721d4",
+          "task_id": "TASK-003",
+          "contributor_id": "45aae8dadff67672",
+          "role": "editor",
+          "content": "Contribution to Database integration as editor",
+          "confidence_score": 0.9,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:46.420166+00:00",
+          "metadata": {
+            "iteration": 2
+          }
+        },
+        {
+          "contribution_id": "5ece1ba4-4919-46be-ac98-d0959acc1cec",
+          "task_id": "TASK-003",
+          "contributor_id": "6eb64b5028f5295e",
+          "role": "reviewer",
+          "content": "Contribution to Database integration as reviewer",
+          "confidence_score": 1.0,
+          "token_usage": {
+            "input": 100,
+            "output": 200
+          },
+          "timestamp": "2025-06-20 08:43:46.431033+00:00",
+          "metadata": {
+            "iteration": 3
+          }
+        }
+      ],
+      "primary_contributor_id": "474f2937a1ecb9a1",
+      "collaboration_score": 0.895,
+      "created_at": "2025-06-20 08:41:51.615153+00:00",
+      "updated_at": "2025-06-20 08:43:46.431035+00:00"
+    }
+  ],
+  "summary": {
+    "total_contributors": 30,
+    "total_tasks": 3,
+    "total_contributions": 54,
+    "avg_collaboration_score": 0.895
+  }
+}

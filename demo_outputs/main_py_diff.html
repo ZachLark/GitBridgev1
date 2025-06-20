@@ -1,0 +1,279 @@
+
+        <div class="diff-container" data-file-path="main.py">
+            <div class="diff-header">
+                <h3>📄 main.py</h3>
+                <div class="diff-summary">
+                    <span class="summary-item added">+25</span>
+                    <span class="summary-item removed">-1</span>
+                    <span class="summary-item unchanged">10</span>
+                    <span class="summary-item percentage">72.2% changed</span>
+                </div>
+            </div>
+            
+            <div class="diff-content">
+        
+                <div class="diff-block modification" data-block-id="block_0">
+                    <div class="block-header">
+                        <span class="block-type">Modification</span>
+                        <span class="block-lines">Lines 1-36</span>
+                    </div>
+                    <div class="block-content">
+            
+                        <div class="diff-line unchanged">
+                            <span class="line-icon"> </span>
+                            <span class="line-number">   1</span>
+                            <span class="line-content">#!/usr/bin/env python3
+</span>
+                        </div>
+                
+                        <div class="diff-line unchanged">
+                            <span class="line-icon"> </span>
+                            <span class="line-number">   2</span>
+                            <span class="line-content">&quot;&quot;&quot;
+</span>
+                        </div>
+                
+                        <div class="diff-line unchanged">
+                            <span class="line-icon"> </span>
+                            <span class="line-number">   3</span>
+                            <span class="line-content">GitBridge Main Application
+</span>
+                        </div>
+                
+                        <div class="diff-line removed">
+                            <span class="line-icon">➖</span>
+                            <span class="line-number">   4</span>
+                            <span class="line-content">Simple example application.
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">   5</span>
+                            <span class="line-content">Production-ready example application.
+</span>
+                        </div>
+                
+                        <div class="diff-line unchanged">
+                            <span class="line-icon"> </span>
+                            <span class="line-number">   6</span>
+                            <span class="line-content">&quot;&quot;&quot;
+</span>
+                        </div>
+                
+                        <div class="diff-line unchanged">
+                            <span class="line-icon"> </span>
+                            <span class="line-number">   7</span>
+                            <span class="line-content">
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">   8</span>
+                            <span class="line-content">import logging
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">   9</span>
+                            <span class="line-content">import sys
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  10</span>
+                            <span class="line-content">from pathlib import Path
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  11</span>
+                            <span class="line-content">
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  12</span>
+                            <span class="line-content">def setup_logging():
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  13</span>
+                            <span class="line-content">    &quot;&quot;&quot;Set up application logging.&quot;&quot;&quot;
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  14</span>
+                            <span class="line-content">    log_dir = Path(&quot;logs&quot;)
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  15</span>
+                            <span class="line-content">    log_dir.mkdir(exist_ok=True)
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  16</span>
+                            <span class="line-content">    
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  17</span>
+                            <span class="line-content">    logging.basicConfig(
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  18</span>
+                            <span class="line-content">        level=logging.INFO,
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  19</span>
+                            <span class="line-content">        format=&#39;%(asctime)s - %(name)s - %(levelname)s - %(message)s&#39;,
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  20</span>
+                            <span class="line-content">        handlers=[
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  21</span>
+                            <span class="line-content">            logging.FileHandler(log_dir / &quot;app.log&quot;),
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  22</span>
+                            <span class="line-content">            logging.StreamHandler(sys.stdout)
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  23</span>
+                            <span class="line-content">        ]
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  24</span>
+                            <span class="line-content">    )
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  25</span>
+                            <span class="line-content">
+</span>
+                        </div>
+                
+                        <div class="diff-line unchanged">
+                            <span class="line-icon"> </span>
+                            <span class="line-number">  26</span>
+                            <span class="line-content">def main():
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  27</span>
+                            <span class="line-content">    &quot;&quot;&quot;Main application entry point.&quot;&quot;&quot;
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  28</span>
+                            <span class="line-content">    setup_logging()
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  29</span>
+                            <span class="line-content">    logger = logging.getLogger(__name__)
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  30</span>
+                            <span class="line-content">    
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  31</span>
+                            <span class="line-content">    logger.info(&quot;Starting GitBridge application&quot;)
+</span>
+                        </div>
+                
+                        <div class="diff-line unchanged">
+                            <span class="line-icon"> </span>
+                            <span class="line-number">  32</span>
+                            <span class="line-content">    print(&quot;Hello, GitBridge!&quot;)
+</span>
+                        </div>
+                
+                        <div class="diff-line added">
+                            <span class="line-icon">➕</span>
+                            <span class="line-number">  33</span>
+                            <span class="line-content">    logger.info(&quot;Application completed successfully&quot;)
+</span>
+                        </div>
+                
+                        <div class="diff-line unchanged">
+                            <span class="line-icon"> </span>
+                            <span class="line-number">  34</span>
+                            <span class="line-content">    return 0
+</span>
+                        </div>
+                
+                        <div class="diff-line unchanged">
+                            <span class="line-icon"> </span>
+                            <span class="line-number">  35</span>
+                            <span class="line-content">
+</span>
+                        </div>
+                
+                        <div class="diff-line unchanged">
+                            <span class="line-icon"> </span>
+                            <span class="line-number">  36</span>
+                            <span class="line-content">if __name__ == &quot;__main__&quot;:
+</span>
+                        </div>
+                
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+        

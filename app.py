@@ -34,22 +34,39 @@ app = Flask(__name__,
     static_folder='webui/static'
 )
 app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY', 'dev_key_replace_in_prod')
-socketio = SocketIO(app)
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Create required directories
 Path('logs').mkdir(exist_ok=True)
 Path('messages').mkdir(exist_ok=True)
+Path('attribution_data').mkdir(exist_ok=True)
+Path('changelog_data').mkdir(exist_ok=True)
+Path('activity_data').mkdir(exist_ok=True)
 
 # Import routes after app initialization
-from webui.routes import *
-from agent.routes import *
-from mas_core.routes import *
+from webui.routes import webui_bp, register_socketio_events
+from agent.routes import agent_bp
+from mas_core.routes import mas_core_bp
+
+# Register blueprints
+app.register_blueprint(webui_bp)
+app.register_blueprint(agent_bp)
+app.register_blueprint(mas_core_bp)
+
+# Register WebSocket events
+register_socketio_events(socketio)
 
 @app.route('/')
 def index():
     """Render main dashboard."""
     return render_template('dashboard.html')
 
+@app.route('/health')
+def health_check():
+    """Health check endpoint."""
+    return {"status": "healthy", "phase": "GBP24", "version": "1.0.0"}
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
+    logger.info(f"Starting GitBridge Phase 24 server on port {port}")
     socketio.run(app, host='0.0.0.0', port=port, debug=False) 

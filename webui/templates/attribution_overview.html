@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitBridge - Attribution Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            color: #4a5568;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .header p {
+            color: #718096;
+            font-size: 1.1em;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .attribution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+        
+        .attribution-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .attribution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .task-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #4a5568;
+        }
+        
+        .task-id {
+            background: #667eea;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .collaboration-score {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .score-label {
+            font-weight: 600;
+            color: #4a5568;
+            margin-right: 10px;
+        }
+        
+        .score-value {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .contributors-section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            color: #4a5568;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        
+        .contributor-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .contributor-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #f7fafc;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .contributor-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #667eea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            margin-right: 15px;
+        }
+        
+        .contributor-info {
+            flex: 1;
+        }
+        
+        .contributor-name {
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 2px;
+        }
+        
+        .contributor-role {
+            font-size: 0.9em;
+            color: #718096;
+        }
+        
+        .contributor-type {
+            background: #e2e8f0;
+            color: #4a5568;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .contributions-section {
+            margin-top: 20px;
+        }
+        
+        .contribution-item {
+            padding: 10px;
+            background: #f7fafc;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border-left: 3px solid #48bb78;
+        }
+        
+        .contribution-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .contribution-role {
+            background: #48bb78;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .contribution-time {
+            font-size: 0.9em;
+            color: #718096;
+        }
+        
+        .contribution-content {
+            color: #4a5568;
+            line-height: 1.4;
+            font-size: 0.95em;
+        }
+        
+        .no-attribution {
+            text-align: center;
+            color: #718096;
+            font-style: italic;
+            padding: 40px 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .attribution-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .task-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Back to Dashboard</a>
+        
+        <div class="header">
+            <h1>Attribution Overview</h1>
+            <p>Track contributions and collaboration across all tasks</p>
+        </div>
+        
+        <div class="attribution-grid">
+            {% if attributions %}
+                {% for attribution in attributions %}
+                <div class="attribution-card">
+                    <div class="task-header">
+                        <div class="task-title">{{ attribution.task_title or 'Unknown Task' }}</div>
+                        <div class="task-id">#{{ attribution.task_id }}</div>
+                    </div>
+                    
+                    <div class="collaboration-score">
+                        <span class="score-label">Collaboration Score:</span>
+                        <span class="score-value">{{ "%.1f"|format(attribution.collaboration_score) }}</span>
+                    </div>
+                    
+                    {% if attribution.contributors %}
+                    <div class="contributors-section">
+                        <h3 class="section-title">Contributors</h3>
+                        <div class="contributor-list">
+                            {% for contributor in attribution.contributors %}
+                            <div class="contributor-item">
+                                <div class="contributor-avatar">
+                                    {{ contributor.name[0].upper() if contributor.name else '?' }}
+                                </div>
+                                <div class="contributor-info">
+                                    <div class="contributor-name">{{ contributor.name }}</div>
+                                    <div class="contributor-role">{{ contributor.primary_role or 'Contributor' }}</div>
+                                </div>
+                                <div class="contributor-type">{{ contributor.type }}</div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {% if attribution.recent_contributions %}
+                    <div class="contributions-section">
+                        <h3 class="section-title">Recent Contributions</h3>
+                        {% for contribution in attribution.recent_contributions[:3] %}
+                        <div class="contribution-item">
+                            <div class="contribution-header">
+                                <span class="contribution-role">{{ contribution.role }}</span>
+                                <span class="contribution-time">{{ contribution.timestamp.strftime('%H:%M') }}</span>
+                            </div>
+                            <div class="contribution-content">{{ contribution.content[:100] }}{% if contribution.content|length > 100 %}...{% endif %}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="attribution-card">
+                    <div class="no-attribution">
+                        <h3>No Attribution Data</h3>
+                        <p>No tasks with attribution data found. Start collaborating to see attribution information here.</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html> 

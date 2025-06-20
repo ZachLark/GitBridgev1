@@ -1,0 +1,402 @@
+{
+  "task_id": "TASK-001",
+  "title": "Implement logging system",
+  "description": "Add comprehensive logging to the main application with file output and proper setup",
+  "status": "completed",
+  "priority": "high",
+  "created_at": "2025-06-20T08:43:46.484097+00:00",
+  "updated_at": "2025-06-20T08:43:46.484098+00:00",
+  "attribution": {
+    "task_id": "TASK-001",
+    "collaboration_score": 0.895,
+    "contributors": [
+      {
+        "id": "0081e1cf0fb50f7b",
+        "name": "Alice Developer",
+        "type": "human",
+        "avatar_url": "https://example.com/alice.jpg",
+        "contributions": 1,
+        "total_confidence": 0.8,
+        "avg_confidence": 0.8
+      },
+      {
+        "id": "c4a8a5901259fb2d",
+        "name": "Bob CodeReviewer",
+        "type": "human",
+        "avatar_url": "https://example.com/bob.jpg",
+        "contributions": 1,
+        "total_confidence": 0.9,
+        "avg_confidence": 0.9
+      },
+      {
+        "id": "474f2937a1ecb9a1",
+        "name": "AI Assistant GPT-4",
+        "type": "ai",
+        "avatar_url": "https://example.com/ai-assistant.jpg",
+        "contributions": 1,
+        "total_confidence": 1.0,
+        "avg_confidence": 1.0
+      },
+      {
+        "id": "8c333b2e34434e3f",
+        "name": "Alice Developer",
+        "type": "human",
+        "avatar_url": "https://example.com/alice.jpg",
+        "contributions": 1,
+        "total_confidence": 0.8,
+        "avg_confidence": 0.8
+      },
+      {
+        "id": "e3d97aabfd350650",
+        "name": "Bob CodeReviewer",
+        "type": "human",
+        "avatar_url": "https://example.com/bob.jpg",
+        "contributions": 1,
+        "total_confidence": 0.9,
+        "avg_confidence": 0.9
+      },
+      {
+        "id": "be5bf4bf7efaa8ce",
+        "name": "AI Assistant GPT-4",
+        "type": "ai",
+        "avatar_url": "https://example.com/ai-assistant.jpg",
+        "contributions": 1,
+        "total_confidence": 1.0,
+        "avg_confidence": 1.0
+      },
+      {
+        "id": "6035c75515b66208",
+        "name": "Alice Developer",
+        "type": "human",
+        "avatar_url": "https://example.com/alice.jpg",
+        "contributions": 1,
+        "total_confidence": 0.8,
+        "avg_confidence": 0.8
+      },
+      {
+        "id": "c894c8015f933172",
+        "name": "Bob CodeReviewer",
+        "type": "human",
+        "avatar_url": "https://example.com/bob.jpg",
+        "contributions": 1,
+        "total_confidence": 0.9,
+        "avg_confidence": 0.9
+      },
+      {
+        "id": "d6ae40337c697663",
+        "name": "AI Assistant GPT-4",
+        "type": "ai",
+        "avatar_url": "https://example.com/ai-assistant.jpg",
+        "contributions": 1,
+        "total_confidence": 1.0,
+        "avg_confidence": 1.0
+      },
+      {
+        "id": "b798c4f7b665987d",
+        "name": "Alice Developer",
+        "type": "human",
+        "avatar_url": "https://example.com/alice.jpg",
+        "contributions": 1,
+        "total_confidence": 0.8,
+        "avg_confidence": 0.8
+      },
+      {
+        "id": "af996d4adfdb6f62",
+        "name": "Bob CodeReviewer",
+        "type": "human",
+        "avatar_url": "https://example.com/bob.jpg",
+        "contributions": 1,
+        "total_confidence": 0.9,
+        "avg_confidence": 0.9
+      },
+      {
+        "id": "10852f1ffec6f186",
+        "name": "AI Assistant GPT-4",
+        "type": "ai",
+        "avatar_url": "https://example.com/ai-assistant.jpg",
+        "contributions": 1,
+        "total_confidence": 1.0,
+        "avg_confidence": 1.0
+      },
+      {
+        "id": "cf9d3a36d6408d01",
+        "name": "Alice Developer",
+        "type": "human",
+        "avatar_url": "https://example.com/alice.jpg",
+        "contributions": 1,
+        "total_confidence": 0.8,
+        "avg_confidence": 0.8
+      },
+      {
+        "id": "37ffeb9c775ef384",
+        "name": "Bob CodeReviewer",
+        "type": "human",
+        "avatar_url": "https://example.com/bob.jpg",
+        "contributions": 1,
+        "total_confidence": 0.9,
+        "avg_confidence": 0.9
+      },
+      {
+        "id": "6ce0fc3494ac8f0e",
+        "name": "AI Assistant GPT-4",
+        "type": "ai",
+        "avatar_url": "https://example.com/ai-assistant.jpg",
+        "contributions": 1,
+        "total_confidence": 1.0,
+        "avg_confidence": 1.0
+      },
+      {
+        "id": "0637e18c282a4a52",
+        "name": "Alice Developer",
+        "type": "human",
+        "avatar_url": "https://example.com/alice.jpg",
+        "contributions": 1,
+        "total_confidence": 0.8,
+        "avg_confidence": 0.8
+      },
+      {
+        "id": "45aae8dadff67672",
+        "name": "Bob CodeReviewer",
+        "type": "human",
+        "avatar_url": "https://example.com/bob.jpg",
+        "contributions": 1,
+        "total_confidence": 0.9,
+        "avg_confidence": 0.9
+      },
+      {
+        "id": "6eb64b5028f5295e",
+        "name": "AI Assistant GPT-4",
+        "type": "ai",
+        "avatar_url": "https://example.com/ai-assistant.jpg",
+        "contributions": 1,
+        "total_confidence": 1.0,
+        "avg_confidence": 1.0
+      }
+    ],
+    "timeline": [
+      {
+        "timestamp": "2025-06-20T08:41:51.593870+00:00",
+        "contributor": {
+          "id": "0081e1cf0fb50f7b",
+          "name": "Alice Developer",
+          "type": "human",
+          "avatar_url": "https://example.com/alice.jpg"
+        },
+        "role": "creator",
+        "confidence_score": 0.8,
+        "content_preview": "Contribution to Implement logging system as creator"
+      },
+      {
+        "timestamp": "2025-06-20T08:41:51.595920+00:00",
+        "contributor": {
+          "id": "c4a8a5901259fb2d",
+          "name": "Bob CodeReviewer",
+          "type": "human",
+          "avatar_url": "https://example.com/bob.jpg"
+        },
+        "role": "editor",
+        "confidence_score": 0.9,
+        "content_preview": "Contribution to Implement logging system as editor"
+      },
+      {
+        "timestamp": "2025-06-20T08:41:51.598734+00:00",
+        "contributor": {
+          "id": "474f2937a1ecb9a1",
+          "name": "AI Assistant GPT-4",
+          "type": "ai",
+          "avatar_url": "https://example.com/ai-assistant.jpg"
+        },
+        "role": "reviewer",
+        "confidence_score": 1.0,
+        "content_preview": "Contribution to Implement logging system as reviewer"
+      },
+      {
+        "timestamp": "2025-06-20T08:41:55.346507+00:00",
+        "contributor": {
+          "id": "8c333b2e34434e3f",
+          "name": "Alice Developer",
+          "type": "human",
+          "avatar_url": "https://example.com/alice.jpg"
+        },
+        "role": "creator",
+        "confidence_score": 0.8,
+        "content_preview": "Contribution to Implement logging system as creator"
+      },
+      {
+        "timestamp": "2025-06-20T08:41:55.376489+00:00",
+        "contributor": {
+          "id": "e3d97aabfd350650",
+          "name": "Bob CodeReviewer",
+          "type": "human",
+          "avatar_url": "https://example.com/bob.jpg"
+        },
+        "role": "editor",
+        "confidence_score": 0.9,
+        "content_preview": "Contribution to Implement logging system as editor"
+      },
+      {
+        "timestamp": "2025-06-20T08:41:55.432593+00:00",
+        "contributor": {
+          "id": "be5bf4bf7efaa8ce",
+          "name": "AI Assistant GPT-4",
+          "type": "ai",
+          "avatar_url": "https://example.com/ai-assistant.jpg"
+        },
+        "role": "reviewer",
+        "confidence_score": 1.0,
+        "content_preview": "Contribution to Implement logging system as reviewer"
+      },
+      {
+        "timestamp": "2025-06-20T08:42:26.917193+00:00",
+        "contributor": {
+          "id": "6035c75515b66208",
+          "name": "Alice Developer",
+          "type": "human",
+          "avatar_url": "https://example.com/alice.jpg"
+        },
+        "role": "creator",
+        "confidence_score": 0.8,
+        "content_preview": "Contribution to Implement logging system as creator"
+      },
+      {
+        "timestamp": "2025-06-20T08:42:26.922963+00:00",
+        "contributor": {
+          "id": "c894c8015f933172",
+          "name": "Bob CodeReviewer",
+          "type": "human",
+          "avatar_url": "https://example.com/bob.jpg"
+        },
+        "role": "editor",
+        "confidence_score": 0.9,
+        "content_preview": "Contribution to Implement logging system as editor"
+      },
+      {
+        "timestamp": "2025-06-20T08:42:26.929134+00:00",
+        "contributor": {
+          "id": "d6ae40337c697663",
+          "name": "AI Assistant GPT-4",
+          "type": "ai",
+          "avatar_url": "https://example.com/ai-assistant.jpg"
+        },
+        "role": "reviewer",
+        "confidence_score": 1.0,
+        "content_preview": "Contribution to Implement logging system as reviewer"
+      },
+      {
+        "timestamp": "2025-06-20T08:42:59.103609+00:00",
+        "contributor": {
+          "id": "b798c4f7b665987d",
+          "name": "Alice Developer",
+          "type": "human",
+          "avatar_url": "https://example.com/alice.jpg"
+        },
+        "role": "creator",
+        "confidence_score": 0.8,
+        "content_preview": "Contribution to Implement logging system as creator"
+      },
+      {
+        "timestamp": "2025-06-20T08:42:59.111252+00:00",
+        "contributor": {
+          "id": "af996d4adfdb6f62",
+          "name": "Bob CodeReviewer",
+          "type": "human",
+          "avatar_url": "https://example.com/bob.jpg"
+        },
+        "role": "editor",
+        "confidence_score": 0.9,
+        "content_preview": "Contribution to Implement logging system as editor"
+      },
+      {
+        "timestamp": "2025-06-20T08:42:59.119725+00:00",
+        "contributor": {
+          "id": "10852f1ffec6f186",
+          "name": "AI Assistant GPT-4",
+          "type": "ai",
+          "avatar_url": "https://example.com/ai-assistant.jpg"
+        },
+        "role": "reviewer",
+        "confidence_score": 1.0,
+        "content_preview": "Contribution to Implement logging system as reviewer"
+      },
+      {
+        "timestamp": "2025-06-20T08:43:29.354544+00:00",
+        "contributor": {
+          "id": "cf9d3a36d6408d01",
+          "name": "Alice Developer",
+          "type": "human",
+          "avatar_url": "https://example.com/alice.jpg"
+        },
+        "role": "creator",
+        "confidence_score": 0.8,
+        "content_preview": "Contribution to Implement logging system as creator"
+      },
+      {
+        "timestamp": "2025-06-20T08:43:29.378386+00:00",
+        "contributor": {
+          "id": "37ffeb9c775ef384",
+          "name": "Bob CodeReviewer",
+          "type": "human",
+          "avatar_url": "https://example.com/bob.jpg"
+        },
+        "role": "editor",
+        "confidence_score": 0.9,
+        "content_preview": "Contribution to Implement logging system as editor"
+      },
+      {
+        "timestamp": "2025-06-20T08:43:29.386721+00:00",
+        "contributor": {
+          "id": "6ce0fc3494ac8f0e",
+          "name": "AI Assistant GPT-4",
+          "type": "ai",
+          "avatar_url": "https://example.com/ai-assistant.jpg"
+        },
+        "role": "reviewer",
+        "confidence_score": 1.0,
+        "content_preview": "Contribution to Implement logging system as reviewer"
+      },
+      {
+        "timestamp": "2025-06-20T08:43:46.339078+00:00",
+        "contributor": {
+          "id": "0637e18c282a4a52",
+          "name": "Alice Developer",
+          "type": "human",
+          "avatar_url": "https://example.com/alice.jpg"
+        },
+        "role": "creator",
+        "confidence_score": 0.8,
+        "content_preview": "Contribution to Implement logging system as creator"
+      },
+      {
+        "timestamp": "2025-06-20T08:43:46.354185+00:00",
+        "contributor": {
+          "id": "45aae8dadff67672",
+          "name": "Bob CodeReviewer",
+          "type": "human",
+          "avatar_url": "https://example.com/bob.jpg"
+        },
+        "role": "editor",
+        "confidence_score": 0.9,
+        "content_preview": "Contribution to Implement logging system as editor"
+      },
+      {
+        "timestamp": "2025-06-20T08:43:46.367032+00:00",
+        "contributor": {
+          "id": "6eb64b5028f5295e",
+          "name": "AI Assistant GPT-4",
+          "type": "ai",
+          "avatar_url": "https://example.com/ai-assistant.jpg"
+        },
+        "role": "reviewer",
+        "confidence_score": 1.0,
+        "content_preview": "Contribution to Implement logging system as reviewer"
+      }
+    ],
+    "primary_contributor": {
+      "id": "474f2937a1ecb9a1",
+      "name": "AI Assistant GPT-4",
+      "type": "ai",
+      "avatar_url": "https://example.com/ai-assistant.jpg"
+    }
+  },
+  "metadata": {}
+}
