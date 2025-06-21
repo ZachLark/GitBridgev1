@@ -14,3 +14,18 @@ token_expiration_monitor.log
 *.pem
 *.p12
 config/secrets.yaml
+
+# New additions
+/venv
+/coverage.xml
+/.DS_Store
+*.pyc
+__pycache__/
+.pytest_cache/
+reports/
+/build/
+/dist/
+*.egg-info/
+/site/
+.mypy_cache/
+.tox/

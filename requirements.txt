@@ -1,3 +1,7 @@
+# # GitBridge Directive: See `GitBridge_Vision_Mission_Phase30_Summary.markdown`
+# Aligned under Norman Fletcher Protocol: Function + Future Integration
+# Mastermind Team: Data, Geordi, Spock, Stark, Jarvis, Ada, Feynman, Sherlock, Mozart, Enterprise Computer, Marie Kondo
+# Injection Date: 2025-06-20 23:40:12
 # GitBridge Requirements
 # Task: P20P5S4 - Finalize requirements.txt with working versions
 # Date: 2025-06-19
@@ -21,9 +25,15 @@ openai==1.12.0  # GPT-4o integration (P20P2S1)
 # groq==0.4.0  # Grok 3 integration (P20P6 - future)
 
 # Data Validation and Serialization
-pydantic==2.5.0  # Schema validation (P20P2S2)
+pydantic==2.8.0  # Schema validation (P20P2S2) - Updated for Python 3.13 compatibility
 python-dateutil==2.8.2
-typing-extensions==4.9.0
+typing-extensions==4.14.0
+
+# =============================================================================
+# Scientific Computing (Added during 'Operation Clean Sweep')
+# =============================================================================
+numpy==1.26.4
+scipy==1.15.3
 
 # =============================================================================
 # Security and Authentication
@@ -116,7 +126,7 @@ mypy==1.8.0
 # - openai==1.12.0: Compatible with Python 3.13
 # - httpx==0.24.1: Required for OpenAI SDK compatibility
 # - httpcore==0.16.3: Required for httpx compatibility
-# - pydantic==2.5.0: Schema validation for GPT4oEventSchema
+# - pydantic==2.8.0: Schema validation for GPT4oEventSchema, Python 3.13 compatible.
 
 # Python Version: 3.13.3
 # Tested and confirmed working on macOS 22.6.0
